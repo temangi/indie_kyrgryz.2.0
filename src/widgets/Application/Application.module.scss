@@ -1,0 +1,84 @@
+.application {
+  background: #fffef8;
+  padding: 50px 0;
+}
+
+
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.offer {
+  background: url("/images/berge.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 37px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+.accent {
+  background: #5e8c7b;
+  padding: 5px;
+}
+
+.details {
+  padding: 60px 40px;
+  border: 1px solid #4f7b6b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.advantage {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #315a51;
+  font-size: 18px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.description {
+  font-size: 18px;
+  color: #315a51;
+}
+
+.button {
+  border: none;
+  background: #4f7b6b;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  width: 90%;
+  font-size: 18px;
+}

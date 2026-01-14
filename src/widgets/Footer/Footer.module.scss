@@ -1,0 +1,55 @@
+.footer {
+  background: #4f7b6b;
+  padding: 50px 0;
+  color: #fffef8;
+  font-weight: 600;
+}
+
+
+.menu {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 50px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 55px;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.button {
+  background: #40ac59;
+  color: #fffef8;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+
+  &:nth-of-type(2) {
+    background: #3e8cbd;
+  }
+}
+
+.socialMedia {
+  text-decoration: none;
+  color: #fffef8;
+}

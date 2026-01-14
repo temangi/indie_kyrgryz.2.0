@@ -1,0 +1,83 @@
+.reise {
+  padding: 50px 0;
+  background: #fffef8;
+}
+
+
+.menu {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  overflow: visible;
+  height: auto;
+  width: 100%;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.navItem {
+  border: none;
+  background: none;
+  border-bottom: 3px solid #eeeeee;
+  color: #a7a7a7;
+  font-weight: 600;
+  padding-bottom: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.6s;
+
+  &:hover,
+  &.active {
+    border-bottom: 3px solid #315a51;
+    color: #315a51;
+    font-weight: 500;
+  }
+}
+
+.content {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  overflow-x: auto;
+}
+
+.contentItem {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #315a51;
+  border-radius: 10px;
+  cursor: pointer;
+  background-image: url("/images/KYRG2218.jpg");
+  background-position: center;
+  background-size: cover;
+}

@@ -1,0 +1,48 @@
+.philosophien {
+  padding: 50px 0;
+  background: #fffef8;
+}
+
+.menu {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.img {
+  width: 100%;
+}
+
+.desc {
+  font-size: 16px;
+  color: #315a51;
+  list-style: none;
+  padding: 0;
+
+  li {
+    list-style: none;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+}

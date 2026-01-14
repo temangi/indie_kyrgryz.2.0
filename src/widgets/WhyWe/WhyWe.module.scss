@@ -1,0 +1,108 @@
+.whyWe {
+  background: #fffef8;
+  padding: 50px 0;
+  color: #315a51;
+}
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  gap: 20px;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 46px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px 70px;
+  border-radius: 10px;
+  border: 1px solid #5e8c7b;
+  color: #4f7b6b;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fffef8;
+  color: #4f7b6b;
+  transition: .3s ease-in-out;
+  cursor:help ;
+
+  .itemNumber {
+    background: #4f7b6b;
+    padding: 0 8px;
+    color: #fffef8;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: .3s ease-in-out;
+    font-weight: bold;
+
+  }
+
+  &:hover {
+    color: #fffef8;
+    background: #4f7b6b;
+    .itemNumber{
+      background: #fffef8;
+      color: #4f7b6b;
+    }
+  }
+}
+
+.itemTitle {
+  text-align: end;
+  font-size: 27px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.itemAside {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+}
+
+.itemHeading {
+  font-size: 16px;
+}
+
+
+
+.itemDescription {
+  font-size: 14px;
+  font-weight: 400;
+}

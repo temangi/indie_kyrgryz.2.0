@@ -1,0 +1,149 @@
+.header {
+  padding: 20px 0;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: none;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out,
+    visibility 0.3s ease-out;
+  opacity: 0;
+}
+
+.header.isVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+.headerBlock {
+  width: 100%;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: rgb(224, 221, 221);
+  gap: 10%;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.mainLogo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+}
+
+.headerControllers {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.headerMenu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  a {
+    font-weight: 600;
+    color: #597797;
+    text-decoration: none;
+    transition: 0.4s ease-in-out;
+
+    &:hover {
+      color: #3e546b;
+    }
+  }
+}
+
+.headerButton {
+  p {
+    background-color: #5b7687;
+    padding: 8px 30px;
+    border-radius: 8px;
+    color: #fffef8;
+    cursor: pointer;
+    margin: 0;
+  }
+}
+
+.headerInner a {
+  text-decoration: none;
+}
+
+.headerButtonLink {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburgerBox {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburgerInner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+  
+  &,
+  &::before,
+  &::after {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 3px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    bottom: -10px;
+  }
+}
+
+.hamburgerSlider {
+  .hamburgerInner {
+    top: 2px;
+
+    &::before {
+      top: 10px;
+      transition-property: transform, opacity;
+      transition-timing-function: ease;
+      transition-duration: 0.15s;
+    }
+
+    &::after {
+      top: 20px;
+    }
+  }
+}

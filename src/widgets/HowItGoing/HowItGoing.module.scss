@@ -1,0 +1,47 @@
+.tour-details{
+    background: #fffef8;
+
+    &__main,&__grid{
+        display: flex;
+        flex-direction: column;
+    }
+    &__main{
+        gap: 20px;
+
+    }
+    &__unTitle{
+        font-size: 1.5rem;
+        padding-bottom: 50px;
+    }
+}
+
+.tour-info{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    padding-top: 40px;
+
+    &__title{
+        font-size: 1.5rem;
+        transition: .4s ease-in-out;
+        &.isActive{
+            color: #315a51;
+        }
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-height: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        transition: .4s ease-in-out;
+       &.isActive{
+            max-height: 200px;
+            padding-bottom: 40px;
+        }
+    }
+
+}

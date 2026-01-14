@@ -1,0 +1,171 @@
+.tours {
+  padding: 50px 0;
+  background: #fffef8;
+
+  .cardHead {
+    z-index: 10;
+
+  }
+
+
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+
+}
+
+
+.menu {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 40px;
+}
+
+.navItem {
+  border: none;
+  background: none;
+  border-bottom: 3px solid #eeeeee;
+  color: #a7a7a7;
+  font-weight: 600;
+  padding-bottom: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.6s;
+
+  &:hover,
+  &.active {
+    border-bottom: 3px solid #315a51;
+    color: #315a51;
+    font-weight: 500;
+  }
+}
+
+.content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-x: auto;
+  gap: 30px;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.cardMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  text-align: center;
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  text-align: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: url("/images/p.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fffef8;
+  width: 350px;
+  height: 300px;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #fffef8;
+  }
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.cardDuration {
+  z-index: 10;
+}
+
+.cardButton {
+  background: rgba(255, 255, 248, 0.2);
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+  border: 1px solid white;
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 248, 0.5);
+  }
+}
+
+.cardDescription {
+  font-size: 12px;
+  font-weight: 400;
+  color: #315a51;
+}
+
+.allTours {
+  text-decoration: none;
+  background: #5b7687;
+  padding: 10px 30px;
+  border-radius: 8px;
+  color: #fffef8;
+  font-weight: 600;
+  width: 20%;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  display: block;
+  margin: 40px auto 0;
+
+  &:hover {
+    background: #3e546b;
+    transition: 0.4s ease-in-out;
+    text-decoration: none;
+    color: #fffef8;
+  }
+}

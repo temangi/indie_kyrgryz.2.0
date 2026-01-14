@@ -1,0 +1,71 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Navigation from "./nav";
+import styles from "../Header.module.scss";
+import logo from "@/public/images/logo.jpg"
+import { useModalStore } from "@/src/shared/model/useModalStore";
+import { usePathname } from 'next/navigation';
+
+
+const Header = () => {
+  const pathname = usePathname();
+  const [scrollTop, setScrollTop] = useState(0);
+  const openModal = useModalStore((state) => state.openModal);
+  
+  const isHomePage = pathname === "/";
+  const isVisible = !isHomePage || scrollTop > 500;
+
+
+
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const handleScroll = () => {
+      setScrollTop(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHomePage]);
+
+  return (
+    <section className={`${styles.header} ${isVisible ? styles.isVisible : ""}`}>
+      <div className="container">
+        <div className={styles.headerBlock}>
+          <header className={styles.headerInner}>
+            <Link href="/" className={styles.mainLogo}>
+              <Image
+                src={logo}
+                alt="Logo"
+                width={100}
+                height={50}
+                priority
+              />
+            </Link>
+            <article className={styles.headerControllers}>
+              <Navigation />
+              <div 
+                className={styles.headerButton} 
+                onClick={openModal}
+              >
+                <p className={styles.headerButtonLink}>
+                  sign up for a tour
+                </p>
+              </div>
+            </article>
+            <div className={`${styles.hamburger} ${styles.hamburgerSlider}`}>
+              <div className={styles.hamburgerBox}>
+                <div className={styles.hamburgerInner}></div>
+              </div>
+            </div>
+          </header>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Header;
