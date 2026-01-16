@@ -81,4 +81,42 @@
   color: white;
   width: 90%;
   font-size: 18px;
+
 }
+@media (max-width: 480px){
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .details {
+    padding: 40px;
+    gap: 40px;
+    align-items: center;
+  }
+  .offer {
+    text-align: center;
+  }
+  .title {
+    font-size: 30px;
+  }
+}
+
+
+@media (min-width: 481px) and (max-width: 768px){
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .details {
+    padding: 40px;
+    gap: 40px;
+    align-items: center;
+  }
+  .offer {
+    text-align: center;
+  }
+  .title {
+    font-size: 30px;
+  }
+}
+

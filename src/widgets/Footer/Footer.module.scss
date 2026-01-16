@@ -53,3 +53,10 @@
   text-decoration: none;
   color: #fffef8;
 }
+
+@media (max-width: 480px){
+  .menu {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
