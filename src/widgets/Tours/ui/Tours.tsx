@@ -90,12 +90,14 @@ const Tours = () => {
           </article>
           <nav className={styles.nav}>
             <button
+             data-testid="best-tab"
               className={`${styles.navItem} ${activeTab === "best" ? styles.active : ""}`}
               onClick={() => setActiveTab("best")}
             >
               Our best tours
             </button>
             <button
+             data-testid="group-tab"
               className={`${styles.navItem} ${activeTab === "group" ? styles.active : ""}`}
               onClick={() => setActiveTab("group")}
             >

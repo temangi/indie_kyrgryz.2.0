@@ -39,13 +39,13 @@ const Header = () => {
         <div className={styles.headerBlock}>
           <header className={styles.headerInner}>
             <Link href="/" className={styles.mainLogo}>
-              <Image
-                src={logo}
+              {/* <Image
+                src={"https://optim.tildacdn.com/tild3732-3939-4862-b334-383531343164/-/resize/264x/-/format/webp/BAIKAL_TRACK_2.png.webp"}
                 alt="Logo"
-                width={100}
+                width={50}
                 height={50}
-                priority
-              />
+               
+              /> */}
             </Link>
             <article className={`${styles.headerControllers} ${openBurger ? styles["is-active"] : ""}`}>
               <Navigation />
