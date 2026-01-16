@@ -1,4 +1,8 @@
 import { StepCardType } from "@/src/shared/ui/step-card/StepCard";
+import kslider from "@/public/images/KYRG2218.jpg"
+import kslider2 from "@/public/images/KYRG2719.jpg"
+import kslider3 from "@/public/images/KYRG2748.jpg"
+import kslider4 from "@/public/images/KYRG2760.jpg"
 
 
 const kyrgyzWeek: StepCardType[] = [
@@ -109,9 +113,26 @@ const mountainAdventure: StepCardType[] = [
     }
 ];
 
+const kyrgyzWeekSLider = [
+   {
+    item : kslider,
+   },
+   {
+    item : kslider2,
+   },
+   {
+    item : kslider3,
+   },
+   {
+    item : kslider4,
+   },
+
+]
+
 export const stepsTours = [
     {
         arr : kyrgyzWeek,
+        slider : kyrgyzWeekSLider,
         chapter : "Kyrgyz week",
         desc : "Bishkek , Kockkor , Bishkek",
         title : 
@@ -119,12 +140,14 @@ export const stepsTours = [
     },
     {
         arr : mountainAdventure,
+        slider : kyrgyzWeekSLider,
         chapter : "Mountain Adventure",
         desc : "Bishkek , Kockkor , Bishkek",
         title : "This 10-day Mountain Adventure tour is designed for travelers who want to go beyond classic routes and experience the wild, mountainous heart of Kyrgyzstan. The journey combines trekking, high-altitude lakes, remote valleys, and authentic nomadic life, offering a balanced mix of physical activity, cultural immersion, and untouched nature. The tour starts in Bishkek and leads you along the shores of Issyk-Kul Lake to Karakol, followed by a scenic two-day trek to Altyn-Arashan Gorge with overnight stay in the mountains and relaxation in natural hot springs beneath towering alpine peaks. From colorful canyons and legendary waterfalls to eagle hunting traditions and panoramic viewpoints, each day reveals a new landscape and atmosphere. A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mountains, where you will stay in a traditional yurt camp, ride horses along the lakeshore, and experience the calm rhythm of nomadic life. The route then continues deeper into the country to Naryn region, one of the most remote and authentic parts of Kyrgyzstan, leading to Kok-Kyia Valley and the stunning alpine Kel-Suu Lake, surrounded by dramatic cliffs near the Chinese border."
     },
     {
         arr : kyrgyzWeek,
+        slider : kyrgyzWeekSLider,
         chapter : "Kyrgyz week",
         desc : "Bishkek , Kockkor , Bishkek",
         title : 
@@ -132,12 +155,14 @@ export const stepsTours = [
     },
     {
         arr : mountainAdventure,
+        slider : kyrgyzWeekSLider,
         chapter : "Mountain Adventure",
         desc : "Bishkek , Kockkor , Bishkek",
         title : "This 10-day Mountain Adventure tour is designed for travelers who want to go beyond classic routes and experience the wild, mountainous heart of Kyrgyzstan. The journey combines trekking, high-altitude lakes, remote valleys, and authentic nomadic life, offering a balanced mix of physical activity, cultural immersion, and untouched nature. The tour starts in Bishkek and leads you along the shores of Issyk-Kul Lake to Karakol, followed by a scenic two-day trek to Altyn-Arashan Gorge with overnight stay in the mountains and relaxation in natural hot springs beneath towering alpine peaks. From colorful canyons and legendary waterfalls to eagle hunting traditions and panoramic viewpoints, each day reveals a new landscape and atmosphere. A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mountains, where you will stay in a traditional yurt camp, ride horses along the lakeshore, and experience the calm rhythm of nomadic life. The route then continues deeper into the country to Naryn region, one of the most remote and authentic parts of Kyrgyzstan, leading to Kok-Kyia Valley and the stunning alpine Kel-Suu Lake, surrounded by dramatic cliffs near the Chinese border."
     },
     {
         arr : kyrgyzWeek,
+        slider : kyrgyzWeekSLider,
         chapter : "Kyrgyz week",
         desc : "Bishkek , Kockkor , Bishkek",
         title : 
@@ -145,9 +170,11 @@ export const stepsTours = [
     },
     {
         arr : mountainAdventure,
+        slider : kyrgyzWeekSLider,
         chapter : "Mountain Adventure",
         desc : "Bishkek , Kockkor , Bishkek",
         title : "This 10-day Mountain Adventure tour is designed for travelers who want to go beyond classic routes and experience the wild, mountainous heart of Kyrgyzstan. The journey combines trekking, high-altitude lakes, remote valleys, and authentic nomadic life, offering a balanced mix of physical activity, cultural immersion, and untouched nature. The tour starts in Bishkek and leads you along the shores of Issyk-Kul Lake to Karakol, followed by a scenic two-day trek to Altyn-Arashan Gorge with overnight stay in the mountains and relaxation in natural hot springs beneath towering alpine peaks. From colorful canyons and legendary waterfalls to eagle hunting traditions and panoramic viewpoints, each day reveals a new landscape and atmosphere. A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mountains, where you will stay in a traditional yurt camp, ride horses along the lakeshore, and experience the calm rhythm of nomadic life. The route then continues deeper into the country to Naryn region, one of the most remote and authentic parts of Kyrgyzstan, leading to Kok-Kyia Valley and the stunning alpine Kel-Suu Lake, surrounded by dramatic cliffs near the Chinese border."
     }
     
 ]
+

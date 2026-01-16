@@ -12,6 +12,9 @@
     &__unTitle{
         font-size: 1.5rem;
         padding-bottom: 50px;
+        @media (max-width: 480px) {
+            font-size: 1rem;
+        }
     }
 }
 
@@ -29,6 +32,10 @@
         &.isActive{
             color: #315a51;
         }
+
+        @media (max-width: 480px) {
+            font-size: 1rem;
+        }
     }
     &__content{
         display: flex;
@@ -45,3 +52,29 @@
     }
 
 }
+
+.wrapper {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+  }
+  
+  .mySwiper {
+    width: 100%;
+    height: 100%;
+    :global(.swiper-pagination) {
+      bottom: 20px !important;
+    }
+  }
+  
+  .imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .img {
+    object-fit: cover; 
+    object-position: center;
+  }
