@@ -37,6 +37,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+  @media screen and (max-width: 992px) {
+    grid-template-columns: 1fr;
+    .item{
+      padding: 50px;
+      gap: 20px;
+    }
+  }
+  @media (max-width: 480px){
+    .item{
+      padding: 20px;
+      gap: 10px;
+    }
+  }
 }
 
 .item {

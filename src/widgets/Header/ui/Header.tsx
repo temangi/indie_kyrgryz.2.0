@@ -13,7 +13,9 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const pathname = usePathname();
   const [scrollTop, setScrollTop] = useState(0);
+  const [openBurger, setOpenBurger] = useState(false)
   const openModal = useModalStore((state) => state.openModal);
+  
   
   const isHomePage = pathname === "/";
   const isVisible = !isHomePage || scrollTop > 500;
@@ -32,7 +34,7 @@ const Header = () => {
   }, [isHomePage]);
 
   return (
-    <section className={`${styles.header} ${isVisible ? styles.isVisible : ""}`}>
+    <section className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${openBurger ? styles["is-active"] : ""}`}>
       <div className="container">
         <div className={styles.headerBlock}>
           <header className={styles.headerInner}>
@@ -45,7 +47,7 @@ const Header = () => {
                 priority
               />
             </Link>
-            <article className={styles.headerControllers}>
+            <article className={`${styles.headerControllers} ${openBurger ? styles["is-active"] : ""}`}>
               <Navigation />
               <div 
                 className={styles.headerButton} 
@@ -56,9 +58,9 @@ const Header = () => {
                 </p>
               </div>
             </article>
-            <div className={`${styles.hamburger} ${styles.hamburgerSlider}`}>
-              <div className={styles.hamburgerBox}>
-                <div className={styles.hamburgerInner}></div>
+            <div className={`${styles.hamburger} ${styles["hamburger--slider"]} ${openBurger ? styles["is-active"] : ""}`} onClick={() => setOpenBurger(!openBurger)} >
+              <div className={styles["hamburger-box"]}>
+                <div className={`${styles["hamburger-inner"]}`}></div>
               </div>
             </div>
           </header>
