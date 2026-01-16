@@ -23,10 +23,9 @@ const HowItGoing = () => {
             <TourSlider items={slider} />
             <section className={styles["tour-details"]}>
                 <div className="container">
-                    <h1>afafaf</h1>
-                    <p className={styles["tour-details__unTitle"]}>{title}</p>
+                    <h1 className={styles["tour-details__unTitle"]}>{chapter}</h1>
                     <section className={styles["tour-details__main"]}>
-                        <h1 className={styles["tour-details__title"]}>{chapter}</h1>
+                        <p className={styles["tour-details__title"]}>{title}</p>
                         <p className={styles["tour-details__desc"]}>{desc}</p>
                         <main className={styles["tour-details__grid"]}>
                             {arr.map((el, index) => (

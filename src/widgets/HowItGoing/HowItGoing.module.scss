@@ -10,10 +10,11 @@
 
     }
     &__unTitle{
-        font-size: 1.5rem;
+        padding-top: 50px;
+        font-size: 2.5rem;
         padding-bottom: 50px;
         @media (max-width: 480px) {
-            font-size: 1rem;
+            font-size: 2rem;
         }
     }
 }
@@ -46,7 +47,7 @@
         overflow: hidden;
         transition: .4s ease-in-out;
        &.isActive{
-            max-height: 200px;
+            max-height: 500px;
             padding-bottom: 40px;
         }
     }
@@ -78,3 +79,4 @@
     object-fit: cover; 
     object-position: center;
   }
+
