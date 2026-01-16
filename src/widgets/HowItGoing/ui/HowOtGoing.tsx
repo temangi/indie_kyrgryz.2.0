@@ -4,6 +4,8 @@ import StepCard from "@/src/shared/ui/step-card/StepCard"
 import styles from "../HowItGoing.module.scss"
 import { stepsTours } from "../model/constants/step"
 import { useParams } from 'next/navigation';
+import { TourSlider } from "@/src/shared/ui/Slider";
+
 
 const HowItGoing = () => {
     const params = useParams<{ id: string }>();
@@ -13,23 +15,28 @@ const HowItGoing = () => {
         return <section>Тур не найден</section>;
     }
 
-    const { arr, title, desc ,chapter} = currentTour;
+    const { arr, title, desc, chapter, slider } = currentTour;
+   
 
     return (
-        <section className={styles["tour-details"]}>
-            <div className="container">
-                <p className={styles["tour-details__unTitle"]}>{title}</p>
-                <section className={styles["tour-details__main"]}>
-                    <h1 className={styles["tour-details__title"]}>{chapter}</h1>
-                    <p className={styles["tour-details__desc"]}>{desc}</p>
-                    <main className={styles["tour-details__grid"]}>
-                        {arr.map((el, index) => (
-                            <StepCard {...el} key={index} />
-                        ))}
-                    </main>
-                </section>
-            </div>
-        </section>
+        <>
+            <TourSlider items={slider} />
+            <section className={styles["tour-details"]}>
+                <div className="container">
+                    <h1>afafaf</h1>
+                    <p className={styles["tour-details__unTitle"]}>{title}</p>
+                    <section className={styles["tour-details__main"]}>
+                        <h1 className={styles["tour-details__title"]}>{chapter}</h1>
+                        <p className={styles["tour-details__desc"]}>{desc}</p>
+                        <main className={styles["tour-details__grid"]}>
+                            {arr.map((el, index) => (
+                                <StepCard {...el} key={index} />
+                            ))}
+                        </main>
+                    </section>
+                </div>
+            </section>
+        </>
     )
 }
 
