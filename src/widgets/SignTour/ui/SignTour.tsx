@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../SignTour.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
@@ -26,6 +26,17 @@ const SignTour = () => {
       [e.target.name]: e.target.value,
     });
   };
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <section className={`${styles.signTour} ${isOpen ? styles.isOpen : ""}`}>

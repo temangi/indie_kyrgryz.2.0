@@ -1,25 +1,29 @@
-.tour-details{
+.tour-details {
     background: #fffef8;
 
-    &__main,&__grid{
+    &__main,
+    &__grid {
         display: flex;
         flex-direction: column;
     }
-    &__main{
+
+    &__main {
         gap: 20px;
 
     }
-    &__unTitle{
+
+    &__unTitle {
         padding-top: 50px;
         font-size: 2.5rem;
         padding-bottom: 50px;
+
         @media (max-width: 480px) {
             font-size: 2rem;
         }
     }
 }
 
-.tour-info{
+.tour-info {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -27,10 +31,11 @@
     cursor: pointer;
     padding-top: 40px;
 
-    &__title{
-        font-size: 1.5rem;
-        transition: .4s ease-in-out;
-        &.isActive{
+    &__title {
+        font-size: 1.3rem;
+        transition: .6s ease-in-out;
+
+        &.isActive {
             color: #315a51;
         }
 
@@ -38,17 +43,27 @@
             font-size: 1rem;
         }
     }
-    &__content{
+
+    &__content {
         display: flex;
         flex-direction: column;
         gap: 20px;
         max-height: 0;
         padding-bottom: 0;
         overflow: hidden;
-        transition: .4s ease-in-out;
-       &.isActive{
+        transition: .6s ease-in-out;
+
+        &.isActive {
             max-height: 500px;
             padding-bottom: 40px;
+        }
+    }
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: 480px) {
+            gap: 50px;
         }
     }
 
@@ -56,27 +71,59 @@
 
 .wrapper {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     position: relative;
-  }
-  
-  .mySwiper {
+}
+
+.mySwiper {
     width: 100%;
     height: 100%;
+
     :global(.swiper-pagination) {
-      bottom: 20px !important;
+        bottom: 20px !important;
     }
-  }
-  
-  .imageWrapper {
+}
+
+.imageWrapper {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.questionToggle {
+    border: none;
+    padding: 5px 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    transition: 0.5s;
+  
+    &:hover {
+      background: rgb(223, 222, 222);
+    }
   }
   
-  .img {
-    object-fit: cover; 
-    object-position: center;
+  .questionIcon{
+    filter: grayscale(100%);
   }
-
+  
+  .questionToggleActive {
+    transform: rotate(45deg);
+    .questionIcon{
+        filter: grayscale(0);
+    }
+  }
+  

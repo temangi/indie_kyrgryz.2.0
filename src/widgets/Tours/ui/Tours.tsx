@@ -107,8 +107,7 @@ const Tours = () => {
 
           <main>
             <article className={styles.content}>
-              {activeTab === "best" ? bestTours : groupTours}
-
+              {activeTab === "best" ? groupTours : bestTours}
             </article>
           </main>
           <Link className={styles.allTours} href="/tours">

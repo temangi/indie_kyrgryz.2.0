@@ -1,11 +1,12 @@
 import styles from "../MainHero.module.scss";
+import { TourSlider } from "@/src/shared/ui/Slider";
+import { MainSLider } from "../constant/constants";
 
 const MainHero = () => {
   return (
     <main>
       <section className={styles.main}>
-        <h1>Indie Kyrgyz Travel</h1>
-        <h5>Discover the untamed heart of Kyrgyzstan</h5>
+        <TourSlider items={MainSLider}/>
       </section>
     </main>
   );
