@@ -10,6 +10,7 @@ import { StaticImageData } from 'next/image';
 
 type SliderType = {
     item: StaticImageData | string;
+    title : string
 };
 
 export const TourSlider = ({ items }: { items: SliderType[] }) => {
@@ -19,7 +20,7 @@ export const TourSlider = ({ items }: { items: SliderType[] }) => {
                 modules={[Autoplay]}
                 autoplay={{
                     delay: 2000, 
-                    disableOnInteraction: false, 
+                    disableOnInteraction: true, 
                     pauseOnMouseEnter: true,
                 }}
                 spaceBetween={0} 
@@ -39,6 +40,7 @@ export const TourSlider = ({ items }: { items: SliderType[] }) => {
                                 sizes="100vw"
                                 className={styles.img}
                             />
+                            <h1 className={styles["slider-title"]}>{el.title}</h1>
                         </div>
                     </SwiperSlide>
                 ))}

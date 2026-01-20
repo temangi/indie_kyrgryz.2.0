@@ -1,9 +1,14 @@
-import { StepCardType } from "@/src/shared/ui/step-card/StepCard";
 import kslider from "@/public/images/KYRG2218.jpg"
 import kslider2 from "@/public/images/KYRG2719.jpg"
 import kslider3 from "@/public/images/KYRG2748.jpg"
 import kslider4 from "@/public/images/KYRG2760.jpg"
 
+type StepCardType = {
+    title: string,
+    duration: string,
+    desc: string,
+    place: string
+}
 
 const kyrgyzWeek: StepCardType[] = [
     {
@@ -116,15 +121,19 @@ const mountainAdventure: StepCardType[] = [
 const kyrgyzWeekSLider = [
    {
     item : kslider,
+    title : "Kyrgyz Week"
    },
    {
     item : kslider2,
+     title : "Kyrgyz Week"
    },
    {
     item : kslider3,
+     title : "Kyrgyz Week"
    },
    {
     item : kslider4,
+     title : "Kyrgyz Week"
    },
 
 ]

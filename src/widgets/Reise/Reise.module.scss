@@ -1,6 +1,7 @@
 .reise {
   padding: 50px 0;
   background: #fffef8;
+
 }
 
 
@@ -16,7 +17,9 @@
 .title {
   font-size: 36px;
   margin-bottom: 10px;
-  text-transform: lowercase;
+  text-transform: uppercase;
+  color: #315a51;
+  font-weight: 400;
 }
 
 .subtitle {
@@ -60,24 +63,38 @@
 }
 
 .content {
-  display: grid;
+  display: flex;
   width: 100%;
-  gap: 20px;
+  gap: 30px;
   grid-template-columns: repeat(4, 1fr);
   overflow-x: auto;
+ 
 }
 
-.contentItem {
-  width: 300px;
-  height: 300px;
-  display: flex;
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+
+.reise__card{
+  display: grid;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid #315a51;
+  text-decoration: none;
+  text-align: center;
+  gap: 20px;
   border-radius: 10px;
-  cursor: pointer;
-  background-image: url("/images/KYRG2218.jpg");
-  background-position: center;
-  background-size: cover;
+  &:hover{
+    text-decoration: none;
+  }
+  .card__tourImg{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+  }
+  .reise__tourTitle{
+    color: #315a51;
+    
+  }
+
 }

@@ -29,7 +29,7 @@ const HowItGoing = () => {
                         <p className={styles["tour-details__desc"]}>{desc}</p>
                         <main className={styles["tour-details__grid"]}>
                             {arr.map((el, index) => (
-                                <StepCard {...el} key={index} />
+                                <StepCard {...el} id={index} key={index} />
                             ))}
                         </main>
                     </section>
