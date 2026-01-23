@@ -1,0 +1,94 @@
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    font-size: 18px;
+    color: #315a51;
+    font-weight: 600;
+    padding-top: 50px;
+   
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 100%;
+    }
+
+    .mainButton {
+
+        padding: 15px 30px;
+        background-color: #315a51;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
+
+.infoCard {
+    border: 1px solid #315a51;
+    border-radius: 10px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    &--difficulty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-transform: uppercase;
+        gap: 20px;
+    }
+
+    .duration {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+
+        .durationItem {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-transform: uppercase;
+            margin-bottom: 20px; // Добавил отступ между блоками инфо
+
+            .label {
+                font-size: 25px;
+
+            }
+
+            .value {
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+    }
+
+
+
+    .cardImage {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+.mainTour{
+    background: #fffef8;
+}
