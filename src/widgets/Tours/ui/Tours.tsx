@@ -3,77 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "../Tours.module.scss";
-
-interface ITour {
-  title: string;
-  day: string;
-  id : number
-}
+import { tours } from "../constants/constants";
+import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 
 
-const tours: ITour[] = [
-  {
-    id : 1,
-    title: " Best of Kyrgyzstan",
-    day: "8 days"
-  },
-  {
-    id : 2,
-    title: "Song-kul horsebackriding",
-    day: "3 days"
-  },
-  {
-    id : 3,
-    title: "Altyn-Arashan & Ala-Kul trip",
-    day: "4 days"
-  },
-  {
-    id : 4,
-    title: "Kyrgyzstan & Kazakhstan trip",
-    day: "11 days"
-  },
-  {
-    id : 5,
-    title: "Kyrgyz week",
-    day: "7 days"
-  },
-  {
-    id : 6,
-    title: "Mountain Adventure",
-    day: "10 days"
-  },
-]
-
-const bestTours = tours.slice(0, 3).map(({ title, day , id },index) => {
-  return (
-    <div className={styles.cardMain} key={index}>
-      <Link href={`/tours/${id}`} className={styles.card}>
-      <div className={styles.cardHead}>
-          <p className={styles.cardTitle}>{title}</p>
-          <span className={styles.cardDuration}>{day}</span>
-        </div>
-        <button className={styles.cardButton}>
-          tour program
-        </button>
-      </Link>
-    </div>
-  )
-})
-const groupTours = tours.slice(3, 6).map(({ title, day ,id},index) => {
-  return (
-    <div className={styles.cardMain} key={index}>
-      <Link href={`/tours/${id}`} className={styles.card}>
-        <div className={styles.cardHead}>
-          <p className={styles.cardTitle}>{title}</p>
-          <span className={styles.cardDuration}>{day}</span>
-        </div>
-        <button className={styles.cardButton}>
-          tour program
-        </button>
-      </Link>
-    </div>
-  )
-})
+const bestTours = tours.slice(0, 3).map((el,index) => <ToursCard {...el} key={index}/>)
+const groupTours = tours.slice(3, 6).map((el ,index) => <ToursCard {...el} key={index}/>)
 
 const Tours = () => {
   const [activeTab, setActiveTab] = useState("best");

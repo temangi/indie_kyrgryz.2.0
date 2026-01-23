@@ -15,7 +15,7 @@ const Team = () => {
               <h1 className={styles.memberTitle}>JACK / ZHAKSHYLYK</h1>
               <article className={styles.infoBlock}>
                 <Image
-                  src="/images/cat.jpg"
+                  src="https://res.cloudinary.com/dyp4fq9zj/image/upload/v1768975773/cat_xjfd9d.jpg"
                   alt="Jack"
                   className={styles.memberImg}
                   width={200}
@@ -37,7 +37,7 @@ const Team = () => {
               <h1 className={styles.memberTitle}>ANUAR / ANU</h1>
               <article className={styles.infoBlock}>
                 <Image
-                  src="/images/cat.jpg"
+                  src="https://res.cloudinary.com/dyp4fq9zj/image/upload/v1768975773/cat_xjfd9d.jpg"
                   alt="Anuar"
                   className={styles.memberImg}
                   width={200}

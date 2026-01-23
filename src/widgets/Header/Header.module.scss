@@ -1,7 +1,7 @@
 .header {
   padding: 20px 0;
   box-sizing: border-box;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1000;
   width: 100%;
@@ -11,6 +11,7 @@
   transition: opacity 0.3s ease-out, transform 0.3s ease-out,
     visibility 0.3s ease-out;
   opacity: 0;
+  display: none;
 }
 
 .header.isVisible {

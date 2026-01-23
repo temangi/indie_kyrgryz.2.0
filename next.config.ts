@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "optim.tildacdn.com",
+        hostname: 'res.cloudinary.com',
+        pathname: '/**'
       },
     ],
   },
