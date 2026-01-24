@@ -1,0 +1,130 @@
+.asideWrapper {
+    position: fixed; // Лучше fixed для модалок/асайдов, чтобы не зависеть от прокрутки
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); // Добавь полупрозрачный фон (overlay)
+    display: flex;
+    align-items: center; // Центр по вертикали
+    justify-content: center; // Центр по горизонтали
+    z-index: 1000;
+
+    // Твои стили скрытия
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s ease-in-out;
+
+    &.isActive {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .main {
+        border: 1px solid #315a51;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        gap: 20px;
+        border-radius: 15px;
+        background: #fffef8;
+        width: 50%;
+        @media (max-width : 550px) {
+            width: 90%;
+            padding: 50px 30px;
+        }
+        @media (max-width : 980px) and (min-width : 550px) {
+            width: 70%;
+            padding: 50px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .inputGroup {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .input {
+                    padding: 15px 10px;
+                    cursor: pointer;
+                    border-radius: 8px; // Чуть мягче углы
+                    border: 1px solid #bfc6c9; // Светлая граница по умолчанию
+                    font-size: 15px;
+                    background: #ffffff;
+                    color: #315a51;
+
+                    // Плавный переход для всех свойств
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+                    &::placeholder {
+                        color: #b2bec3;
+                        transition: color 0.3s ease;
+                    }
+
+                    &:hover {
+                        border-color: #315a51;
+                        background: #fcfdfb; // Легкий оттенок при наведении
+                        transform: translateY(-1px); // Эффект "приподнимания"
+                        box-shadow: 0 4px 12px rgba(49, 90, 81, 0.08); // Мягкая тень
+                    }
+
+                    &:focus {
+                        outline: none; // Убираем стандартный ободок
+                        border-color: #315a51;
+                        background: #ffffff;
+                        transform: translateY(-1px);
+                        // Эффект свечения (Ring effect)
+                        box-shadow: 0 0 0 4px rgba(49, 90, 81, 0.15);
+
+                        &::placeholder {
+                            color: transparent;
+                        }
+                    }
+                }
+
+                .label {
+                    font-size: 1rem;
+                }
+
+              
+
+            }
+           
+
+            .submitBtn {
+                background: #315a51;
+                border-radius: 10px;
+                cursor: pointer;
+                border: none;
+                color: white;
+                padding: 15px 0;
+                margin-top: 20px;
+            }
+        }
+        .title {
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    .close {
+        position: absolute;
+        width: 30px;
+        top: 140px;
+        right: 23%;
+        z-index: 10;
+        cursor: pointer;
+        @media (max-width : 550px) {
+            right: 4%;
+            top: 16%;
+        }
+        @media (max-width : 980px) and (min-width : 550px ) {
+            right: 12%;
+            top: 19%;
+        }
+      }
+      
+}
