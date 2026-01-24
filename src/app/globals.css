@@ -37,3 +37,8 @@ html {
 html {
   scrollbar-gutter: stable;
 }
+
+::selection {
+  background: #ff681a;
+  color: #fff;
+}

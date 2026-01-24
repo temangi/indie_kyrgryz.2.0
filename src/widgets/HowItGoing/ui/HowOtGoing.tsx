@@ -5,14 +5,15 @@ import styles from "../HowItGoing.module.scss"
 import { stepsTours } from "../model/constants/step"
 import { useParams } from 'next/navigation';
 import { TourSlider } from "@/src/shared/ui/Slider";
-import { BookATour } from "@/src/shared/ui/AsideTour/constants/constansts"
-import { AsideTour } from "@/src/shared/ui/AsideTour/Aside"
 import { TourInfo } from "@/src/shared/ui/TourInfo/TourInfo"
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import { tours } from "../../Tours/constants/constants";
 import Link from "next/link";
 
-
+const forEx = {
+    duration : 300,
+    price : 1000 
+}
 
 const HowItGoing = () => {
     const params = useParams<{ id: string }>();
@@ -42,12 +43,11 @@ const HowItGoing = () => {
                                 ))}
 
                             </main>
-                            <AsideTour  {...BookATour} />
                         </article>
                     </section>
                 </div>
             </section>
-            <TourInfo />
+            <TourInfo days={arr.length} {...forEx}/>
             <section className={styles["related"]}>
                 <div className="container">
                     <section className={styles["related-tours"]}>

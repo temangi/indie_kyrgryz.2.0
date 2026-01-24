@@ -1,28 +1,41 @@
+'use client'
+
 import styles from "./style.module.scss";
 import Image from "next/image";
 import img from "@/public/images/s1.webp"
+import { useModalBookATourStore } from "@/src/shared/model/useModalStore";
+import { BookTour } from "../BookTour/BookTour";
 
-export const TourInfo = () => {
+type TourInfo = {
+  days : number,
+  price : number,
+  duration : number
+}
+
+
+export const TourInfo = ({days , price , duration} : TourInfo ) => {
+  const openModal = useModalBookATourStore((state) => state.openModal);
+
   return (
     <section className={styles.mainTour}>
       <div className="container"> 
         <section className={styles.mainContent}>
-          <h1 className={styles.title}>ГЛАВНОЕ О ПОХОДЕ</h1>
+          <h1 className={styles.title}>THE MAIN THINGS ABOUT THE HIKE</h1>
 
           <main className={styles.details}>
             <article className={styles.infoCard}>
               <aside className={styles.duration}>
                 <div className={styles.durationItem}>
-                  <p className={styles.label}>продолжительность:</p>
-                  <span className={styles.value}>2 дня</span>
+                  <p className={styles.label}>duration:</p>
+                  <span className={styles.value}>{days} days</span>
                 </div>
                 <div className={styles.durationItem}>
-                  <p className={styles.label}>РАССТОЯНИЕ МАРШРУТА:</p>
-                  <span className={styles.value}>около 15 км (туда-обратно)</span>
+                  <p className={styles.label}>ROUTE DISTANCE:</p>
+                  <span className={styles.value}>near {duration} (round trip)</span>
                 </div>
                 <div className={styles.durationItem}>
-                  <p className={styles.label}>СТОИМОСТЬ:</p>
-                  <span className={styles.value}>9 500 ₽</span>
+                  <p className={styles.label}>PRICE:</p>
+                  <span className={styles.value}>{price} $</span>
                 </div>
               </aside>
               <Image
@@ -33,9 +46,10 @@ export const TourInfo = () => {
             </article>
           </main>
 
-          <button className={styles.mainButton}>ЗАПИСАТЬСЯ В ПОХОД</button>
+          <button className={styles.mainButton} onClick={() => openModal()}>BOOK THIS TOUR</button>
         </section>
       </div>
+      <BookTour/>
     </section>
-  );
+  ); 
 };

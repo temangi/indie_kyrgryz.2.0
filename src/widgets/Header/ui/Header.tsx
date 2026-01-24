@@ -34,7 +34,7 @@ const Header = () => {
   }, [isHomePage]);
 
   return (
-    <section className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${openBurger ? styles["is-active"] : ""}`} style={{display : scrollTop < 450 ? "none" : "flex" }}>
+    <section className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${openBurger ? styles["is-active"] : ""}`} style={{display : isHomePage ?  scrollTop < 450  ? "none" : "flex" : "flex" }}>
       <div className="container">
         <div className={styles.headerBlock}>
           <header className={styles.headerInner}>
