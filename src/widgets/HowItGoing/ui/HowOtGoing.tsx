@@ -9,6 +9,8 @@ import { TourInfo } from "@/src/shared/ui/TourInfo/TourInfo"
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import { tours } from "../../Tours/constants/constants";
 import Link from "next/link";
+import arrow from "@/public/images/aroow.png"
+import Image from "next/image";
 
 const forEx = {
     duration : 300,
@@ -29,6 +31,7 @@ const HowItGoing = () => {
     return (
         <>
             <TourSlider items={slider} />
+            <TourInfo days={arr.length} {...forEx}/>
 
             <section className={styles["tour-details"]}>
                 <div className="container">
@@ -47,13 +50,13 @@ const HowItGoing = () => {
                     </section>
                 </div>
             </section>
-            <TourInfo days={arr.length} {...forEx}/>
+        
             <section className={styles["related"]}>
                 <div className="container">
                     <section className={styles["related-tours"]}>
                         <div className={styles["related-tours__head"]}>
                             <h1 className={styles["related-tours__title"]}>Related Tours</h1>
-                            <Link className={styles["related-tours__link"]} href={"/tours"}>See All Tours</Link>
+                            <Link className={styles["related-tours__link"]} href={"/tours"}>Watch All Tours <Image src={arrow} alt="arrow" className={styles["related-tours__arrow"]} /></Link>
 
                         </div>
                         <main className={styles["related-tours__list"]}>

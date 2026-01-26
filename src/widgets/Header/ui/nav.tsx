@@ -4,6 +4,7 @@ import styles from "../Header.module.scss";
 const Navigation = () => {
   return (
     <div className={styles.headerMenu}>
+       <Link className={styles.headerMenuLink} href="/">Home</Link>
       <Link className={styles.headerMenuLink} href="/tours">Tours</Link>
       <Link className={styles.headerMenuLink} href="/#reise">Timetable</Link>
       <Link className={styles.headerMenuLink} href="/#info">About Us</Link>

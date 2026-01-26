@@ -2,7 +2,8 @@
   padding: 50px 0;
   background: #fffef8;
   color: #315a51;
-  .title{
+
+  .title {
     text-transform: uppercase;
   }
 }
@@ -24,15 +25,16 @@
 
 .main {
   display: flex;
-  justify-content: center;
-}
-
-.member {
-  max-width: 800px;
+  gap: 30px;
   width: 100%;
+  overflow-x: auto;
 
-  img {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main__img {
     width: 100%;
-    height: auto;
+    height: 400px;
   }
 }

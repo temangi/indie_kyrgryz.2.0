@@ -1,7 +1,7 @@
 .header {
   padding: 20px 0;
   box-sizing: border-box;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
@@ -30,11 +30,8 @@
   align-items: center;
   border-radius: 10px;
   background: rgb(224, 221, 221);
-  gap: 10%;
-  padding: 20px;
-  justify-content: space-between;
+  padding: 10px 15px;
   @media (max-width : 1200px) {
-    gap: 5%;
   }
 }
 
@@ -54,6 +51,9 @@
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  border-left: 2px solid #597797;
+  padding-left: 15px;
+
 }
 
 .headerMenu {
@@ -68,7 +68,7 @@
     transition: 0.4s ease-in-out;
 
     &:hover {
-      color: #3e546b;
+      color: #001d3c;
     }
   }
 }
@@ -88,7 +88,8 @@
 
 .hamburger {
   padding: 15px 15px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   cursor: pointer;
   transition-property: opacity, filter;
   transition-duration: 0.15s;
@@ -253,7 +254,7 @@
 
 @media screen and (max-width: 992px) {
   .hamburger {
-    display: inline-block;
+    display: flex;
   }
 
   .header__nav {

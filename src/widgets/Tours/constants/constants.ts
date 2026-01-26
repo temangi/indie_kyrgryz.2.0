@@ -17,7 +17,7 @@ export interface ITour {
 
 export const tours: ITour[] = [
     {
-      id : 2,
+      id : 4,
       title: " Best of Kyrgyzstan",
       day: "8 days",
       img : s1
@@ -35,7 +35,7 @@ export const tours: ITour[] = [
       img : s3
     },
     {
-      id : 4,
+      id : 3,
       title: "Kyrgyzstan & Kazakhstan trip",
       day: "11 days",
       img : s4
@@ -46,7 +46,7 @@ export const tours: ITour[] = [
       day: "7 days", img : s5
     },
     {
-      id : 3,
+      id : 2,
       title: "Mountain Adventure",
       day: "10 days" , img : s6
     },
