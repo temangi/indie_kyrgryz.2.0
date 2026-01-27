@@ -19,7 +19,7 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] })  => {
   };
 
   return (
-    <section id="faq" className={styles.answer}>
+    <section id="faq"  data-section className={styles.answer}>
       <div className="container">
         <section className={styles.menu}>
           <h1 className={styles.title}>FAQ</h1>

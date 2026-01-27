@@ -2,25 +2,15 @@
 
 import styles from "../Reise.module.scss";
 import { destiontaionTour } from "../constants/constants";
-import Image from "next/image";
-import Link from "next/link";
+import ReiseCard from "./Card";
 
 
 const Reise = () => {
 
-  const tours = destiontaionTour.map(({ img, title }, index) => {
-    return (
-      <Link href={`/destination/${index + 1}`} key={index} className={styles["reise__card"]}>
-        <figure>
-          <Image src={img} alt="destionation" className={styles["card__tourImg"]} />
-        </figure>
-        <p className={styles["reise__tourTitle"]}>{title}</p>
-      </Link>
-    )
-  })
+  const tours = destiontaionTour.map((el, index) => <ReiseCard key={index} {...el} index ={index}/>);
 
   return (
-    <section id="reise" className={styles.reise}>
+    <section id="reise"  data-section className={styles.reise}>
       <div className="container">
         <section className={styles.menu}>
           <article className={styles.header}>

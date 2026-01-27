@@ -3,7 +3,7 @@ import styles from "../Team.module.scss";
 
 const Team = () => {
   return (
-    <section id="team" className={styles.team}>
+    <section id="team"  data-section className={styles.team}>
       <div className="container">
         <section className={styles.menu}>
           <article className={styles.header}>

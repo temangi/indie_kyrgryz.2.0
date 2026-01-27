@@ -1,0 +1,11 @@
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .details__list{
+        padding-left: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
