@@ -4,6 +4,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
     .destination__contentText {
       display: flex;
       flex-direction: column;
@@ -30,6 +33,10 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      @media (max-width: 480px) {
+        padding: 0;
+        border: none;
+      }
     }
   }
 }

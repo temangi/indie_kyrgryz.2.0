@@ -3,60 +3,58 @@
   padding: 50px 0;
   color: #fffef8;
   font-weight: 600;
-}
+  .footer__menu {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .footer__contact {
+      .footer__title {
+        font-size: 55px;
+        text-transform: uppercase;
+        @media (max-width: 480px) {
+          font-size: 44px;
+        }
+      }
+      .footer__text {
+        font-size: 25px;
+        font-weight: 400;
+      }
+      .footer__socials {
+        .footer__button {
+          background: #40ac59;
+          color: #fffef8;
+          padding: 10px 30px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          font-size: 20px;
+          text-decoration: none;
+          display: inline-block;
+          width: fit-content;
+          margin-right: 15px;
+          margin-bottom: 15px;
+          width: 100%;
+          text-align: center;
 
-
-.menu {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 50px;
-}
-
-.item {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.title {
-  font-size: 55px;
-  text-transform: uppercase;
-}
-
-.text {
-  font-size: 25px;
-  font-weight: 400;
-}
-
-.button {
-  background: #40ac59;
-  color: #fffef8;
-  padding: 10px 30px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  text-decoration: none;
-  display: inline-block;
-  width: fit-content;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-  text-align: center;
-
-  &:nth-of-type(2) {
-    background: #3e8cbd;
+          &:nth-of-type(2) {
+            background: #3e8cbd;
+          }
+        }
+      }
+      .footer__item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
   }
-}
-
-.socialMedia {
-  text-decoration: none;
-  color: #fffef8;
-}
-
-@media (max-width: 480px){
-  .menu {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .footer__phone {
+    font-size: 24px;
+    color: #fffef8;
+    text-decoration: none;
   }
 }
