@@ -1,8 +1,10 @@
+import { DestinationTourList } from "@/src/widgets/DestinationTourList"
+
 
 const DestinationPage = () => {
     return (
         <div>
-            <h1>Destination</h1>
+            <DestinationTourList />
         </div>
     )
 }

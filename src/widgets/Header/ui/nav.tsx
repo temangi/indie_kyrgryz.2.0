@@ -1,17 +1,48 @@
+'use client';
+
 import Link from "next/link";
 import styles from "../Header.module.scss";
+import { useOpenBurgerStore, useNavStore } from "@/src/shared/model/useModalStore";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/tours", label: "Tours" },
+  { href: "/#reise", label: "Destinations" },
+  { href: "/#info", label: "About Us" },
+  { href: "/#team", label: "Team" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#footer", label: "Contacts" },
+];
 
 const Navigation = () => {
+  const closeModal = useOpenBurgerStore((state) => state.closeModal);
+  const activeSection = useNavStore((state) => state.activeSection);
+  const pathname = usePathname(); // 👈 ключевая штука
+
   return (
-    <div className={styles.headerMenu}>
-       <Link className={styles.headerMenuLink} href="/">Home</Link>
-      <Link className={styles.headerMenuLink} href="/tours">Tours</Link>
-      <Link className={styles.headerMenuLink} href="/#reise">Timetable</Link>
-      <Link className={styles.headerMenuLink} href="/#info">About Us</Link>
-      <Link className={styles.headerMenuLink} href="/#team">Team</Link>
-      <Link className={styles.headerMenuLink} href="/#faq">FAQ</Link>
-      <Link className={styles.headerMenuLink} href="/#footer">Contacts</Link>
-    </div>
+    <nav className={styles.headerMenu}>
+      {navLinks.map((link) => {
+        if (pathname === "/" && link.href === "/") return null;
+        if (pathname !== "/" && link.href.startsWith("/#")) return null;
+        const isActive =
+          (pathname === "/tours" && link.href === "/tours") ||
+          (pathname === "/" && link.href === `/#${activeSection}`);
+
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={closeModal}
+            className={`${styles.headerMenuLink} ${
+              isActive ? styles.isActive : ""
+            }`}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
+    </nav>
   );
 };
 

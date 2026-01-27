@@ -11,13 +11,14 @@ import { FAQ } from "../../widgets/FAQ";
 import { Reviews } from "../../widgets/Reviews";
 import { SocialIcons } from "../../widgets/SocialIcons";
 import { faqDataHome } from "@/src/features/faq/model/constant";
+import {ScrollObserver} from "@/src/shared/ui/ScrollObserver";
 
 const HomePage = () => {
 
   return (
     <>
-      <SignTour
-      />
+    <ScrollObserver />
+
       <MainHero />
       <Tours />
       <Info />
