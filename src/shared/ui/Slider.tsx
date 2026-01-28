@@ -19,14 +19,15 @@ export const TourSlider = ({ items }: { items: SliderType[] }) => {
     <div className={styles.wrapper}>
       <Swiper
         modules={[Autoplay, EffectFade]}
-        effect={"fade"} // Включаем эффект затухания
-        fadeEffect={{ crossFade: true }} // Делает переход чище
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
         autoplay={{
-          delay: 4000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
-        loop={true}
-        speed={1500} // Медленный переход для красоты
+        speed={2500}
+        loop
+        watchSlidesProgress
         className={styles.mySwiper}
       >
         {items.map((el, index) => (
