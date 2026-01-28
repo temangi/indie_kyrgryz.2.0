@@ -1,4 +1,5 @@
 .main {
+  position: relative;
   background: url("../../../public/images/slide11.webp");
   background-position: center;
   background-size: cover;
@@ -19,5 +20,12 @@
   }
   &__title{
     font-size: 3rem;
+  }
+  &__logo{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+
   }
 }

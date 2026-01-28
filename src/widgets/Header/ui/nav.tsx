@@ -18,7 +18,7 @@ const navLinks = [
 const Navigation = () => {
   const closeModal = useOpenBurgerStore((state) => state.closeModal);
   const activeSection = useNavStore((state) => state.activeSection);
-  const pathname = usePathname(); // 👈 ключевая штука
+  const pathname = usePathname(); 
 
   return (
     <nav className={styles.headerMenu}>

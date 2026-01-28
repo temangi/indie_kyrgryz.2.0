@@ -7,9 +7,12 @@ import { tours } from "../constants/constants";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import { motion, AnimatePresence } from "framer-motion";
 
-
-const bestTours = tours.slice(0, 3).map((el, index) => <ToursCard {...el} key={index} />)
-const groupTours = tours.slice(3, 6).map((el, index) => <ToursCard {...el} key={index} />)
+const bestTours = tours
+  .slice(0, 3)
+  .map((el, index) => <ToursCard {...el} key={index} />);
+const groupTours = tours
+  .slice(3, 6)
+  .map((el, index) => <ToursCard {...el} key={index} />);
 
 const Tours = () => {
   const [activeTab, setActiveTab] = useState("best");
@@ -41,27 +44,24 @@ const Tours = () => {
             </button>
           </nav>
 
-          <main>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, x: 50 }}  // Прилетает справа (x: 50)
-                animate={{ opacity: 1, x: 0 }}   // Встает в центр
-                exit={{ opacity: 0, x: -50 }}    // Улетает влево (x: -50)
-                transition={{
-                  duration: 0.6,
-                  ease: "easeInOut"
-                }}
-                style={{ width: '100%' }}        // Чтобы не прыгала ширина при переходе
-              >
-                <article className={styles.content}>
-                  {activeTab === "best" ? groupTours : bestTours}
-                </article>
+          <article className={styles.content}>
+            <div
+              className={`${styles.tab} ${
+                activeTab === "best" ? styles.active : styles.hidden
+              }`}
+            >
+              {bestTours}
+            </div>
 
-              </motion.div>
-            </AnimatePresence>
+            <div
+              className={`${styles.tab} ${
+                activeTab === "group" ? styles.active : styles.hidden
+              }`}
+            >
+              {groupTours}
+            </div>
+          </article>
 
-          </main>
           <Link className={styles.allTours} href="/tours">
             All tours
           </Link>

@@ -19,7 +19,7 @@
   margin-bottom: 10px;
   text-transform: uppercase;
   color: #315a51;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .subtitle {
@@ -65,7 +65,7 @@
 .content {
   display: flex;
   width: 100%;
-  gap: 30px;
+  gap: 15px;
   grid-template-columns: repeat(4, 1fr);
   overflow-x: auto;
  
@@ -88,9 +88,12 @@
     text-decoration: none;
   }
   .card__tourImg{
-    width: 300px;
+    width: 350px;
     height: 300px;
     border-radius: 10px;
+    @media (max-width: 480px) {
+      width: 300px;
+    }
   }
   .reise__tourTitle{
     color: #315a51;

@@ -14,7 +14,7 @@ const Reise = () => {
       <div className="container">
         <section className={styles.menu}>
           <article className={styles.header}>
-            <h1 className={styles.title}>Top destinations</h1>
+            <h1 className={styles.title}>WHAT TO SEE</h1>
             <p className={styles.subtitle}>[ our recommendations]</p>
           </article>
           <article className={styles.content}>

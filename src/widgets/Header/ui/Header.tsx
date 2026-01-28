@@ -9,7 +9,6 @@ import { useModalStore ,useOpenBurgerStore} from "@/src/shared/model/useModalSto
 import { usePathname } from 'next/navigation';
 import logo from "../logoW.png"
 
-
 const Header = () => {
   const pathname = usePathname();
   const [scrollTop, setScrollTop] = useState(0);
