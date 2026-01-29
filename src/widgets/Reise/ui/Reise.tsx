@@ -15,9 +15,8 @@ const Reise = () => {
         <div className={styles.menu}>
           <header className={styles.header}>
             <h2 id="reise-title" className={styles.title}>
-              WHAT TO SEE
+              WHAT TO SEE ?
             </h2>
-            <p className={styles.subtitle}>[ our recommendations]</p>
           </header>
           <div className={styles.content}>
             {tours}

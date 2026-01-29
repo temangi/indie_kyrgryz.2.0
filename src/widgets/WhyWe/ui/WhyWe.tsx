@@ -44,7 +44,7 @@ const WhyWe = () => {
         <div className={styles.menu}>
           <header className={styles.header}>
             <h2 id="why-title" className={styles.title}>
-              WHY TRAVELERS TRUS US?
+              WHY TRAVELERS TRUST US?
             </h2>
             <p className={styles.subtitle}>OUR ADVANTAGES</p>
           </header>
