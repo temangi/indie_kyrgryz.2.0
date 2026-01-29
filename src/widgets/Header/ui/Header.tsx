@@ -35,38 +35,47 @@ const Header = () => {
   }, [isHomePage]);
 
   return (
-    <section className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`} style={{display : isHomePage ?  scrollTop < 450  ? "none" : "flex" : "flex" }}>
+    <header
+      className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
+      style={{ display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex" }}
+    >
       <div className="container">
         <div className={styles.headerBlock}>
-          <header className={styles.headerInner}>
-            <Link href="/" className={styles.mainLogo}>
+          <div className={styles.headerInner}>
+            <Link href="/" className={styles.mainLogo} aria-label="Indie Kyrgyz Travel">
               <Image
                 src={logo}
-                alt="Logo"
+                alt="Indie Kyrgyz Travel logo"
                 className={styles.logo}
-
               />
             </Link>
-            <article className={`${styles.headerControllers} ${isOpenBurger ? styles["is-active"] : ""}`}>
+            <div className={`${styles.headerControllers} ${isOpenBurger ? styles["is-active"] : ""}`}>
               <Navigation />
-              <div
+              <button
+                type="button"
                 className={styles.headerButton}
                 onClick={openModal}
               >
-                <p className={styles.headerButtonLink}>
+                <span className={styles.headerButtonLink}>
                   sign up for a tour
-                </p>
-              </div>
-            </article>
-            <div className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`} onClick={isOpenBurger ? closeBurger : openBurger} >
-              <div className={styles["hamburger-box"]}>
-                <div className={`${styles["hamburger-inner"]}`}></div>
-              </div>
+                </span>
+              </button>
             </div>
-          </header>
+            <button
+              type="button"
+              className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
+              onClick={isOpenBurger ? closeBurger : openBurger}
+              aria-label="Toggle navigation"
+              aria-expanded={isOpenBurger}
+            >
+              <span className={styles["hamburger-box"]}>
+                <span className={styles["hamburger-inner"]}></span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 

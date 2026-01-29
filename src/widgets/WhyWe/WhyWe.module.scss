@@ -17,18 +17,18 @@
   background: none;
   gap: 20px;
   align-items: center;
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .title {
-  font-size: 46px;
+  font-size: 2.875rem;
   text-align: center;
 }
 
 .subtitle {
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -49,6 +49,21 @@
       padding: 20px;
       gap: 10px;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .whyWe {
+    padding: 32px 0;
+  }
+  .menu {
+    gap: 30px;
+  }
+  .header {
+    gap: 12px;
+  }
+  .main {
+    gap: 24px;
   }
 }
 
@@ -73,7 +88,7 @@
     color: #fffef8;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1.125rem;
     transition: .3s ease-in-out;
     font-weight: bold;
 
@@ -91,7 +106,7 @@
 
 .itemTitle {
   text-align: end;
-  font-size: 27px;
+  font-size: 1.6875rem;
   font-weight: 400;
   padding-bottom: 20px;
 }
@@ -110,12 +125,12 @@
 }
 
 .itemHeading {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 
 
 .itemDescription {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
 }

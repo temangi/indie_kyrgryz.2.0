@@ -38,6 +38,9 @@
   right: 25%;
   z-index: 10;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .overlay {
@@ -65,7 +68,7 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -108,7 +111,7 @@
   color: white;
   cursor: pointer;
   width: 100%;
-  font-size: 20px;
+  font-size: 1.25rem;
   transition: 0.4s;
 
   &:hover {
@@ -119,7 +122,7 @@
 }
 
 .policy {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #315a51;
   font-weight: 400;
   text-align: center;
@@ -133,16 +136,16 @@
   }
 
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .description {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .input {
     padding: 15px 10px;
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .close {
@@ -152,11 +155,11 @@
   }
 
   .button {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
 
   .policy {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 }
 
@@ -166,14 +169,14 @@
     padding: 50px 30px;
   }
   .title{
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .description{
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .input{
     padding: 15px 10px;
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .close{
     width: 8%;
@@ -181,9 +184,9 @@
     right: 6%;
   }
   .button{
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
   .policy{
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 }

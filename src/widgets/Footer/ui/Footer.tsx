@@ -11,8 +11,7 @@ const Footer = () => {
     <footer id="footer" data-section className={styles.footer}>
       <div className="container">
         <div className={styles.footer__menu}>
-          
-          <article className={styles.footer__contact}>
+          <section className={styles.footer__contact}>
             <h3 className={styles.footer__title}>Still have questions?</h3>
             <p className={styles.footer__text}>
               Contact us on WhatsApp or Telegram, and we'll answer all your questions.
@@ -31,16 +30,24 @@ const Footer = () => {
                 </Link>
               ))}
             </div>
-          </article>
+          </section>
 
-          <article className={styles.footer__item}>
-            <p className={styles.footer__text}>
-              or call us at: <br />
-              <a href="tel:+79842704447" className={styles.footer__phone}>
-                +7 (984) 270-44-47
+          <div className={styles.footer__item}>
+            <address className={styles.footer__text}>
+              Our contacts: <br />
+              <a href="tel:+996704313147" className={styles.footer__phone}>
+                +996 704 313 147
               </a>
-            </p>
-          </article>
+              <br />
+              <a href="mailto:indiekyrgyztravel@gmail.com" className={styles.footer__email}>
+                indiekyrgyztravel@gmail.com
+              </a>
+              <br />
+              <a href="https://www.instagram.com/ice_jack_sparrow?igsh=MWI1cDRvOTNiYzJ3Mg==" className={styles.footer__instagram}>
+                @ice_jack_sparrow
+              </a>
+            </address>
+          </div>
           
         </div>
       </div>

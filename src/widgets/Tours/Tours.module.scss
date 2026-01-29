@@ -8,7 +8,7 @@
 }
 
 .title {
-  font-size: 36px;
+  font-size: 2.25rem;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
@@ -23,7 +23,7 @@
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #666;
 }
 
@@ -40,7 +40,7 @@
   color: #a7a7a7;
   font-weight: 600;
   padding-bottom: 20px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   transition: 0.6s;
 
@@ -58,6 +58,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   overflow-x: auto;
   gap: 30px;
+  position: relative;
 }
 
 .content::-webkit-scrollbar {
@@ -102,7 +103,7 @@
     border-radius: 10px;
   }
   .cardTitle {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     text-transform: uppercase;
     z-index: 10;
@@ -113,7 +114,8 @@
     color: #fffef8;
   }
   @media (max-width: 480px) {
-    width: 300px;
+    width: 280px;
+    padding: 30px;
   }
 }
 
@@ -139,12 +141,6 @@
   &:hover {
     background: rgba(255, 255, 248, 0.5);
   }
-}
-
-.cardDescription {
-  font-size: 12px;
-  font-weight: 400;
-  color: #315a51;
 }
 
 .allTours {
@@ -200,11 +196,26 @@
 }
 
 @media (max-width: 480px) {
+  .tours {
+    padding: 32px 0;
+  }
+  .header {
+    margin-bottom: 24px;
+  }
+  .nav {
+    margin-bottom: 24px;
+  }
+  .content {
+    gap: 20px;
+  }
+  .allTours {
+    margin: 24px auto 0;
+  }
   .nav {
     width: 100%;
   }
   .nav {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 @media (min-width: 481px) and (max-width: 768px) {
@@ -212,12 +223,8 @@
     width: 100%;
   }
   .nav {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
-}
-
-.content {
-  position: relative;
 }
 
 .tab {

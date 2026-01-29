@@ -18,7 +18,10 @@ const SocialIcons = () => {
   }, []);
 
   return (
-    <div className={`${styles.socialIcons} ${isVisible ? styles.isVisible : ""}`}>
+    <nav
+      className={`${styles.socialIcons} ${isVisible ? styles.isVisible : ""}`}
+      aria-label="Social media"
+    >
       <Link
         className={styles.socialMedia}
         href="https://wa.me/996704313147?text=Hi Jake"
@@ -57,7 +60,7 @@ const SocialIcons = () => {
           />
         </svg>
       </Link>
-    </div>
+    </nav>
   );
 };
 

@@ -19,34 +19,40 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] })  => {
   };
 
   return (
-    <section id="faq"  data-section className={styles.answer}>
+    <section id="faq" data-section className={styles.answer} aria-labelledby="faq-title">
       <div className="container">
-        <section className={styles.menu}>
-          <h1 className={styles.title}>FAQ</h1>
-          <main className={styles.questions}>
+        <div className={styles.menu}>
+          <h2 id="faq-title" className={styles.title}>
+            FAQ
+          </h2>
+          <div className={styles.questions}>
             {faqData.map((item, index) => (
-              <article key={index} className={styles.item}  onClick={() => toggleItem(index)}>
-                <div
+              <article key={index} className={styles.item}>
+                <button
+                  type="button"
                   className={styles.questionHeader}
+                  onClick={() => toggleItem(index)}
+                  aria-expanded={openIndex === index}
                 >
                   <span className={styles.questionText}>{item.question}</span>
-                  <button className={`${styles.questionToggle} ${openIndex === index ? styles.questionToggleActive : ""}`}>
+                  <span className={`${styles.questionToggle} ${openIndex === index ? styles.questionToggleActive : ""}`}>
                     <Image
                       className={styles.questionIcon}
                       src="/images/plus.svg"
-                      alt="plus"
+                      alt=""
+                      aria-hidden="true"
                       width={24}
                       height={24}
                     />
-                  </button>
-                </div>
+                  </span>
+                </button>
                 <p className={`${styles.answerText} ${openIndex === index ? styles.answerTextHidden : ""}`}>
                   {item.answer}
                 </p>
               </article>
             ))}
-          </main>
-        </section>
+          </div>
+        </div>
       </div>
     </section>
   );

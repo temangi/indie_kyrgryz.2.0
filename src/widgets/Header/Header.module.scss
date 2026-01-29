@@ -104,16 +104,20 @@
 }
 
 .headerButton {
-  p {
-    background-color: #5b7687;
-    padding: 8px 30px;
-    border-radius: 8px;
-    color: #fffef8;
-    cursor: pointer;
-    margin: 0;
-    text-transform: uppercase;
-    width: 100%;
-  }
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.headerButtonLink {
+  background-color: #5b7687;
+  padding: 8px 30px;
+  border-radius: 8px;
+  color: #fffef8;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
 }
 
 .hamburger {
@@ -233,9 +237,6 @@
     background: rgb(224, 221, 221);
     border-top: 2px solid #bbbaba;
   }
-  .upHeader {
-    display: none;
-  }
   .headerMenu{
     flex-direction: column;
     align-items: flex-start;
@@ -264,9 +265,6 @@
     background: rgb(224, 221, 221);
     border-top: 2px solid #bbbaba;
   }
-  .upHeader {
-    display: none;
-  }
   .headerMenu{
     flex-direction: column;
     align-items: flex-start;
@@ -287,19 +285,6 @@
     display: flex;
   }
 
-  .header__nav {
-    margin: 0;
-  }
-
-  .header__nav-list {
-    flex-direction: column;
-    align-items: normal;
-  }
-
-  .header__nav-item,
-  .header__nav-item:nth-of-type(1) {
-    padding: 30px 15px;
-  }
 
   .headerControllers {
     position: absolute;

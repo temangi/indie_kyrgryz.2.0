@@ -21,7 +21,7 @@ const Navigation = () => {
   const pathname = usePathname(); 
 
   return (
-    <nav className={styles.headerMenu}>
+    <nav className={styles.headerMenu} aria-label="Primary">
       {navLinks.map((link) => {
         if (pathname === "/" && link.href === "/") return null;
         if (pathname !== "/" && link.href.startsWith("/#")) return null;

@@ -34,7 +34,7 @@ export const TourSlider = ({ items }: { items: SliderType[] }) => {
           <SwiperSlide key={index}>
             <div className={styles.imageWrapper}>
               <Image src={el.item} alt={el.title} fill className={styles.img} />
-              <h1 className={styles["slider-title"]}>{el.title}</h1>
+              <h2 className={styles["slider-title"]}>{el.title}</h2>
             </div>
           </SwiperSlide>
         ))}

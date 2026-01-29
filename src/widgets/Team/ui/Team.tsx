@@ -3,14 +3,16 @@ import styles from "../Team.module.scss";
 
 const Team = () => {
   return (
-    <section id="team" data-section className={styles.team}>
+    <section id="team" data-section className={styles.team} aria-labelledby="team-title">
       <div className="container">
-        <section className={styles.menu}>
-          <article className={styles.header}>
-            <h1 className={styles.title}>About us</h1>
+        <div className={styles.menu}>
+          <header className={styles.header}>
+            <h2 id="team-title" className={styles.title}>
+              About us
+            </h2>
             <p className={styles.subtitle}>People who create our journeys:</p>
-          </article>
-          <main className={styles.main}>
+          </header>
+          <div className={styles.main}>
             <div className={styles.member}>
               <article className={styles.infoBlock}>
                 <div className={styles.memberInfo}>
@@ -31,8 +33,8 @@ const Team = () => {
                 </div>
               </article>
             </div>
-          </main>
-        </section>
+          </div>
+        </div>
       </div>
     </section>
   );

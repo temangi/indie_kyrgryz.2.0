@@ -11,26 +11,27 @@ const arrRev = [r1, r2, r3, r4, r5, r6]
 
 const Reviews = () => {
   return (
-    <section id="reviews" className={styles.reviews}>
+    <section id="reviews" className={styles.reviews} aria-labelledby="reviews-title">
       <div className="container">
-        <section className={styles.menu}>
-          <article className={styles.header}>
-            <h1 className={styles.title}>Reviews</h1>
-          </article>
-          <main className={styles.main}>
+        <div className={styles.menu}>
+          <header className={styles.header}>
+            <h2 id="reviews-title" className={styles.title}>
+              Reviews
+            </h2>
+          </header>
+          <div className={styles.main}>
             {arrRev.map((el, index) => {
               return (
-
                 <Image
                   key={index}
                   src={el}
-                  alt="Reviews"
+                  alt={`Review photo ${index + 1}`}
                   className={styles.main__img}
                 />
               )
             })}
-          </main>
-        </section>
+          </div>
+        </div>
       </div>
     </section>
   );

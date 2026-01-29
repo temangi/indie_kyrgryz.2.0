@@ -9,11 +9,13 @@ const ToursPage = () => {
     return (
         <>
             <div className="container">
-                <section className={styles["tour-page-list"]}>
-                    <h1 className={styles["tour-page-list__title"]} >ALL TOURS</h1>
-                    <main className={styles["tour-page-list__main"]}  >
+                <section className={styles["tour-page-list"]} aria-labelledby="tours-page-title">
+                    <h1 id="tours-page-title" className={styles["tour-page-list__title"]}>
+                        ALL TOURS
+                    </h1>
+                    <div className={styles["tour-page-list__main"]}>
                         {tours.map((el, index) => <ToursCard {...el} key={index} />)}
-                    </main>
+                    </div>
                 </section>
             </div>
             <Application />

@@ -5,7 +5,6 @@ import Link from "next/link";
 import styles from "../Tours.module.scss";
 import { tours } from "../constants/constants";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
-import { motion, AnimatePresence } from "framer-motion";
 
 const bestTours = tours
   .slice(0, 3)
@@ -18,17 +17,20 @@ const Tours = () => {
   const [activeTab, setActiveTab] = useState("best");
 
   return (
-    <section className={styles.tours}>
+    <section className={styles.tours} aria-labelledby="tours-title">
       <div className="container">
-        <section className={styles.menu}>
-          <article className={styles.header}>
-            <h1 className={styles.title}>tour poster</h1>
+        <div className={styles.menu}>
+          <header className={styles.header}>
+            <h2 id="tours-title" className={styles.title}>
+              tour poster
+            </h2>
             <p className={styles.subtitle}>
               Kyrgyzstan, Kazakhstan & Uniq Experience
             </p>
-          </article>
-          <nav className={styles.nav}>
+          </header>
+          <nav className={styles.nav} aria-label="Tours categories">
             <button
+              type="button"
               data-testid="best-tab"
               className={`${styles.navItem} ${activeTab === "best" ? styles.active : ""}`}
               onClick={() => setActiveTab("best")}
@@ -36,6 +38,7 @@ const Tours = () => {
               Our best tours
             </button>
             <button
+              type="button"
               data-testid="group-tab"
               className={`${styles.navItem} ${activeTab === "group" ? styles.active : ""}`}
               onClick={() => setActiveTab("group")}
@@ -44,7 +47,7 @@ const Tours = () => {
             </button>
           </nav>
 
-          <article className={styles.content}>
+          <div className={styles.content}>
             <div
               className={`${styles.tab} ${
                 activeTab === "best" ? styles.active : styles.hidden
@@ -60,12 +63,12 @@ const Tours = () => {
             >
               {groupTours}
             </div>
-          </article>
+          </div>
 
           <Link className={styles.allTours} href="/tours">
             All tours
           </Link>
-        </section>
+        </div>
       </div>
     </section>
   );

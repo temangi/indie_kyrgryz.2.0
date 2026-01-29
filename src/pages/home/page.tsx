@@ -1,4 +1,3 @@
-import { SignTour } from "../../widgets/SignTour";
 import { MainHero } from "../../widgets/MainHero";
 import { Tours } from "../../widgets/Tours";
 import { Info } from "../../widgets/Info";
@@ -11,13 +10,13 @@ import { FAQ } from "../../widgets/FAQ";
 import { Reviews } from "../../widgets/Reviews";
 import { SocialIcons } from "../../widgets/SocialIcons";
 import { faqDataHome } from "@/src/features/faq/model/constant";
-import {ScrollObserver} from "@/src/shared/ui/ScrollObserver";
+import { ScrollObserver } from "@/src/shared/ui/ScrollObserver";
 
 const HomePage = () => {
 
   return (
     <>
-    <ScrollObserver />
+      <ScrollObserver />
 
       <MainHero />
       <Tours />

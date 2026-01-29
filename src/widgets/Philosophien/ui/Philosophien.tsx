@@ -3,18 +3,24 @@ import styles from "../Philosophien.module.scss";
 
 const Philosophien = () => {
   return (
-    <section id="philosophien" className={styles.philosophien}>
+    <section
+      id="philosophien"
+      className={styles.philosophien}
+      aria-labelledby="philosophien-title"
+    >
       <div className="container">
-        <section className={styles.menu}>
-          <article className={styles.header}>
-            <h1 className={styles.title}>Founding story</h1>
+        <div className={styles.menu}>
+          <header className={styles.header}>
+            <h2 id="philosophien-title" className={styles.title}>
+              Founding story
+            </h2>
             <p className={styles.subtitle}>[ What we believe ]</p>
-          </article>
-          <main className={styles.main}>
+          </header>
+          <div className={styles.main}>
             <Image
               className={styles.img}
               src="/images/Img.svg"
-              alt=""
+              alt="Founding story illustration"
               width={500}
               height={400}
             />
@@ -38,8 +44,8 @@ const Philosophien = () => {
                 happiness for people.
               </li>
             </ul>
-          </main>
-        </section>
+          </div>
+        </div>
       </div>
     </section>
   );
