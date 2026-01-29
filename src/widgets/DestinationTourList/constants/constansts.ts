@@ -249,4 +249,4 @@ region.`,
   ],
 };
 
-export const destinationTourInfo = [issykKul, songKul ,kelSui];
+export const destinationTourInfo = [kelSui,issykKul, songKul ,kelSui];
