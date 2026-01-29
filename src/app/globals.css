@@ -1,10 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 
+/* @font-face {
+  font-family: 'Atyp Text';
+  src: url('/fonts/atyptext-semibold.woff2') format('woff2'),
+       url('/fonts/AtypText-Semibold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+} */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Montserrat";
+  /* font-family: 'Atyp Text', sans-serif; */
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
