@@ -39,23 +39,25 @@ handle everything, so you can relax and focus on the experience.`
 
 const WhyWe = () => {
   return (
-    <section id="why" className={styles.whyWe}>
+    <section id="why" className={styles.whyWe} aria-labelledby="why-title">
       <div className="container">
-        <section className={styles.menu}>
-          <article className={styles.header}>
-            <h1 className={styles.title}>WHY TRAVELERS TRUS US?</h1>
+        <div className={styles.menu}>
+          <header className={styles.header}>
+            <h2 id="why-title" className={styles.title}>
+              WHY TRAVELERS TRUS US?
+            </h2>
             <p className={styles.subtitle}>OUR ADVANTAGES</p>
-          </article>
-          <main className={styles.main}>
+          </header>
+          <div className={styles.main}>
             <article className={styles.item}>
-              <h2 className={styles.itemTitle}>The Essence of Who We Are</h2>
+              <h3 className={styles.itemTitle}>The Essence of Who We Are</h3>
               {infos.slice(0, 2).map((info) => (
                 <div key={info.id} className={styles.itemContent}>
                   <aside className={styles.itemAside}>
-                    <b className={styles.itemNumber}>{info.id}</b>
-                    <h3 className={styles.itemHeading}>{info.title}</h3>
+                    <span className={styles.itemNumber}>{info.id}</span>
+                    <h4 className={styles.itemHeading}>{info.title}</h4>
                   </aside>
-                  <span className={styles.itemDescription}>{info.desc}</span>
+                  <p className={styles.itemDescription}>{info.desc}</p>
                 </div>
               ))}
             </article>
@@ -64,15 +66,15 @@ const WhyWe = () => {
               {infos.slice(2).map((info) => (
                 <div key={info.id} className={styles.itemContent}>
                   <aside className={styles.itemAside}>
-                    <b className={styles.itemNumber}>{info.id}</b>
-                    <h3 className={styles.itemHeading}>{info.title}</h3>
+                    <span className={styles.itemNumber}>{info.id}</span>
+                    <h4 className={styles.itemHeading}>{info.title}</h4>
                   </aside>
-                  <span className={styles.itemDescription}>{info.desc}</span>
+                  <p className={styles.itemDescription}>{info.desc}</p>
                 </div>
               ))}
             </article>
-          </main>
-        </section>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -17,12 +17,14 @@ export const TourInfo = ({days , price , duration} : TourInfo ) => {
   const openModal = useModalBookATourStore((state) => state.openModal);
 
   return (
-    <section className={styles.mainTour}>
+    <section className={styles.mainTour} aria-labelledby="tour-info-title">
       <div className="container"> 
-        <section className={styles.mainContent}>
-          <h1 className={styles.title}>THE MAIN THINGS ABOUT THE HIKE</h1>
+        <div className={styles.mainContent}>
+          <h2 id="tour-info-title" className={styles.title}>
+            THE MAIN THINGS ABOUT THE HIKE
+          </h2>
 
-          <main className={styles.details}>
+          <div className={styles.details}>
             <article className={styles.infoCard}>
               <aside className={styles.duration}>
                 <div className={styles.durationItem}>
@@ -41,13 +43,13 @@ export const TourInfo = ({days , price , duration} : TourInfo ) => {
               <Image
                 className={styles.cardImage}
                 src={img}
-                alt="Изображение похода "
+                alt="Hiking tour photo"
               />
             </article>
-          </main>
+          </div>
 
           <button className={styles.mainButton} onClick={() => openModal()}>BOOK THIS TOUR</button>
-        </section>
+        </div>
       </div>
       <BookTour/>
     </section>

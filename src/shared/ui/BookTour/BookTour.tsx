@@ -40,8 +40,14 @@ export const BookTour = () => {
     }, [isOpen]);
 
     return (
-        <aside className={`${styles.asideWrapper} ${isOpen && styles.isActive} `} onClick={() => closeModal()}>
-            <main className={styles.main} onClick={(e) => e.stopPropagation()} >
+        <section
+            className={`${styles.asideWrapper} ${isOpen && styles.isActive} `}
+            onClick={() => closeModal()}
+            role="dialog"
+            aria-modal="true"
+            aria-hidden={!isOpen}
+        >
+            <div className={styles.main} onClick={(e) => e.stopPropagation()} >
                 <h2 className={styles.title}>Book This Tour</h2>
                 <form onSubmit={handleSubmit} className={styles.form}>
                     {BookATour.map((item, index) => {
@@ -67,15 +73,21 @@ export const BookTour = () => {
                         Book Now
                     </button>
                 </form>
-            </main>
-            <Image
-                src="/images/close.png"
-                alt="close window"
+            </div>
+            <button
+                type="button"
                 className={styles.close}
-                width={30}
-                height={30}
                 onClick={closeModal}
-            />
-        </aside>
+                aria-label="Close booking form"
+            >
+                <Image
+                    src="/images/close.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={30}
+                    height={30}
+                />
+            </button>
+        </section>
     );
 };

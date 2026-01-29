@@ -53,7 +53,7 @@
                     cursor: pointer;
                     border-radius: 8px; // Чуть мягче углы
                     border: 1px solid #bfc6c9; // Светлая граница по умолчанию
-                    font-size: 15px;
+                    font-size: 0.9375rem;
                     background: #ffffff;
                     color: #315a51;
 
@@ -117,6 +117,9 @@
         right: 23%;
         z-index: 10;
         cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
         @media (max-width : 550px) {
             right: 4%;
             top: 13%;

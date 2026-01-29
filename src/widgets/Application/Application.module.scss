@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  font-size: 18px;
+  font-size: 1.125rem;
   border-radius: 10px;
   @media (max-width : 992px) {
     padding: 30px;
@@ -31,12 +31,12 @@
 }
 
 .title {
-  font-size: 37px;
+  font-size: 2.3125rem;
   text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .accent {
@@ -61,6 +61,9 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   @media (max-width : 992px) {
     gap: 20px;
   }
@@ -71,7 +74,7 @@
   gap: 15px;
   align-items: center;
   color: #315a51;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .icon {
@@ -81,7 +84,7 @@
 }
 
 .description {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #315a51;
 }
 
@@ -93,11 +96,14 @@
   cursor: pointer;
   color: white;
   width: 100%;
-  font-size: 18px;
+  font-size: 1.125rem;
 
 
 }
 @media (max-width: 480px){
+  .application {
+    padding: 32px 0;
+  }
   .menu {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -107,9 +113,10 @@
   }
   .offer {
     text-align: center;
+    padding: 28px;
   }
   .title {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -121,9 +128,10 @@
   }
   .offer {
     text-align: center;
+    padding: 30px;
   }
   .title {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 

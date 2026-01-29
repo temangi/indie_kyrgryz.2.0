@@ -27,12 +27,14 @@ function DestinationTourList() {
 
   return (
     <>
-      <section className={styles.destination}>
+      <section className={styles.destination} aria-labelledby="destination-title">
         <div className="container">
           <div className={styles.destination__content}>
-            <section className={styles.destination__contentText}>
+            <div className={styles.destination__contentText}>
               <header className={styles.destination__header}>
-                <h1 className={styles.destination__title}>{title}</h1>
+                <h1 id="destination-title" className={styles.destination__title}>
+                  {title}
+                </h1>
                 <p className={styles.destination__description}>{desc}</p>
               </header>
 
@@ -45,41 +47,44 @@ function DestinationTourList() {
                 <h2 className={styles.destination__subtitle}>
                   What You Can See ?
                 </h2>
-                <main className={styles.destination__highlightsList}>
+                <div className={styles.destination__highlightsList}>
                   {arr.map((el, index) => (
                     <BulletList key={index} {...el} />
                   ))}
-                </main>
+                </div>
               </article>
-            </section>
-            <section className={styles.destination__contentImg}>
-              <Image src={s1} alt="Slide 1" layout="responsive" />
-              <Image src={s2} alt="Slide 1" layout="responsive" />
-              <Image src={s3} alt="Slide 1" layout="responsive" />
-            </section>
+            </div>
+            <div className={styles.destination__contentImg}>
+              <Image src={s1} alt="Destination photo 1" layout="responsive" />
+              <Image src={s2} alt="Destination photo 2" layout="responsive" />
+              <Image src={s3} alt="Destination photo 3" layout="responsive" />
+            </div>
           </div>
         </div>
       </section>
-      <section className={styles["related"]}>
+      <section className={styles["related"]} aria-labelledby="related-tours-title">
         <div className="container">
-          <section className={styles["related-tours"]}>
+          <div className={styles["related-tours"]}>
             <div className={styles["related-tours__head"]}>
-              <h1 className={styles["related-tours__title"]}>Related Tours</h1>
+              <h2 id="related-tours-title" className={styles["related-tours__title"]}>
+                Related Tours
+              </h2>
               <Link className={styles["related-tours__link"]} href={"/tours"}>
                 Watch All Tours{" "}
                 <Image
                   src={arrow}
-                  alt="arrow"
+                  alt=""
+                  aria-hidden="true"
                   className={styles["related-tours__arrow"]}
                 />
               </Link>
             </div>
-            <main className={styles["related-tours__list"]}>
+            <div className={styles["related-tours__list"]}>
               {destiontaionTour.map((el, index) => (
                 <ReiseCard key={index} {...el} index={index} />
               ))}
-            </main>
-          </section>
+            </div>
+          </div>
         </div>
       </section>
     </>

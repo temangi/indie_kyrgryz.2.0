@@ -2,7 +2,7 @@
   padding: 50px 0;
   background: #fffef8;
   color: #315a51;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
 }
 
@@ -30,12 +30,12 @@
 }
 
 .title {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 600;
 }
 
 .description {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
 }
 
@@ -55,13 +55,19 @@
   }
 }
 @media (max-width: 480px){
+  .info {
+    padding: 32px 0;
+  }
   .menu {
     grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 30px;
   }
   .details {
     align-items: center;
     text-align: center;
     padding-right: 0;
+    gap: 24px;
   }
 }
 

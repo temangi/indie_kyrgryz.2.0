@@ -10,17 +10,19 @@ const Reise = () => {
   const tours = destiontaionTour.map((el, index) => <ReiseCard key={index} {...el} index ={index}/>);
 
   return (
-    <section id="reise"  data-section className={styles.reise}>
+    <section id="reise" data-section className={styles.reise} aria-labelledby="reise-title">
       <div className="container">
-        <section className={styles.menu}>
-          <article className={styles.header}>
-            <h1 className={styles.title}>WHAT TO SEE</h1>
+        <div className={styles.menu}>
+          <header className={styles.header}>
+            <h2 id="reise-title" className={styles.title}>
+              WHAT TO SEE
+            </h2>
             <p className={styles.subtitle}>[ our recommendations]</p>
-          </article>
-          <article className={styles.content}>
+          </header>
+          <div className={styles.content}>
             {tours}
-          </article>
-        </section>
+          </div>
+        </div>
       </div>
     </section>
   );

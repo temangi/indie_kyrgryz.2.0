@@ -13,7 +13,11 @@ const ReiseCard = (({ img, title, index }: ReiseCardProps) => {
     return (
       <Link href={`/destination/${index + 1}`} className={styles["reise__card"]}>
         <figure>
-          <Image src={img} alt="destionation" className={styles["card__tourImg"]} />
+          <Image
+            src={img}
+            alt={`${title} destination`}
+            className={styles["card__tourImg"]}
+          />
         </figure>
         <p className={styles["reise__tourTitle"]}>{title}</p>
       </Link>

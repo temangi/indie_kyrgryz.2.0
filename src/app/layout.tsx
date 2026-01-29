@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Indie Kyrgyz",
-  description: "Indie Kyrgyz",
+  title: "Indie Kyrgyz Travel - Tours in Kyrgyzstan & Kazakhstan",
+  description:
+    "Small-group and private tours across Kyrgyzstan and Kazakhstan. Authentic routes, local guides, and unforgettable mountain experiences.",
 };
 
 export default function RootLayout({
@@ -34,7 +35,7 @@ export default function RootLayout({
         <SignTour />
         <Header />
 
-        {children}
+        <main className="page">{children}</main>
         <Footer />
       </body>
     </html>

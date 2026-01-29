@@ -33,36 +33,43 @@ const HowItGoing = () => {
             <TourSlider items={slider} />
             <TourInfo days={arr.length} {...forEx}/>
 
-            <section className={styles["tour-details"]}>
+            <section className={styles["tour-details"]} aria-labelledby="tour-title">
                 <div className="container">
-                    <h1 className={styles["tour-details__unTitle"]}>{chapter}</h1>
-                    <section className={styles["tour-details__main"]}>
-                        <p className={styles["tour-details__title"]}>{title}</p>
+                    <header className={styles["tour-details__main"]}>
+                        <p className={styles["tour-details__unTitle"]}>{chapter}</p>
+                        <h1 id="tour-title" className={styles["tour-details__title"]}>
+                            {title}
+                        </h1>
                         <p className={styles["tour-details__desc"]}>{desc}</p>
-                        <article className={styles["tour-details__aside"]}>
-                            <main className={styles["tour-details__grid"]}>
+                    </header>
+                    <div className={styles["tour-details__aside"]}>
+                        <div className={styles["tour-details__grid"]}>
                                 {arr.map((el, index) => (
                                     <StepCard {...el} id={index} key={index} />
                                 ))}
 
-                            </main>
-                        </article>
-                    </section>
+                        </div>
+                    </div>
                 </div>
             </section>
         
-            <section className={styles["related"]}>
+            <section className={styles["related"]} aria-labelledby="tour-related-title">
                 <div className="container">
-                    <section className={styles["related-tours"]}>
+                    <div className={styles["related-tours"]}>
                         <div className={styles["related-tours__head"]}>
-                            <h1 className={styles["related-tours__title"]}>Related Tours</h1>
-                            <Link className={styles["related-tours__link"]} href={"/tours"}>Watch All Tours <Image src={arrow} alt="arrow" className={styles["related-tours__arrow"]} /></Link>
+                            <h2 id="tour-related-title" className={styles["related-tours__title"]}>
+                                Related Tours
+                            </h2>
+                            <Link className={styles["related-tours__link"]} href={"/tours"}>
+                                Watch All Tours{" "}
+                                <Image src={arrow} alt="" aria-hidden="true" className={styles["related-tours__arrow"]} />
+                            </Link>
 
                         </div>
-                        <main className={styles["related-tours__list"]}>
+                        <div className={styles["related-tours__list"]}>
                             {tours.slice(0, 3).map((el, index) => <ToursCard {...el} key={index} />)}
-                        </main>
-                    </section>
+                        </div>
+                    </div>
                 </div>
             </section>
         </>

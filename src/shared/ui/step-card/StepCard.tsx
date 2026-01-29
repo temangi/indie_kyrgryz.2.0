@@ -22,19 +22,26 @@ const StepCard = ({ title, duration, desc, place ,id}: StepCardType) => {
     return (
         <div className={styles['tour-info']} onClick={toggleMain}>
             <header className={styles['tour-info__header']}>
-                <h1 className={`${styles['tour-info__title']} ${isVisible ? styles['isActive'] : ''}`}>{title}</h1>
-                <button className={`${styles.questionToggle} ${isVisible ? styles.questionToggleActive : ""}`}>
+                <h3 className={`${styles['tour-info__title']} ${isVisible ? styles['isActive'] : ''}`}>
+                    {title}
+                </h3>
+                <button
+                    type="button"
+                    className={`${styles.questionToggle} ${isVisible ? styles.questionToggleActive : ""}`}
+                    aria-expanded={isVisible}
+                >
                     <Image
                         className={styles.questionIcon}
                         src="/images/plus.svg"
-                        alt="plus"
+                        alt=""
+                        aria-hidden="true"
                         width={24}
                         height={24}
                     />
                 </button>
             </header>
 
-            <main className={`${styles['tour-info__content']} ${isVisible ? styles['isActive'] : ''}`}>
+            <div className={`${styles['tour-info__content']} ${isVisible ? styles['isActive'] : ''}`}>
                 <div className={styles['tour-info__feature']}>
                     <span className={styles['tour-info__label']}>
                         <b className={styles['tour-info__accent']}>Drive</b> : {duration}
@@ -48,7 +55,7 @@ const StepCard = ({ title, duration, desc, place ,id}: StepCardType) => {
                         Accommodation : {place}
                     </span>
                 </div>
-            </main>
+            </div>
 
         </div>
     )

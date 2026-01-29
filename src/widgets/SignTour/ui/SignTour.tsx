@@ -60,20 +60,31 @@ const SignTour = () => {
   }, [isOpen]);
 
   return (
-    <section className={`${styles.signTour} ${isOpen ? styles.isOpen : ""}`}>
-      <Image
-        src="/images/close.png"
-        alt="close window"
+    <section
+      className={`${styles.signTour} ${isOpen ? styles.isOpen : ""}`}
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!isOpen}
+    >
+      <button
+        type="button"
         className={styles.close}
-        width={30}
-        height={30}
         onClick={closeModal}
-      />
+        aria-label="Close sign-up form"
+      >
+        <Image
+          src="/images/close.png"
+          alt=""
+          aria-hidden="true"
+          width={30}
+          height={30}
+        />
+      </button>
 
       <div className={styles.overlay} onClick={closeModal}></div>
 
       <div className={styles.content}>
-        <h2 className={styles.title}>Sign Up for a Tour :</h2>
+        <h2 className={styles.title}>Sign Up for a Tour:</h2>
         <p className={styles.description}>
           Leave your contact information and we will contact you shortly :)
         </p>
