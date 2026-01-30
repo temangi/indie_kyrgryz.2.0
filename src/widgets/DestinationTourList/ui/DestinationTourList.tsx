@@ -2,7 +2,7 @@
 
 import styles from "../DestinationTourList.module.scss";
 import { useParams } from "next/navigation";
-import { destinationTourInfo } from "../constants/constansts";
+import { destinationTourInfo } from "../constants/constansts"; 
 import BulletList from "@/src/shared/ui/BulletList/BulletList";
 import Image from "next/image";
 import s1 from "@/public/images/slide1.webp";
@@ -15,26 +15,27 @@ import arrow from "@/public/images/aroow.png";
 
 function DestinationTourList() {
   const params = useParams<{ id: string }>();
-  const currentTour = params?.id
-    ? destinationTourInfo[Number(params.id) - 1]
-    : null;
+  const tourId = Number(params?.id);
+  const currentTour = destinationTourInfo[tourId - 1];
 
   if (!currentTour) {
-    return <section>Тур не найден</section>;
+    return (
+      <section className={styles.notFound}>
+        <div className="container"><h2>Tour not found</h2></div>
+      </section>
+    );
   }
 
   const { arr, title, desc, geography } = currentTour;
 
   return (
     <>
-      <section className={styles.destination} aria-labelledby="destination-title">
+      <section className={styles.destination}>
         <div className="container">
           <div className={styles.destination__content}>
             <div className={styles.destination__contentText}>
               <header className={styles.destination__header}>
-                <h1 id="destination-title" className={styles.destination__title}>
-                  {title}
-                </h1>
+                <h1 className={styles.destination__title}>{title}</h1>
                 <p className={styles.destination__description}>{desc}</p>
               </header>
 
@@ -44,9 +45,7 @@ function DestinationTourList() {
               </div>
 
               <article className={styles.destination__highlights}>
-                <h2 className={styles.destination__subtitle}>
-                  What You Can See ?
-                </h2>
+                <h2 className={styles.destination__subtitle}>What You Can See?</h2>
                 <div className={styles.destination__highlightsList}>
                   {arr.map((el, index) => (
                     <BulletList key={index} {...el} />
@@ -54,33 +53,35 @@ function DestinationTourList() {
                 </div>
               </article>
             </div>
-            <div className={styles.destination__contentImg}>
-              <Image src={s1} alt="Destination photo 1" layout="responsive" />
-              <Image src={s2} alt="Destination photo 2" layout="responsive" />
-              <Image src={s3} alt="Destination photo 3" layout="responsive" />
-            </div>
+
+            <aside className={styles.destination__contentImg}>
+              {[s1, s2, s3].map((img, i) => (
+                <div key={i} className={styles.imageWrapper}>
+                  <Image 
+                    src={img} 
+                    alt={`View ${i + 1}`} 
+                    className={styles.sidebarImg}
+                    placeholder="blur"
+                  />
+                </div>
+              ))}
+            </aside>
           </div>
         </div>
       </section>
-      <section className={styles["related"]} aria-labelledby="related-tours-title">
+
+      <section className={styles.related}>
         <div className="container">
-          <div className={styles["related-tours"]}>
-            <div className={styles["related-tours__head"]}>
-              <h2 id="related-tours-title" className={styles["related-tours__title"]}>
-                Related Tours
-              </h2>
-              <Link className={styles["related-tours__link"]} href={"/tours"}>
-                Watch All Tours{" "}
-                <Image
-                  src={arrow}
-                  alt=""
-                  aria-hidden="true"
-                  className={styles["related-tours__arrow"]}
-                />
+          <div className={styles.relatedTours}>
+            <div className={styles.relatedTours__head}>
+              <h2 className={styles.relatedTours__title}>Related Tours</h2>
+              <Link className={styles.relatedTours__link} href="/tours">
+                Watch All Tours
+                <Image src={arrow} alt="" className={styles.relatedTours__arrow} />
               </Link>
             </div>
-            <div className={styles["related-tours__list"]}>
-              {destiontaionTour.map((el, index) => (
+            <div className={styles.relatedTours__list}>
+              {destiontaionTour.slice(0, 4).map((el, index) => (
                 <ReiseCard key={index} {...el} index={index} />
               ))}
             </div>

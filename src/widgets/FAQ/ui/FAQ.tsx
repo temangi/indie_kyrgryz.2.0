@@ -9,9 +9,7 @@ interface FAQItem {
   answer: string;
 }
 
-
-
-const FAQ = ({ faqData }: { faqData: FAQItem[] })  => {
+const FAQ = ({ faqData }: { faqData: FAQItem[] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
@@ -19,7 +17,12 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] })  => {
   };
 
   return (
-    <section id="faq" data-section className={styles.answer} aria-labelledby="faq-title">
+    <section
+      id="faq"
+      data-section
+      className={styles.answer}
+      aria-labelledby="faq-title"
+    >
       <div className="container">
         <div className={styles.menu}>
           <h2 id="faq-title" className={styles.title}>
@@ -35,7 +38,9 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] })  => {
                   aria-expanded={openIndex === index}
                 >
                   <span className={styles.questionText}>{item.question}</span>
-                  <span className={`${styles.questionToggle} ${openIndex === index ? styles.questionToggleActive : ""}`}>
+                  <span
+                    className={`${styles.questionToggle} ${openIndex === index ? styles.questionToggleActive : ""}`}
+                  >
                     <Image
                       className={styles.questionIcon}
                       src="/images/plus.svg"
@@ -46,8 +51,12 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] })  => {
                     />
                   </span>
                 </button>
-                <p className={`${styles.answerText} ${openIndex === index ? styles.answerTextHidden : ""}`}>
-                  {item.answer}
+                <p
+                  className={`${styles.answerText} ${
+                    openIndex === index ? styles.answerTextVisible : ""
+                  }`}
+                >
+                  <span className={styles.answerInner}>{item.answer}</span>
                 </p>
               </article>
             ))}

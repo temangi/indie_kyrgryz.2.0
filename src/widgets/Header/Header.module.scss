@@ -51,7 +51,7 @@
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  border-left: 2px solid #597797;
+  border-left: 2px solid #bbbaba;
   padding-left: 15px;
   @media (max-width : 992px) {
     border-left: none;
@@ -68,7 +68,7 @@
   .headerMenuLink {
     position: relative;
     font-weight: 600;
-    color: #597797;
+    color: var(--color-emerald);
     text-decoration: none;
     transition: color 0.3s ease;
 
@@ -79,14 +79,14 @@
       bottom: -6px;
       width: 100%;
       height: 2px;
-      background-color: #001d3c;
+      background-color: var(--color-orange);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
     }
 
     &:hover {
-      color: #001d3c;
+      color: var(--color-orange);
 
       &::after {
         transform: scaleX(1);
@@ -94,7 +94,7 @@
     }
 
     &.isActive {
-      color: #001d3c;
+      color: var(--color-orange);
 
       &::after {
         transform: scaleX(1);
@@ -111,7 +111,7 @@
 }
 
 .headerButtonLink {
-  background-color: #5b7687;
+  background-color: var(--color-orange);
   padding: 8px 30px;
   border-radius: 8px;
   color: #fffef8;
@@ -149,7 +149,7 @@
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-  background-color: #5e8c7b;
+  background-color: var(--color-emerald);
 }
 
 .hamburger-box {
@@ -170,7 +170,7 @@
 .hamburger-inner::after {
   width: 40px;
   height: 4px;
-  background-color: #5e8c7b;
+  background-color: var(--color-emerald);
   border-radius: 4px;
   position: absolute;
   transition-property: transform;

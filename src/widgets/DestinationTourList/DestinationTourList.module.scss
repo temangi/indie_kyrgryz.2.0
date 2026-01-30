@@ -1,88 +1,119 @@
 .destination {
-  padding: 150px 0 100px 0;
+  padding: 120px 0 80px;
+  background: #fffef8;
+
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    @media (max-width: 768px) {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+
+    @media (max-width: 992px) {
       grid-template-columns: 1fr;
     }
-    .destination__contentText {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      .destination__header,
-      .destination__section {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .destination__highlights {
-        .destination__highlightsList,
-        .destination__highlights {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-        }
-      }
-    }
-    .destination__contentImg {
-      border-left: 3px solid #eee;
-      border-right: 3px solid #eee;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      @media (max-width: 480px) {
-        padding: 0;
-        border: none;
-      }
+  }
+
+  &__contentText {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__title {
+    font-size: 3rem;
+    color: var(--color-emerald);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    color: var(--color-orange); // Сделаем подзаголовки акцентными
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  &__description, &__text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+  }
+
+  &__highlightsList {
+    display: grid;
+    gap: 15px;
+  }
+
+  &__contentImg {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border-left: 2px solid rgba(0, 155, 119, 0.1);
+    padding-left: 40px;
+
+    @media (max-width: 992px) {
+      border: none;
+      padding: 0;
+      flex-direction: row; // На планшетах фото в ряд
+      overflow-x: auto;
     }
   }
 }
 
+.imageWrapper {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  
+  .sidebarImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    &:hover { transform: scale(1.05); }
+  }
+}
+
 .related {
-  background: #fffef8;
-  padding: 50px 0;
-  .related-tours {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  padding: 80px 0;
+  border-top: 1px solid rgba(0, 155, 119, 0.1);
+
+  .relatedTours {
     &__head {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      color: #315a51;
-      font-weight: 400;
-      .related-tours__link {
-        color: black;
-        transition: 0.3s ease-in-out;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 400;
-        &:hover {
-          text-decoration: none;
-          color: #5e8c7b;
-          .related-tours__arrow {
-            transform: translateX(5px);
-          }
-        }
-        .related-tours__arrow {
-          width: 30px;
-          height: 30px;
-          transition: 0.3s ease-in-out;
-        }
+      align-items: flex-end;
+      margin-bottom: 40px;
+      color: var(--color-emerald);
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-emerald);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-orange);
+        .relatedTours__arrow { transform: translateX(8px); }
       }
     }
+
+    &__arrow {
+      width: 24px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
     &__list {
       display: flex;
-      gap: 30px;
-      width: 100%;
+      gap: 25px;
       overflow-x: auto;
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      padding-bottom: 20px;
+      &::-webkit-scrollbar { display: none; }
     }
   }
 }

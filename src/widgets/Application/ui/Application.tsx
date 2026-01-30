@@ -4,67 +4,50 @@ import Image from "next/image";
 import styles from "../Application.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
 
+const ADVANTAGES = [
+  "Get a tour perfectly matched to your budget",
+  "Enjoy a trip designed around your needs and preferences",
+  "Experience an itinerary tailored to your pace and interests"
+];
+
 const Application = () => {
   const openModal = useModalStore((state) => state.openModal);
 
   return (
-    <section
-      id="application"
-      className={styles.application}
-      aria-labelledby="application-title"
-    >
+    <section id="application" className={styles.application}>
       <div className="container">
         <div className={styles.menu}>
-          <h2 id="application-title" className={styles.title}>
-            Couldn't find <br />
-            the perfect tour?
+          {/* Заголовок сверху, как и был */}
+          <h2 className={styles.title}>
+            Couldn't find <br /> the perfect tour?
           </h2>
-          <main className={styles.menu__list}>
-            <header className={styles.offer}></header>
+
+          <div className={styles.menu__list}>
+            {/* Левая часть: Твой оригинальный блок с фоном-горами */}
+            <div className={styles.offer}></div>
+
+            {/* Правая часть: Обновленные детали */}
             <div className={styles.details}>
               <ul className={styles.advantages}>
-                <li className={styles.advantage}>
-                  <Image
-                    className={styles.icon}
-                    src="/images/check.svg"
-                    alt="Checkmark"
-                    width={24}
-                    height={24}
-                  />
-                  <span className={styles.description}>
-                    Get a tour perfectly matched to your budget
-                  </span>
-                </li>
-                <li className={styles.advantage}>
-                  <Image
-                    className={styles.icon}
-                    src="/images/check.svg"
-                    alt="Checkmark"
-                    width={24}
-                    height={24}
-                  />
-                  <span className={styles.description}>
-                    Enjoy a trip designed around your needs and preferences
-                  </span>
-                </li>
-                <li className={styles.advantage}>
-                  <Image
-                    className={styles.icon}
-                    src="/images/check.svg"
-                    alt="Checkmark"
-                    width={24}
-                    height={24}
-                  />
-                  <span className={styles.description}>
-                    Experience an itinerary tailored to your pace and interests
-                  </span>
-                </li>
+                {ADVANTAGES.map((text, idx) => (
+                  <li key={idx} className={styles.advantage}>
+                    <div className={styles.iconCircle}>
+                      <Image
+                        src="/images/check.svg"
+                        alt="Check"
+                        width={14}
+                        height={14}
+                      />
+                    </div>
+                    <span className={styles.description}>{text}</span>
+                  </li>
+                ))}
               </ul>
               <button className={styles.button} onClick={openModal}>
                 Submit application
               </button>
             </div>
-          </main>
+          </div>
         </div>
       </div>
     </section>

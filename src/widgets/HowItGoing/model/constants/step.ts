@@ -1,8 +1,4 @@
-import kslider from "@/public/images/KYRG2218.jpg";
-import kslider2 from "@/public/images/KYRG2719.jpg";
-import kslider3 from "@/public/images/KYRG2748.jpg";
-import kslider4 from "@/public/images/KYRG2760.jpg";
-import StepCard from "@/src/shared/ui/step-card/StepCard";
+import main1 from "@/public/images/slide10.webp"
 
 type StepCardType = {
   title: string;
@@ -538,146 +534,56 @@ to accommodation or the airport.`,
 
 const kyrgyzWeekSLider = [
   {
-    item: kslider,
-    title: "Kyrgyz Week",
-  },
-  {
-    item: kslider2,
-    title: "Kyrgyz Week",
-  },
-  {
-    item: kslider3,
-    title: "Kyrgyz Week",
-  },
-  {
-    item: kslider4,
+    item: main1, 
     title: "Kyrgyz Week",
   },
 ];
+
 const kgAndKzKSLider = [
   {
-    item: kslider,
-    title: "Kyrgyzstan & Kazakhstan trip",
-  },
-  {
-    item: kslider2,
-    title: "Kyrgyzstan & Kazakhstan trip",
-  },
-  {
-    item: kslider3,
-    title: "Kyrgyzstan & Kazakhstan trip",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "Kyrgyzstan & Kazakhstan trip",
   },
 ];
 
 const mountainAdventureSLider = [
   {
-    item: kslider,
-    title: "Mountain Adventure",
-  },
-  {
-    item: kslider2,
-    title: "Mountain Adventure",
-  },
-  {
-    item: kslider3,
-    title: "Mountain Adventure",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "Mountain Adventure",
   },
 ];
+
 const bestOfKyrgryzstankSLider = [
   {
-    item: kslider,
-    title: "Best of Kyrgyzstan",
-  },
-  {
-    item: kslider2,
-    title: "Best of Kyrgyzstan",
-  },
-  {
-    item: kslider3,
-    title: "Best of Kyrgyzstan",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "Best of Kyrgyzstan",
   },
 ];
+
 const songKulSLider = [
   {
-    item: kslider,
-    title: "Song-Kul Lake — the Heart of Kyrgyzstan",
-  },
-  {
-    item: kslider2,
-    title: "Song-Kul Lake — the Heart of Kyrgyzstan",
-  },
-  {
-    item: kslider3,
-    title: "Song-Kul Lake — the Heart of Kyrgyzstan",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "Song-Kul Lake — the Heart of Kyrgyzstan",
   },
 ];
+
 const altynArashanSLider = [
   {
-    item: kslider,
-    title: "Altyn-Arashan - Ala-kul tour",
-  },
-  {
-    item: kslider2,
-    title: "Altyn-Arashan - Ala-kul tour",
-  },
-  {
-    item: kslider3,
-    title: "Altyn-Arashan - Ala-kul tour",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "Altyn-Arashan - Ala-kul tour",
   },
 ];
+
 const uniqueSLider = [
   {
-    item: kslider,
-    title: "Unique Experience Tour ",
-  },
-  {
-    item: kslider2,
-    title: "Unique Experience Tour ",
-  },
-  {
-    item: kslider3,
-    title: "Unique Experience Tour ",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "Unique Experience Tour ",
   },
 ];
+
 const fourXFourSlider = [
   {
-    item: kslider,
-    title: "4x4 OFF-ROAD ADVENTURE TOUR",
-  },
-  {
-    item: kslider2,
-    title: "4x4 OFF-ROAD ADVENTURE TOUR",
-  },
-  {
-    item: kslider3,
-    title: "4x4 OFF-ROAD ADVENTURE TOUR",
-  },
-  {
-    item: kslider4,
+    item: main1,
     title: "4x4 OFF-ROAD ADVENTURE TOUR",
   },
 ];

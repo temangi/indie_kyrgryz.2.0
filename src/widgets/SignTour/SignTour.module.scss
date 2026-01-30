@@ -56,7 +56,7 @@
   flex-direction: column;
   align-items: center;
   padding: 50px;
-  color: #315a51;
+  color: var(--color-emerald);
   gap: 20px;
   width: 40%;
   text-align: center;
@@ -75,7 +75,7 @@
 
 .description {
   margin-bottom: 20px;
-  color: #315a51;
+  color: var(--color-emerald);
 }
 
 .form {
@@ -86,25 +86,46 @@
 }
 
 .input {
-  color: #315a51;
-  border: 1px solid #5e8c7b;
-  border-radius: 5px;
+  width: 100%; 
+  background-color: transparent;
+  color: var(--color-emerald);
+  border: 1.5px solid rgba(0, 155, 119, 0.3); 
+  border-radius: 8px; 
   outline: none;
-  padding: 20px;
-  cursor: pointer;
-  transition: 0.5s;
+  padding: 14px 20px; 
+  font-family: 'Atyp Text', sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  cursor: text; 
+  &::placeholder {
+    color: var(--color-emerald);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  &:focus {
+    border-color: var(--color-emerald);
+    box-shadow: 0 0 0 4px rgba(0, 155, 119, 0.1); 
+    background-color: rgba(0, 155, 119, 0.02); 
+    
+    &::placeholder {
+      opacity: 0.3; 
+    }
+  }
+  &:hover:not(:focus) {
+    border-color: var(--color-orange);
+  }
 
   &:nth-of-type(3) {
     width: 50%;
-  }
-
-  &::placeholder {
-    color: #315a51;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 }
 
 .button {
-  background: #5e8c7b;
+  background: var(--color-emerald);
   border: none;
   padding: 15px;
   border-radius: 10px;
@@ -117,13 +138,13 @@
   &:hover {
     background: #ffffff;
     transition: 0.4s;
-    color: black;
+    color: var(--color-emerald);
   }
 }
 
 .policy {
   font-size: 0.75rem;
-  color: #315a51;
+  color: var(--color-emerald);
   font-weight: 400;
   text-align: center;
 }

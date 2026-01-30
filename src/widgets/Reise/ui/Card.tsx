@@ -11,17 +11,18 @@ type ReiseCardProps = {
 
 const ReiseCard = (({ img, title, index }: ReiseCardProps) => {
     return (
-      <Link href={`/destination/${index + 1}`} className={styles["reise__card"]}>
-        <figure>
-          <Image
-            src={img}
-            alt={`${title} destination`}
-            className={styles["card__tourImg"]}
-          />
-        </figure>
-        <p className={styles["reise__tourTitle"]}>{title}</p>
-      </Link>
-    )
-  })
+      <div className={styles.cardMain} >
+        <Link href={`/destination/${index + 1}`} className={styles.card} style={{backgroundImage : `url(${img.src})`}}>
+          <div className={styles.cardHead}>
+            <p className={styles.cardTitle}>{title}</p>
+          </div>
+          <button className={styles.cardButton}>
+            more
+          </button>
+        </Link>
+      </div>
+  );
+});
+
 
 export default ReiseCard;

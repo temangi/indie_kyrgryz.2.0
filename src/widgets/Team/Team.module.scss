@@ -1,94 +1,112 @@
 .team {
   background: #fffef8;
-  padding: 50px 0;
-  color: #315a51;
-  .title {
-    font-size: 2.25rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-}
+  padding: 100px 0;
+  color: var(--color-emerald);
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  background: none;
-  gap: 20px;
-  align-items: center;
-  font-size: 1.1875rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 60px;
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--color-orange);
+    font-weight: 500;
+  }
 }
 
-
-
-.subtitle {
-  font-size: 1.125rem;
-  color: #666;
-  font-weight: 300;
-}
-
-.main {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  flex-direction: column;
-}
-
-.member {
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.memberTitle {
-  font-size: 1.6875rem;
-}
-
-.infoBlock {
+.mainGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1.5fr 1fr; // Фото | Текст | Фото
+  gap: 30px;
   align-items: center;
-  padding: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr; // На планшетах два фото сверху
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // На мобилках всё в один ряд
+  }
 }
 
-.memberImg {
-  width: 50%;
-  padding: 10px;
-  border-radius: 10px;
+.photoWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  .memberImg {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover .memberImg {
+    transform: scale(1.05);
+  }
+
+  .nameLabel {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-emerald);
+  }
 }
 
-.memberInfo {
-  padding: 20px;
-  background: #5b7687;
+.contentBlock {
+  background: var(--color-emerald);
   color: white;
-  border-radius: 10px;
+  padding: 40px;
+  border-radius: 20px;
+  height: fit-content;
+  box-shadow: 0 15px 35px rgba(0, 155, 119, 0.2);
+
+  @media (max-width: 1024px) {
+    grid-column: span 2; 
+  }
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
+    order: 3; 
+  }
 }
 
-.role {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: white;
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+
+  strong {
+    color: var(--color-orange);
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 480px) {
-  .team {
-    padding: 32px 0;
-  }
-  .menu {
-    gap: 30px;
-  }
-  .header {
-    gap: 12px;
-  }
-  .memberInfo {
-    padding: 16px;
-  }
+.divider {
+  width: 50px;
+  height: 2px;
+  background: var(--color-orange);
+  opacity: 0.5;
 }

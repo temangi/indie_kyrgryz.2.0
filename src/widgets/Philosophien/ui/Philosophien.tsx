@@ -12,9 +12,8 @@ const Philosophien = () => {
         <div className={styles.menu}>
           <header className={styles.header}>
             <h2 id="philosophien-title" className={styles.title}>
-              Founding story
+              Our Philosophy
             </h2>
-            <p className={styles.subtitle}>[ What we believe ]</p>
           </header>
           <div className={styles.main}>
             <Image
@@ -26,22 +25,22 @@ const Philosophien = () => {
             />
             <ul className={styles.desc}>
               <li>
-                On of the tour days when Jack was just a guide, he and his
-                travelers were trekking to Lake Song-Kul when they stumbled upon
-                a shepherd's yurt — completely by chance. The locals invited
-                them in, and under the bright sun by the lake, a sense of
-                friendship slowly unfolded.
+                We help you feel history not in museums,but on the road —
+                through distance, silence, and movement.
               </li>
               <li>
-                The shepherds' children were swimming, laughter echoed
-                everywhere, and the wife of one of the travelers, watching it
-                all, quietly whispered, 'This is one of the most touching
-                moments of my life.' Tears glimmered in her eyes.
+                This is how a small country opens up as a vast world,
+                experienced personally.For us, travel is a feeling of the road,
+                trust, and calm confidence.
               </li>
               <li>
-                In that moment, Jack realized that his work wasn't just about
-                tours — it was about creating real, unforgettable moments of
-                happiness for people.
+                We design reliable journeys where you don’t just see — you live
+                the nature, culture, and rhythm of Kyrgyzstan.
+              </li>
+              <li>
+                Our goal is not simply to show a destination,but to give you a
+                feeling you will want to return to.Because true experiences make
+                life longer and happier.
               </li>
             </ul>
           </div>

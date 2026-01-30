@@ -11,6 +11,8 @@
   font-size: 2.25rem;
   margin-bottom: 10px;
   text-transform: uppercase;
+  color: var(--color-emerald);
+  font-weight: 600;
 }
 
 .menu {
@@ -24,7 +26,7 @@
 
 .subtitle {
   font-size: 1.125rem;
-  color: #666;
+  color: var(--color-emerald);
 }
 
 .nav {
@@ -46,8 +48,8 @@
 
   &:hover,
   &.active {
-    border-bottom: 3px solid #315a51;
-    color: #315a51;
+    border-bottom: 3px solid var(--color-emerald);
+    color: var(--color-emerald);
     font-weight: 600;
   }
 }
@@ -137,15 +139,19 @@
   cursor: pointer;
   transition: 0.4s ease-in-out;
   z-index: 10;
+  text-transform: uppercase;
+  font-weight: 500;
 
   &:hover {
-    background: rgba(255, 255, 248, 0.5);
+    background: var(--color-orange);
+    border: 1px solid var(--color-orange);
+    color: white;
   }
 }
 
 .allTours {
   text-decoration: none;
-  background: #5b7687;
+  background: var(--color-orange);
   padding: 10px 30px;
   border-radius: 8px;
   color: #fffef8;
@@ -157,10 +163,16 @@
   margin: 40px auto 0;
 
   &:hover {
-    background: #3e546b;
+    background: var(--color-orange);
+    filter: brightness(0.85);
+
     transition: 0.4s ease-in-out;
     text-decoration: none;
     color: #fffef8;
+  }
+  &:active {
+    filter: brightness(0.7);
+    transform: scale(0.98);
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -176,23 +188,23 @@
     color: #315a51;
   }
   &__main {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      width: 100%;
+    }
   }
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .card {
-    width: 100%; 
-  }
-}
 }
 
 @media (max-width: 480px) {
@@ -228,12 +240,12 @@
 }
 
 .tab {
-  transition: 
+  transition:
     opacity 0.4s ease,
     transform 0.4s ease;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
 }
 
 .active {
