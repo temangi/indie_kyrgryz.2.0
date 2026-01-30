@@ -7,7 +7,7 @@ import Navigation from "./nav";
 import styles from "../Header.module.scss";
 import { useModalStore ,useOpenBurgerStore} from "@/src/shared/model/useModalStore";
 import { usePathname } from 'next/navigation';
-import logo from "../logoW.png"
+import logo from "@/public/images/whiteLogo.png"
 
 const Header = () => {
   const pathname = usePathname();

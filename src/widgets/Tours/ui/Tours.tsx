@@ -53,7 +53,7 @@ const Tours = () => {
                 activeTab === "best" ? styles.active : styles.hidden
               }`}
             >
-              {bestTours}
+              {groupTours}
             </div>
 
             <div
@@ -61,7 +61,7 @@ const Tours = () => {
                 activeTab === "group" ? styles.active : styles.hidden
               }`}
             >
-              {groupTours}
+              {bestTours}
             </div>
           </div>
 

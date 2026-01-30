@@ -248,5 +248,68 @@ region.`,
     },
   ],
 };
+const nomadGames = {
+  title: `World Nomad Games — the Living Heart of Nomadic
+Culture`,
+  desc: `Some events cannot be fully understood through photos or videos.
+The World Nomad Games are exactly that kind of experience. They are not just
+competitions, but a rare opportunity to step into the living world of ancient nomadic
+civilizations and feel their strength, rhythm, and philosophy.
+The Games bring together dozens of countries and cultures whose histories were shaped by
+steppes, mountains, and caravan routes. Here, traditions are not performed — they are
+lived.`,
+  geography: `The first World Nomad Games were held in 2014 on the shores of Lake Issyk-Kul in
+Kyrgyzstan. The idea was simple yet powerful: to preserve nomadic culture not in museums,
+but through movement, competition, and real action.
+Today, the Games are an international cultural event hosted by different countries and
+supported by the global cultural community, including UNESCO.`,
+  arr: [
+    {
+      desc: `The Games offer a rare chance to witness sports that have been shaped over centuries:`,
+      arr: [
+        `spectacular equestrian competitions, including the legendary Kok-Boru`,
+        `traditional wrestling styles from Central Asia and beyond`,
+        `traditional archery`,
+        `falconry and hunting traditions`,
+        `ancient nomadic intellectual games`,
+      ],
+      content: `Each discipline reflects the history, character, and spirit of its people.`,
+    },
+    {
+      title: `More Than Sport`,
+      desc: `Beyond competitions, visitors can immerse themselves in a vibrant ethnocultural festival:`,
+      arr: [`nomadic camps and yurts`,
+        `folk music and dance performances`,
+        `traditional craft workshops`,
+        `authentic national cuisine`,
+        `traditional costumes and rituals`],
+      content: `It is a space where past and present come together in one powerful experience.`,
+    },
+    {
+      title: `Why Travelers Should Experience It ?`,
+      desc: `The World Nomad Games offer:`,
+      arr: [
+        `a unique cultural experience beyond standard tourist routes`,
+        `a deeper understanding of Central Asia and its people`,
+        `a journey not only through places, but through meanings`,
+      ],
+      content: `Here, you are not just a spectator — you become part of a living tradition.`,
+    },
+    {
+      title: `A Symbol of Freedom`,
+      unTitle: `The symbol of the World Nomad Games is the snow leopard, representing strength,
+independence, and harmony with nature — values that have defined nomadic life for
+centuries.
+If you want to experience real culture, not staged performances, the World Nomad Games
+deserve a place on your travel itinerary.`,
+      desc: `If you want, I can also:`,
+      arr: [
+        `adapt this text for a tour sales page`,
+        `create a short version for landing pages`,
+        `or rewrite it for social media and travel platforms.`,
+      ],
+    },
+  ],
+};
 
-export const destinationTourInfo = [kelSui,issykKul, songKul ,kelSui];
+export const destinationTourInfo = [nomadGames,issykKul, songKul ,kelSui];

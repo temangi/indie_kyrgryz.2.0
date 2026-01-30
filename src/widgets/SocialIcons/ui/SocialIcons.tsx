@@ -43,7 +43,7 @@ const SocialIcons = () => {
       </Link>
       <Link
         className={styles.socialMedia}
-        href="https://www.instagram.com/ice_jack_sparrow?igsh=MWI1cDRvOTNiYzJ3Mg=="
+        href="https://www.instagram.com/indie_kyrgyz_travel"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"

@@ -1,64 +1,67 @@
 "use client";
-import { useState } from 'react';
-import styles from "../../../widgets/HowItGoing/HowItGoing.module.scss"
-import Image from 'next/image';
+import { useState } from "react";
+import styles from "../../../widgets/HowItGoing/HowItGoing.module.scss";
+import Image from "next/image";
 
 export type StepCardType = {
-    title: string,
-    duration: string,
-    desc: string,
-    place: string
-    id : number
-}
+  title: string;
+  duration: string;
+  desc: string;
+  place: string;
+  id: number;
+};
 
+const StepCard = ({ title, duration, desc, place, id }: StepCardType) => {
+  const [isVisible, setIsVisible] = useState(id === 0);
 
-const StepCard = ({ title, duration, desc, place ,id}: StepCardType) => {
-    const [isVisible, setIsVisible] = useState(id === 0 ? true : false );
+  const toggleMain = () => setIsVisible(!isVisible);
 
-    const toggleMain = () => {
-        setIsVisible(!isVisible);
-    };
+  return (
+    <div 
+      className={`${styles.tourInfo} ${isVisible ? styles.isActive : ""}`} 
+      onClick={toggleMain}
+      role="button"
+      aria-expanded={isVisible}
+    >
+      <header className={styles.tourInfo__header}>
+        <h3 className={styles.tourInfo__title}>
+         {title}
+        </h3>
 
-    return (
-        <div className={styles['tour-info']} onClick={toggleMain}>
-            <header className={styles['tour-info__header']}>
-                <h3 className={`${styles['tour-info__title']} ${isVisible ? styles['isActive'] : ''}`}>
-                    {title}
-                </h3>
-                <button
-                    type="button"
-                    className={`${styles.questionToggle} ${isVisible ? styles.questionToggleActive : ""}`}
-                    aria-expanded={isVisible}
-                >
-                    <Image
-                        className={styles.questionIcon}
-                        src="/images/plus.svg"
-                        alt=""
-                        aria-hidden="true"
-                        width={24}
-                        height={24}
-                    />
-                </button>
-            </header>
+        <div className={`${styles.questionToggle} ${isVisible ? styles.questionToggleActive : ""}`}>
+          <Image
+            className={styles.questionIcon}
+            src="/images/plus.svg"
+            alt=""
+            width={20}
+            height={20}
+          />
+        </div>
+      </header>
 
-            <div className={`${styles['tour-info__content']} ${isVisible ? styles['isActive'] : ''}`}>
-                <div className={styles['tour-info__feature']}>
-                    <span className={styles['tour-info__label']}>
-                        <b className={styles['tour-info__accent']}>Drive</b> : {duration}
-                    </span>
-                </div>
-
-                <p className={styles['tour-info__description']}>{desc}</p>
-
-                <div className={styles['tour-info__feature']}>
-                    <span className={styles['tour-info__label']}>
-                        Accommodation : {place}
-                    </span>
-                </div>
+      <div className={`${styles.tourInfo__content} ${isVisible ? styles.open : ""}`}>
+        <div className={styles.tourInfo__inner}>
+          <div className={styles.tourInfo__details}>
+            <div className={styles.tourInfo__feature}>
+              <span className={styles.tourInfo__icon}>🚗</span>
+              <span className={styles.tourInfo__label}>
+                <strong>Drive:</strong> {duration}
+              </span>
             </div>
 
-        </div>
-    )
-}
+            <p className={styles.tourInfo__description}>{desc}</p>
 
-export default StepCard
+            <div className={styles.tourInfo__feature}>
+              <span className={styles.tourInfo__icon}>🏠</span>
+              <span className={styles.tourInfo__label}>
+                <strong>Accommodation:</strong> {place}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StepCard;

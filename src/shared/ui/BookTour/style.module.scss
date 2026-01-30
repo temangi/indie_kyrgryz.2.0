@@ -1,5 +1,5 @@
 .asideWrapper {
-    position: fixed; // Лучше fixed для модалок/асайдов, чтобы не зависеть от прокрутки
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -10,7 +10,6 @@
     justify-content: center; // Центр по горизонтали
     z-index: 1000;
 
-    // Твои стили скрытия
     opacity: 0;
     visibility: hidden;
     transition: .4s ease-in-out;
@@ -21,7 +20,7 @@
     }
 
     .main {
-        border: 1px solid #315a51;
+        border: 1px solid var(--color-emerald);
         display: flex;
         flex-direction: column;
         padding: 50px;
@@ -55,7 +54,7 @@
                     border: 1px solid #bfc6c9; // Светлая граница по умолчанию
                     font-size: 0.9375rem;
                     background: #ffffff;
-                    color: #315a51;
+                    color: var(--color-emerald);
 
                     // Плавный переход для всех свойств
                     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,7 +65,7 @@
                     }
 
                     &:hover {
-                        border-color: #315a51;
+                        border-color: var(--color-emerald);
                         background: #fcfdfb; // Легкий оттенок при наведении
                         transform: translateY(-1px); // Эффект "приподнимания"
                         box-shadow: 0 4px 12px rgba(49, 90, 81, 0.08); // Мягкая тень
@@ -74,10 +73,9 @@
 
                     &:focus {
                         outline: none; // Убираем стандартный ободок
-                        border-color: #315a51;
+                        border-color: var(--color-emerald);
                         background: #ffffff;
                         transform: translateY(-1px);
-                        // Эффект свечения (Ring effect)
                         box-shadow: 0 0 0 4px rgba(49, 90, 81, 0.15);
 
                         &::placeholder {
@@ -96,7 +94,7 @@
            
 
             .submitBtn {
-                background: #315a51;
+                background: var(--color-emerald);
                 border-radius: 10px;
                 cursor: pointer;
                 border: none;

@@ -9,7 +9,7 @@ import { BookTour } from "../BookTour/BookTour";
 type TourInfo = {
   days : number,
   price : number,
-  duration : number
+  duration : number,
 }
 
 
@@ -17,7 +17,7 @@ export const TourInfo = ({days , price , duration} : TourInfo ) => {
   const openModal = useModalBookATourStore((state) => state.openModal);
 
   return (
-    <section className={styles.mainTour} aria-labelledby="tour-info-title">
+    <section className={styles.mainTour} aria-labelledby="tour-info-title" >
       <div className="container"> 
         <div className={styles.mainContent}>
           <h2 id="tour-info-title" className={styles.title}>

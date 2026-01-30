@@ -13,14 +13,11 @@
 }
 
 .title {
-  font-size: 2.25rem;
+  font-size: 2rem;
   margin-bottom: 10px;
-  text-transform: lowercase;
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  color: #666;
+  text-transform: uppercase;
+  color: var(--color-emerald);
+  font-weight: 600;
 }
 
 .main {
@@ -40,7 +37,7 @@
 
 .desc {
   font-size: 1rem;
-  color: #315a51;
+  color: var(--color-emerald);
   list-style: none;
   padding: 0;
 
