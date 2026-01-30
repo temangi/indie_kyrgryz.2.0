@@ -39,7 +39,6 @@ const Header = () => {
       className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
       style={{ display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex" }}
     >
-      <div className="container">
         <div className={styles.headerBlock}>
           <div className={styles.headerInner}>
             <Link href="/" className={styles.mainLogo} aria-label="Indie Kyrgyz Travel">
@@ -74,7 +73,6 @@ const Header = () => {
             </button>
           </div>
         </div>
-      </div>
     </header>
   );
 };
