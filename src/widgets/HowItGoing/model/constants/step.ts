@@ -532,6 +532,73 @@ to accommodation or the airport.`,
   },
 ];
 
+const dayTrips: StepCardType[] = [
+  {
+    title: "ALA-ARCHA TOUR",
+    desc: `- Morning departure from Bishkek to Ala-Archa National Park, located just 40 minutes from
+the city.
+- Upon arrival, enjoy a relaxed walk through alpine forests, feeding squirrels and birds
+along the trail.
+- Continue with a light hike to a panoramic viewpoint overlooking snow-capped peaks and
+the Ala-Archa valley.
+- Optional cable car ride for wider mountain views.
+- Free time for photos and rest before returning to Bishkek in the late afternoon.`,
+    duration: "Road drive - 100km",
+    place: "-",
+  },
+  {
+    title: "CHUNKURCHACK TOUR",
+    desc: `Bishkek — Chunkurchak Gorge — Bishkek
+- After breakfast, drive from Bishkek to Chunkurchak Gorge, a scenic mountain area known
+for open valleys and rock formations.
+- Enjoy an easy walk through the gorge, crossing suspension bridge and stopping at sky
+resort to ride cable car and zipline. Opportunity to ride a horse in special hills
+- Plenty of time for photos, fresh mountain air, and short explorations of the surrounding
+landscapes.
+- Lunch break in nature or at a local restaurant . In the afternoon, return to Bishkek, arriving
+before evening.`,
+    duration: "Road drive - 90km",
+    place: "-",
+  },
+  {
+    title: "HIKE TOUR",
+    desc: `Bishkek — Alamedin Gorge — Bishkek
+- Morning departure to Alamedin Gorge, one of the greenest gorges near Bishkek.
+- Begin with a hike through forested trails leading to a mountain waterfall, surrounded by
+fresh air and river sounds.
+- After the hike, relax and recover at natural hot springs on the way back.
+- Time to unwind and enjoy the contrast between cool mountain air and warm mineral water.
+- Return to Bishkek in the evening.`,
+    duration: "Toad drive - 90km , Hiking distance- 7-8km",
+    place: "-",
+  },
+  {
+    title: "KOK-MOINOK CANYON TOUR",
+    desc: `Bishkek — Kegeti — Burana Tower — Kok-Moinok Canyons — Bishkek
+- Depart Bishkek in the morning toward Kegeti Gorge for an easy walk to a scenic waterfall.
+- - - Continue to Burana Tower, exploring this ancient Silk Road monument and its
+surrounding balbals.
+- After lunch, head to the colorful Kok-Moinok Canyons, walking through dramatic rock
+formations and viewpoints.
+- A balanced day of nature, history, and landscapes before returning to Bishkek by evening.`,
+    duration: "Road driving - 250km",
+    place: "-",
+  },
+  {
+    title: "HORSEBACK RIDE X ISSYK-KUL",
+    desc: `Bishkek — Chon-Kemin Valley — Issyk-Kul Lake — Bishkek
+- Early departure from Bishkek to the Chon-Kemin Valley.
+- Enjoy a horseback ride through open meadows and mountain scenery, accompanied by
+an experienced horse handler.
+- After the ride, continue toward Issyk-Kul Lake, the pearl of Kyrgyzstan.
+- Time for a walk along the shore, photos, and relaxation by the water. In the late afternoon,
+begin the return drive to Bishkek.`,
+    duration: "Road driving - 280km",
+    place: "-",
+  }
+];
+
+
 const kyrgyzWeekSLider = [
   {
     item: main1, 
@@ -585,6 +652,13 @@ const fourXFourSlider = [
   {
     item: main1,
     title: "4x4 OFF-ROAD ADVENTURE TOUR",
+  },
+];
+
+const dayTripsSlider = [
+  {
+    item: main1,
+    title: "Day Trips from Bishkek",
   },
 ];
 
@@ -720,4 +794,16 @@ guesthouses, and mountain valleys far from urban areas. The program is well bala
 active days followed by rest, allowing travelers to experience Kyrgyzstan’s raw nature
 without extreme physical demands.`,
   },
+  {
+    arr: dayTrips,
+    slider: dayTripsSlider,
+    chapter: "Day Trips from Bishkek",
+    desc: `If you find yourself in Bishkek with a free day or even just half a day, we can help you make
+the most of your time. The mountains, gorges, lakes, and historical sites around the city are
+easily accessible and perfect for short trips. These day tours are designed for travelers who
+want to experience nature, culture, and fresh mountain air without long journeys or overnight
+stays. Each route is carefully planned to be comfortable, scenic, and flexible, allowing you to
+explore Kyrgyzstan’s highlights in a single day and return to Bishkek by evening`,
+  },
+
 ];
