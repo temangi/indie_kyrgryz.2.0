@@ -111,11 +111,13 @@
   transition:
     grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1),
     margin-top 0.3s ease;
+    white-space: pre-line; 
+  line-height: 1.5;
 }
 
 .answerTextVisible {
   grid-template-rows: 1fr;
-  margin-top: 16px; // ← отступ между button и p
+  margin-top: 16px; 
 }
 
 .answerInner {

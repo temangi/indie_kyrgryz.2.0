@@ -8,17 +8,13 @@ import { Team } from "../../widgets/Team";
 import { WhyWe } from "../../widgets/WhyWe";
 import { FAQ } from "../../widgets/FAQ";
 import { Reviews } from "../../widgets/Reviews";
-import { SocialIcons } from "../../widgets/SocialIcons";
 import { faqDataHome } from "@/src/features/faq/model/constant";
-import { ScrollObserver } from "@/src/shared/ui/ScrollObserver";
 import heroImg from "@/public/images/slide11.webp";
 
 const HomePage = () => {
 
   return (
     <>
-      <ScrollObserver />
-
       <MainHero title={"INDIE KYRGYZ TRAVEL"} img={heroImg} unTitle="Discover the beauty of Kyrgyzstan" />
       <Tours />
       <Info />
@@ -29,7 +25,6 @@ const HomePage = () => {
       <WhyWe />
       <FAQ faqData={faqDataHome}/>
       <Reviews />
-      <SocialIcons />
     </>
   );
 };

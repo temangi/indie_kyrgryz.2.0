@@ -93,7 +93,7 @@
 
 .related {
   background: #fdfcf6;
-  padding: 80px 0;
+  padding-bottom: 30px;
 
   .relatedTours {
     &__head {
@@ -181,7 +181,7 @@
 
   &__content {
     display: grid;
-    grid-template-rows: 0fr; // Хитрость для анимации height: auto
+    grid-template-rows: 0fr;
     transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
     &.open {
@@ -190,7 +190,7 @@
   }
 
   &__inner {
-    overflow: hidden; // Обязательно для grid-template-rows
+    overflow: hidden;
   }
 
   &__details {
@@ -206,7 +206,7 @@
   &.isActive &__details {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.1s; // Текст проявляется чуть позже после раскрытия
+    transition-delay: 0.1s;
   }
 
   &__feature {
@@ -230,25 +230,37 @@
     color: #555;
     font-size: 1rem;
     padding: 0 5px;
+    white-space: pre-line;
   }
 }
 
 .questionToggle {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #f0f0f0;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  padding: 0;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  .questionIcon {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+    display: block;
+  }
+  &.questionToggleActive {
+    background-color: var(--color-emerald);
+    transform: rotate(45deg);
 
-  &Active {
-    background: var(--color-emerald);
-    transform: rotate(45deg); // Плюс превращается в "крестик" закрытия
-
-    img {
-      filter: brightness(0) invert(1); // Иконка становится белой
+    .questionIcon {
+      filter: brightness(0) invert(1);
     }
   }
 }

@@ -7,6 +7,7 @@ import s5 from "@/public/images/slide6.webp"
 import s6 from "@/public/images/slide8.webp"
 import s7 from "@/public/images/slide9.webp"
 import s8 from "@/public/images/slide11.webp"
+import s9 from "@/public/images/slide4.webp"
 
 export interface ITour {
     title: string;
@@ -61,5 +62,10 @@ export const tours: ITour[] = [
       id : 8,
       title: "4x4 OFF-ROAD ADVENTURE TOUR",
       day: "10 days" , img : s8
+    },
+    {
+      id : 9,
+      title: "Day Trips from Bishkek",
+      day: "1 day" , img : s9
     },
   ]
