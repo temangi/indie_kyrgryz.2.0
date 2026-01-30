@@ -18,14 +18,15 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  
 }
+
 
 
 .headerBlock {
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .headerInner {
@@ -327,6 +328,7 @@
 
   .header.is-active {
     background: rgb(224, 221, 221);
+    padding: 0;
   }
 
   .allTours {
