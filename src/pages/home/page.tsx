@@ -11,6 +11,7 @@ import { Reviews } from "../../widgets/Reviews";
 import { SocialIcons } from "../../widgets/SocialIcons";
 import { faqDataHome } from "@/src/features/faq/model/constant";
 import { ScrollObserver } from "@/src/shared/ui/ScrollObserver";
+import heroImg from "@/public/images/slide11.webp";
 
 const HomePage = () => {
 
@@ -18,7 +19,7 @@ const HomePage = () => {
     <>
       <ScrollObserver />
 
-      <MainHero />
+      <MainHero title={"INDIE KYRGYZ TRAVEL"} img={heroImg} unTitle="Discover the beauty of Kyrgyzstan" />
       <Tours />
       <Info />
       <Application />
