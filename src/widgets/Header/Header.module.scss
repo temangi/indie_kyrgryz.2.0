@@ -24,24 +24,19 @@
 
 .headerBlock {
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
   display: flex;
   justify-content: center;
-  padding-right: 15px; 
-  padding-left: 15px;
 }
 
 .headerInner {
   display: flex;
   align-items: center;
   border-radius: 20px;
-  background: rgba(224, 221, 221, 0.75); 
+  background: rgb(224, 221, 221 , 0.98); 
   backdrop-filter: blur(5px); 
   -webkit-backdrop-filter: blur(5px); 
   padding: 0 15px;
   width: 95%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: background 0.3s ease;
 }
 
@@ -237,11 +232,12 @@
 @media (max-width: 480px){
   .header{
     justify-content: space-between;
-    padding: 5px 20px;
+    padding: 5px 10px;
   }
   .headerInner{
     justify-content: space-between;
     padding: 5px 20px;
+    width: 100%;
   }
   .headerControllers{
     background: rgb(224, 221, 221);
@@ -294,12 +290,11 @@
   .hamburger {
     display: flex;
   }
-
-
   .headerControllers {
     position: absolute;
     top: 100%;
     left: 0;
+    right: 0;
     min-height: calc(100vh - 100px);
     background: rgb(224, 221, 221);
     padding: 0 15px;
@@ -307,7 +302,7 @@
     visibility: hidden;
     opacity: 0;
     z-index: 8888;
-
+    width: 100%;
     gap: 30px;
     display: flex;
     flex-direction: column;
@@ -340,5 +335,6 @@
   .headerInner{
     justify-content: space-between;
     align-items: center;
+    border: 1px solid rgb(224, 221, 221);
   }
 }
