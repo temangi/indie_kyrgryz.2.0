@@ -18,21 +18,31 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  
 }
 
 
 .headerBlock {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  padding-right: 15px; 
+  padding-left: 15px;
 }
 
 .headerInner {
   display: flex;
   align-items: center;
   border-radius: 20px;
-  background: rgb(224, 221, 221);
+  background: rgba(224, 221, 221, 0.75); 
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px); 
   padding: 0 15px;
-  @media (max-width : 1200px) {
-  }
+  width: 95%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease;
 }
 
 .mainLogo {
