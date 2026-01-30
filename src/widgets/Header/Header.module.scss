@@ -32,12 +32,11 @@
   display: flex;
   align-items: center;
   border-radius: 20px;
-  background: rgba(224, 221, 221, 0.75); 
+  background: rgb(224, 221, 221 , 0.98); 
   backdrop-filter: blur(5px); 
   -webkit-backdrop-filter: blur(5px); 
   padding: 0 15px;
   width: 95%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: background 0.3s ease;
 }
 
@@ -233,11 +232,12 @@
 @media (max-width: 480px){
   .header{
     justify-content: space-between;
-    padding: 5px 20px;
+    padding: 5px 10px;
   }
   .headerInner{
     justify-content: space-between;
     padding: 5px 20px;
+    width: 100%;
   }
   .headerControllers{
     background: rgb(224, 221, 221);
