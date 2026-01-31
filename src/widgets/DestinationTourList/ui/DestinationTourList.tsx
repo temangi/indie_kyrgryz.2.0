@@ -5,9 +5,6 @@ import { useParams } from "next/navigation";
 import { destinationTourInfo } from "../constants/constansts"; 
 import BulletList from "@/src/shared/ui/BulletList/BulletList";
 import Image from "next/image";
-import s1 from "@/public/images/slide1.webp";
-import s2 from "@/public/images/slide2.webp";
-import s3 from "@/public/images/slide3.webp";
 import ReiseCard from "../../Reise/ui/Card";
 import { destiontaionTour } from "../../Reise/constants/constants";
 import Link from "next/link";
@@ -26,7 +23,7 @@ function DestinationTourList() {
     );
   }
 
-  const { arr, title, desc, geography } = currentTour;
+  const { arr, title, desc, geography , imgs } = currentTour;
 
   return (
     <>
@@ -55,7 +52,7 @@ function DestinationTourList() {
             </div>
 
             <aside className={styles.destination__contentImg}>
-              {[s1, s2, s3].map((img, i) => (
+              {imgs.map((img, i) => (
                 <div key={i} className={styles.imageWrapper}>
                   <Image 
                     src={img} 
@@ -74,19 +71,19 @@ function DestinationTourList() {
         <div className="container">
           <div className={styles.relatedTours}>
             <div className={styles.relatedTours__head}>
-              <h2 className={styles.relatedTours__title}>Related Tours</h2>
+              <h2 className={styles.relatedTours__title}>See Also</h2>
               <Link className={styles.relatedTours__link} href="/tours">
                 Watch All Tours
                 <Image src={arrow} alt="" className={styles.relatedTours__arrow} />
               </Link>
             </div>
-            <div className={styles.relatedTours__list}>
+          </div>
+        </div>
+         <div className={styles.relatedTours__list}>
               {destiontaionTour.slice(0, 4).map((el, index) => (
                 <ReiseCard key={index} {...el} index={index} />
               ))}
             </div>
-          </div>
-        </div>
       </section>
     </>
   );

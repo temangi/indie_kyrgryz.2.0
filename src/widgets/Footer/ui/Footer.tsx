@@ -5,7 +5,6 @@ import styles from "../Footer.module.scss";
 
 const SOCIAL_LINKS = [
   { name: "WhatsApp", href: "https://wa.me/996704313147?text=Hi Jake", color: "#25D366" },
-  { name: "Telegram", href: "https://t.me/yourtelegram", color: "#0088cc" },
 ];
 
 const Footer = () => {
@@ -28,7 +27,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ backgroundColor: link.color }} // Динамический цвет
+                  style={{ backgroundColor: link.color }} 
                 >
                   {link.name}
                 </Link>

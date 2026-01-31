@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "../Philosophien.module.scss";
+import phil from "@/public/images/philos.webp";
 
 const Philosophien = () => {
   return (
@@ -16,13 +17,13 @@ const Philosophien = () => {
             </h2>
           </header>
           <div className={styles.main}>
-            <Image
-              className={styles.img}
-              src="/images/Img.svg"
-              alt="Founding story illustration"
-              width={500}
-              height={400}
-            />
+            <div className={styles.imgWrapper}>
+              <Image
+                src={phil}
+                alt="Founding story illustration"
+                className={styles.img}
+              />
+            </div>
             <ul className={styles.desc}>
               <li>
                 We help you feel history not in museums,but on the road —

@@ -23,8 +23,8 @@ const HomePage = () => {
       <Philosophien />
       <Team />
       <WhyWe />
-      <FAQ faqData={faqDataHome}/>
       <Reviews />
+      <FAQ faqData={faqDataHome}/>
     </>
   );
 };

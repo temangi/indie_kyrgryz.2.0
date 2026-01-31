@@ -19,7 +19,9 @@ const Reviews = () => {
               Reviews
             </h2>
           </header>
-          <div className={styles.main}>
+        </div>
+      </div>
+       <div className={styles.main}>
             {arrRev.map((el, index) => {
               return (
                 <Image
@@ -31,8 +33,6 @@ const Reviews = () => {
               )
             })}
           </div>
-        </div>
-      </div>
     </section>
   );
 };

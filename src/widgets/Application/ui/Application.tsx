@@ -17,16 +17,12 @@ const Application = () => {
     <section id="application" className={styles.application}>
       <div className="container">
         <div className={styles.menu}>
-          {/* Заголовок сверху, как и был */}
           <h2 className={styles.title}>
             Couldn't find <br /> the perfect tour?
           </h2>
 
           <div className={styles.menu__list}>
-            {/* Левая часть: Твой оригинальный блок с фоном-горами */}
             <div className={styles.offer}></div>
-
-            {/* Правая часть: Обновленные детали */}
             <div className={styles.details}>
               <ul className={styles.advantages}>
                 {ADVANTAGES.map((text, idx) => (

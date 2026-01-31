@@ -1,11 +1,11 @@
 import { StaticImageData } from "next/image";
 import s1 from "@/public/images/slide14.webp"
-import s2 from "@/public/images/slide10.webp"
-import s3 from "@/public/images/slide5.webp"
-import s4 from "@/public/images/slide7.webp"
-import s5 from "@/public/images/slide6.webp"
-import s6 from "@/public/images/slide8.webp"
-import s7 from "@/public/images/slide9.webp"
+import s2 from "@/public/images/son-kul/s2.webp"
+import s3 from "@/public/images/issyk-kul/i4.webp"
+import s4 from "@/public/images/issyk-kul/i5.webp"
+import s5 from "@/public/images/son-kul/s5.webp"
+import s6 from "@/public/images/kel-suu/k3.webp"
+import s7 from "@/public/images/kel-suu/k4.webp"
 import s8 from "@/public/images/slide11.webp"
 import s9 from "@/public/images/slide4.webp"
 

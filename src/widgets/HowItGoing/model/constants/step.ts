@@ -1,4 +1,4 @@
-import main1 from "@/public/images/slide10.webp"
+import main1 from "@/public/images/main2.webp"
 
 type StepCardType = {
   title: string;
@@ -665,6 +665,9 @@ const dayTripsSlider = [
 export const stepsTours = [
   {
     arr: kyrgyzWeek,
+    route : "1300 km",
+    price : "from 760$",
+    duration : "7 days",
     slider: kyrgyzWeekSLider,
     chapter: "Kyrgyz week",
     desc: "Bishkek , Kockkor , Bishkek",
@@ -673,6 +676,9 @@ export const stepsTours = [
   },
   {
     arr: mountainAdventure,
+    route : "1900 km",
+    price : "from 1090$",
+    duration : "10 days",
     slider: mountainAdventureSLider,
     chapter: "Mountain Adventure",
     desc: "Bishkek , Kockkor , Bishkek",
@@ -681,6 +687,9 @@ export const stepsTours = [
   },
   {
     arr: kzAndKg,
+    route : "2100 km",
+    price : "from 1190$",
+    duration : "10 days",
     slider: kgAndKzKSLider,
     chapter: "Kyrgyzstan & Kazakhstan trip",
     desc: "Almaty ,Bishkek , Naryn, Son-Kul, Karakol, Kockkor , Bishkek",
@@ -715,6 +724,9 @@ unforgettable expedition across Central Asia.`,
   },
   {
     arr: bestOfKyrgryzstan,
+    route : "1500 km",
+    price : "from 830$",
+    duration : "8 days",
     slider: bestOfKyrgryzstankSLider,
     chapter: "Best of Kyrgyzstan",
     desc: "Bishkek , Burana , Konorcheck ,Kyzart ,Kilemche , Song-Kul Lake , Bokonbaevo ,Karakol",
@@ -722,6 +734,9 @@ unforgettable expedition across Central Asia.`,
   },
   {
     arr: songKul,
+    route : "600 km",
+    price : "from 270$",
+    duration : "3 days",
     slider: songKulSLider,
     chapter: "Song-Kul Lake — the Heart of Kyrgyzstan",
     desc: "Bishkek , Kockkor , Bishkek",
@@ -742,6 +757,9 @@ continuing a way of life that has changed little over generations.`,
   },
   {
     arr: altynArashan,
+    route : "50 km",
+    price : "from 740$",
+    duration : "4 days",
     slider: altynArashanSLider,
     chapter: "Altyn-Arashan - Ala-kul tour",
     desc: "Bishkek , Kockkor , Bishkek",
@@ -758,6 +776,9 @@ trekking routes in the Issyk-Kul region.`,
   },
   {
     arr: unique,
+    route : "1300 km",
+    price : "from 1090$",
+    duration : "7 days",
     slider: uniqueSLider,
     chapter: "Unique Experience Tour",
     desc: "Bishkek , Karakol, Altyn-Arashan , Song-Kul ,Kockkor , Skazka ,  Bishkek",
@@ -780,6 +801,9 @@ photographs — they leave with clarity, grounding, and a renewed sense of balan
   },
     {
     arr: fourXFour,
+    route : "1900 km",
+    price : "from 1160$",
+    duration : "10 days",
     slider: fourXFourSlider,
     chapter: "4x4 OFF-ROAD ADVENTURE TOUR",
     desc: "Bishkek , Karakol, Altyn-Arashan , Song-Kul ,Kockkor , Skazka ,  Bishkek",
@@ -796,6 +820,9 @@ without extreme physical demands.`,
   },
   {
     arr: dayTrips,
+    route : "- km",
+    price : "from -",
+    duration : "1 day",
     slider: dayTripsSlider,
     chapter: "Day Trips from Bishkek",
     desc: `If you find yourself in Bishkek with a free day or even just half a day, we can help you make
