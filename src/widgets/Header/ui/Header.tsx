@@ -11,6 +11,7 @@ import {
 } from "@/src/shared/model/useModalStore";
 import { usePathname } from "next/navigation";
 import logo from "@/public/images/whiteLogo.png";
+// import close from "@/public/images/c";
 
 const Header = () => {
   const pathname = usePathname();
@@ -47,59 +48,89 @@ const Header = () => {
   }, [isOpenBurger]);
 
   return (
-    <header
-      className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
-      style={{
-        display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex",
-      }}
-    >
-      <div className={styles.headerBlock}>
-        <div className={styles.headerInner}>
-          <Link
-            href="/"
-            className={styles.mainLogo}
-            aria-label="Indie Kyrgyz Travel"
-          >
-            <Image
-              src={logo}
-              alt="Indie Kyrgyz Travel logo"
-              className={styles.logo}
-            />
-          </Link>
-          <div
-            className={`${styles.headerControllers} ${isOpenBurger ? styles["is-active"] : ""}`}
-            onClick={closeBurger}
-          >
-            <div
-              className={styles.headerControllersWrapper}
-              onClick={(e) => e.stopPropagation()}
+    <>
+      <header
+        className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
+        style={{
+          display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex",
+        }}
+      >
+        <div className={styles.headerBlock}>
+          <div className={styles.headerInner}>
+            <Link
+              href="/"
+              className={styles.mainLogo}
+              aria-label="Indie Kyrgyz Travel"
             >
-              <Navigation />
-              <button
-                type="button"
-                className={styles.headerButton}
-                onClick={openModal}
+              <Image
+                src={logo}
+                alt="Indie Kyrgyz Travel logo"
+                className={styles.logo}
+              />
+            </Link>
+            <div
+              className={`${styles.headerControllers}`}
+            >
+              <div
+                className={styles.headerControllersWrapper}
               >
-                <span className={styles.headerButtonLink}>
-                  sign up for a tour
-                </span>
-              </button>
+                <Navigation />
+                <button
+                  type="button"
+                  className={styles.headerButton}
+                  onClick={openModal}
+                >
+                  <span className={styles.headerButtonLink}>
+                    sign up for a tour
+                  </span>
+                </button>
+              </div>
             </div>
+            <button
+              type="button"
+              className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
+              onClick={isOpenBurger ? closeBurger : openBurger}
+              aria-label="Toggle navigation"
+              aria-expanded={isOpenBurger}
+            >
+              <span className={styles["hamburger-box"]}>
+                <span className={styles["hamburger-inner"]}></span>
+              </span>
+            </button>
           </div>
+        </div>
+      </header>
+      <div
+        className={`${styles.headerControllersMobile} ${isOpenBurger ? styles["is-active"] : ""}`}
+        onClick={closeBurger}
+      >
+        <div
+          className={styles.headerControllersWrapper}
+          onClick={(e) => e.stopPropagation()}
+        >
+           <button
+              type="button"
+              className={`${styles.hamburger} ${styles.closeIconf} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
+              onClick={isOpenBurger ? closeBurger : openBurger}
+              aria-label="Toggle navigation"
+              aria-expanded={isOpenBurger}
+            >
+              <span className={styles["hamburger-box"]}>
+                <span className={styles["hamburger-inner"]}></span>
+              </span>
+            </button>
+          <Navigation />
           <button
             type="button"
-            className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
-            onClick={isOpenBurger ? closeBurger : openBurger}
-            aria-label="Toggle navigation"
-            aria-expanded={isOpenBurger}
+            className={styles.headerButton}
+            onClick={openModal}
           >
-            <span className={styles["hamburger-box"]}>
-              <span className={styles["hamburger-inner"]}></span>
-            </span>
+            <span className={styles.headerButtonLink}>sign up for a tour</span>
           </button>
         </div>
+        
       </div>
-    </header>
+    </>
   );
 };
 
