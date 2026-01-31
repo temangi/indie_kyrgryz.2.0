@@ -81,8 +81,8 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   overflow-x: hidden;
+  scrollbar-gutter: stable; 
 }
-
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
