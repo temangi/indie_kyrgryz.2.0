@@ -35,6 +35,17 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
 
+  useEffect(() => {
+    if (isOpenBurger) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpenBurger]);
+
   return (
     <header
       className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
@@ -57,8 +68,12 @@ const Header = () => {
           </Link>
           <div
             className={`${styles.headerControllers} ${isOpenBurger ? styles["is-active"] : ""}`}
+            onClick={closeBurger}
           >
-            <div className={styles.headerControllersWrapper}>
+            <div
+              className={styles.headerControllersWrapper}
+              onClick={(e) => e.stopPropagation()}
+            >
               <Navigation />
               <button
                 type="button"
