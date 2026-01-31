@@ -31,7 +31,7 @@ const kyrgyzWeek: StepCardType[] = [
     title: "Day 4: Bokonbaevo village – Kochkor village – Song-Kul lake",
     desc: "Morning — eagle hunting show. After depart to Song-Kol lake. Stop in Kochkor along the way. Then depart via Kalmak-Ashuu Pass with breathtaking views. Arrival at Song-Kul Lake, horseback rides along the shore, rest and dinner. Overnight stay at the yurt camp.",
     duration: "200km - 5h",
-    place: "Quest House",
+    place: "Yurt camp at Song-Kul Lake",
   },
   {
     title: "Day 5: Song-Kul lake – Konorchek canyons – Chong-Kemin village",
@@ -84,13 +84,13 @@ const mountainAdventure: StepCardType[] = [
       "Day 5: Bokonbaevo village – Shatyly Panorama – Aksay Canyons – Kochkor village",
     desc: "After breakfast, enjoy an eagle hunting show in Bokonbaevo. Then hike to Shatyly Panorama, taking in views of the valleys and mountains. Continue with lunch and a trekking walk through Aksay Canyons to explore the natural formations. In the evening, transfer to Kochkor, dinner, and rest. Overnight stay in Kochkor.",
     duration: "150km - 4h",
-    place: "Home Stay",
+    place: "Guest House",
   },
   {
     title: "Day 6: Kochkor village – Song-Kul Lake",
     desc: "Morning departure to Song-Kul Lake via Kalmak-Ashuu Pass. Upon arrival, horseback riding along the lakeshore and lunch. Explore the highland scenery, enjoy the landscapes and fresh air. Evening dinner and overnight stay at a yurt camp on the lakeshore.",
     duration: "120km - 3h",
-    place: "Yurt Camp",
+    place: "Yurt Camp at Song-Kul Lake",
   },
   {
     title: "Day 7: Song-Kul Lake – Naryn City",
@@ -102,13 +102,13 @@ const mountainAdventure: StepCardType[] = [
     title: "Day 8: Naryn – Kok-Kyia Valley",
     desc: "After breakfast, depart for Kok-Kyia Valley. Enjoy walks through the valley, taking in the surrounding nature, mountains, and views of Kakshal-Too. Evening dinner and rest at the guesthouse. Overnight stay in Kok-Kyia Valley.",
     duration: "180km - 5h",
-    place: "Guest House",
+    place: "Guest House or yurt camp",
   },
   {
     title: "Day 9: Kok-Kyia Valley – Kel-Suu lake – Kok-Kyia Valley",
     desc: "After lunch, begin trekking to Kel-Suu Lake. Stop for a picnic by the lake and enjoy the surroundings. Optional boat ride on the lake. Return to Kok-Kyia Valley for evening rest. Overnight stay at the guesthouse.",
     duration: "Trekking/Horseback",
-    place: "Guest House",
+    place: "Guest House or yurt camp",
   },
   {
     title: "Day 10: Kok-Kyia Valley – Bishkek City",
@@ -156,7 +156,7 @@ trekking.`,
 springs. Later, the group is transferred by 4WD vehicle back to the city of Karakol, where the
 tour comes to an end.`,
     duration: "vehicle transfer",
-    place: "not included",
+    place: "Guest House",
   },
 ];
 
@@ -224,7 +224,7 @@ alpine plateau and traditional summer grazing area. Guests witness nomadic life 
 enjoy the peaceful atmosphere, and experience the vast openness of Kyrgyzstan’s central
 heartland, where mountains and lake meet in perfect harmony.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Song-Kul Lake",
   },
   {
     title: "Day 4. Song-Kul – Bokonbaevo",
@@ -331,7 +331,7 @@ nomadic culture. Then travel toward Kochkor with a lunch stop along the way. Con
 the high-altitude Son-Kul Lake via the Kalmak-Ashuu Pass. Arrival at the lake,
 accommodation in a yurt camp, evening walk and rest.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Son-Kul Lake",
   },
   {
     title: "Day 7. Son-Kul – Naryn – Kok-Kiya Valley",
@@ -340,7 +340,7 @@ continue toward the remote Kok-Kiya Valley in the At-Bashy area. The landscapes 
 wilder and more dramatic. Upon arrival, check in at a guesthouse and enjoy a quiet evening
 surrounded by mountain scenery.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt campy",
   },
   {
     title: "Day 8. Kok-Kiya Valley – Kel-Suu Lake – Kok-Kiya Valley",
@@ -350,7 +350,7 @@ arriving in the afternoon. Guests leave with memories of mountain passes, highla
 yurts, and nomadic culture, completing a journey through the diverse landscapes and heart
 of Kyrgyzstan.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp",
   },
   {
     title: "Day 9. Kok-Kiya Valley – Naryn",
@@ -425,7 +425,7 @@ plateaus. Along the way, there is an opportunity to observe the life of shepherd
 yurts, shaped by rhythm and nature. Song-Kul welcomes travelers with silence and wind.
 The evening is dedicated to stillness, reflection, and the expansive mountain sky.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Song-Kul Lake",
   },
   {
     title: "Day 7. Song-Kul – Kochkor – Bishkek",
@@ -447,7 +447,7 @@ off-road drive to Kol-Ukok gorge. Short walk through the valley and introduction
 surrounding nature. Accommodation in traditional yurts. Dinner and overnight stay in the
 mountains.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Kol-Ukok",
   },
   {
     title: "Day 2. Kol-Ukok – Kochkor",
@@ -465,7 +465,7 @@ mountain pass, offering wide open landscapes and summer pastures. Upon arrival,
 accommodation in a yurt camp. After lunch, horseback riding along the lakeshore. Free time
 for walks and photography. Dinner and overnight stay in yurts near the lake.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Song-Kul Lake",
   },
   {
     title: "Day 4. Song-Kul – Naryn",
@@ -483,7 +483,7 @@ The road crosses high-altitude valleys, wide pastures, and sparsely populated ar
 Several stops are made for rest and photography. By evening, arrival in the Kok-Kyia area.
 Accommodation in a guesthouse, dinner, and overnight rest.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Kok-Kyia",
   },
   {
     title: "Day 6. Kok-Kyia – Kel-Suu – Kok-Kyia",
@@ -492,7 +492,7 @@ route follows a narrow gorge with steep rock walls. Time for rest and a picnic n
 Boat rides are possible depending on weather conditions. Return along the same trail.
 Evening accommodation and overnight stay in a yurt camp.`,
     duration: "-",
-    place: "Quest House",
+    place: "Yurt camp at Kok-Kyia",
   },
   {
     title: "Day 7. Kok-Kyia – Naryn – Bokonbaevo",

@@ -5,9 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Navigation from "./nav";
 import styles from "../Header.module.scss";
-import { useModalStore ,useOpenBurgerStore} from "@/src/shared/model/useModalStore";
-import { usePathname } from 'next/navigation';
-import logo from "@/public/images/whiteLogo.png"
+import {
+  useModalStore,
+  useOpenBurgerStore,
+} from "@/src/shared/model/useModalStore";
+import { usePathname } from "next/navigation";
+import logo from "@/public/images/whiteLogo.png";
 
 const Header = () => {
   const pathname = usePathname();
@@ -20,8 +23,6 @@ const Header = () => {
 
   const isHomePage = pathname === "/";
   const isVisible = !isHomePage || scrollTop > 500;
-
-
 
   useEffect(() => {
     if (!isHomePage) return;
@@ -37,18 +38,27 @@ const Header = () => {
   return (
     <header
       className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
-      style={{ display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex" }}
+      style={{
+        display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex",
+      }}
     >
-        <div className={styles.headerBlock}>
-          <div className={styles.headerInner}>
-            <Link href="/" className={styles.mainLogo} aria-label="Indie Kyrgyz Travel">
-              <Image
-                src={logo}
-                alt="Indie Kyrgyz Travel logo"
-                className={styles.logo}
-              />
-            </Link>
-            <div className={`${styles.headerControllers} ${isOpenBurger ? styles["is-active"] : ""}`}>
+      <div className={styles.headerBlock}>
+        <div className={styles.headerInner}>
+          <Link
+            href="/"
+            className={styles.mainLogo}
+            aria-label="Indie Kyrgyz Travel"
+          >
+            <Image
+              src={logo}
+              alt="Indie Kyrgyz Travel logo"
+              className={styles.logo}
+            />
+          </Link>
+          <div
+            className={`${styles.headerControllers} ${isOpenBurger ? styles["is-active"] : ""}`}
+          >
+            <div className={styles.headerControllersWrapper}>
               <Navigation />
               <button
                 type="button"
@@ -60,19 +70,20 @@ const Header = () => {
                 </span>
               </button>
             </div>
-            <button
-              type="button"
-              className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
-              onClick={isOpenBurger ? closeBurger : openBurger}
-              aria-label="Toggle navigation"
-              aria-expanded={isOpenBurger}
-            >
-              <span className={styles["hamburger-box"]}>
-                <span className={styles["hamburger-inner"]}></span>
-              </span>
-            </button>
           </div>
+          <button
+            type="button"
+            className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
+            onClick={isOpenBurger ? closeBurger : openBurger}
+            aria-label="Toggle navigation"
+            aria-expanded={isOpenBurger}
+          >
+            <span className={styles["hamburger-box"]}>
+              <span className={styles["hamburger-inner"]}></span>
+            </span>
+          </button>
         </div>
+      </div>
     </header>
   );
 };
