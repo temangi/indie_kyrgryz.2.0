@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "../Reise.module.scss";
 import { StaticImageData } from "next/image";

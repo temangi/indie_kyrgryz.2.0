@@ -1,24 +1,24 @@
-import d1 from "@/public/images/slide9.webp"
-import d2 from "@/public/images/slide2.webp"
-import d3 from "@/public/images/slide12.webp"
-import d5 from "@/public/images/slide14.webp"
+import nomadGames from "@/public/images/nomadMain.jpeg"
+import yssykKul from "@/public/images/issyk-kul/i1.webp"
+import songKul from "@/public/images/son-kul/s1.webp"
+import kelSuu from "@/public/images/kel-suu/k1.webp"
 
 
 export const destiontaionTour = [
      {
-        img : d5,
+        img : nomadGames,
         title : "World Nomad Games"
     },
     {
-        img : d1,
+        img : yssykKul,
         title : "Yssyk-kul"
     },
     {
-        img : d2,
+        img : songKul,
         title : "Song-kul"
     },
     {
-        img : d3,
+        img : kelSuu,
         title : "Kel-Suu"
     },
 ]

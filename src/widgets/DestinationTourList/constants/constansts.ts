@@ -1,3 +1,21 @@
+import kelSuu1 from "@/public/images/kel-suu/k1.webp"
+import kelSuu2 from "@/public/images/kel-suu/k2.webp"
+import kelSuu3 from "@/public/images/kel-suu/k3.webp"
+import kelSuu4 from "@/public/images/kel-suu/k4.webp"
+import kelSuu5 from "@/public/images/kel-suu/k5.webp"
+import kelSuu6 from "@/public/images/kel-suu/k6.webp"
+import yssykKul1 from "@/public/images/issyk-kul/i1.webp"
+import yssykKul2 from "@/public/images/issyk-kul/i2.webp"
+import yssykKul3 from "@/public/images/issyk-kul/i3.webp"
+import yssykKul4 from "@/public/images/issyk-kul/i4.webp"
+import yssykKul5 from "@/public/images/issyk-kul/i5.webp"
+import sonKul1 from "@/public/images/son-kul/s1.webp"
+import sonKul2 from "@/public/images/son-kul/s2.webp"
+import sonKul3 from "@/public/images/son-kul/s3.webp"
+import sonKul4 from "@/public/images/son-kul/s4.webp"
+import sonKul5 from "@/public/images/son-kul/s5.webp"
+import { img } from "framer-motion/client"
+
 const kelSui = {
   title: `Kel-Suu (Kol-Tetiri) — One of the Most Remote and
 Dramatic Places in Kyrgyzstan`,
@@ -77,6 +95,7 @@ into a tourist attraction.`,
 connection with untouched nature.`,
     },
   ],
+  imgs : [kelSuu1, kelSuu2, kelSuu3, kelSuu4, kelSuu5, kelSuu6]
 };
 const issykKul = {
   title: `Issyk-Kul — One of the Best Travel Destinations in
@@ -177,6 +196,7 @@ history.`,
 seeking deeper, more meaningful adventures.`,
     },
   ],
+  imgs : [yssykKul1, yssykKul2, yssykKul3, yssykKul4, yssykKul5]
 };
 const songKul = {
   title: `Song-Kul — The Heart of Nomadic Kyrgyzstan`,
@@ -247,6 +267,7 @@ region.`,
       content: `Song-Kul is ideal for travelers seeking authenticity, slow adventure, and wide open spaces.`,
     },
   ],
+  imgs : [sonKul1, sonKul2, sonKul3, sonKul4, sonKul5]
 };
 const nomadGames = {
   title: `World Nomad Games — the Living Heart of Nomadic
@@ -310,6 +331,7 @@ deserve a place on your travel itinerary.`,
       ],
     },
   ],
+  imgs : [sonKul1, sonKul2, sonKul3, sonKul4, sonKul5]
 };
 
 export const destinationTourInfo = [nomadGames,issykKul, songKul ,kelSui];
