@@ -90,7 +90,8 @@
 .headerControllers {
   width: 100%;
   @media (max-width: 992px) {
-    position: absolute;
+    position: fixed;
+    inset: 0;
     top: 0;
     right: 0;
     width: 100%;
@@ -148,7 +149,7 @@
     }
 
     .headerControllersWrapper {
-      width: 75%;
+      width: 65%;
       max-width: 400px;
       background: white;
       height: 100vh;
