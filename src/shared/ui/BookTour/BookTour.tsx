@@ -7,6 +7,7 @@ import { BookATour } from "./constants/constansts";
 import { useModalBookATourStore } from "@/src/shared/model/useModalStore";
 import Image from "next/image";
 import emailjs from "emailjs-com";
+import { trackEvent } from "../../lib/analytics";
 
 export const BookTour = () => {
 const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const [formData, setFormData] = useState({
 
  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    trackEvent('submit_form', 'header_signup_button');
     try {
       await emailjs.send(
         "service_v70ds7p", 

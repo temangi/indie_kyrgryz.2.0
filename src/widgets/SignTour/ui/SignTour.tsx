@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../SignTour.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
 import emailjs from "emailjs-com";
+import { trackEvent } from "@/src/shared/lib/analytics";
 
 const SignTour = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ const SignTour = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent('submit_form', 'header_signup_button');
 
     try {
       await emailjs.send(
