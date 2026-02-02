@@ -21,14 +21,14 @@ const SignTour = () => {
 
     try {
       await emailjs.send(
-        "service_v70ds7p",      // 🔹 SERVICE ID
-        "template_nfoc636",     // 🔹 TEMPLATE ID
+        "service_v70ds7p", 
+        "template_nfoc636", 
         {
           name: formData.name,
           phone: formData.phone,
           date: formData.date,
         },
-        "ZEvlreN1jxAnXvcQx"    // 🔹 PUBLIC KEY
+        "ZEvlreN1jxAnXvcQx", 
       );
 
       alert("Message sent successfully 🚀");
@@ -66,24 +66,23 @@ const SignTour = () => {
       aria-modal="true"
       aria-hidden={!isOpen}
     >
-      <button
-        type="button"
-        className={styles.close}
-        onClick={closeModal}
-        aria-label="Close sign-up form"
-      >
-        <Image
-          src="/images/close.png"
-          alt=""
-          aria-hidden="true"
-          width={30}
-          height={30}
-        />
-      </button>
-
       <div className={styles.overlay} onClick={closeModal}></div>
 
       <div className={styles.content}>
+        <button
+          type="button"
+          className={styles.close}
+          onClick={closeModal}
+          aria-label="Close sign-up form"
+        >
+          <Image
+            src="/images/close.png"
+            alt=""
+            aria-hidden="true"
+            width={30}
+            height={30}
+          />
+        </button>
         <h2 className={styles.title}>Sign Up for a Tour:</h2>
         <p className={styles.description}>
           Leave your contact information and we will contact you shortly :)

@@ -22,20 +22,18 @@
   &.isOpen {
     opacity: 1;
     visibility: visible;
-    .content{
+    .content {
       opacity: 1;
       visibility: visible;
     }
   }
 }
 
-
-
 .close {
   position: absolute;
-  width: 2%;
-  top: 65px;
-  right: 25%;
+  width: 10%;
+  top: 20px;
+  right: 20px;
   z-index: 10;
   cursor: pointer;
   background: none;
@@ -64,7 +62,7 @@
   position: relative;
   opacity: 0;
   visibility: hidden;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .title {
@@ -86,17 +84,17 @@
 }
 
 .input {
-  width: 100%; 
+  width: 100%;
   background-color: transparent;
   color: var(--color-emerald);
-  border: 1.5px solid rgba(0, 155, 119, 0.3); 
-  border-radius: 8px; 
+  border: 1.5px solid rgba(0, 155, 119, 0.3);
+  border-radius: 8px;
   outline: none;
-  padding: 14px 20px; 
-  font-family: 'Atyp Text', sans-serif;
+  padding: 14px 20px;
+  font-family: "Atyp Text", sans-serif;
   font-size: 16px;
   transition: all 0.3s ease-in-out;
-  cursor: text; 
+  cursor: text;
   &::placeholder {
     color: var(--color-emerald);
     opacity: 0.6;
@@ -104,11 +102,11 @@
   }
   &:focus {
     border-color: var(--color-emerald);
-    box-shadow: 0 0 0 4px rgba(0, 155, 119, 0.1); 
-    background-color: rgba(0, 155, 119, 0.02); 
-    
+    box-shadow: 0 0 0 4px rgba(0, 155, 119, 0.1);
+    background-color: rgba(0, 155, 119, 0.02);
+
     &::placeholder {
-      opacity: 0.3; 
+      opacity: 0.3;
     }
   }
   &:hover:not(:focus) {
@@ -117,7 +115,7 @@
 
   &:nth-of-type(3) {
     width: 50%;
-    
+
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -150,7 +148,6 @@
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-
   .content {
     width: 100%;
     padding: 50px 30px;
@@ -171,8 +168,6 @@
 
   .close {
     width: 8%;
-    top: 170px;
-    right: 6%;
   }
 
   .button {
@@ -185,29 +180,27 @@
 }
 
 @media (max-width: 480px) {
-  .content{
-    width: 100% ;
+  .content {
+    width: 100%;
     padding: 50px 30px;
   }
-  .title{
+  .title {
     font-size: 1.5rem;
   }
-  .description{
+  .description {
     font-size: 0.9375rem;
   }
-  .input{
+  .input {
     padding: 15px 10px;
     font-size: 0.9375rem;
   }
-  .close{
+  .close {
     width: 8%;
-    top: 120px;
-    right: 6%;
   }
-  .button{
+  .button {
     font-size: 1.0625rem;
   }
-  .policy{
+  .policy {
     font-size: 0.625rem;
   }
 }

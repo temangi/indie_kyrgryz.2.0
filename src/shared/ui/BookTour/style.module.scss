@@ -4,10 +4,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); // Добавь полупрозрачный фон (overlay)
+    background: rgba(0, 0, 0, 0.8); 
     display: flex;
-    align-items: center; // Центр по вертикали
-    justify-content: center; // Центр по горизонтали
+    align-items: center; 
+    justify-content: center; 
     z-index: 1000;
 
     opacity: 0;
@@ -20,6 +20,7 @@
     }
 
     .main {
+        position: relative;
         border: 1px solid var(--color-emerald);
         display: flex;
         flex-direction: column;
@@ -50,13 +51,11 @@
                 .input {
                     padding: 15px 10px;
                     cursor: pointer;
-                    border-radius: 8px; // Чуть мягче углы
-                    border: 1px solid #bfc6c9; // Светлая граница по умолчанию
+                    border-radius: 8px; 
+                    border: 1px solid #bfc6c9; 
                     font-size: 0.9375rem;
                     background: #ffffff;
                     color: var(--color-emerald);
-
-                    // Плавный переход для всех свойств
                     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
                     &::placeholder {
@@ -66,13 +65,13 @@
 
                     &:hover {
                         border-color: var(--color-emerald);
-                        background: #fcfdfb; // Легкий оттенок при наведении
-                        transform: translateY(-1px); // Эффект "приподнимания"
-                        box-shadow: 0 4px 12px rgba(49, 90, 81, 0.08); // Мягкая тень
+                        background: #fcfdfb; 
+                        transform: translateY(-1px); 
+                        box-shadow: 0 4px 12px rgba(49, 90, 81, 0.08); 
                     }
 
                     &:focus {
-                        outline: none; // Убираем стандартный ободок
+                        outline: none; 
                         border-color: var(--color-emerald);
                         background: #ffffff;
                         transform: translateY(-1px);
@@ -111,20 +110,16 @@
     .close {
         position: absolute;
         width: 30px;
-        top: 10%;
-        right: 23%;
+        top: 20px;
+        right: 50px;
         z-index: 10;
         cursor: pointer;
         background: none;
         border: none;
         padding: 0;
-        @media (max-width : 550px) {
-            right: 4%;
-            top: 13%;
-        }
-        @media (max-width : 980px) and (min-width : 550px ) {
-            right: 12%;
-            top: 10%;
+         @media (max-width : 550px) {
+            width: 25px;
+            right: 20px;
         }
       }
       
