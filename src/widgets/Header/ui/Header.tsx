@@ -65,15 +65,13 @@ const Header = () => {
               <Image
                 src={logo}
                 alt="Indie Kyrgyz Travel logo"
-                className={styles.logo}
+                className={`${styles.logo} ${scrollTop > 100 ? styles.scrolled : ""}`}
+                priority 
+                quality={100}
               />
             </Link>
-            <div
-              className={`${styles.headerControllers}`}
-            >
-              <div
-                className={styles.headerControllersWrapper}
-              >
+            <div className={`${styles.headerControllers}`}>
+              <div className={styles.headerControllersWrapper}>
                 <Navigation />
                 <button
                   type="button"
@@ -108,17 +106,17 @@ const Header = () => {
           className={styles.headerControllersWrapper}
           onClick={(e) => e.stopPropagation()}
         >
-           <button
-              type="button"
-              className={`${styles.hamburger} ${styles.closeIconf} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
-              onClick={isOpenBurger ? closeBurger : openBurger}
-              aria-label="Toggle navigation"
-              aria-expanded={isOpenBurger}
-            >
-              <span className={styles["hamburger-box"]}>
-                <span className={styles["hamburger-inner"]}></span>
-              </span>
-            </button>
+          <button
+            type="button"
+            className={`${styles.hamburger} ${styles.closeIconf} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
+            onClick={isOpenBurger ? closeBurger : openBurger}
+            aria-label="Toggle navigation"
+            aria-expanded={isOpenBurger}
+          >
+            <span className={styles["hamburger-box"]}>
+              <span className={styles["hamburger-inner"]}></span>
+            </span>
+          </button>
           <Navigation />
           <button
             type="button"
@@ -128,7 +126,6 @@ const Header = () => {
             <span className={styles.headerButtonLink}>sign up for a tour</span>
           </button>
         </div>
-        
       </div>
     </>
   );

@@ -2,13 +2,14 @@
 
 import styles from "../DestinationTourList.module.scss";
 import { useParams } from "next/navigation";
-import { destinationTourInfo } from "../constants/constansts"; 
+import { destinationTourInfo } from "../constants/constansts";
 import BulletList from "@/src/shared/ui/BulletList/BulletList";
 import Image from "next/image";
 import ReiseCard from "../../Reise/ui/Card";
 import { destiontaionTour } from "../../Reise/constants/constants";
 import Link from "next/link";
 import arrow from "@/public/images/aroow.png";
+import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 
 function DestinationTourList() {
   const params = useParams<{ id: string }>();
@@ -18,16 +19,19 @@ function DestinationTourList() {
   if (!currentTour) {
     return (
       <section className={styles.notFound}>
-        <div className="container"><h2>Tour not found</h2></div>
+        <div className="container">
+          <h2>Tour not found</h2>
+        </div>
       </section>
     );
   }
 
-  const { arr, title, desc, geography , imgs } = currentTour;
+  const { arr, title, desc, geography, imgs } = currentTour;
 
   return (
     <>
       <section className={styles.destination}>
+        <BackButton />
         <div className="container">
           <div className={styles.destination__content}>
             <div className={styles.destination__contentText}>
@@ -42,7 +46,9 @@ function DestinationTourList() {
               </div>
 
               <article className={styles.destination__highlights}>
-                <h2 className={styles.destination__subtitle}>What You Can See?</h2>
+                <h2 className={styles.destination__subtitle}>
+                  What You Can See?
+                </h2>
                 <div className={styles.destination__highlightsList}>
                   {arr.map((el, index) => (
                     <BulletList key={index} {...el} />
@@ -54,9 +60,9 @@ function DestinationTourList() {
             <aside className={styles.destination__contentImg}>
               {imgs.map((img, i) => (
                 <div key={i} className={styles.imageWrapper}>
-                  <Image 
-                    src={img} 
-                    alt={`View ${i + 1}`} 
+                  <Image
+                    src={img}
+                    alt={`View ${i + 1}`}
                     className={styles.sidebarImg}
                     placeholder="blur"
                   />
@@ -69,21 +75,29 @@ function DestinationTourList() {
 
       <section className={styles.related}>
         <div className="container">
-          <div className={styles.relatedTours}>
-            <div className={styles.relatedTours__head}>
-              <h2 className={styles.relatedTours__title}>See Also</h2>
-              <Link className={styles.relatedTours__link} href="/tours">
-                Watch All Tours
-                <Image src={arrow} alt="" className={styles.relatedTours__arrow} />
-              </Link>
-            </div>
+          <div className={styles.relatedTours__head}>
+            <h2 className={styles.relatedTours__title}>You might also like</h2>
+
+            <Link
+              className={styles.relatedTours__link}
+              href="/tours"
+              aria-label="View all available tours"
+            >
+              <span>Watch all tours</span>
+              <Image
+                src={arrow}
+                alt="arrow"
+                className={styles.relatedTours__arrow}
+                aria-hidden="true"
+              />
+            </Link>
           </div>
         </div>
-         <div className={styles.relatedTours__list}>
-              {destiontaionTour.slice(0, 4).map((el, index) => (
-                <ReiseCard key={index} {...el} index={index} />
-              ))}
-            </div>
+        <div className={styles.relatedTours__list}>
+          {destiontaionTour.slice(0, 4).map((el, index) => (
+            <ReiseCard key={index} {...el} index={index} />
+          ))}
+        </div>
       </section>
     </>
   );

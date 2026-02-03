@@ -1,0 +1,53 @@
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: var(--color-emerald);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px 0;
+  transition: opacity 0.3s ease;
+  z-index: 20;
+  position: relative;
+  padding: 50px 0;
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
+  .arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+  }
+
+  .text {
+    position: relative;
+    font-size: 1.5rem;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &:hover {
+    color: var(--color-orange);
+    
+
+    .arrow {
+      transform: translateX(-5px); 
+    }
+
+    .text::after {
+      width: 100%;
+    }
+  }
+}

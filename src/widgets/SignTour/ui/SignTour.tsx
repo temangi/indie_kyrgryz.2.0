@@ -7,7 +7,11 @@ import { useModalStore } from "@/src/shared/model/useModalStore";
 import emailjs from "emailjs-com";
 import { trackEvent } from "@/src/shared/lib/analytics";
 
-const SignTour = () => {
+type SignTourProps = {
+  title: string;
+};  
+
+const SignTour = ({title}: SignTourProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -85,7 +89,7 @@ const SignTour = () => {
             height={30}
           />
         </button>
-        <h2 className={styles.title}>Sign Up for a Tour:</h2>
+        <h2 className={styles.title}>{title}</h2>
         <p className={styles.description}>
           Leave your contact information and we will contact you shortly :)
         </p>
