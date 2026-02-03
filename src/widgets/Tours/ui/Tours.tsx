@@ -31,13 +31,16 @@ const Tours = () => {
               onClick={() => setActiveTab("best")}
               className={`${styles.navItem} ${activeTab === "best" ? styles.active : ""}`}
             >
-              Our best tours
+              <span>Our best tours</span>
+              <small>Popular & flexible</small>
             </button>
+
             <button
               onClick={() => setActiveTab("group")}
               className={`${styles.navItem} ${activeTab === "group" ? styles.active : ""}`}
             >
-              Group tour 2025
+              <span>Group tour 2025</span>
+              <small>Fixed dates & groups</small>
             </button>
           </nav>
         </div>

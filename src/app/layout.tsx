@@ -33,13 +33,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SignTour />
+        <SignTour title={"Sign Up for a Tour:"}/>
         <Header />
 
         <main className="page">{children}</main>
         <Footer />
       </body>
-      <GoogleAnalytics gaId="G-6WFTRHW6FD" />
+      <GoogleAnalytics gaId="G-ZT1KZ5H6KZ" />
     </html>
   );
 }

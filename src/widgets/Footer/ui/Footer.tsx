@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import styles from "../Footer.module.scss";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const SOCIAL_LINKS = [
   { name: "WhatsApp", href: "https://wa.me/996704313147?text=Hi Jake", color: "#25D366" },
@@ -28,6 +29,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ backgroundColor: link.color }} 
+                  onClick={() => sendGAEvent("event", "whatsapp_click")}
                 >
                   {link.name}
                 </Link>

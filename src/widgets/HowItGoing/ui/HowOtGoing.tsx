@@ -7,16 +7,17 @@ import StepCard from "@/src/shared/ui/step-card/StepCard";
 import { MainHero } from "../../MainHero";
 import { TourInfo } from "@/src/shared/ui/TourInfo/TourInfo";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
-import { useModalBookATourStore } from "@/src/shared/model/useModalStore";
+import { useModalStore } from "@/src/shared/model/useModalStore";
 import styles from "../HowItGoing.module.scss";
 import { stepsTours } from "../model/constants/step";
 import { tours } from "../../Tours/constants/constants";
 import arrow from "@/public/images/aroow.png";
+import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 
 const HowItGoing = () => {
   const params = useParams<{ id: string }>();
   const currentTour = params?.id ? stepsTours[Number(params.id) - 1] : null;
-  const openModal = useModalBookATourStore((state) => state.openModal);
+  const openModal = useModalStore((state) => state.openModal);
 
   if (!currentTour) {
     return (
@@ -32,6 +33,7 @@ const HowItGoing = () => {
   return (
     <>
       <MainHero title={slider[0].title} img={slider[0].item} />
+      <BackButton />
       <TourInfo route={route} price={price} duration={duration} />
 
       <section className={styles.tourDetails}>
@@ -67,24 +69,33 @@ const HowItGoing = () => {
 
       <section className={styles.related}>
         <div className="container">
-          <div className={styles.relatedTours}>
-            <div className={styles.relatedTours__head}>
-              <h2 className={styles.relatedTours__title}>Related Tours</h2>
-              <Link className={styles.relatedTours__link} href="/tours">
-                Watch All Tours
-                <Image
-                  src={arrow}
-                  alt=""
-                  className={styles.relatedTours__arrow}
-                />
-              </Link>
-            </div>
+          <div className={styles.relatedTours__head}>
+            <h2 className={styles.relatedTours__title}>
+              You might also like
+            </h2>
+
+            <Link
+              className={styles.relatedTours__link}
+              href="/tours"
+              aria-label="View all available tours"
+            >
+              <span>Watch all tours</span>
+              <Image
+                src={arrow}
+                alt="arrow" 
+                className={styles.relatedTours__arrow}
+                aria-hidden="true"
+              />
+            </Link>
           </div>
         </div>
         <div className={styles.relatedTours__list}>
-          {tours.filter((el) => el.id !== Number(params?.id)).slice(0, 5).map((el, index) => (
-            <ToursCard {...el} key={index} />
-          ))}
+          {tours
+            .filter((el) => el.id !== Number(params?.id))
+            .slice(0, 5)
+            .map((el, index) => (
+              <ToursCard {...el} key={index} />
+            ))}
         </div>
       </section>
     </>
