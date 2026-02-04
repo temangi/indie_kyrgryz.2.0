@@ -24,6 +24,12 @@
     color: var(--color-emerald);
     font-weight: 700;
     line-height: 1.1;
+    @media (max-width : 756px) {
+      font-size: 2.5rem;
+    }
+    @media (max-width : 480) {
+      font-size: 2rem;
+    }
   }
 
   &__subtitle {
