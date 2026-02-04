@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "../Team.module.scss";
 import member from "@/public/images/cat.jpg";
+import anush from "@/public/images/anush.webp";
 
 const Team = () => {
   return (
@@ -16,7 +17,7 @@ const Team = () => {
         <div className={styles.mainGrid}>
           <div className={styles.photoWrapper}>
             <Image 
-              src={member} 
+              src={anush} 
               alt="Anuar - Guide" 
               fill 
               className={styles.memberImg} 

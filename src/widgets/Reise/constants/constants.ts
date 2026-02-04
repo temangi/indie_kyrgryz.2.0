@@ -1,4 +1,4 @@
-import nomadGames from "@/public/images/nomadMain.jpeg"
+import nomadGames from "@/public/images/nomadMain.webp"
 import yssykKul from "@/public/images/issyk-kul/i1.webp"
 import songKul from "@/public/images/son-kul/s1.webp"
 import kelSuu from "@/public/images/kel-suu/k1.webp"

@@ -1,4 +1,13 @@
-import main1 from "@/public/images/main2.webp"
+import best from "@/public/images/main-imgs/best.webp"
+import sonkul from "@/public/images/main-imgs/song-kul.webp"
+import altyn from "@/public/images/main-imgs/altyn.webp"
+import off from "@/public/images/main-imgs/off-road.webp"
+import uniq from "@/public/images/main-imgs/unique.webp"
+import kyrgyz from "@/public/images/main-imgs/kyryz.webp"
+import mountain from "@/public/images/main-imgs/moutain.webp"
+import kzKg from "@/public/images/main-imgs/kz&kg.webp"
+import dayTrip from "@/public/images/main-imgs/day.webp"
+
 
 type StepCardType = {
   title: string;
@@ -601,63 +610,63 @@ begin the return drive to Bishkek.`,
 
 const kyrgyzWeekSLider = [
   {
-    item: main1, 
+    item: kyrgyz, 
     title: "Kyrgyz Week",
   },
 ];
 
 const kgAndKzKSLider = [
   {
-    item: main1,
+    item: kzKg,
     title: "Kyrgyzstan & Kazakhstan trip",
   },
 ];
 
 const mountainAdventureSLider = [
   {
-    item: main1,
+    item: mountain,
     title: "Mountain Adventure",
   },
 ];
 
 const bestOfKyrgryzstankSLider = [
   {
-    item: main1,
+    item: best,
     title: "Best of Kyrgyzstan",
   },
 ];
 
 const songKulSLider = [
   {
-    item: main1,
+    item: sonkul,
     title: "Song-Kul Lake — the Heart of Kyrgyzstan",
   },
 ];
 
 const altynArashanSLider = [
   {
-    item: main1,
+    item: altyn,
     title: "Altyn-Arashan - Ala-kul tour",
   },
 ];
 
 const uniqueSLider = [
   {
-    item: main1,
+    item: uniq,
     title: "Unique Experience Tour ",
   },
 ];
 
 const fourXFourSlider = [
   {
-    item: main1,
+    item: off,
     title: "4x4 OFF-ROAD ADVENTURE TOUR",
   },
 ];
 
 const dayTripsSlider = [
   {
-    item: main1,
+    item: dayTrip,
     title: "Day Trips from Bishkek",
   },
 ];
@@ -671,8 +680,20 @@ export const stepsTours = [
     slider: kyrgyzWeekSLider,
     chapter: "Kyrgyz week",
     desc: "Bishkek , Kockkor , Bishkek",
-    title:
-      "This 7-day journey across Kyrgyzstan is a deep immersion into the country’s most iconic landscapes, nomadic traditions, and mountain life.This tour is perfect for travelers who want to see the real Kyrgyzstan — not just from the window of a car, but through short hikes, horseback riding, local experiences, and nights in yurts and mountain lodges. No special physical training is required, but a basic level of activity and curiosity is welcome.Along the route, you will visit Issyk-Kul Lake, the pearl of Central Asia, explore the red rock informations of Skazka Canyon, walk through the dramatic valleys of Jeti-Oguz and Barskoon, and relax in the natural hot springs of Altyn-Arashan with views of snow-covered peaks. You will experience authentic nomadic culture at Song-Kul Lake, ride horses along alpine meadows, and stay in a traditional yurt camp under a star-filled sky. The journey also includes cultural highlights such as an eagle hunting demonstration in Bokonbaevo, the ancient Burana Tower, and a guided city tour of Bishkek, offering a balanced mix of nature, history, and local life. This tour is ideal for: • First-time visitors to Kyrgyzstan •Nature and mountain lovers •Travelers looking for an active but comfortable adventure",
+    title: `This 7-day journey across Kyrgyzstan is a deep immersion into the country’s most iconic
+landscapes, nomadic traditions, and mountain life.
+This tour is perfect for travelers who want to see the real Kyrgyzstan — not just from the
+window of a car, but through short hikes, horseback riding, local experiences, and nights in
+yurts and mountain lodges. No special physical training is required, but a basic level of
+activity and curiosity is welcome.
+Along the route, you will visit Issyk-Kul Lake, the pearl of Central Asia, explore the red rock
+formations of Skazka Canyon, walk through the dramatic valleys of Jeti-Oguz and Barskoon,
+and relax in the natural hot springs of Altyn-Arashan with views of snow-covered peaks.
+You will experience authentic nomadic culture at Song-Kul Lake, ride horses along alpine
+meadows, and stay in a traditional yurt camp under a star-filled sky.
+The journey also includes cultural highlights such as an eagle hunting demonstration in
+Bokonbaevo, the ancient Burana Tower, and a guided city tour of Bishkek, offering a
+balanced mix of nature, history, and local life.`
   },
   {
     arr: mountainAdventure,
@@ -682,8 +703,21 @@ export const stepsTours = [
     slider: mountainAdventureSLider,
     chapter: "Mountain Adventure",
     desc: "Bishkek , Kockkor , Bishkek",
-    title:
-      "This 10-day Mountain Adventure tour is designed for travelers who want to go beyond classic routes and experience the wild, mountainous heart of Kyrgyzstan. The journey combines trekking, high-altitude lakes, remote valleys, and authentic nomadic life, offering a balanced mix of physical activity, cultural immersion, and untouched nature. The tour starts in Bishkek and leads you along the shores of Issyk-Kul Lake to Karakol, followed by a scenic two-day trek to Altyn-Arashan Gorge with overnight stay in the mountains and relaxation in natural hot springs beneath towering alpine peaks. From colorful canyons and legendary waterfalls to eagle hunting traditions and panoramic viewpoints, each day reveals a new landscape and atmosphere. A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mountains, where you will stay in a traditional yurt camp, ride horses along the lakeshore, and experience the calm rhythm of nomadic life. The route then continues deeper into the country to Naryn region, one of the most remote and authentic parts of Kyrgyzstan, leading to Kok-Kyia Valley and the stunning alpine Kel-Suu Lake, surrounded by dramatic cliffs near the Chinese border.",
+    title:`This 10-day Mountain Adventure tour is designed for travelers who want to go beyond
+classic routes and experience the wild, mountainous heart of Kyrgyzstan.
+The journey combines trekking, high-altitude lakes, remote valleys, and authentic nomadic
+life, offering a balanced mix of physical activity, cultural immersion, and untouched nature.
+The tour starts in Bishkek and leads you along the shores of Issyk-Kul Lake to Karakol,
+followed by a scenic two-day trek to Altyn-Arashan Gorge with overnight stay in the
+mountains and relaxation in natural hot springs beneath towering alpine peaks. From colorful
+canyons and legendary waterfalls to eagle hunting traditions and panoramic viewpoints,
+each day reveals a new landscape and atmosphere.
+A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mountains,
+where you will stay in a traditional yurt camp, ride horses along the lakeshore, and
+experience the calm rhythm of nomadic life. The route then continues deeper into the
+country to Naryn region, one of the most remote and authentic parts of Kyrgyzstan, leading
+to Kok-Kyia Valley and the stunning alpine Kel-Suu Lake, surrounded by dramatic cliffs near
+the Chinese border.`
   },
   {
     arr: kzAndKg,
@@ -730,7 +764,11 @@ unforgettable expedition across Central Asia.`,
     slider: bestOfKyrgryzstankSLider,
     chapter: "Best of Kyrgyzstan",
     desc: "Bishkek , Burana , Konorcheck ,Kyzart ,Kilemche , Song-Kul Lake , Bokonbaevo ,Karakol",
-    title: "-",
+    title: `This journey takes you deep into the heart of Kyrgyzstan — from ancient Silk Road
+sites to high-altitude lakes, wild canyons, and vast summer pastures. Travel by car, on
+foot, and on horseback, stay in yurts and mountain guesthouses, meet nomadic
+culture, cross legendary mountain passes, and relax in natural hot springs. A perfect
+balance of adventure, nature, and authentic local life.`,
   },
   {
     arr: songKul,
