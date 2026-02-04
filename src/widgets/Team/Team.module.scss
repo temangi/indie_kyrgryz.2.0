@@ -29,12 +29,12 @@
 
 .mainGrid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr; // Фото | Текст | Фото
+  grid-template-columns: 1fr 1.5fr 1fr; 
   gap: 30px;
   align-items: center;
 
   @media (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr; // На планшетах два фото сверху
+    grid-template-columns: 1fr 1fr; 
     gap: 20px;
   }
 

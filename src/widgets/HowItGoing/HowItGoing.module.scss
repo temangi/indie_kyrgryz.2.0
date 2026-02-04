@@ -4,7 +4,7 @@
 
   &__layout {
     display: grid;
-    grid-template-columns: 1.8fr 1fr; // Основной контент шире
+    grid-template-columns: 2fr 1fr; 
     gap: 60px;
 
     @media (max-width: 992px) {
@@ -27,9 +27,11 @@
   }
 
   &__subtitle {
-    font-size: 1.5rem;
-    color: var(--color-orange);
+    font-size: 1rem;
+    color: #444;
     font-weight: 600;
+    white-space: pre-line;
+    line-height: 1.5;
   }
 
   &__desc {
@@ -95,6 +97,7 @@
   padding: 80px 0;
   border-top: 1px solid rgba(0, 155, 119, 0.1);
   overflow: hidden;
+  background: #fffef8;
 }
 
 .relatedTours__head {
@@ -103,7 +106,7 @@
   align-items: flex-end;
   margin-bottom: 40px;
   color: var(--color-emerald);
-  border-bottom: 1px solid rgba(49, 90, 81, 0.1); 
+  border-bottom: 1px solid rgba(49, 90, 81, 0.1);
   padding-bottom: 15px;
 
   @media (max-width: 640px) {
@@ -114,7 +117,7 @@
 }
 
 .relatedTours__title {
-  font-size: 2.25rem; 
+  font-size: 2.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 
@@ -136,7 +139,7 @@
   transition: color 0.3s ease;
   text-decoration: none !important;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -150,7 +153,7 @@
 
   &:hover {
     color: var(--color-orange);
-    
+
     &::after {
       transform: scaleX(1);
       transform-origin: left;
@@ -165,8 +168,8 @@
   @media (max-width: 640px) {
     font-size: 0.9rem;
     padding: 0;
-  
-    color: var(--color-orange); 
+
+    color: var(--color-orange);
   }
 }
 
@@ -227,7 +230,7 @@
 .tourInfo {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgba(0, 155, 119, 0.15); // Изумрудная полупрозрачная линия
+  border-bottom: 1px solid rgba(0, 155, 119, 0.15);
   cursor: pointer;
   padding: 24px 0;
   transition: background 0.3s ease;
@@ -250,7 +253,7 @@
   }
 
   &__title {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: #333;
     transition: all 0.3s ease;
@@ -309,9 +312,10 @@
   &__description {
     line-height: 1.7;
     color: #555;
-    font-size: 1rem;
-    padding: 0 5px;
+    font-size: 1.1rem;
+    padding: 0 5px 0 20px;
     white-space: pre-line;
+    font-weight: 600;
   }
 }
 
