@@ -11,7 +11,8 @@ import {
 } from "@/src/shared/model/useModalStore";
 import { usePathname } from "next/navigation";
 import logo from "@/public/images/whiteLogo.png";
-// import close from "@/public/images/c";
+import logoS from "@/public/images/logo.png";
+
 
 const Header = () => {
   const pathname = usePathname();
@@ -117,6 +118,19 @@ const Header = () => {
               <span className={styles["hamburger-inner"]}></span>
             </span>
           </button>
+           <Link
+              href=""
+              className={`${styles.mainLogo} ${styles.mainLogoBurger}`}
+              aria-label="Indie Kyrgyz Travel"
+            >
+              <Image
+                src={logoS}
+                alt="Indie Kyrgyz Travel logo"
+                className={`${styles.logo}`}
+                priority 
+                quality={100}
+              />
+            </Link>
           <Navigation />
           <button
             type="button"
