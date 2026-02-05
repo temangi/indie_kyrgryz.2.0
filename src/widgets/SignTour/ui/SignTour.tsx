@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../SignTour.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
-import emailjs from "emailjs-com";
 import { trackEvent } from "@/src/shared/lib/analytics";
 
 type SignTourProps = {
   title: string;
-};  
+  tour?: string;
+};
 
-const SignTour = ({title}: SignTourProps) => {
+const SignTour = ({ title, tour }: SignTourProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,31 +23,32 @@ const SignTour = ({title}: SignTourProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent('submit_form', 'header_signup_button');
+    trackEvent("submit_form", "header_signup_button");
+
+    const tourTitle = tour
+      ? tour
+      : "General Inquiry (User hasn't chosen a tour)";
 
     try {
-      await emailjs.send(
-        "service_v70ds7p", 
-        "template_nfoc636", 
-        {
-          name: formData.name,
-          phone: formData.phone,
-          date: formData.date,
-        },
-        "ZEvlreN1jxAnXvcQx", 
-      );
-
-      alert("Message sent successfully 🚀");
-      closeModal();
-
-      setFormData({
-        name: "",
-        phone: "",
-        date: "",
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          title: tourTitle, 
+        }),
       });
+
+      if (response.ok) {
+        alert("Application sent! We will contact you soon.");
+        closeModal();
+        setFormData({ name: "", phone: "", date: "" }); 
+      } else {
+        throw new Error("Failed to send");
+      }
     } catch (error) {
-      console.error("EmailJS error:", error);
-      alert("Something went wrong 😢");
+      console.error(error);
+      alert("Error sending message. Please try again.");
     }
   };
 
@@ -56,6 +57,15 @@ const SignTour = ({title}: SignTourProps) => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const phoneHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (!value.startsWith("+")) {
+      setFormData((prev) => ({ ...prev, phone: "+" + value }));
+    } else {
+      setFormData((prev) => ({ ...prev, phone: value }));
+    }
   };
 
   useEffect(() => {
@@ -109,9 +119,9 @@ const SignTour = ({title}: SignTourProps) => {
             className={styles.input}
             type="tel"
             name="phone"
-            placeholder="Your phone number"
+            placeholder="Your number (start with +)"
             value={formData.phone}
-            onChange={handleChange}
+            onChange={(e) => phoneHandleChange(e)}
             required
           />
 

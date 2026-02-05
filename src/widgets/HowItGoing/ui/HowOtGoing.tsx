@@ -7,7 +7,6 @@ import StepCard from "@/src/shared/ui/step-card/StepCard";
 import { MainHero } from "../../MainHero";
 import { TourInfo } from "@/src/shared/ui/TourInfo/TourInfo";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
-import { useModalStore } from "@/src/shared/model/useModalStore";
 import styles from "../HowItGoing.module.scss";
 import { stepsTours } from "../model/constants/step";
 import { tours } from "../../Tours/constants/constants";
@@ -17,8 +16,6 @@ import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 const HowItGoing = () => {
   const params = useParams<{ id: string }>();
   const currentTour = params?.id ? stepsTours[Number(params.id) - 1] : null;
-  const openModal = useModalStore((state) => state.openModal);
-
   if (!currentTour) {
     return (
       <section className={styles.notFound}>
@@ -27,14 +24,20 @@ const HowItGoing = () => {
     );
   }
 
-  const { arr, title, desc, chapter, slider, route, price, duration } =
+  const { arr, title, desc, chapter, slider, route, price, duration ,dates } =
     currentTour;
 
   return (
     <>
       <MainHero title={slider[0].title} img={slider[0].item} />
       <BackButton />
-      <TourInfo route={route} price={price} duration={duration} />
+      <TourInfo
+        route={route}
+        price={price}
+        duration={duration}
+        tour={chapter}
+        dates={dates}
+      />
 
       <section className={styles.tourDetails}>
         <div className="container">
@@ -55,12 +58,18 @@ const HowItGoing = () => {
             </div>
 
             <aside className={styles.tourDetails__sidebar}>
-              <div className={styles.stickyBox}>
-                <h4>Book this adventure</h4>
-                <p>Personalized tours across Kyrgyzstan</p>
-                <button className={styles.bookBtn} onClick={openModal}>
-                  Contact Us
-                </button>
+              <div className={styles.tourDetails__gallery}>
+                {slider[0].arr.map((e, index) => (
+                  <div key={index} className={styles.tourDetails__imageWrapper}>
+                    <Image
+                      src={e.src}
+                      alt={chapter}
+                      width={500}
+                      height={700}
+                      className={styles.tourDetails__image} style={{ width: '100%', height: '100%' }}
+                    />
+                  </div>
+                ))}
               </div>
             </aside>
           </div>
@@ -70,9 +79,7 @@ const HowItGoing = () => {
       <section className={styles.related}>
         <div className="container">
           <div className={styles.relatedTours__head}>
-            <h2 className={styles.relatedTours__title}>
-              You might also like
-            </h2>
+            <h2 className={styles.relatedTours__title}>You might also like</h2>
 
             <Link
               className={styles.relatedTours__link}
@@ -82,7 +89,7 @@ const HowItGoing = () => {
               <span>Watch all tours</span>
               <Image
                 src={arrow}
-                alt="arrow" 
+                alt="arrow"
                 className={styles.relatedTours__arrow}
                 aria-hidden="true"
               />

@@ -6,47 +6,58 @@ import img from "@/public/images/s1.webp";
 import { useModalStore } from "@/src/shared/model/useModalStore";
 import { SignTour } from "@/src/widgets/SignTour";
 
-type TourInfo = {
+type TourInfoProps = {
   route: string;
   price: string;
   duration: string;
+  tour: string;
+  dates?: string[]; // Массив дат для групповых туров
 };
 
-export const TourInfo = ({ route, price, duration }: TourInfo) => {
+export const TourInfo = ({ route, price, duration, tour, dates }: TourInfoProps) => {
   const openModal = useModalStore((state) => state.openModal);
 
   return (
-    <section className={styles.mainTour} aria-labelledby="tour-info-title">
+    <section className={styles.mainTour}>
       <div className="container">
         <div className={styles.mainContent}>
-          <h2 id="tour-info-title" className={styles.title}>
-            THE MAIN THINGS ABOUT THE HIKE
-          </h2>
+          <h2 className={styles.title}>THE MAIN THINGS ABOUT THE HIKE</h2>
 
           <div className={styles.details}>
             <article className={styles.infoCard}>
               <aside className={styles.duration}>
-                <div className={styles.durationItem}>
-                  <p className={styles.label}>duration:</p>
-                  <span className={styles.value}>{duration}</span>
-                </div>
+                
+                {dates && dates.length > 0 ? (
+                  <div className={styles.durationItem}>
+                    <p className={styles.label}>Available Dates:</p>
+                    <div className={styles.dateList}>
+                      {dates.map((date, idx) => (
+                        <div key={idx} className={styles.dateBadge}>
+                          <span className={styles.calendarIcon}>📅</span>
+                          {date}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.durationItem}>
+                    <p className={styles.label}>duration:</p>
+                    <span className={styles.value}>{duration}</span>
+                  </div>
+                )}
+
                 <div className={styles.durationItem}>
                   <p className={styles.label}>ROUTE DISTANCE:</p>
-                  <span className={styles.value}>
-                    {route}{" "}
-                    <small className={styles.smallText}>(round trip)</small>
-                  </span>
+                  <span className={styles.value}>{route} <small>(round trip)</small></span>
                 </div>
+
                 <div className={styles.durationItem}>
                   <p className={styles.label}>PRICE:</p>
                   <span className={styles.value}>{price}</span>
                 </div>
               </aside>
-              <Image
-                className={styles.cardImage}
-                src={img}
-                alt="Hiking tour photo"
-              />
+
+              <Image className={styles.cardImage} src={img} alt="Tour" />
             </article>
           </div>
 
@@ -55,7 +66,7 @@ export const TourInfo = ({ route, price, duration }: TourInfo) => {
           </button>
         </div>
       </div>
-      <SignTour title={"Book this Tour"} />
+      <SignTour title={"Book this Tour"} tour={tour} />
     </section>
   );
 };

@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import styles from "../Team.module.scss";
-import member from "@/public/images/cat.jpg";
 import anush from "@/public/images/anush.webp";
+import jack from "@/public/images/jack.webp";
 
 const Team = () => {
   return (
@@ -45,7 +45,7 @@ const Team = () => {
 
           <div className={styles.photoWrapper}>
             <Image 
-              src={member} 
+              src={jack} 
               alt="Jack - Founder" 
               fill 
               className={styles.memberImg} 
