@@ -26,22 +26,16 @@ const Philosophien = () => {
             </div>
             <ul className={styles.desc}>
               <li>
-                We help you feel history not in museums,but on the road —
-                through distance, silence, and movement.
+                We help you feel history not in museums,but on the road — through distance, silence, and movement.
               </li>
               <li>
-                This is how a small country opens up as a vast world,
-                experienced personally.For us, travel is a feeling of the road,
-                trust, and calm confidence.
+                This is how a small country opens up as a vast world, experienced personally.For us, travel is a feeling of the road, trust, and calm confidence.
               </li>
               <li>
-                We design reliable journeys where you don’t just see — you live
-                the nature, culture, and rhythm of Kyrgyzstan.
+                We design reliable journeys where you don’t just see — you live the nature, culture, and rhythm of Kyrgyzstan.
               </li>
               <li>
-                Our goal is not simply to show a destination,but to give you a
-                feeling you will want to return to.Because true experiences make
-                life longer and happier.
+                Our goal is not simply to show a destination,but to give you a feeling you will want to return to , because true experiences make life longer and happier.
               </li>
             </ul>
           </div>

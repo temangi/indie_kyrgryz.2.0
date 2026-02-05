@@ -137,6 +137,10 @@
     transition: 0.4s;
     color: var(--color-emerald);
   }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .policy {
@@ -203,3 +207,7 @@
     font-size: 0.625rem;
   }
 }
+
+
+
+

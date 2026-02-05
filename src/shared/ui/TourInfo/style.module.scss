@@ -121,3 +121,36 @@
     }
   }
 }
+
+.dateList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.dateBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f4f7f6; 
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #315a51;
+  border: 1px solid rgba(49, 90, 81, 0.05);
+  transition: all 0.2s ease;
+  width: fit-content;
+
+  .calendarIcon {
+    font-size: 1.1rem;
+    filter: sepia(1) saturate(5) hue-rotate(-20deg); 
+  }
+
+  &:hover {
+    background: #fff;
+    border-color: var(--color-orange);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateX(5px);
+  }
+}
