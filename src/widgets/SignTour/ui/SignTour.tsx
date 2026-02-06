@@ -35,14 +35,14 @@ const SignTour = ({ title, tour }: SignTourProps) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          title: tourTitle, 
+          title: tourTitle,
         }),
       });
 
       if (response.ok) {
         alert("Application sent! We will contact you soon.");
         closeModal();
-        setFormData({ name: "", phone: "", date: "" }); 
+        setFormData({ name: "", phone: "", date: "" });
       } else {
         throw new Error("Failed to send");
       }
@@ -60,12 +60,10 @@ const SignTour = ({ title, tour }: SignTourProps) => {
   };
 
   const phoneHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (!value.startsWith("+")) {
-      setFormData((prev) => ({ ...prev, phone: "+" + value }));
-    } else {
-      setFormData((prev) => ({ ...prev, phone: value }));
-    }
+    let value = e.target.value;
+    if (!value.startsWith("+")) value = "+" + value;
+
+    setFormData((prev) => ({ ...prev, phone: value }));
   };
 
   useEffect(() => {
@@ -119,9 +117,9 @@ const SignTour = ({ title, tour }: SignTourProps) => {
             className={styles.input}
             type="tel"
             name="phone"
-            placeholder="Your number (start with +)"
+            placeholder="+996 700 123 456"
             value={formData.phone}
-            onChange={(e) => phoneHandleChange(e)}
+            onChange={phoneHandleChange}
             required
           />
 
