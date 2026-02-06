@@ -5,7 +5,7 @@ import "./globals.css";
 import { Header } from "../widgets/Header";
 import { Footer } from "../widgets/Footer";
 import { SignTour } from "../widgets/SignTour";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,9 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Indie Kyrgyz Travel - Tours in Kyrgyzstan & Kazakhstan",
-  description:
-    "Small-group and private tours across Kyrgyzstan and Kazakhstan. Authentic routes, local guides, and unforgettable mountain experiences.",
+  title: {
+    default: "Indie Kyrgyz Travel — Tours in Kyrgyzstan",
+    template: "%s | Indie Kyrgyz Travel",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -29,9 +30,47 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  description:
+    "Authentic tours in Kyrgyzstan. Mountains, lakes, nomads, and unique local experiences.",
+  keywords: [
+    "Kyrgyzstan tours",
+    "Travel Kyrgyzstan",
+    "Silk Road tours",
+    "Central Asia travel",
+    "Indie Kyrgyz",
+    "Tours in Kyrgyzstan",
+    "Hiking Tian Shan", 
+    "Horseback riding Kyrgyzstan", 
+    "Small group tours Central Asia", 
+    "Issyk-Kul adventure", 
+    "Nomadic lifestyle tour", 
+    "Best time to visit Kyrgyzstan", 
+  ],
+  metadataBase: new URL("https://indiekyrgyz.com"),
+  openGraph: {
+    title: "Indie Kyrgyz Travel",
+    description: "Discover authentic tours in Kyrgyzstan with local guides.",
+    url: "https://indiekyrgyz.com",
+    siteName: "Indie Kyrgyz Travel",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Indie Kyrgyz Travel",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Indie Kyrgyz Travel",
+    description: "Authentic tours in Kyrgyzstan with local guides.",
+    images: ["/og.jpg"],
+  },
+  themeColor: "#4f7b6b",
 };
-
-
 
 export default function RootLayout({
   children,
@@ -43,9 +82,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SignTour title={"Sign Up for a Tour:"}/>
+        <SignTour title={"Sign Up for a Tour:"} />
         <Header />
-
         <main className="page">{children}</main>
         <Footer />
       </body>

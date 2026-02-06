@@ -3,20 +3,31 @@
   box-sizing: border-box;
   position: fixed;
   top: 0;
-  z-index: 1000;
   width: 100%;
-  background: none;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease-out;
-  opacity: 0;
   display: flex;
+
+  background: transparent;
+
+  opacity: 0;
+  transform: translateY(-12px);
+  visibility: hidden;
+
+  transition:
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.45s;
+
+  z-index: 1000;
 
   &.isVisible {
     opacity: 1;
-    visibility: visible;
     transform: translateY(0);
-    z-index: 1000;
+    visibility: visible;
+
+    transition:
+      opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s;
   }
 }
 

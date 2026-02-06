@@ -24,7 +24,7 @@ const Header = () => {
   const openBurger = useOpenBurgerStore((state) => state.openModal);
 
   const isHomePage = pathname === "/";
-  const isVisible = !isHomePage || scrollTop > 500;
+  const isVisible = !isHomePage || scrollTop > 300;
 
   useEffect(() => {
     if (!isHomePage) return;
@@ -52,9 +52,6 @@ const Header = () => {
     <>
       <header
         className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
-        style={{
-          display: isHomePage ? (scrollTop < 450 ? "none" : "flex") : "flex",
-        }}
       >
         <div className={styles.headerBlock}>
           <div className={styles.headerInner}>
