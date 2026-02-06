@@ -51,19 +51,19 @@
   z-index: 9999;
   display: flex;
   align-items: center;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-  animation: logoFadeIn 0.8s ease forwards; 
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: logoFadeIn 0.8s ease forwards;
   .logo {
     width: 100px;
     height: auto;
-    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0)); 
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
     transition: all 0.3s ease;
   }
 
   &:hover {
     .logo {
-      filter: drop-shadow(0 4px 8px rgba(49, 90, 81, 0.2)); 
-       transform: scale(1.1); 
+      filter: drop-shadow(0 4px 8px rgba(49, 90, 81, 0.2));
+      transform: scale(1.1);
     }
   }
 
@@ -201,23 +201,23 @@
 
 .headerButton {
   background-color: var(--color-orange);
-  padding: 12px 28px; 
+  padding: 12px 28px;
   border-radius: 10px;
   color: #fff;
-  font-weight: 600; 
+  font-weight: 600;
   text-transform: uppercase;
   border: none;
   font-size: 0.95rem;
-  letter-spacing: 0.5px; 
+  letter-spacing: 0.5px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 4px 15px rgba(255, 126, 0, 0.2); 
+  box-shadow: 0 4px 15px rgba(255, 126, 0, 0.2);
   &:hover {
     background-color: var(--color-orange);
-    transform: translateY(-2px); 
-    box-shadow: 0 6px 20px rgba(255, 126, 0, 0.4); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 126, 0, 0.4);
     filter: brightness(1.1);
   }
   &:active {
@@ -247,14 +247,14 @@
   @media (max-width: 992px) {
     padding: 10px 20px;
     font-size: 0.85rem;
-    width: 100%; 
+    width: 100%;
     text-align: center;
   }
 }
 
 .headerButtonLink {
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .headerControllersMobile {
@@ -336,7 +336,7 @@
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
   }
-  .closeIcon{
+  .closeIcon {
     width: 25px;
     height: 25px;
     position: fixed;
@@ -352,8 +352,50 @@
   top: 2%;
   right: 20%;
 }
-.mainLogoBurger{
+.mainLogoBurger {
   position: fixed;
   top: -10px;
   left: 0;
+}
+
+.mainFooter {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  gap: 20px;
+  .mainSocialLinks {
+    display: flex;
+    gap: 12px;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1.5px solid var(--color-emerald);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      img {
+        width: 18px !important;
+        height: 18px !important;
+        object-fit: contain;
+        filter: brightness(0);
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        background-color: var(--color-orange);
+        border-color: var(--color-orange);
+        transform: translateY(-4px);
+        box-shadow: 0 6px 15px rgba(210, 100, 4, 0.3);
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
 }

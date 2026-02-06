@@ -1,9 +1,16 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import styles from "../Header.module.scss";
-import { useOpenBurgerStore, useNavStore } from "@/src/shared/model/useModalStore";
+import {
+  useOpenBurgerStore,
+  useNavStore,
+} from "@/src/shared/model/useModalStore";
 import { usePathname } from "next/navigation";
+import insta from "@/public/images/insta.svg";
+import whats from "@/public/images/whats.svg";
+import tiktok from "@/public/images/tiktok.svg";
+import youtube from "@/public/images/youtube.svg";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,10 +22,17 @@ const navLinks = [
   { href: "/#footer", label: "Contacts" },
 ];
 
+export const navSocialLinks = [
+  { href: "https://wa.me/996704313147?text=Hi Jake", icon: whats },
+  { href: "https://www.instagram.com/indie_kyrgyz_travel", icon: insta },
+  { href: "https://www.tiktok.com/@indie.kyrgyz.travel?_r=1&_t=ZS-93gw192mKSy", icon: tiktok },
+  { href: "https://youtu.be/ibWlBWMoIxU?si=xXK4sDZp60qBEn-X", icon: youtube },
+];
+
 const Navigation = () => {
   const closeModal = useOpenBurgerStore((state) => state.closeModal);
   const activeSection = useNavStore((state) => state.activeSection);
-  const pathname = usePathname(); 
+  const pathname = usePathname();
 
   return (
     <nav className={styles.headerMenu} aria-label="Primary">

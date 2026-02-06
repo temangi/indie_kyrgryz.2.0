@@ -27,10 +27,15 @@
       0 4px 10px rgba(0, 0, 0, 0.2);
   }
   &__logo {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     position: absolute;
-    top: 30%;
+    top: 20%;
+    @media (max-width: 480px) {
+      width: 150px;
+      height: 150px;
+      top: 25%;
+    }
   }
 }
 

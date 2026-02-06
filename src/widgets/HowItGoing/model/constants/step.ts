@@ -595,7 +595,6 @@ A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mo
   },
   {
     arr: kzAndKg,
-    dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
     route: "2100 km",
     price: "from 1190$",
     duration: "10 days",
@@ -645,6 +644,7 @@ Song-Kul is the second-largest natural lake in Kyrgyzstan, after Issyk-Kul, and 
   },
   {
     arr: altynArashan,
+    dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
     route: "50 km",
     price: "from 740$",
     duration: "4 days",

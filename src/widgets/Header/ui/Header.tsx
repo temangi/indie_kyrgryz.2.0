@@ -12,7 +12,7 @@ import {
 import { usePathname } from "next/navigation";
 import logo from "@/public/images/whiteLogo.png";
 import logoS from "@/public/images/logo.png";
-
+import { navSocialLinks } from "./nav";
 
 const Header = () => {
   const pathname = usePathname();
@@ -67,7 +67,7 @@ const Header = () => {
                 src={logo}
                 alt="Indie Kyrgyz Travel logo"
                 className={`${styles.logo} ${scrollTop > 100 ? styles.scrolled : ""}`}
-                priority 
+                priority
                 quality={100}
               />
             </Link>
@@ -118,27 +118,34 @@ const Header = () => {
               <span className={styles["hamburger-inner"]}></span>
             </span>
           </button>
-           <Link
-              href=""
-              className={`${styles.mainLogo} ${styles.mainLogoBurger}`}
-              aria-label="Indie Kyrgyz Travel"
-            >
-              <Image
-                src={logoS}
-                alt="Indie Kyrgyz Travel logo"
-                className={`${styles.logo}`}
-                priority 
-                quality={100}
-              />
-            </Link>
-          <Navigation />
-          <button
-            type="button"
-            className={styles.headerButton}
-            onClick={openModal}
+          <Link
+            href=""
+            className={`${styles.mainLogo} ${styles.mainLogoBurger}`}
+            aria-label="Indie Kyrgyz Travel"
           >
-            <span className={styles.headerButtonLink}>sign up for a tour</span>
-          </button>
+            <Image
+              src={logoS}
+              alt="Indie Kyrgyz Travel logo"
+              className={`${styles.logo}`}
+              priority
+              quality={100}
+            />
+          </Link>
+          <Navigation />
+          <footer className={styles.mainFooter}>
+            <nav className={styles.mainSocialLinks}>
+              {navSocialLinks.map(({href,icon} , index) => <Link key={index} href={href}><Image height={30} width={30} src={icon} alt={href}/></Link>)}
+            </nav>
+            <button
+              type="button"
+              className={styles.headerButton}
+              onClick={openModal}
+            >
+              <span className={styles.headerButtonLink}>
+                sign up for a tour
+              </span>
+            </button>
+          </footer>
         </div>
       </div>
     </>
