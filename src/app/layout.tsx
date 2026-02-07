@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  verification: {
+    google: "INDENYzI76CJmpjmsxDBroe2Db_ZnyxDkGtLZtvHckA",
+  },
   description:
     "Authentic tours in Kyrgyzstan. Mountains, lakes, nomads, and unique local experiences.",
   keywords: [
