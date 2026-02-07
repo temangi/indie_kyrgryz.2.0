@@ -12,7 +12,7 @@ type MainHeroProps = {
 const MainHero = ({title , unTitle ,  img}: MainHeroProps) => {
   return (
     <section className={styles.main} style={{backgroundImage: `url(${img.src})`}}>
-      <Image src={logo} className={styles["main__logo"]} alt="Indie kyrgyz travel" />
+      <Image priority src={logo} className={styles["main__logo"]} alt="Indie kyrgyz travel" />
       <p className={styles["main__desc"]}>
         {unTitle}
       </p>

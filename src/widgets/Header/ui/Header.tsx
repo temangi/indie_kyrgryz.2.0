@@ -65,7 +65,7 @@ const Header = () => {
                 alt="Indie Kyrgyz Travel logo"
                 className={`${styles.logo} ${scrollTop > 100 ? styles.scrolled : ""}`}
                 priority
-                quality={100}
+                quality={75}
               />
             </Link>
             <div className={`${styles.headerControllers}`}>
@@ -125,7 +125,7 @@ const Header = () => {
               alt="Indie Kyrgyz Travel logo"
               className={`${styles.logo}`}
               priority
-              quality={100}
+              quality={75}
             />
           </Link>
           <Navigation />

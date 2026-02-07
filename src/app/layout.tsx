@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     "Central Asia travel",
     "Indie Kyrgyz",
     "Tours in Kyrgyzstan",
-    "Hiking Tian Shan", 
-    "Horseback riding Kyrgyzstan", 
-    "Small group tours Central Asia", 
-    "Issyk-Kul adventure", 
-    "Nomadic lifestyle tour", 
-    "Best time to visit Kyrgyzstan", 
+    "Hiking Tian Shan",
+    "Horseback riding Kyrgyzstan",
+    "Small group tours Central Asia",
+    "Issyk-Kul adventure",
+    "Nomadic lifestyle tour",
+    "Best time to visit Kyrgyzstan",
   ],
   metadataBase: new URL("https://indiekyrgyz.com"),
   openGraph: {
@@ -72,8 +72,12 @@ export const metadata: Metadata = {
     description: "Authentic tours in Kyrgyzstan with local guides.",
     images: ["/og.jpg"],
   },
-  themeColor: "#4f7b6b",
+
 };
+export const viewport = {
+  themeColor: "#4f7b6b",
+}
+
 
 export default function RootLayout({
   children,
@@ -89,8 +93,8 @@ export default function RootLayout({
         <Header />
         <main className="page">{children}</main>
         <Footer />
+        <GoogleAnalytics gaId="G-ZT1KZ5H6KZ" />
       </body>
-      <GoogleAnalytics gaId="G-ZT1KZ5H6KZ" />
     </html>
   );
 }
