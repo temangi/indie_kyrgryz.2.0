@@ -81,6 +81,10 @@
     outline: none;
     border-color: var(--color-orange);
   }
+  &:focus + .label { 
+    color: var(--color-orange);
+    opacity: 1;
+  }
 
   &[type="datetime-local"] {
     cursor: pointer;
@@ -139,4 +143,18 @@
     width: 100%;
     height: auto;
   }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-emerald);
+  opacity: 0.8;
+  margin-left: 2px;
 }

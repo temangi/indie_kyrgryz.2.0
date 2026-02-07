@@ -101,42 +101,58 @@ const SignTour = ({ title, tour }: SignTourProps) => {
         <p className={styles.description}>
           Leave your contact information and we will contact you shortly :)
         </p>
-
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            className={styles.input}
-            type="text"
-            name="name"
-            placeholder="What's your name?"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          <div className={styles.inputGroup}>
+            <label htmlFor="name" className={styles.label}>
+              Your Name
+            </label>
+            <input
+              id="name"
+              className={styles.input}
+              type="text"
+              name="name"
+              placeholder="e.g. John Doe"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <input
-            className={styles.input}
-            type="tel"
-            name="phone"
-            placeholder="+996 700 123 456"
-            value={formData.phone}
-            onChange={phoneHandleChange}
-            required
-          />
+          <div className={styles.inputGroup}>
+            <label htmlFor="phone" className={styles.label}>
+              Phone Number
+            </label>
+            <input
+              id="phone"
+              className={styles.input}
+              type="tel"
+              name="phone"
+              placeholder="+996 700 123 456"
+              value={formData.phone}
+              onChange={phoneHandleChange}
+              required
+            />
+          </div>
 
-          <input
-            className={styles.input}
-            type="datetime-local"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-          />
+          <div className={styles.inputGroup}>
+            <label htmlFor="date" className={styles.label}>
+              Preferred Date
+            </label>
+            <input
+              id="date"
+              className={styles.input}
+              type="datetime-local"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <button type="submit" className={styles.button}>
             SEND
           </button>
         </form>
-
         <p className={styles.policy}>
           By clicking the "SEND" button, you agree to the privacy policy and
           consent to the processing of personal data.
