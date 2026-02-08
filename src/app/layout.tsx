@@ -72,12 +72,10 @@ export const metadata: Metadata = {
     description: "Authentic tours in Kyrgyzstan with local guides.",
     images: ["/og.jpg"],
   },
-
 };
 export const viewport = {
   themeColor: "#4f7b6b",
-}
-
+};
 
 export default function RootLayout({
   children,
@@ -93,7 +91,7 @@ export default function RootLayout({
         <Header />
         <main className="page">{children}</main>
         <Footer />
-        <GoogleAnalytics gaId="G-ZT1KZ5H6KZ" />
+        <GoogleAnalytics gaId="G-6WFTRHW6FD" />
       </body>
     </html>
   );
