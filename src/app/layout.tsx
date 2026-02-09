@@ -121,6 +121,13 @@ export default function RootLayout({
     ],
     sameAs: ["https://www.instagram.com/ice_jack_sparrow"],
   };
+  const websiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Indie Kyrgyz Travel",
+    alternateName: "Indie Kyrgyz",
+    url: "https://indiekyrgyz.com",
+  };
 
   return (
     <html lang="en">
@@ -138,6 +145,13 @@ export default function RootLayout({
             __html: JSON.stringify(organizationLd),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteLd),
+          }}
+        />
+
         <main className="page">{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-6WFTRHW6FD" />
