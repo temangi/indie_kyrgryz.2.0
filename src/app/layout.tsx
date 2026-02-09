@@ -104,10 +104,11 @@ export default function RootLayout({
 }>) {
   const organizationLd = {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
+    "@type": "Organization",
     name: "Indie Kyrgyz Travel",
     url: "https://indiekyrgyz.com",
-    logo: "https://indiekyrgyz.com/og.jpg",
+    logo: "https://indiekyrgyz.com/logo.png",
+    image: "https://indiekyrgyz.com/og.jpg",
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -118,9 +119,7 @@ export default function RootLayout({
         availableLanguage: ["en", "ru"],
       },
     ],
-    sameAs: [
-      "https://www.instagram.com/ice_jack_sparrow?igsh=MWI1cDRvOTNiYzJ3Mg==",
-    ],
+    sameAs: ["https://www.instagram.com/ice_jack_sparrow"],
   };
 
   return (
@@ -131,7 +130,7 @@ export default function RootLayout({
         <SignTour title={"Sign Up for a Tour:"} />
         <Header />
         <Suspense fallback={null}>
-        <GoogleAnalyticsTracker />
+          <GoogleAnalyticsTracker />
         </Suspense>
         <script
           type="application/ld+json"

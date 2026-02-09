@@ -14,7 +14,7 @@ import sonKul2 from "@/public/images/son-kul/s2.webp"
 import sonKul3 from "@/public/images/son-kul/s3.webp"
 import sonKul4 from "@/public/images/son-kul/s4.webp"
 import sonKul5 from "@/public/images/son-kul/s5.webp"
-import { img } from "framer-motion/client"
+
 
 const kelSui = {
   title: `Kel-Suu (Kol-Tetiri) — One of the Most Remote and

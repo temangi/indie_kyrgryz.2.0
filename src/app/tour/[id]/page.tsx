@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${currentTour.title} | Indie Kyrgyz Travel`,
-    description: currentTour.desc,
+    title: `${currentTour.chapter} | Indie Kyrgyz Travel`,
+    description: currentTour.title,
     openGraph: {
-      title: currentTour.title,
-      description: currentTour.desc,
+      title: currentTour.chapter,
+      description: currentTour.title,
       images: [
         {
           url: "/og.jpg", 
