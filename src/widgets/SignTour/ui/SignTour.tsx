@@ -23,7 +23,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent("submit_form", "header_signup_button");
+    trackEvent("submit_form", { label: "header_signup_button" });
 
     const tourTitle = tour
       ? tour
