@@ -7,6 +7,7 @@ import { Footer } from "../widgets/Footer";
 import { SignTour } from "../widgets/SignTour";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -129,7 +130,9 @@ export default function RootLayout({
       >
         <SignTour title={"Sign Up for a Tour:"} />
         <Header />
+        <Suspense fallback={null}>
         <GoogleAnalyticsTracker />
+        </Suspense>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
