@@ -6,6 +6,7 @@ import { Header } from "../widgets/Header";
 import { Footer } from "../widgets/Footer";
 import { SignTour } from "../widgets/SignTour";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +23,10 @@ export const metadata: Metadata = {
     default: "Indie Kyrgyz Travel — Tours in Kyrgyzstan",
     template: "%s | Indie Kyrgyz Travel",
   },
+  applicationName: "Indie Kyrgyz Travel",
+  creator: "Indie Kyrgyz Travel",
+  publisher: "Indie Kyrgyz Travel",
+  category: "Travel",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -29,6 +34,9 @@ export const metadata: Metadata = {
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
+  },
+  alternates: {
+    canonical: "/",
   },
   verification: {
     google: "INDENYzI76CJmpjmsxDBroe2Db_ZnyxDkGtLZtvHckA",
@@ -49,6 +57,17 @@ export const metadata: Metadata = {
     "Nomadic lifestyle tour",
     "Best time to visit Kyrgyzstan",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   metadataBase: new URL("https://indiekyrgyz.com"),
   openGraph: {
     title: "Indie Kyrgyz Travel",
@@ -82,6 +101,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationLd = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    name: "Indie Kyrgyz Travel",
+    url: "https://indiekyrgyz.com",
+    logo: "https://indiekyrgyz.com/og.jpg",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: "+996704313147",
+        email: "indiekyrgyztravel@gmail.com",
+        areaServed: "KG",
+        availableLanguage: ["en", "ru"],
+      },
+    ],
+    sameAs: [
+      "https://www.instagram.com/ice_jack_sparrow?igsh=MWI1cDRvOTNiYzJ3Mg==",
+    ],
+  };
+
   return (
     <html lang="en">
       <body
@@ -89,6 +129,13 @@ export default function RootLayout({
       >
         <SignTour title={"Sign Up for a Tour:"} />
         <Header />
+        <GoogleAnalyticsTracker />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationLd),
+          }}
+        />
         <main className="page">{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-6WFTRHW6FD" />
