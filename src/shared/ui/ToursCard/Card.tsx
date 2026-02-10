@@ -1,19 +1,29 @@
-import styles from "@/src/widgets/Tours/Tours.module.scss"
-import Link from "next/link"
-import { ITour } from "@/src/widgets/Tours/constants/constants"
+import styles from "@/src/widgets/Tours/Tours.module.scss";
+import Link from "next/link";
+import { ITour } from "@/src/widgets/Tours/constants/constants";
+import Image from "next/image";
 
-export const ToursCard = ({id , title ,day, img}  : ITour ) => {
-    return (
-        <div className={styles.cardMain} >
-        <Link href={`/tour/${id}`} className={styles.card} style={{backgroundImage : `url(${img.src})`}}>
-          <div className={styles.cardHead}>
-            <p className={styles.cardTitle}>{title}</p>
-            <span className={styles.cardDuration}>{day}</span>
-          </div>
-          <button className={styles.cardButton}>
-            tour program
-          </button>
-        </Link>
-      </div>
-    )
-}
+export const ToursCard = ({ id, title, day, img,href }: ITour) => {
+  return (
+    <div className={styles.cardMain}>
+      <Link href={`/${href}/${id + 1}`} className={styles.card}>
+        <Image
+          src={img}
+          alt={title}
+          fill
+          priority={id === 0}
+          className={styles.cardImage}
+        />
+
+        <div className={styles.cardContent}>
+           <div className={styles.cardHead}>
+          <p className={styles.cardTitle}>{title}</p>
+           <span className={styles.cardDuration}>{day}</span>
+        </div>
+         
+          <button className={styles.cardButton}>Tour program</button>
+        </div>
+      </Link>
+    </div>
+  );
+};

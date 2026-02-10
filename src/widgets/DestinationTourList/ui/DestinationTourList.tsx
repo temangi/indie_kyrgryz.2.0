@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { destinationTourInfo } from "../constants/constansts";
 import BulletList from "@/src/shared/ui/BulletList/BulletList";
 import Image from "next/image";
-import ReiseCard from "../../Reise/ui/Card";
+import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import { destiontaionTour } from "../../Reise/constants/constants";
 import Link from "next/link";
 import arrow from "@/public/images/aroow.png";
@@ -95,7 +95,7 @@ function DestinationTourList() {
         </div>
         <div className={styles.relatedTours__list}>
           {destiontaionTour.slice(0, 4).map((el, index) => (
-            <ReiseCard key={index} {...el} index={index} />
+            <ToursCard key={index} {...el} id={index} />
           ))}
         </div>
       </section>
