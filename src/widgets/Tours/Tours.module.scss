@@ -213,16 +213,21 @@
     position: relative;
   }
 
-  &:hover {
-    text-decoration: none;
-    color: #fffef8;
-    &::after {
-      transform: scale(1.1);
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: none;
+      color: #fffef8;
+      &::after {
+        transform: scale(1.1);
+      }
     }
   }
 
   @media (max-width: 480px) {
     padding: 30px;
+    &::after {
+      transform: none !important;
+    }
   }
 }
 
