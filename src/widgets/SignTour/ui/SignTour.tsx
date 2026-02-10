@@ -120,7 +120,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
 
           <div className={styles.inputGroup}>
             <label htmlFor="phone" className={styles.label}>
-              Phone Number
+              WhatsApp Number
             </label>
             <input
               id="phone"

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { stepsTours } from "@/src/widgets/HowItGoing/model/constants/step";
 
 type Props = {
-  params: Promise<{ id: string }>; 
+  params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -15,6 +15,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Tour Not Found | Indie Kyrgyz Travel",
     };
   }
+  const tourLd = {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    name: currentTour.chapter,
+    description: currentTour.title,
+    image: currentTour.slider[0].item,
+    touristType: "Adventure travelers",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: currentTour.price,
+      availability: "https://schema.org/InStock",
+    },
+  };
 
   return {
     title: `${currentTour.chapter} | Indie Kyrgyz Travel`,
@@ -24,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: currentTour.title,
       images: [
         {
-          url: "/og.jpg", 
+          url: "/og.jpg",
           width: 1200,
           height: 630,
         },
