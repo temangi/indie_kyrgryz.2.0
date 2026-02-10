@@ -2,7 +2,7 @@
 
 import styles from "../Reise.module.scss";
 import { destiontaionTour } from "../constants/constants";
-import ReiseCard from "./Card";
+import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 
 const Reise = () => {
   return (
@@ -14,7 +14,7 @@ const Reise = () => {
       </div>
       <div className={styles.content}>
           {destiontaionTour.map((el, index) => (
-            <ReiseCard key={index} {...el} index={index} />
+            <ToursCard key={index} {...el} id={index} />
           ))}
         </div>
     </section>
