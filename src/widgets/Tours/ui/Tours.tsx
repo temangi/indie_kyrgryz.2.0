@@ -21,10 +21,7 @@ const Tours = () => {
       <div className="container">
         <div className={styles.menu}>
           <header className={styles.header}>
-            <h2 className={styles.title}>tour poster</h2>
-            <p className={styles.subtitle}>
-              Kyrgyzstan, Kazakhstan & Uniq Experience
-            </p>
+            <h2 className={styles.title}>tours & dates</h2>
           </header>
           <nav className={styles.nav}>
             <button
