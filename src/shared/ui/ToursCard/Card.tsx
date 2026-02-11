@@ -6,7 +6,7 @@ import Image from "next/image";
 export const ToursCard = ({ id, title, day, img,href }: ITour) => {
   return (
     <div className={styles.cardMain}>
-      <Link href={`/${href}/${id + 1}`} className={styles.card}>
+      <Link href={`/${href}/${id}`} className={styles.card}>
         <Image
           src={img}
           alt={title}

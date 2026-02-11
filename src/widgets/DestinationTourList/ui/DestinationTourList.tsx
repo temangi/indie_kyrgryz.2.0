@@ -15,6 +15,7 @@ function DestinationTourList() {
   const params = useParams<{ id: string }>();
   const tourId = Number(params?.id);
   const currentTour = destinationTourInfo[tourId - 1];
+  console.log(currentTour)
 
   if (!currentTour) {
     return (
@@ -94,9 +95,11 @@ function DestinationTourList() {
           </div>
         </div>
         <div className={styles.relatedTours__list}>
-          {destiontaionTour.slice(0, 4).map((el, index) => (
-            <ToursCard key={index} {...el} id={index} />
-          ))}
+          {destiontaionTour
+            .filter((el) => el.id !== Number(params?.id))
+            .map((el, index) => (
+              <ToursCard key={index} {...el}/>
+            ))}
         </div>
       </section>
     </>
