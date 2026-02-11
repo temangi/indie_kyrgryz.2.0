@@ -14,7 +14,7 @@ const Reise = () => {
       </div>
       <div className={styles.content}>
           {destiontaionTour.map((el, index) => (
-            <ToursCard key={index} {...el} id={index} />
+            <ToursCard key={index} {...el} />
           ))}
         </div>
     </section>

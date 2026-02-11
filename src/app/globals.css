@@ -84,7 +84,7 @@ body {
   scrollbar-gutter: stable; 
 }
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: instant;
   scrollbar-gutter: stable;
 }
 
