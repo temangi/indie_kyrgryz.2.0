@@ -20,11 +20,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://indiekyrgyz.com",
+  },
   title: {
     default: "Indie Kyrgyz Travel — Tours in Kyrgyzstan",
     template: "%s | Indie Kyrgyz Travel",
   },
   applicationName: "Indie Kyrgyz Travel",
+  appleWebApp: {
+    title: "Indie Kyrgyz Travel",
+    statusBarStyle: "default",
+  },
   creator: "Indie Kyrgyz Travel",
   publisher: "Indie Kyrgyz Travel",
   category: "Travel",
@@ -35,9 +42,6 @@ export const metadata: Metadata = {
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
-  },
-  alternates: {
-    canonical: "/",
   },
   verification: {
     google: "INDENYzI76CJmpjmsxDBroe2Db_ZnyxDkGtLZtvHckA",
