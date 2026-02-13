@@ -8,6 +8,7 @@ import { SignTour } from "../widgets/SignTour";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
 import { Suspense } from "react";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +38,12 @@ export const metadata: Metadata = {
   category: "Travel",
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon-768x768.png", sizes: "768x768", type: "image/png" },
+      { url: "/favicon-1648x1648.png", sizes: "1648x1648", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -95,7 +99,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Indie Kyrgyz Travel",
+        alt: "Mountains of Kyrgyzstan - Indie Kyrgyz Travel",
       },
     ],
     locale: "en_US",
@@ -106,6 +110,14 @@ export const metadata: Metadata = {
     title: "Indie Kyrgyz Travel",
     description: "Authentic tours in Kyrgyzstan with local guides.",
     images: ["/og.jpg"],
+  },
+  manifest: "/site.webmanifest",
+  authors: [{ name: "Indie Kyrgyz Travel" }],
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
   },
 };
 export const viewport = {
@@ -146,27 +158,45 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5MGR9Q44"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <SignTour title={"Sign Up for a Tour:"} />
         <Header />
         <Suspense fallback={null}>
           <GoogleAnalyticsTracker />
         </Suspense>
-        <script
+        <Script
+          id="organization-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationLd),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+          strategy="afterInteractive"
         />
-        <script
+        <Script
+          id="organization-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="website-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteLd),
           }}
         />
-
         <main className="page">{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-6WFTRHW6FD" />

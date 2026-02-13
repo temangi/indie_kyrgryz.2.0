@@ -3,12 +3,12 @@ import { Metadata } from "next";
 import { stepsTours } from "@/src/widgets/HowItGoing/model/constants/step";
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const currentTour = stepsTours[Number(id) - 1];
+  const { slug } = await params;
+  const currentTour = stepsTours.find((tour) => tour.slug === slug);
 
   if (!currentTour) {
     return {

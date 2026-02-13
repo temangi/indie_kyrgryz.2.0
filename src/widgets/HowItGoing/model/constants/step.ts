@@ -559,6 +559,7 @@ const dayTripsSlider = [
 export const stepsTours = [
   {
     arr: kyrgyzWeek,
+    slug : "kyrgyz-week",
     route: "1300 km",
     price: "from 760$",
     duration: "7 days",
@@ -579,6 +580,7 @@ balanced mix of nature, history, and local life.`,
   },
   {
     arr: mountainAdventure,
+    slug : "mountain-adventure",
     route: "1900 km",
     price: "from 1090$",
     duration: "10 days",
@@ -595,6 +597,7 @@ A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mo
   },
   {
     arr: kzAndKg,
+    slug : "kyrgyzstan-kazakhstan",
     route: "2100 km",
     price: "from 1190$",
     duration: "10 days",
@@ -619,6 +622,7 @@ Throughout the tour, guests experience a powerful balance of adventure and comfo
   {
     arr: bestOfKyrgryzstan,
     dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
+    slug : "best-of-kyrgyzstan",
     route: "1500 km",
     price: "from 830$",
     duration: "8 days",
@@ -630,6 +634,7 @@ Throughout the tour, guests experience a powerful balance of adventure and comfo
   {
     arr: songKul,
     dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
+    slug : "song-kul",
     route: "600 km",
     price: "from 270$",
     duration: "3 days",
@@ -645,6 +650,7 @@ Song-Kul is the second-largest natural lake in Kyrgyzstan, after Issyk-Kul, and 
   {
     arr: altynArashan,
     dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
+    slug : "altyn-arashan",
     route: "50 km",
     price: "from 740$",
     duration: "4 days",
@@ -658,6 +664,7 @@ The trek is designed for active travelers who want to experience the raw beauty 
   {
     arr: unique,
     route: "1300 km",
+    slug : "unique-experience",
     price: "from 1090$",
     duration: "7 days",
     slider: uniqueSLider,
@@ -673,6 +680,7 @@ This tour is not about physical challenge or constant activity. It is a gentle j
   },
   {
     arr: fourXFour,
+    slug : "4x4-off-road-adventure",
     route: "1900 km",
     price: "from 1160$",
     duration: "10 days",
@@ -685,6 +693,7 @@ This expedition-style tour blends adventure and comfort, combining 4x4 travel wi
   },
   {
     arr: dayTrips,
+    slug : "day-trips",
     route: "- km",
     price: "from -",
     duration: "1 day",

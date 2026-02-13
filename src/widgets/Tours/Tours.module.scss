@@ -183,6 +183,22 @@
     transition: background 0.3s ease;
   }
 
+  .cardBadge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 4;
+    background: var(--color-orange);
+    color: #fffef8;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
   .cardContent {
     position: relative;
     z-index: 3;
@@ -214,16 +230,16 @@
     transition: all 0.3s ease;
 
     &:hover {
-      background:var(--color-orange);
+      background: var(--color-orange);
       color: #fffef8;
-      border: 1.5px  solid var(--color-orange);
+      border: 1.5px solid var(--color-orange);
       text-decoration: none;
     }
   }
 
   &:hover {
     text-decoration: none;
-     color: #fffef8;
+    color: #fffef8;
     @media (hover: hover) {
       .cardImage {
         transform: scale(1.05);
@@ -238,10 +254,16 @@
     height: 260px;
 
     .cardContent {
-      padding: 30px;
+      padding: 50px 30px;
     }
     .cardImage {
       transform: none !important;
+    }
+    .cardBadge {
+      top: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
     }
   }
 }

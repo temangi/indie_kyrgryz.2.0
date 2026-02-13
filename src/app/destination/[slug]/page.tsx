@@ -3,12 +3,12 @@ import { Metadata } from "next";
 import { destinationTourInfo } from "@/src/widgets/DestinationTourList/constants/constansts";
 
 type Props = {
-  params: Promise<{ id: string }>; 
+  params: Promise<{ slug: string }>; 
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const currentTour = destinationTourInfo[Number(id) - 1];
+  const { slug } = await params;
+  const currentTour = destinationTourInfo.find((tour) => tour.slug === slug);
 
   if (!currentTour) {
     return {

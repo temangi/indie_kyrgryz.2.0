@@ -14,8 +14,8 @@ import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 
 const HowItGoing = () => {
-  const params = useParams<{ id: string }>();
-  const currentTour = params?.id ? stepsTours[Number(params.id) - 1] : null;
+  const params = useParams<{ slug: string }>();
+  const currentTour = params?.slug ? stepsTours.find(tour => tour.slug === params.slug) : null;
   if (!currentTour) {
     return (
       <section className={styles.notFound}>
@@ -98,7 +98,7 @@ const HowItGoing = () => {
         </div>
         <div className={styles.relatedTours__list}>
           {tours
-            .filter((el) => el.id !== Number(params?.id))
+            .filter((el) => el.slug !== params?.slug)
             .slice(0, 5)
             .map((el, index) => (
               <ToursCard {...el} key={index} />

@@ -12,11 +12,8 @@ import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 
 function DestinationTourList() {
-  const params = useParams<{ id: string }>();
-  const tourId = Number(params?.id);
-  const currentTour = destinationTourInfo[tourId - 1];
-  console.log(currentTour)
-
+  const params = useParams<{ slug: string }>();
+  const currentTour = destinationTourInfo.find(tour => tour.slug === params?.slug);
   if (!currentTour) {
     return (
       <section className={styles.notFound}>
@@ -96,7 +93,7 @@ function DestinationTourList() {
         </div>
         <div className={styles.relatedTours__list}>
           {destiontaionTour
-            .filter((el) => el.id !== Number(params?.id))
+            .filter((el) => el.slug !== params?.slug)
             .map((el, index) => (
               <ToursCard key={index} {...el}/>
             ))}
