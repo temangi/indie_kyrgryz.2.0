@@ -37,9 +37,12 @@ export const metadata: Metadata = {
   category: "Travel",
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon-768x768.png", sizes: "768x768", type: "image/png" },
+      { url: "/favicon-1648x1648.png", sizes: "1648x1648", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -95,7 +98,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Indie Kyrgyz Travel",
+        alt: "Mountains of Kyrgyzstan - Indie Kyrgyz Travel",
       },
     ],
     locale: "en_US",
@@ -107,6 +110,15 @@ export const metadata: Metadata = {
     description: "Authentic tours in Kyrgyzstan with local guides.",
     images: ["/og.jpg"],
   },
+  manifest: "/site.webmanifest",
+  authors: [{ name: "Indie Kyrgyz Travel" }],
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+  telephone: false,
+  address: false,
+  email: false,
+},
+
 };
 export const viewport = {
   themeColor: "#4f7b6b",

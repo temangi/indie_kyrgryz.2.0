@@ -15,6 +15,7 @@ export interface ITour {
   id: number;
   img: StaticImageData;
   href: string;
+  slug: string;
 }
 
 export const tours: ITour[] = [
@@ -24,6 +25,7 @@ export const tours: ITour[] = [
     day: "8 days",
     img: s1,
     href: "tour",
+    slug: "best-of-kyrgyzstan",
   },
   {
     id: 5,
@@ -31,6 +33,7 @@ export const tours: ITour[] = [
     day: "3 days",
     img: s2,
     href: "tour",
+    slug: "song-kul",
   },
   {
     id: 6,
@@ -38,6 +41,7 @@ export const tours: ITour[] = [
     day: "4 days",
     img: s3,
     href: "tour",
+    slug: "altyn-arashan",
   },
   {
     id: 3,
@@ -45,6 +49,7 @@ export const tours: ITour[] = [
     day: "11 days",
     img: s4,
     href: "tour",
+    slug: "kyrgyzstan-kazakhstan",
   },
   {
     id: 1,
@@ -52,6 +57,7 @@ export const tours: ITour[] = [
     day: "7 days",
     img: s5,
     href: "tour",
+    slug: "kyrgyz-week",
   },
   {
     id: 2,
@@ -59,6 +65,7 @@ export const tours: ITour[] = [
     day: "10 days",
     img: s6,
     href: "tour",
+    slug: "mountain-adventure",
   },
   {
     id: 7,
@@ -66,6 +73,7 @@ export const tours: ITour[] = [
     day: "8 Days",
     img: s7,
     href: "tour",
+    slug: "unique-experience",
   },
   {
     id: 8,
@@ -73,6 +81,7 @@ export const tours: ITour[] = [
     day: "10 days",
     img: s8,
     href: "tour",
+    slug: "4x4-off-road-adventure",
   },
   {
     id: 9,
@@ -80,5 +89,6 @@ export const tours: ITour[] = [
     day: "1 day",
     img: s9,
     href: "tour",
+    slug: "day-trips",
   },
 ];
