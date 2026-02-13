@@ -8,6 +8,7 @@ import { SignTour } from "../widgets/SignTour";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
 import { Suspense } from "react";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,11 +115,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Indie Kyrgyz Travel" }],
   referrer: "origin-when-cross-origin",
   formatDetection: {
-  telephone: false,
-  address: false,
-  email: false,
-},
-
+    telephone: false,
+    address: false,
+    email: false,
+  },
 };
 export const viewport = {
   themeColor: "#4f7b6b",
@@ -158,27 +158,45 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5MGR9Q44"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <SignTour title={"Sign Up for a Tour:"} />
         <Header />
         <Suspense fallback={null}>
           <GoogleAnalyticsTracker />
         </Suspense>
-        <script
+        <Script
+          id="organization-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationLd),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+          strategy="afterInteractive"
         />
-        <script
+        <Script
+          id="organization-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="website-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteLd),
           }}
         />
-
         <main className="page">{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-6WFTRHW6FD" />
