@@ -27,15 +27,15 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  background-color: #000;
+  background-color: transparent; 
 
   &__bg {
-    object-fit: cover;
     z-index: 0;
-    animation: zoomBackground 3s ease-out;
-    filter: brightness(1);
+    object-fit: cover;
+    animation: zoomBackground 10s linear infinite alternate; 
+    opacity: 1 !important; 
+    will-change: transform;
   }
-
   &__logo {
     width: 200px;
     height: auto;
