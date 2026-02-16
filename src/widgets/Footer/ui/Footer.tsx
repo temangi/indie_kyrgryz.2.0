@@ -17,7 +17,7 @@ const Footer = () => {
           <section className={styles.footer__contact}>
             <h3 className={styles.footer__title}>Still have questions?</h3>
             <p className={styles.footer__description}>
-              Contact us on WhatsApp or Telegram, and we'll answer all your questions.
+              Contact us on WhatsApp, and we'll answer all your questions.
             </p>
             
             <div className={styles.footer__socials}>

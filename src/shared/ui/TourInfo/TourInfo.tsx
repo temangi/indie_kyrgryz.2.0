@@ -2,7 +2,7 @@
 
 import styles from "./style.module.scss";
 import Image from "next/image";
-import img from "@/public/images/s1.webp";
+import img from "@/public/images/slide3.webp";
 import { useModalStore } from "@/src/shared/model/useModalStore";
 import { SignTour } from "@/src/widgets/SignTour";
 

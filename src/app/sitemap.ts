@@ -5,14 +5,14 @@ import { destiontaionTour } from "../widgets/Reise/constants/constants";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://indiekyrgyz.com";
 
-  const tourUrls = stepsTours.map((tour, index) => ({
-    url: `${baseUrl}/tour/${index + 1}`, 
+  const tourUrls = stepsTours.map((tour) => ({
+    url: `${baseUrl}/tour/${tour.slug}`, 
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
-  const destinationUrls = destiontaionTour.map((dest,index) => ({
-    url: `${baseUrl}/destination/${index + 1 || dest.title.toLowerCase()}`,
+  const destinationUrls = destiontaionTour.map((dest) => ({
+    url: `${baseUrl}/destination/${dest.slug}`,
     lastModified: new Date(),
     priority: 0.7,
   }));
@@ -30,12 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/destination`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
     },
   ];
 

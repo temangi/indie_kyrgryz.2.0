@@ -15,8 +15,8 @@ import youtube from "@/public/images/youtube.svg";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/tours", label: "Tours" },
-  { href: "/#reise", label: "Destinations" },
-  { href: "/#info", label: "About Us" },
+  { href: "/#reise", label: "Explore" },
+  { href: "/#info", label: "About" },
   { href: "/#team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#footer", label: "Contacts" },
