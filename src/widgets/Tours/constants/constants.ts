@@ -46,7 +46,7 @@ export const tours: ITour[] = [
   {
     id: 3,
     title: "Kyrgyzstan & Kazakhstan trip",
-    day: "11 days",
+    day: "10 days",
     img: s4,
     href: "tour",
     slug: "kyrgyzstan-kazakhstan",

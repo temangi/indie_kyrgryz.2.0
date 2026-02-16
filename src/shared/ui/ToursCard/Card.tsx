@@ -11,12 +11,11 @@ export const ToursCard = ({ id, slug, title, day, img, href }: ITour) => {
           src={img}
           alt={title}
           fill
+          sizes="100vw"
           priority={id === 0}
           className={styles.cardImage}
         />
-        <div className={styles.cardBadge}>
-          {day}
-        </div>
+        <div className={styles.cardBadge}>{day}</div>
 
         <div className={styles.cardContent}>
           <div className={styles.cardHead}>

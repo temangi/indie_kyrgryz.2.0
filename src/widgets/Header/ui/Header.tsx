@@ -65,6 +65,7 @@ const Header = () => {
                 alt="Indie Kyrgyz Travel logo"
                 className={`${styles.logo} ${scrollTop > 100 ? styles.scrolled : ""}`}
                 priority
+                sizes="100vw"
                 quality={75}
               />
             </Link>
@@ -125,13 +126,18 @@ const Header = () => {
               alt="Indie Kyrgyz Travel logo"
               className={`${styles.logo}`}
               priority
+              sizes="100vw"
               quality={75}
             />
           </Link>
           <Navigation />
           <footer className={styles.mainFooter}>
             <nav className={styles.mainSocialLinks}>
-              {navSocialLinks.map(({href,icon} , index) => <Link key={index} href={href}><Image height={30} width={30} src={icon} alt={href}/></Link>)}
+              {navSocialLinks.map(({ href, icon }, index) => (
+                <Link key={index} href={href}>
+                  <Image height={30} width={30} src={icon} alt={href} />
+                </Link>
+              ))}
             </nav>
             <button
               type="button"
