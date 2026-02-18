@@ -94,8 +94,8 @@ function DestinationTourList() {
         <div className={styles.relatedTours__list}>
           {destiontaionTour
             .filter((el) => el.slug !== params?.slug)
-            .map((el, index) => (
-              <ToursCard key={index} {...el}/>
+            .map((el) => (
+              <ToursCard key={el.id} {...el}/>
             ))}
         </div>
       </section>

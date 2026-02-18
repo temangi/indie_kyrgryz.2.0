@@ -100,8 +100,8 @@ const HowItGoing = () => {
           {tours
             .filter((el) => el.slug !== params?.slug)
             .slice(0, 5)
-            .map((el, index) => (
-              <ToursCard {...el} key={index} />
+            .map((el) => (
+              <ToursCard {...el} key={el.id} />
             ))}
         </div>
       </section>
