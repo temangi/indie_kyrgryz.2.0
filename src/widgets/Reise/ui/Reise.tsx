@@ -13,8 +13,8 @@ const Reise = () => {
         </header> 
       </div>
       <div className={styles.content}>
-          {destiontaionTour.map((el, index) => (
-            <ToursCard key={index} {...el} />
+          {destiontaionTour.map((el) => (
+            <ToursCard key={el.id} {...el} />
           ))}
         </div>
     </section>

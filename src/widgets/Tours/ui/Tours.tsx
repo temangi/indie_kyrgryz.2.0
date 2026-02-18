@@ -8,10 +8,10 @@ import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 
 const bestTours = tours
   .slice(0, 3)
-  .map((el, index) => <ToursCard {...el} key={index} />);
+  .map((el) => <ToursCard {...el} key={el.id} />);
 const groupTours = tours
   .slice(3, 6)
-  .map((el, index) => <ToursCard {...el} key={index} />);
+  .map((el) => <ToursCard {...el} key={el.id} />);
 
 const Tours = () => {
   const [activeTab, setActiveTab] = useState("best");

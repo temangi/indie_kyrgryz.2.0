@@ -14,12 +14,11 @@ const ToursPage = () => {
                         ALL TOURS
                     </h1>
                     <div className={styles["tour-page-list__main"]}>
-                        {tours.map((el, index) => <ToursCard {...el} key={index} />)}
+                        {tours.map((el) => <ToursCard {...el} key={el.id} />)}
                     </div>
                 </section>
             </div>
             <Application />
-
             <Reise />
         </>
     )
