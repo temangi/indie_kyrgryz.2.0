@@ -156,15 +156,13 @@ export default function RootLayout({
     url: "https://indiekyrgyz.com",
   };
 
-  return (
+return (
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5MGR9Q44"
@@ -173,6 +171,19 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17961172694"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17961172694');
+          `}
+        </Script>
+
         <SignTour title={"Sign Up for a Tour:"} />
         <Header />
         <Suspense fallback={null}>
@@ -185,17 +196,10 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script
-          id="organization-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
-          strategy="afterInteractive"
-        />
-        <Script
           id="website-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteLd),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+          strategy="afterInteractive"
         />
         <main className="page">{children}</main>
         <Footer />
