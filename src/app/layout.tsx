@@ -9,6 +9,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
 import { Suspense } from "react";
 import Script from "next/script";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -156,21 +157,15 @@ export default function RootLayout({
     url: "https://indiekyrgyz.com",
   };
 
-return (
+  return (
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5MGR9Q44"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17961172694"
           strategy="afterInteractive"
@@ -203,6 +198,20 @@ return (
         />
         <main className="page">{children}</main>
         <Footer />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              marginTop: "20px",
+            },
+            success: {
+              duration: 6000, 
+            },
+            error: {
+              duration: 5000,
+            },
+          }}
+        />
         <GoogleAnalytics gaId="G-6WFTRHW6FD" />
       </body>
     </html>
