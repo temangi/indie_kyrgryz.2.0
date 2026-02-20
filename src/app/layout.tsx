@@ -202,14 +202,21 @@ export default function RootLayout({
           position="top-right"
           toastOptions={{
             style: {
-              marginTop: "20px",
+              marginTop: "60px",
+              fontSize: "16px",
+              maxWidth: "350px", 
             },
             success: {
-              duration: 6000, 
+              duration: 6000,
             },
             error: {
               duration: 5000,
             },
+          }}
+          containerStyle={{
+            top: 20,
+            left: 20,
+            right: 20,
           }}
         />
         <GoogleAnalytics gaId="G-6WFTRHW6FD" />
