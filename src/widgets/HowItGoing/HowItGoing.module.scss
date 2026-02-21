@@ -297,17 +297,28 @@
 .relatedTours__list {
   display: flex;
   gap: 16px;
-  margin-left: calc((100vw - 1110px) / 2);
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: calc((100vw - 1115px) / 2);
+  padding: 0 20px 40px 20px;
 
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
-    display: none;
+    display: block;
+    height: 8px;
   }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-emerald);
+    border-radius: 10px;
+    border: 2px solid transparent;
+
+    &:hover {
+      background: var(--color-orange);
+    }
+  }
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-emerald) rgba(79, 123, 107, 0.1);
   & > * {
     flex: 0 0 360px;
     scroll-snap-align: start;

@@ -30,11 +30,10 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] }) => {
           </h2>
           <div className={styles.questions}>
             {faqData.map((item, index) => (
-              <article key={index} className={styles.item}>
+              <article key={index} className={styles.item}  onClick={() => toggleItem(index)}>
                 <button
                   type="button"
                   className={styles.questionHeader}
-                  onClick={() => toggleItem(index)}
                   aria-expanded={openIndex === index}
                 >
                   <span className={styles.questionText}>{item.question}</span>

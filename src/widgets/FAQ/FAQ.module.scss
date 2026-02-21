@@ -70,54 +70,54 @@
 
 .questionToggle {
   border: none;
-  padding: 8px; 
+  padding: 8px;
   border-radius: 50%;
-  cursor: pointer; 
+  cursor: pointer;
   background: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-tap-highlight-color: transparent;
   outline: none;
 
   svg {
-    fill: var(--color-emerald); 
+    fill: var(--color-emerald);
     transition: fill 0.3s ease;
   }
 
   &:hover {
-    background: rgba(0, 155, 119, 0.1); 
+    background: rgba(0, 155, 119, 0.1);
   }
 
   &:active {
-    transform: scale(0.9); 
+    transform: scale(0.9);
   }
 }
 
 .questionToggleActive {
-  transform: rotate(45deg); 
+  transform: rotate(45deg);
 
   svg {
     fill: white;
   }
 }
 
-
 .answerText {
+  width: 95%;
   display: grid;
   grid-template-rows: 0fr;
   margin-top: 0;
   transition:
     grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1),
     margin-top 0.3s ease;
-    white-space: pre-line; 
-    line-height: 1.5;
+  white-space: pre-line;
+  line-height: 1.5;
 }
 
 .answerTextVisible {
   grid-template-rows: 1fr;
-  margin-top: 16px; 
+  margin-top: 16px;
 }
 
 .answerInner {
@@ -133,7 +133,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .questionIcon {
   width: 24px;

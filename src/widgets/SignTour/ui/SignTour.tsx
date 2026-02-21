@@ -23,33 +23,33 @@ const SignTour = ({ title, tour }: SignTourProps) => {
   const isOpen = useModalStore((state) => state.isOpen);
   const closeModal = useModalStore((state) => state.closeModal);
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  trackEvent("submit_form", { label: "header_signup_button" });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    trackEvent("submit_form", { label: "header_signup_button" });
 
-  const tourTitle = tour || "General Inquiry (User hasn't chosen a tour)";
+    const tourTitle = tour || "General Inquiry (User hasn't chosen a tour)";
 
-  const sendEmail = async () => {
-    const response = await fetch("/api/email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, title: tourTitle }),
+    const sendEmail = async () => {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, title: tourTitle }),
+      });
+
+      if (!response.ok) throw new Error("Failed");
+      return response;
+    };
+    toast.promise(sendEmail(), {
+      loading: "Sending your application...",
+      success: () => {
+        closeModal();
+        setFormData({ name: "", phone: "", date: "" });
+        trackConversion();
+        return <b>Application sent! We will contact you soon.</b>;
+      },
+      error: <b>Error sending message. Please try again.</b>,
     });
-
-    if (!response.ok) throw new Error("Failed");
-    return response;
   };
-  toast.promise(sendEmail(), {
-    loading: "Sending your application...",
-    success: () => {
-      closeModal(); 
-      setFormData({ name: "", phone: "", date: "" });
-      trackConversion();
-      return <b>Application sent! We will contact you soon.</b>;
-    },
-    error: <b>Error sending message. Please try again.</b>,
-  });
-};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -90,8 +90,6 @@ const SignTour = ({ title, tour }: SignTourProps) => {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
     <section
       className={`${styles.signTour} ${isOpen ? styles.isOpen : ""}`}
@@ -118,41 +116,36 @@ const SignTour = ({ title, tour }: SignTourProps) => {
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
-            <label htmlFor="name" className={styles.label}>
-              Your Name
-            </label>
             <input
               id="name"
               className={styles.input}
               type="text"
               name="name"
-              placeholder="e.g. John Doe"
+              placeholder=" " 
               value={formData.name}
               onChange={handleChange}
               required
             />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <label htmlFor="phone" className={styles.label}>
-              WhatsApp Number
+            <label htmlFor="name" className={styles.label}>
+              Your Name
             </label>
+          </div>
+           <div className={styles.inputGroup}>
             <input
               id="phone"
               className={styles.input}
               type="tel"
               name="phone"
-              placeholder="+996 700 123 456"
+              placeholder=""
               value={formData.phone}
               onChange={phoneHandleChange}
               required
             />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <label htmlFor="date" className={styles.label}>
-              Preferred Date
+            <label htmlFor="phone" className={styles.label}>
+             WhatsApp Number
             </label>
+          </div>
+           <div className={styles.inputGroup}>
             <input
               id="date"
               className={styles.input}
@@ -161,9 +154,12 @@ const SignTour = ({ title, tour }: SignTourProps) => {
               value={formData.date}
               onChange={handleChange}
               required
+              placeholder=" "
             />
+            <label htmlFor="date" className={styles.label}>
+               Preferred Date
+            </label>
           </div>
-
           <button type="submit" className={styles.button}>
             SEND
           </button>
