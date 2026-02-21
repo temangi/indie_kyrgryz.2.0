@@ -10,8 +10,13 @@
 
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease; 
   backdrop-filter: blur(8px);
+  .content {
+    transform: translateY(30px); 
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease; 
+  }
 
   &.isOpen {
     opacity: 1;
@@ -63,7 +68,17 @@
   gap: 24px;
 }
 
+.inputGroup {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .input {
+  width: 100%;
   background: transparent;
   border: none;
   border-bottom: 2px solid rgba(79, 123, 107, 0.25);
@@ -72,29 +87,69 @@
   font-weight: 500;
   color: var(--color-emerald);
   transition: border-color 0.3s;
-
   &::placeholder {
-    opacity: 0.6;
+    color: transparent;
   }
 
   &:focus {
     outline: none;
     border-color: var(--color-orange);
   }
-  &:focus + .label { 
+  &:focus + .label,
+  &:not(:placeholder-shown) + .label {
+    top: 0;
+    font-size: 0.85rem;
     color: var(--color-orange);
     opacity: 1;
   }
-
-  &[type="datetime-local"] {
-    cursor: pointer;
-
-    &::-webkit-calendar-picker-indicator {
-      filter: sepia(100%) saturate(200%) hue-rotate(-20deg);
-    }
-  }
 }
 
+.label {
+  position: absolute;
+  left: 2px;
+  top: 32px;
+  color: var(--color-emerald);
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-left: 2px;
+}
+.input:nth-of-type(3) {
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  &:focus::-webkit-calendar-picker-indicator,
+  &:not(:placeholder-shown)::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    filter: sepia(100%) saturate(200%) hue-rotate(-20deg);
+  }
+}
+.input:nth-of-type(3) {
+  &::-webkit-datetime-edit {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &:focus,
+  &:not(:placeholder-shown) {
+    &::-webkit-datetime-edit,
+    &::-webkit-calendar-picker-indicator {
+      opacity: 1;
+    }
+  }
+  &::-webkit-calendar-picker-indicator {
+    filter: sepia(100%) saturate(200%) hue-rotate(-20deg);
+    cursor: pointer;
+  }
+}
 .button {
   margin-top: 12px;
   margin-bottom: 10px;
@@ -145,16 +200,4 @@
   }
 }
 
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px; 
-}
 
-.label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-emerald);
-  opacity: 0.8;
-  margin-left: 2px;
-}
