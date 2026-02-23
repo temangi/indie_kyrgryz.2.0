@@ -14,36 +14,54 @@ type SignTourProps = {
 };
 
 const SignTour = ({ title, tour }: SignTourProps) => {
+  const [showEmail, setShowEmail] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     date: "",
   });
 
   const isOpen = useModalStore((state) => state.isOpen);
   const closeModal = useModalStore((state) => state.closeModal);
 
+  const toggleMethod = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setShowEmail(!showEmail);
+      setIsExiting(false);
+    }, 200);
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent("submit_form", { label: "header_signup_button" });
+    trackEvent("submit_form", {
+      label: "header_signup_button",
+      method: showEmail ? "email" : "whatsapp",
+    });
 
-    const tourTitle = tour || "General Inquiry (User hasn't chosen a tour)";
+    const tourTitle = tour || "General Inquiry";
 
     const sendEmail = async () => {
       const response = await fetch("/api/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, title: tourTitle }),
+        body: JSON.stringify({
+          ...formData,
+          title: tourTitle,
+          contactMethod: showEmail ? "Email" : "WhatsApp",
+        }),
       });
 
       if (!response.ok) throw new Error("Failed");
       return response;
     };
+
     toast.promise(sendEmail(), {
       loading: "Sending your application...",
       success: () => {
         closeModal();
-        setFormData({ name: "", phone: "", date: "" });
+        setFormData({ name: "", phone: "", email: "", date: "" });
         trackConversion();
         return <b>Application sent! We will contact you soon.</b>;
       },
@@ -52,10 +70,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const phoneHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,32 +78,20 @@ const SignTour = ({ title, tour }: SignTourProps) => {
     if (value && !value.startsWith("+")) value = "+" + value;
     setFormData((prev) => ({ ...prev, phone: value }));
   };
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeModal();
     };
-
     if (isOpen) {
       window.addEventListener("keydown", handleEsc);
       document.body.style.overflow = "hidden";
     }
-
     return () => {
       window.removeEventListener("keydown", handleEsc);
       document.body.style.overflow = "";
     };
   }, [isOpen, closeModal]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
 
   return (
     <section
@@ -100,12 +103,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
       <div className={styles.overlay}></div>
 
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-        <button
-          type="button"
-          className={styles.close}
-          onClick={closeModal}
-          aria-label="Close sign-up form"
-        >
+        <button type="button" className={styles.close} onClick={closeModal}>
           <Image src="/images/close.png" alt="Close" width={30} height={30} />
         </button>
 
@@ -121,7 +119,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
               className={styles.input}
               type="text"
               name="name"
-              placeholder=" " 
+              placeholder=" "
               value={formData.name}
               onChange={handleChange}
               required
@@ -130,22 +128,60 @@ const SignTour = ({ title, tour }: SignTourProps) => {
               Your Name
             </label>
           </div>
-           <div className={styles.inputGroup}>
-            <input
-              id="phone"
-              className={styles.input}
-              type="tel"
-              name="phone"
-              placeholder=" "
-              value={formData.phone}
-              onChange={phoneHandleChange}
-              required
-            />
-            <label htmlFor="phone" className={styles.label}>
-             WhatsApp Number
-            </label>
+
+          <div
+            className={`${styles.animatedField} ${isExiting ? styles.fadeOut : styles.fadeIn}`}
+          >
+            {!showEmail ? (
+              <div className={styles.inputGroup}>
+                <input
+                  id="phone"
+                  className={styles.input}
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={phoneHandleChange}
+                  required={!showEmail}
+                  placeholder=" "
+                />
+                <label htmlFor="phone" className={styles.label}>
+                  WhatsApp Number
+                </label>
+                <button
+                  type="button"
+                  className={styles.switchLink}
+                  onClick={toggleMethod}
+                >
+                  Don't have WhatsApp? Use Email
+                </button>
+              </div>
+            ) : (
+              <div className={styles.inputGroup}>
+                <input
+                  id="email"
+                  className={styles.input}
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required={showEmail}
+                  placeholder=" "
+                />
+                <label htmlFor="email" className={styles.label}>
+                  Your Email
+                </label>
+                <button
+                  type="button"
+                  className={styles.switchLink}
+                  onClick={toggleMethod}
+                >
+                  Back to WhatsApp
+                </button>
+              </div>
+            )}
           </div>
-           <div className={styles.inputGroup}>
+
+          <div className={styles.inputGroup}>
             <input
               id="date"
               className={styles.input}
@@ -154,12 +190,12 @@ const SignTour = ({ title, tour }: SignTourProps) => {
               value={formData.date}
               onChange={handleChange}
               required
-              placeholder=" "
             />
             <label htmlFor="date" className={styles.label}>
-               Preferred Date
+              Preferred Date
             </label>
           </div>
+
           <button type="submit" className={styles.button}>
             SEND
           </button>

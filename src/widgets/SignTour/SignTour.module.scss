@@ -206,3 +206,37 @@
 }
 
 
+
+.animatedField {
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  min-height: 85px; 
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(-5px); 
+}
+
+.switchLink {
+  background: none;
+  border: none;
+  color: #4f7b6b;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 5px;
+  padding: 5px 0;
+  display: block;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  text-align: start;
+
+  &:hover {
+    opacity: 1;
+  }
+}
