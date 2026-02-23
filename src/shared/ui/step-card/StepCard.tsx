@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import styles from "../../../widgets/HowItGoing/HowItGoing.module.scss";
 import Image from "next/image";
@@ -14,21 +15,25 @@ export type StepCardType = {
 const StepCard = ({ title, duration, desc, place, id }: StepCardType) => {
   const [isVisible, setIsVisible] = useState(id === 0);
 
-  const toggleMain = () => setIsVisible(!isVisible);
+  const toggleMain = () => setIsVisible((prev) => !prev);
 
   return (
-    <div 
-      className={`${styles.tourInfo} ${isVisible ? styles.isActive : ""}`} 
-      onClick={toggleMain}
-      role="button"
-      aria-expanded={isVisible}
+    <div
+      className={`${styles.tourInfo} ${isVisible ? styles.isActive : ""}`}
     >
-      <header className={styles.tourInfo__header}>
-        <h3 className={styles.tourInfo__title}>
-         {title}
-        </h3>
+      <header
+        className={styles.tourInfo__header}
+        onClick={toggleMain}
+        role="button"
+        aria-expanded={isVisible}
+      >
+        <h3 className={styles.tourInfo__title}>{title}</h3>
 
-        <div className={`${styles.questionToggle} ${isVisible ? styles.questionToggleActive : ""}`}>
+        <div
+          className={`${styles.questionToggle} ${
+            isVisible ? styles.questionToggleActive : ""
+          }`}
+        >
           <Image
             className={styles.questionIcon}
             src="/images/plus.svg"
@@ -39,7 +44,11 @@ const StepCard = ({ title, duration, desc, place, id }: StepCardType) => {
         </div>
       </header>
 
-      <div className={`${styles.tourInfo__content} ${isVisible ? styles.open : ""}`}>
+      <div
+        className={`${styles.tourInfo__content} ${
+          isVisible ? styles.open : ""
+        }`}
+      >
         <div className={styles.tourInfo__inner}>
           <div className={styles.tourInfo__details}>
             <div className={styles.tourInfo__feature}>

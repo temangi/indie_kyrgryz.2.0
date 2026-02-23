@@ -395,10 +395,14 @@
   &__content {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+    transition: 
+      grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      margin-top 0.3s ease;
 
     &.open {
       grid-template-rows: 1fr;
+       margin-top: 16px;
     }
   }
 
@@ -407,7 +411,6 @@
   }
 
   &__details {
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -427,7 +430,6 @@
     align-items: center;
     gap: 10px;
     font-size: 0.95rem;
-    background: rgba(0, 155, 119, 0.05);
     padding: 8px 16px;
     border-radius: 8px;
     width: fit-content;
@@ -459,7 +461,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #f0f0f0;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -473,11 +474,6 @@
     display: block;
   }
   &.questionToggleActive {
-    background-color: var(--color-emerald);
     transform: rotate(45deg);
-
-    .questionIcon {
-      filter: brightness(0) invert(1);
-    }
   }
 }
