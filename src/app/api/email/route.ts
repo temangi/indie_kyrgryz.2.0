@@ -31,10 +31,14 @@ export async function POST(req: Request) {
             <h2 style="color: #ff7e00;">${isGeneralConsultation ? "Need help choosing a tour" : "New Booking Request"}</h2>
             <p><strong>Client:</strong> ${name}</p>
             <p>
-              <strong>WhatsApp:</strong> 
-              <a href="https://wa.me/${phone.replace(/\D/g, "")}" target="_blank" rel="noopener noreferrer">
-                ${phone}
-              </a>
+                <strong>${phone.includes('@') ? 'Email:' : 'WhatsApp:'}</strong> 
+                <a 
+                    href="${phone.includes('@') ? `mailto:${phone}` : `https://wa.me/${phone.replace(/\D/g, "")}`}" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                 >
+                    ${phone}
+                 </a>
             </p>
             <p><strong>Preferred Date:</strong> ${date}</p>
             <p><strong>Tour:</strong> <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">${title}</span></p>
