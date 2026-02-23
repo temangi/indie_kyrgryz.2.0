@@ -13,7 +13,6 @@ import tiktok from "@/public/images/tiktok.svg";
 import youtube from "@/public/images/youtube.svg";
 
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/tours", label: "Tours" },
   { href: "/#reise", label: "Explore" },
   { href: "/#info", label: "About" },
@@ -39,7 +38,7 @@ const Navigation = () => {
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const href = e.currentTarget.getAttribute("href");
-    if (href?.includes("#") && pathname === "/") {
+    if (href?.includes("#")) {
       const anchor = href.split("#")[1]; 
       const elem = document.getElementById(anchor);
 
@@ -54,7 +53,6 @@ const Navigation = () => {
   return (
     <nav className={styles.headerMenu} aria-label="Primary">
       {navLinks.map((link) => {
-        if (pathname === "/" && link.href === "/") return null;
         const isActive =
           (pathname === "/tours" && link.href === "/tours") ||
           (pathname === "/" && link.href.endsWith(`#${activeSection}`));
