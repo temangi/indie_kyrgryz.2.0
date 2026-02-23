@@ -14,19 +14,17 @@ const MainHero = ({ title, unTitle, img }: MainHeroProps) => {
       <Image
         src={img}
         alt="Hero background"
-        fill
         priority
-        quality={90} 
-        sizes="100vw" 
+        quality={90}
+        sizes="100vw"
         className={styles.main__bg}
       />
       <div className={styles.main__logo}>
         <Image
-          priority
           src={logo}
-          sizes="100vw" 
+          sizes="100vw"
           alt="Indie kyrgyz travel"
-          style={{ width: '100%', height: 'auto' }}
+          style={{ width: "100%", height: "auto" }}
         />
       </div>
       <div className={styles.main__content}>
