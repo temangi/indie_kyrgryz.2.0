@@ -136,7 +136,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
               className={styles.input}
               type="tel"
               name="phone"
-              placeholder=""
+              placeholder=" "
               value={formData.phone}
               onChange={phoneHandleChange}
               required
