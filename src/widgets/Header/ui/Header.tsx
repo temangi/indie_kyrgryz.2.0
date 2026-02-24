@@ -17,12 +17,15 @@ import { navSocialLinks } from "./nav";
 const Header = () => {
   const pathname = usePathname();
   const [scrollTop, setScrollTop] = useState(0);
-
+  const isToursPage = pathname === "/" || pathname === "/tours";
   const openModal = useModalStore((state) => state.openModal);
   const isOpenBurger = useOpenBurgerStore((state) => state.isOpen);
   const closeBurger = useOpenBurgerStore((state) => state.closeModal);
   const openBurger = useOpenBurgerStore((state) => state.openModal);
-
+  console.log(isToursPage , "fafaf")
+  const buttonText = isToursPage 
+    ? "sign up for a tour"  
+    : "book this tour";
   const isHomePage = pathname === "/";
   const isVisible = !isHomePage || scrollTop > 300;
 
@@ -78,7 +81,7 @@ const Header = () => {
                   onClick={openModal}
                 >
                   <span className={styles.headerButtonLink}>
-                    sign up for a tour
+                    {buttonText}
                   </span>
                 </button>
               </div>
@@ -145,7 +148,7 @@ const Header = () => {
               onClick={openModal}
             >
               <span className={styles.headerButtonLink}>
-                sign up for a tour
+                {buttonText}
               </span>
             </button>
           </footer>

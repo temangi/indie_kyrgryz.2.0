@@ -68,7 +68,7 @@ export default async function DetailToursPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(tourLd) }}
         />
       )}
-      <DetailPage />
+      <DetailPage slug={slug} />
     </>
   );
 }

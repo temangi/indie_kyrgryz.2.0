@@ -4,12 +4,12 @@ import "./bootstrap.min.css";
 import "./globals.css";
 import { Header } from "../widgets/Header";
 import { Footer } from "../widgets/Footer";
-import { SignTour } from "../widgets/SignTour";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
 import { Suspense } from "react";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
+import { SignTour } from "../widgets/SignTour";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -178,8 +178,7 @@ export default function RootLayout({
             gtag('config', 'AW-17961172694');
           `}
         </Script>
-
-        <SignTour title={"Sign Up for a Tour:"} />
+        <SignTour title="Sign up for a Tour:" />
         <Header />
         <Suspense fallback={null}>
           <GoogleAnalyticsTracker />
@@ -204,7 +203,7 @@ export default function RootLayout({
             style: {
               marginTop: "60px",
               fontSize: "16px",
-              maxWidth: "350px", 
+              maxWidth: "350px",
             },
             success: {
               duration: 6000,
