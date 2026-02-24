@@ -49,7 +49,7 @@ const SignTour = ({ title, tour }: SignTourProps) => {
         body: JSON.stringify({
           ...formData,
           title: tourTitle,
-          contactMethod: showEmail ? "Email" : "WhatsApp",
+          contact: showEmail ? formData.email : formData.phone,
         }),
       });
 

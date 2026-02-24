@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, phone, date, title } = await req.json();
+    const { name, contact, date, title } = await req.json();
 
     const isGeneralConsultation = title.includes("General Inquiry");
     const subject = isGeneralConsultation
@@ -18,6 +18,9 @@ export async function POST(req: Request) {
       },
     });
 
+    const isEmail = contact?.includes("@");
+    const cleanPhone = contact?.replace(/\D/g, "") || "";
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: "indiekyrgyztravel@gmail.com",
@@ -31,15 +34,11 @@ export async function POST(req: Request) {
             <h2 style="color: #ff7e00;">${isGeneralConsultation ? "Need help choosing a tour" : "New Booking Request"}</h2>
             <p><strong>Client:</strong> ${name}</p>
             <p>
-                <strong>${phone.includes('@') ? 'Email:' : 'WhatsApp:'}</strong> 
-                <a 
-                    href="${phone.includes('@') ? `mailto:${phone}` : `https://wa.me/${phone.replace(/\D/g, "")}`}" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                 >
-                    ${phone}
-                 </a>
-            </p>
+              <strong>${isEmail ? "Email:" : "WhatsApp:"}</strong>
+              <a href="${isEmail ? `mailto:${contact}` : `https://wa.me/${cleanPhone}`}">
+                ${contact}
+              </a>
+            </p>    
             <p><strong>Preferred Date:</strong> ${date}</p>
             <p><strong>Tour:</strong> <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">${title}</span></p>
           </div>
