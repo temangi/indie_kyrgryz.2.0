@@ -7,13 +7,15 @@ import { useModalStore } from "@/src/shared/model/useModalStore";
 import { trackEvent } from "@/src/shared/lib/analytics";
 import { trackConversion } from "@/src/shared/lib/googleAds";
 import toast from "react-hot-toast";
+import { desc } from "framer-motion/client";
 
 type SignTourProps = {
   title: string;
   tour?: string;
+  description?: string;
 };
 
-const SignTour = ({ title, tour }: SignTourProps) => {
+const SignTour = ({ title, tour, description }: SignTourProps) => {
   const [showEmail, setShowEmail] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [formData, setFormData] = useState({
@@ -108,8 +110,9 @@ const SignTour = ({ title, tour }: SignTourProps) => {
         </button>
 
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>
-          Leave your contact information and we will contact you shortly :)
+        <p className={styles.description}>{
+          tour ? "Have questions about the route? Drop your contact info — let’s chat and make your dream journey a reality." : "Let’s start your journey! Leave a request, and we’ll get back to you shortly with the best offers"
+          }
         </p>
 
         <form onSubmit={handleSubmit} className={styles.form}>

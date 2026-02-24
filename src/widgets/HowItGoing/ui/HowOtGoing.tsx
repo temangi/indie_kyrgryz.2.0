@@ -1,6 +1,5 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import StepCard from "@/src/shared/ui/step-card/StepCard";
@@ -12,10 +11,11 @@ import { stepsTours } from "../model/constants/step";
 import { tours } from "../../Tours/constants/constants";
 import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
+import { Props } from "@/src/pages/tourDetail/page";
+import BookTour from "@/src/shared/ui/BookTour/BookTour";
 
-const HowItGoing = () => {
-  const params = useParams<{ slug: string }>();
-  const currentTour = params?.slug ? stepsTours.find(tour => tour.slug === params.slug) : null;
+const HowItGoing = ({ slug }: Props) => {
+  const currentTour = stepsTours.find(tour => tour.slug === slug);
   if (!currentTour) {
     return (
       <section className={styles.notFound}>
@@ -31,14 +31,7 @@ const HowItGoing = () => {
     <>
       <MainHero title={slider[0].title} img={slider[0].item} />
       <BackButton />
-      <TourInfo
-        route={route}
-        price={price}
-        duration={duration}
-        tour={chapter}
-        dates={dates}
-      />
-
+      {slug !== "day-trips" && <TourInfo route={route} price={price} duration={duration} tour={chapter} dates={dates} />}
       <section className={styles.tourDetails}>
         <div className="container">
           <div className={styles.tourDetails__layout}>
@@ -75,6 +68,8 @@ const HowItGoing = () => {
           </div>
         </div>
       </section>
+      {slug === "day-trips" && <div className={styles.bookTourContainer}><BookTour/></div>}
+
 
       <section className={styles.related}>
         <div className="container">
@@ -98,7 +93,7 @@ const HowItGoing = () => {
         </div>
         <div className={styles.relatedTours__list}>
           {tours
-            .filter((el) => el.slug !== params?.slug)
+            .filter((el) => el.slug !== slug)
             .slice(0, 5)
             .map((el) => (
               <ToursCard {...el} key={el.id} />

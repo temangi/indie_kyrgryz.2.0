@@ -17,8 +17,6 @@
     letter-spacing: -0.02em;
     margin: 0;
     position: relative;
-    
-    // Декоративная линия под заголовком
     &::after {
       content: '';
       display: block;
@@ -31,27 +29,6 @@
 
     @media (max-width: 768px) {
       font-size: 1.8rem;
-    }
-  }
-
-  .mainButton {
-    padding: 20px 50px;
-    background-color: #315a51;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(49, 90, 81, 0.2);
-
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(49, 90, 81, 0.3);
-      background-color: #3a6b60;
     }
   }
 }
@@ -154,3 +131,24 @@
     transform: translateX(5px);
   }
 }
+
+ .mainButton {
+    padding: 20px 50px;
+    background-color: #315a51;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(49, 90, 81, 0.2);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(49, 90, 81, 0.3);
+      background-color: #3a6b60;
+    }
+  }

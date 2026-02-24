@@ -1,27 +1,23 @@
-"use client";
-
 import styles from "./style.module.scss";
 import Image from "next/image";
 import img from "@/public/images/slide3.webp";
-import { useModalStore } from "@/src/shared/model/useModalStore";
 import { SignTour } from "@/src/widgets/SignTour";
+import BookTour from "../BookTour/BookTour";
 
 type TourInfoProps = {
   route: string;
   price: string;
   duration: string;
   tour: string;
-  dates?: string[]; // Массив дат для групповых туров
+  dates?: string[]; 
 };
 
 export const TourInfo = ({ route, price, duration, tour, dates }: TourInfoProps) => {
-  const openModal = useModalStore((state) => state.openModal);
-
   return (
     <section className={styles.mainTour}>
       <div className="container">
         <div className={styles.mainContent}>
-          <h2 className={styles.title}>THE MAIN THINGS ABOUT THE HIKE</h2>
+          <h2 className={styles.title}>TOUR ESSENTIALS</h2>
 
           <div className={styles.details}>
             <article className={styles.infoCard}>
@@ -61,12 +57,10 @@ export const TourInfo = ({ route, price, duration, tour, dates }: TourInfoProps)
             </article>
           </div>
 
-          <button className={styles.mainButton} onClick={() => openModal()}>
-            BOOK THIS TOUR
-          </button>
+          <BookTour />      
         </div>
       </div>
-      <SignTour title={"Book this Tour"} tour={tour} />
+      <SignTour title="Book this Tour:" tour={tour}/>
     </section>
   );
 };
