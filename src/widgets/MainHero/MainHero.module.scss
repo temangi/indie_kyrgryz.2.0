@@ -48,8 +48,8 @@
     animation: fadeInUp 1s ease forwards;
 
     @media (max-width: 480px) {
-      width: 150px;
-      top: 30%;
+      width: 170px;
+      top: 25%;
     }
   }
 
@@ -92,5 +92,6 @@
     text-transform: uppercase;
     opacity: 0;
     animation: fadeInUp 1s ease 0.7s forwards;
+    text-align: center;
   }
 }
