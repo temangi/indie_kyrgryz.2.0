@@ -62,9 +62,13 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
     toast.promise(sendEmail(), {
       loading: "Sending your application...",
       success: () => {
+        const userIdentifier = formData.email || formData.phone || "guest";
+        if (tour && tour !== "General Inquiry") {
+          trackConversion(userIdentifier);
+        }
         closeModal();
         setFormData({ name: "", phone: "", email: "", date: "" });
-        trackConversion();
+
         return <b>Application sent! We will contact you soon.</b>;
       },
       error: <b>Error sending message. Please try again.</b>,
@@ -110,9 +114,10 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
         </button>
 
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>{
-          tour ? "Have questions about the route? Drop your contact info — let’s chat and make your dream journey a reality." : "Let’s start your journey! Leave a request, and we’ll get back to you shortly with the best offers"
-          }
+        <p className={styles.description}>
+          {tour
+            ? "Have questions about the route? Drop your contact info — let’s chat and make your dream journey a reality."
+            : "Let’s start your journey! Leave a request, and we’ll get back to you shortly with the best offers"}
         </p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
