@@ -28,14 +28,19 @@
   flex-direction: column;
   overflow: hidden;
   background-color: transparent;
-
+   @media (max-width: 758px) {
+    height: 90vh;
+  }
+  @media (max-width : 560px) {
+    height: 80vh;
+  }
   &__bg {
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 0;
     object-fit: cover;
-    animation: zoomBackground 10s linear infinite alternate;
+    animation: zoomBackground 10s linear alternate;
     opacity: 1 !important;
     will-change: transform;
   }
@@ -73,7 +78,7 @@
     opacity: 0;
     animation: fadeInUp 1s ease 0.4s forwards;
     @media (max-width: 992px) {
-      width: 50%;
+      width: 60%;
     }
     @media (max-width: 756px) {
       width: 70%;
