@@ -297,12 +297,17 @@
 }
 
 .tour-page-list {
-  padding-top: 150px;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   gap: 50px;
   &__title {
     color: #315a51;
+    p{
+      font-size: 1.5rem;
+      color: var(--color-emerald);
+      margin-top: 8px;
+    }
   }
   &__main {
     display: grid;
