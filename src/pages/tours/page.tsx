@@ -12,6 +12,7 @@ const ToursPage = () => {
                 <section className={styles["tour-page-list"]} aria-labelledby="tours-page-title">
                     <h1 id="tours-page-title" className={styles["tour-page-list__title"]}>
                         ALL TOURS
+                        <p>Discover the heart of Central Asia with our hand-picked expeditions.</p>
                     </h1>
                     <div className={styles["tour-page-list__main"]}>
                         {tours.map((el) => <ToursCard {...el} key={el.id} />)}
