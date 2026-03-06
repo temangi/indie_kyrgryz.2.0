@@ -283,7 +283,7 @@ const kzAndKg: StepCardType[] = [
   },
   {
     title: "Day 8. Kok-Kiya Valley – Kel-Suu Lake – Kok-Kiya Valley",
-    desc: `Optional horseback riding in the Chong-Kemin Valley offers a last chance to experience Kyrgyz pastures and mountains. The tour concludes with a scenic transfer back to Bishkek, arriving in the afternoon. Guests leave with memories of mountain passes, highland lakes, yurts, and nomadic culture, completing a journey through the diverse landscapes and heart of Kyrgyzstan.`,
+    desc : `After breakfast, start a trekking route to Kel-Suu Lake, one of the most remote and spectacular lakes in Kyrgyzstan. The trail runs through a high-mountain valley with panoramic views of cliffs and pastures. Time at the lake, picnic lunch on the shore, then return to Kok-Kiya Valley. Overnight at the guesthouse.`,
     duration: "20km trekking",
     place: "Yurt camp",
   },
