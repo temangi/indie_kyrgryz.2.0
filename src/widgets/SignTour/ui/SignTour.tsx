@@ -7,7 +7,6 @@ import { useModalStore } from "@/src/shared/model/useModalStore";
 import { trackEvent } from "@/src/shared/lib/analytics";
 import { trackConversion } from "@/src/shared/lib/googleAds";
 import toast from "react-hot-toast";
-import { desc } from "framer-motion/client";
 
 type SignTourProps = {
   title: string;
