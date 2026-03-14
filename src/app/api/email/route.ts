@@ -22,8 +22,8 @@ export async function POST(req: Request) {
     const cleanPhone = contact?.replace(/\D/g, "") || "";
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: "indiekyrgyztravel@gmail.com",
+      from: "temirlan2.nuri@gmail.com",
+      to: "indiekyrgyztravel@gmail.com, baktybekovanuar@gmail.com",
       subject: subject,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #e0ecea; border-radius: 12px; overflow: hidden;">
