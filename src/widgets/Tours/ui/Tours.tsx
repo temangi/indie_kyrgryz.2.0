@@ -36,7 +36,7 @@ const Tours = () => {
               onClick={() => setActiveTab("group")}
               className={`${styles.navItem} ${activeTab === "group" ? styles.active : ""}`}
             >
-              <span>Group tour 2025</span>
+              <span>Group tour 2026</span>
               <small>Fixed dates & groups</small>
             </button>
           </nav>
