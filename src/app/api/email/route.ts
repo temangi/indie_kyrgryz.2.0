@@ -3,6 +3,17 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
+    const emailUser = process.env.EMAIL_USER;
+    const emailPass = process.env.EMAIL_PASS?.replace(/\s+/g, "");
+
+    if (!emailUser || !emailPass) {
+      console.error("NodeMailer Error: EMAIL_USER/EMAIL_PASS are not set");
+      return NextResponse.json(
+        { error: "Email server is not configured" },
+        { status: 500 },
+      );
+    }
+
     const { name, contact, date, title } = await req.json();
 
     const isGeneralConsultation = title.includes("General Inquiry");
@@ -13,8 +24,8 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
     });
 
@@ -22,7 +33,7 @@ export async function POST(req: Request) {
     const cleanPhone = contact?.replace(/\D/g, "") || "";
 
     const mailOptions = {
-      from: "temirlan2.nuri@gmail.com",
+      from: emailUser,
       to: "indiekyrgyztravel@gmail.com, baktybekovanuar@gmail.com",
       subject: subject,
       html: `
@@ -49,10 +60,17 @@ export async function POST(req: Request) {
       `,
     };
 
+    await transporter.verify();
     await transporter.sendMail(mailOptions);
     return NextResponse.json({ message: "Success" }, { status: 200 });
   } catch (error) {
     console.error("NodeMailer Error:", error);
-    return NextResponse.json({ error: "Failed to send" }, { status: 500 });
+    return NextResponse.json(
+      {
+        error:
+          "Failed to send email. Check Gmail App Password in EMAIL_PASS and EMAIL_USER.",
+      },
+      { status: 500 },
+    );
   }
 }
