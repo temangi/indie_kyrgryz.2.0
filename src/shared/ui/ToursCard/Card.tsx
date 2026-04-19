@@ -21,7 +21,7 @@ export const ToursCard = ({ id, slug, title, day, img, href }: ITour) => {
           <div className={styles.cardHead}>
             <p className={styles.cardTitle}>{title}</p>
           </div>
-          <button className={styles.cardButton}>Tour program</button>
+          <button className={styles.cardButton}>Tour details</button>
         </div>
       </Link>
     </div>
