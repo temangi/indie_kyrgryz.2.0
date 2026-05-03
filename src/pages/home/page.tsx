@@ -15,7 +15,12 @@ const HomePage = () => {
 
   return (
     <>
-      <MainHero title={"INDIE KYRGYZ TRAVEL"} img={heroImg} unTitle="Discover the beauty of Kyrgyzstan" />
+      <MainHero
+        title={"INDIE KYRGYZ TRAVEL"}
+        img={heroImg}
+        unTitle={`Discover the beauty of Kyrgyzstan
+Limited spots for summer 2026. Book your adventure today.`}
+      />
       <Tours />
       <Info />
       <Application />

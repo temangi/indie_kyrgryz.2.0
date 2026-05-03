@@ -6,11 +6,13 @@ export const BackButton = () => {
   const router = useRouter();
 
   return (
-    <div className="container">
+   <div className={styles.backBtnContainer}>
+     <div className="container">
       <button className={styles.backBtn} onClick={() => router.back()}>
         <span className={styles.arrow}>←</span>
         <span className={styles.text}>Go Back</span>
       </button>
+    </div>
     </div>
   );
 };

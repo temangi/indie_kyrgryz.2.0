@@ -13,6 +13,7 @@ import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { Props } from "@/src/pages/tourDetail/page";
 import BookTour from "@/src/shared/ui/BookTour/BookTour";
+import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
 
 const HowItGoing = ({ slug }: Props) => {
   const currentTour = stepsTours.find(tour => tour.slug === slug);
@@ -65,6 +66,7 @@ const HowItGoing = ({ slug }: Props) => {
                 ))}
               </div>
             </aside>
+            <CreateCustomTourCta className={styles.tourDetails__ctaRow} />
           </div>
         </div>
       </section>

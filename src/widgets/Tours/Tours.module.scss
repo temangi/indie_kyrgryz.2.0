@@ -1,6 +1,8 @@
 .tours {
   padding: 50px 0;
-  background: #fffef8;
+  background: var(--page-background);
+  position: relative;
+  z-index: 10;
 
   .cardHead {
     z-index: 10;
@@ -167,7 +169,7 @@
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
-  color: #fffef8;
+  color: var(--page-background);
   .cardImage {
     object-fit: cover;
     object-position: center;
@@ -189,7 +191,7 @@
     right: 16px;
     z-index: 4;
     background: var(--color-orange);
-    color: #fffef8;
+    color: var(--page-background);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -197,6 +199,36 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+  }
+
+  .cardPrice {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 4;
+    background: rgba(49, 90, 81, 0.92);
+    color: var(--page-background);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .cardTag {
+    position: absolute;
+    top: 52px;
+    right: 16px;
+    z-index: 4;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--color-emerald);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
   }
 
   .cardContent {
@@ -216,12 +248,13 @@
     font-weight: 600;
     text-transform: uppercase;
     line-height: 1.2;
+    margin-top: 14px;
   }
 
   .cardButton {
     background: transparent;
-    border: 1.5px solid #fffef8;
-    color: #fffef8;
+    border: 1.5px solid var(--page-background);
+    color: var(--page-background);
     padding: 12px 26px;
     border-radius: 30px;
     font-size: 0.9rem;
@@ -231,7 +264,7 @@
 
     &:hover {
       background: var(--color-orange);
-      color: #fffef8;
+      color: var(--page-background);
       border: 1.5px solid var(--color-orange);
       text-decoration: none;
     }
@@ -239,7 +272,7 @@
 
   &:hover {
     text-decoration: none;
-    color: #fffef8;
+    color: var(--page-background);
     @media (hover: hover) {
       .cardImage {
         transform: scale(1.05);
@@ -265,6 +298,18 @@
       padding: 4px 10px;
       font-size: 0.7rem;
     }
+    .cardPrice {
+      top: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+    }
+    .cardTag {
+      top: 42px;
+      right: 10px;
+      padding: 3px 8px;
+      font-size: 0.65rem;
+    }
   }
 }
 
@@ -273,7 +318,7 @@
   background: var(--color-orange);
   padding: 15px 30px;
   border-radius: 8px;
-  color: #fffef8;
+  color: var(--page-background);
   font-weight: 600;
   width: 40%;
   text-align: center;
@@ -285,7 +330,7 @@
     background: var(--color-orange);
     transform: translateY(-5px);
     text-decoration: none;
-    color: #fffef8;
+    color: var(--page-background);
   }
   &:active {
     filter: brightness(0.7);

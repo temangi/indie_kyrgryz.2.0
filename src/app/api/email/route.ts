@@ -14,7 +14,8 @@ export async function POST(req: Request) {
       );
     }
 
-    const { name, contact, date, title } = await req.json();
+    const { name, contact, date, title, destination, locations, travelers } =
+      await req.json();
 
     const isGeneralConsultation = title.includes("General Inquiry");
     const subject = isGeneralConsultation
@@ -31,6 +32,9 @@ export async function POST(req: Request) {
 
     const isEmail = contact?.includes("@");
     const cleanPhone = contact?.replace(/\D/g, "") || "";
+    const locationsList = Array.isArray(locations)
+      ? locations.filter(Boolean).join(", ")
+      : "";
 
     const mailOptions = {
       from: emailUser,
@@ -51,6 +55,21 @@ export async function POST(req: Request) {
               </a>
             </p>    
             <p><strong>Preferred Date:</strong> ${date}</p>
+            ${
+              destination
+                ? `<p><strong>Destination:</strong> <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">${destination}</span></p>`
+                : ""
+            }
+            ${
+              locationsList
+                ? `<p><strong>Selected Locations:</strong> <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">${locationsList}</span></p>`
+                : ""
+            }
+            ${
+              travelers
+                ? `<p><strong>Group size:</strong> <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">${travelers}</span></p>`
+                : ""
+            }
             <p><strong>Tour:</strong> <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">${title}</span></p>
           </div>
           <div style="background: #f9f9f9; padding: 15px; text-align: center; font-size: 12px; color: #888;">

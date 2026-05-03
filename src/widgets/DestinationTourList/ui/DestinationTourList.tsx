@@ -10,6 +10,7 @@ import { destiontaionTour } from "../../Reise/constants/constants";
 import Link from "next/link";
 import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
+import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
 
 function DestinationTourList() {
   const params = useParams<{ slug: string }>();
@@ -68,6 +69,7 @@ function DestinationTourList() {
               ))}
             </aside>
           </div>
+          <CreateCustomTourCta className={styles.destination__ctaRow} />
         </div>
       </section>
 

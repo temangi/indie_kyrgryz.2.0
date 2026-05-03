@@ -1,8 +1,10 @@
 .whyWe {
-  background: #fffef8;
+  background: var(--page-background);
   padding: 80px 0;
   color: var(--color-emerald);
   overflow: hidden;
+  position: relative;
+  z-index: 10;
 }
 
 .header {
@@ -45,7 +47,7 @@
   padding: 50px;
   border-radius: 24px; // Более мягкие углы
   border: 1px solid rgba(79, 123, 107, 0.2);
-  background: #fff;
+  background: var(--page-background);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 
@@ -58,11 +60,11 @@
 
 .featuredCard {
   background: var(--color-emerald);
-  color: #fffef8;
+  color: var(--page-background);
   border: none;
 
   .number {
-    background: #fffef8;
+    background: var(--page-background);
     color: var(--color-emerald);
   }
 

@@ -12,6 +12,8 @@ import s9 from "@/public/images/slide4.webp";
 export interface ITour {
   title: string;
   day?: string;
+  price?: string;
+  tag?: string;
   id: number;
   img: StaticImageData;
   href: string;
@@ -23,6 +25,7 @@ export const tours: ITour[] = [
     id: 4,
     title: " Best of Kyrgyzstan",
     day: "8 days",
+    price: "$890",
     img: s1,
     href: "tour",
     slug: "best-of-kyrgyzstan",
@@ -31,6 +34,7 @@ export const tours: ITour[] = [
     id: 5,
     title: "Song-kul horsebackriding",
     day: "3 days",
+    price: "$390",
     img: s2,
     href: "tour",
     slug: "song-kul",
@@ -39,6 +43,7 @@ export const tours: ITour[] = [
     id: 6,
     title: "Altyn-Arashan & Ala-Kul trip",
     day: "4 days",
+    price: "$450",
     img: s3,
     href: "tour",
     slug: "altyn-arashan",
@@ -47,6 +52,8 @@ export const tours: ITour[] = [
     id: 3,
     title: "Kyrgyzstan & Kazakhstan trip",
     day: "10 days",
+    price: "$1290",
+    tag: "Popular",
     img: s4,
     href: "tour",
     slug: "kyrgyzstan-kazakhstan",
@@ -55,6 +62,8 @@ export const tours: ITour[] = [
     id: 1,
     title: "Kyrgyz week",
     day: "7 days",
+    price: "$790",
+    tag: "Popular",
     img: s5,
     href: "tour",
     slug: "kyrgyz-week",
@@ -63,6 +72,7 @@ export const tours: ITour[] = [
     id: 2,
     title: "Mountain Adventure",
     day: "10 days",
+    price: "$1090",
     img: s6,
     href: "tour",
     slug: "mountain-adventure",
@@ -71,6 +81,7 @@ export const tours: ITour[] = [
     id: 7,
     title: "Unique Experience Tour",
     day: "8 Days",
+    price: "$930",
     img: s7,
     href: "tour",
     slug: "unique-experience",
@@ -79,6 +90,7 @@ export const tours: ITour[] = [
     id: 8,
     title: "4x4 OFF-ROAD ADVENTURE TOUR",
     day: "10 days",
+    price: "$1390",
     img: s8,
     href: "tour",
     slug: "4x4-off-road-adventure",
@@ -87,6 +99,7 @@ export const tours: ITour[] = [
     id: 9,
     title: "Day Trips from Bishkek",
     day: "1 day",
+    price: "$95",
     img: s9,
     href: "tour",
     slug: "day-trips",

@@ -15,10 +15,10 @@ import youtube from "@/public/images/youtube.svg";
 const navLinks = [
   { href: "/tours", label: "Tours" },
   { href: "/#reise", label: "Explore" },
-  { href: "/#info", label: "About" },
+  { href: "/about", label: "About" },
   { href: "/#team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/#footer", label: "Contacts" },
+  { href: "/contacts", label: "Contacts" },
 ];
 
 export const navSocialLinks = [
@@ -54,7 +54,7 @@ const Navigation = () => {
     <nav className={styles.headerMenu} aria-label="Primary">
       {navLinks.map((link) => {
         const isActive =
-          (pathname === "/tours" && link.href === "/tours") ||
+          pathname === link.href ||
           (pathname === "/" && link.href.endsWith(`#${activeSection}`));
 
         return (

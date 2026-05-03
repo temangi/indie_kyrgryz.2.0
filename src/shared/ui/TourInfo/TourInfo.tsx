@@ -1,8 +1,8 @@
 import styles from "./style.module.scss";
 import Image from "next/image";
 import img from "@/public/images/slide3.webp";
-import { SignTour } from "@/src/widgets/SignTour";
 import BookTour from "../BookTour/BookTour";
+import { TourBookingScope } from "./TourBookingScope";
 
 type TourInfoProps = {
   route: string;
@@ -15,6 +15,7 @@ type TourInfoProps = {
 export const TourInfo = ({ route, price, duration, tour, dates }: TourInfoProps) => {
   return (
     <section className={styles.mainTour}>
+      <TourBookingScope tourName={tour} />
       <div className="container">
         <div className={styles.mainContent}>
           <h2 className={styles.title}>TOUR ESSENTIALS</h2>
@@ -60,7 +61,6 @@ export const TourInfo = ({ route, price, duration, tour, dates }: TourInfoProps)
           <BookTour />      
         </div>
       </div>
-      <SignTour title="Book this Tour:" tour={tour}/>
     </section>
   );
 };
