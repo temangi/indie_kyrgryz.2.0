@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../SignTour.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
 import { trackEvent } from "@/src/shared/lib/analytics";
@@ -14,18 +15,70 @@ type SignTourProps = {
   description?: string;
 };
 
-const SignTour = ({ title, tour, description }: SignTourProps) => {
+const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
+  const LOCATIONS = [
+    "Issyk-Kul",
+    "Song-Kul",
+    "Kel-Suu",
+    "Ala-Kul",
+    "Altyn-Arashan",
+    "Tash Rabat",
+    "Jeti-Oguz",
+    "Sary-Chelek",
+    "Arslanbob",
+    "Horse riding",
+    "Tracking",
+  ];
+
   const [showEmail, setShowEmail] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const CUSTOM_STEPS = 3;
+  const GROUP_OPTIONS = [
+    { value: "1", label: "1 person" },
+    { value: "2", label: "2 people" },
+    { value: "3-4", label: "3-4 people" },
+    { value: "5-8", label: "5-8 people" },
+    { value: "9+", label: "9+ people" },
+  ] as const;
+
+  const [step, setStep] = useState(1);
+  const [stepMotion, setStepMotion] = useState<"forward" | "back">("forward");
+  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
+    destination: "",
     date: "",
+    partySize: "",
   });
 
   const isOpen = useModalStore((state) => state.isOpen);
+  const modalType = useModalStore((state) => state.modalType);
+  const bookingTour = useModalStore((state) => state.bookingTour);
   const closeModal = useModalStore((state) => state.closeModal);
+  const resolvedTour = tourProp ?? bookingTour ?? undefined;
+  const isCustomMode = modalType === "custom";
+
+  const resetModalState = () => {
+    setStep(1);
+    setStepMotion("forward");
+    setSelectedLocations([]);
+    setShowEmail(false);
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      destination: "",
+      date: "",
+      partySize: "",
+    });
+  };
+
+  const handleClose = () => {
+    closeModal();
+    resetModalState();
+  };
 
   const toggleMethod = () => {
     setIsExiting(true);
@@ -41,15 +94,33 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
       method: showEmail ? "email" : "whatsapp",
     });
 
-    const tourTitle = tour || "General Inquiry";
+    const locationsText = isCustomMode ? selectedLocations.join(", ") : "";
+    const tourTitle = isCustomMode
+      ? locationsText
+        ? `Custom tour: ${locationsText}`
+        : "Custom tour request"
+      : resolvedTour ||
+        (locationsText ? `Custom tour: ${locationsText}` : "General Inquiry");
+
+    const travelersLabel =
+      isCustomMode && formData.partySize
+        ? GROUP_OPTIONS.find((o) => o.value === formData.partySize)?.label ??
+          formData.partySize
+        : "";
 
     const sendEmail = async () => {
       const response = await fetch("/api/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          date: formData.date,
           title: tourTitle,
+          destination: formData.destination || locationsText,
+          locations: selectedLocations,
+          travelers: travelersLabel,
           contact: showEmail ? formData.email : formData.phone,
         }),
       });
@@ -62,11 +133,10 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
       loading: "Sending your application...",
       success: () => {
         const userIdentifier = formData.email || formData.phone || "guest";
-        if (tour && tour !== "General Inquiry") {
+        if (resolvedTour && resolvedTour !== "General Inquiry") {
           trackConversion(userIdentifier);
         }
-        closeModal();
-        setFormData({ name: "", phone: "", email: "", date: "" });
+        handleClose();
 
         return <b>Application sent! We will contact you soon.</b>;
       },
@@ -74,7 +144,9 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -84,9 +156,17 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
     setFormData((prev) => ({ ...prev, phone: value }));
   };
 
+  const toggleLocation = (location: string) => {
+    setSelectedLocations((prev) =>
+      prev.includes(location)
+        ? prev.filter((item) => item !== location)
+        : [...prev, location],
+    );
+  };
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeModal();
+      if (e.key === "Escape") handleClose();
     };
     if (isOpen) {
       window.addEventListener("keydown", handleEsc);
@@ -96,29 +176,231 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
       window.removeEventListener("keydown", handleEsc);
       document.body.style.overflow = "";
     };
-  }, [isOpen, closeModal]);
+  }, [isOpen]);
 
   return (
     <section
       className={`${styles.signTour} ${isOpen ? styles.isOpen : ""}`}
       role="dialog"
       aria-modal="true"
-      onClick={closeModal}
+      onClick={handleClose}
     >
       <div className={styles.overlay}></div>
 
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-        <button type="button" className={styles.close} onClick={closeModal}>
+        <button type="button" className={styles.close} onClick={handleClose}>
           <Image src="/images/close.png" alt="Close" width={30} height={30} />
         </button>
 
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title}>
+          {isCustomMode
+            ? "Create your tour"
+            : resolvedTour
+              ? "Book this Tour:"
+              : title}
+        </h2>
         <p className={styles.description}>
-          {tour
+          {isCustomMode
+            ? "Build your own tour in a few steps: pick places, tell us your group size, then leave your contact and preferred date."
+            : resolvedTour
             ? "Have questions about the route? Drop your contact info — let’s chat and make your dream journey a reality."
             : "Let’s start your journey! Leave a request, and we’ll get back to you shortly with the best offers"}
         </p>
 
+        {isCustomMode && (
+          <div className={styles.stepBadge}>
+            Step {step} of {CUSTOM_STEPS}
+          </div>
+        )}
+
+        {isCustomMode ? (
+          <div
+            key={step}
+            className={`${styles.stepPanel} ${stepMotion === "forward" ? styles.stepPanelForward : styles.stepPanelBack}`}
+          >
+            {step === 1 && (
+              <div className={styles.form}>
+                <div className={styles.locationsGrid}>
+                  {LOCATIONS.map((location) => {
+                    const isSelected = selectedLocations.includes(location);
+                    return (
+                      <button
+                        key={location}
+                        type="button"
+                        className={`${styles.locationButton} ${isSelected ? styles.locationButtonActive : ""}`}
+                        onClick={() => toggleLocation(location)}
+                      >
+                        {location}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <p className={styles.selectedHint}>
+                  {selectedLocations.length > 0
+                    ? `Selected: ${selectedLocations.join(", ")}`
+                    : "Choose one or more locations to continue."}
+                </p>
+
+                <button
+                  type="button"
+                  className={styles.button}
+                  onClick={() => {
+                    setStepMotion("forward");
+                    setStep(2);
+                  }}
+                  disabled={selectedLocations.length === 0}
+                >
+                  Continue
+                </button>
+              </div>
+            )}
+            {step === 2 && (
+              <div className={styles.form}>
+                <p className={styles.stepIntro}>How many people will travel?</p>
+                <div className={styles.locationsGrid}>
+                  {GROUP_OPTIONS.map(({ value, label }) => {
+                    const isSelected = formData.partySize === value;
+                    return (
+                      <button
+                        key={value}
+                        type="button"
+                        className={`${styles.locationButton} ${isSelected ? styles.locationButtonActive : ""}`}
+                        onClick={() =>
+                          setFormData((prev) => ({ ...prev, partySize: value }))
+                        }
+                      >
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <button
+                  type="button"
+                  className={styles.button}
+                  onClick={() => {
+                    setStepMotion("forward");
+                    setStep(3);
+                  }}
+                  disabled={!formData.partySize}
+                >
+                  Continue
+                </button>
+                <button
+                  type="button"
+                  className={styles.secondaryButton}
+                  onClick={() => {
+                    setStepMotion("back");
+                    setStep(1);
+                  }}
+                >
+                  Back
+                </button>
+              </div>
+            )}
+            {step === 3 && (
+              <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.inputGroup}>
+                  <input
+                    id="name"
+                    className={styles.input}
+                    type="text"
+                    name="name"
+                    placeholder=" "
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label htmlFor="name" className={styles.label}>
+                    Your Name
+                  </label>
+                </div>
+
+                <div
+                  className={`${styles.animatedField} ${isExiting ? styles.fadeOut : styles.fadeIn}`}
+                >
+                  {!showEmail ? (
+                    <div className={styles.inputGroup}>
+                      <input
+                        id="phone"
+                        className={styles.input}
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={phoneHandleChange}
+                        required={!showEmail}
+                        placeholder=" "
+                      />
+                      <label htmlFor="phone" className={styles.label}>
+                        WhatsApp Number
+                      </label>
+                      <button
+                        type="button"
+                        className={styles.switchLink}
+                        onClick={toggleMethod}
+                      >
+                        Don't have WhatsApp? Use Email
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={styles.inputGroup}>
+                      <input
+                        id="email"
+                        className={styles.input}
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required={showEmail}
+                        placeholder=" "
+                      />
+                      <label htmlFor="email" className={styles.label}>
+                        Your Email
+                      </label>
+                      <button
+                        type="button"
+                        className={styles.switchLink}
+                        onClick={toggleMethod}
+                      >
+                        Back to WhatsApp
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                <div className={styles.inputGroup}>
+                  <input
+                    id="date"
+                    className={styles.input}
+                    type="datetime-local"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label htmlFor="date" className={styles.label}>
+                    Preferred Date
+                  </label>
+                </div>
+
+                <button type="submit" className={styles.button}>
+                  SEND
+                </button>
+                <button
+                  type="button"
+                  className={styles.secondaryButton}
+                  onClick={() => {
+                    setStepMotion("back");
+                    setStep(2);
+                  }}
+                >
+                  Back
+                </button>
+              </form>
+            )}
+          </div>
+        ) : (
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
             <input
@@ -207,10 +489,17 @@ const SignTour = ({ title, tour, description }: SignTourProps) => {
             SEND
           </button>
         </form>
+        )}
 
-        <p className={styles.policy}>
-          By clicking the "SEND" button, you agree to the privacy policy.
-        </p>
+        {(!isCustomMode || step === CUSTOM_STEPS) && (
+          <p className={styles.policy}>
+            By clicking the "SEND" button, you agree to the{" "}
+            <Link href="/privacy-policy" className={styles.policyLink}>
+              privacy policy
+            </Link>
+            .
+          </p>
+        )}
       </div>
     </section>
   );

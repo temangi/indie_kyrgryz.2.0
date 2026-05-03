@@ -3,7 +3,21 @@ import Link from "next/link";
 import { ITour } from "@/src/widgets/Tours/constants/constants";
 import Image from "next/image";
 
-export const ToursCard = ({ id, slug, title, day, img, href }: ITour) => {
+type ToursCardProps = ITour & {
+  showPrice?: boolean;
+};
+
+export const ToursCard = ({
+  id,
+  slug,
+  title,
+  day,
+  price,
+  tag,
+  img,
+  href,
+  showPrice = true,
+}: ToursCardProps) => {
   return (
     <div className={styles.cardMain}>
       <Link href={`/${href}/${slug}`} className={styles.card}>
@@ -16,6 +30,10 @@ export const ToursCard = ({ id, slug, title, day, img, href }: ITour) => {
           className={styles.cardImage}
         />
         <div className={styles.cardBadge}>{day}</div>
+        {tag && <div className={styles.cardTag}>{tag}</div>}
+        {showPrice && price && (
+          <div className={styles.cardPrice}>from {price}</div>
+        )}
 
         <div className={styles.cardContent}>
           <div className={styles.cardHead}>

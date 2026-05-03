@@ -149,6 +149,12 @@
   gap: 25px;
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .hamburger {
   display: none;
   cursor: pointer;
@@ -263,6 +269,18 @@
   }
 }
 
+.whatsAppButton {
+  background: var(--color-emerald);
+  box-shadow: 0 4px 15px rgba(49, 90, 81, 0.2);
+  text-decoration: none;
+  &:hover {
+    background: var(--color-emerald);
+    box-shadow: 0 6px 20px rgba(49, 90, 81, 0.35);
+    text-decoration: none; 
+    color: #fff;
+  }
+}
+
 .headerButtonLink {
   position: relative;
   z-index: 1;
@@ -340,7 +358,7 @@
     width: 65%;
     max-width: 400px;
     height: 100%;
-    background: #fff;
+    background: var(--page-background);
     padding: 80px 20px;
     display: flex;
     flex-direction: column;

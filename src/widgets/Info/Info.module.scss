@@ -1,6 +1,6 @@
 .info {
   padding: clamp(80px, 10vw, 140px) 0;
-  background: #fffef8; // Твой кремовый фон
+  background: var(--page-background); 
   position: relative;
 }
 

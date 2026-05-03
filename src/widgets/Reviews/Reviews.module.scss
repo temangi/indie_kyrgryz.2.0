@@ -1,7 +1,9 @@
 .reviews {
   padding: 50px 0;
-  background: #fffef8;
+  background: var(--page-background);
   color: var(--color-emerald);
+  position: relative;
+  z-index: 10;
 
   .title {
     text-transform: uppercase;

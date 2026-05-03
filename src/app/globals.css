@@ -21,6 +21,7 @@
 :root{
   --color-emerald: #4f7b6b;
   --color-orange: #d26404;
+  --page-background: #fffef8;
 }
 
 p,
@@ -76,16 +77,23 @@ button:focus {
   outline: none;
 }
 
+html {
+  scroll-behavior: instant;
+  scrollbar-gutter: stable;
+  background-color: var(--page-background);
+}
+
 body {
   position: relative;
   font-size: 1rem;
   line-height: 1.6;
   overflow-x: hidden;
-  scrollbar-gutter: stable; 
-}
-html {
-  scroll-behavior: instant;
   scrollbar-gutter: stable;
+  background-color: var(--page-background);
+}
+
+main.page {
+  background-color: var(--page-background);
 }
 
 ::selection {

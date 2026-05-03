@@ -53,6 +53,10 @@ const Footer = () => {
           </div>
           
         </div>
+
+        <p className={styles.footer__copyright}>
+          © {new Date().getFullYear()} Indie Kyrgyz Travel. All rights reserved.
+        </p>
       </div>
     </footer>
   );

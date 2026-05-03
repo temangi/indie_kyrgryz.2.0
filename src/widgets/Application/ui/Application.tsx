@@ -39,8 +39,11 @@ const Application = () => {
                   </li>
                 ))}
               </ul>
-              <button className={styles.button} onClick={openModal}>
-                Submit application
+              <button
+                className={styles.button}
+                onClick={() => openModal("custom")}
+              >
+                Create your tour
               </button>
             </div>
           </div>

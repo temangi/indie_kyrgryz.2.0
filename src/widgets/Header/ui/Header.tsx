@@ -17,17 +17,20 @@ import { navSocialLinks } from "./nav";
 const Header = () => {
   const pathname = usePathname();
   const [scrollTop, setScrollTop] = useState(0);
-  const isToursPage = pathname === "/" || pathname === "/tours";
   const openModal = useModalStore((state) => state.openModal);
   const isOpenBurger = useOpenBurgerStore((state) => state.isOpen);
   const closeBurger = useOpenBurgerStore((state) => state.closeModal);
   const openBurger = useOpenBurgerStore((state) => state.openModal);
-  console.log(isToursPage , "fafaf")
-  const buttonText = isToursPage 
-    ? "sign up for a tour"  
-    : "book this tour";
+  /** Generic CTA when there is no single packaged tour on the page */
+  const useSignUpLabel =
+    pathname === "/" ||
+    pathname === "/tours" ||
+    pathname === "/about" ||
+    pathname === "/contacts" ||
+    pathname === "/privacy-policy";
+  const buttonText = useSignUpLabel ? "sign up for a tour" : "book this tour";
   const isHomePage = pathname === "/";
-  const isVisible = !isHomePage || scrollTop > 300;
+  const isVisible = !isHomePage || scrollTop > 900;
 
   useEffect(() => {
     if (!isHomePage) return;
@@ -75,21 +78,31 @@ const Header = () => {
             <div className={`${styles.headerControllers}`}>
               <div className={styles.headerControllersWrapper}>
                 <Navigation />
-                <button
-                  type="button"
-                  className={styles.headerButton}
-                  onClick={openModal}
-                >
-                  <span className={styles.headerButtonLink}>
-                    {buttonText}
-                  </span>
-                </button>
+                <div className={styles.headerActions}>
+                  <button
+                    type="button"
+                    className={styles.headerButton}
+                    onClick={() => openModal()}
+                  >
+                    <span className={styles.headerButtonLink}>
+                      {buttonText}
+                    </span>
+                  </button>
+                  <Link
+                    href="https://wa.me/996704313147?text=Hi%20Indie%20Kyrgyz%20Travel"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.headerButton} ${styles.whatsAppButton}`}
+                  >
+                    WhatsApp
+                  </Link>
+                </div>
               </div>
             </div>
             <button
               type="button"
               className={`${styles.hamburger} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
-              onClick={isOpenBurger ? closeBurger : openBurger}
+              onClick={() => (isOpenBurger ? closeBurger() : openBurger())}
               aria-label="Toggle navigation"
               aria-expanded={isOpenBurger}
             >
@@ -111,7 +124,7 @@ const Header = () => {
           <button
             type="button"
             className={`${styles.hamburger} ${styles.closeIconf} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
-            onClick={isOpenBurger ? closeBurger : openBurger}
+            onClick={() => (isOpenBurger ? closeBurger() : openBurger())}
             aria-label="Toggle navigation"
             aria-expanded={isOpenBurger}
           >
@@ -145,12 +158,20 @@ const Header = () => {
             <button
               type="button"
               className={styles.headerButton}
-              onClick={openModal}
+              onClick={() => openModal()}
             >
               <span className={styles.headerButtonLink}>
                 {buttonText}
               </span>
             </button>
+            <Link
+              href="https://wa.me/996704313147?text=Hi%20Indie%20Kyrgyz%20Travel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.headerButton} ${styles.whatsAppButton}`}
+            >
+              WhatsApp
+            </Link>
           </footer>
         </div>
       </div>

@@ -1,6 +1,8 @@
 .philosophien {
   padding: 50px 0;
-  background: #fffef8;
+  background: var(--page-background);
+  position: relative;
+  z-index: 10;
 }
 
 .menu {
