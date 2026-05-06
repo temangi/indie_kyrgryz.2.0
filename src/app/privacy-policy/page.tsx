@@ -1,4 +1,20 @@
 import styles from "./privacyPolicy.module.scss";
+import type { Metadata } from "next";
+
+const PRIVACY_URL = "https://indiekyrgyz.com/privacy-policy";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the Indie Kyrgyz Travel privacy policy: what data we collect, how we use it, and your rights.",
+  alternates: {
+    canonical: PRIVACY_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const PrivacyPolicyPage = () => {
   return (
