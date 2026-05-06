@@ -1,6 +1,8 @@
 import DetailPage from "@/src/pages/tourDetail/page";
 import { Metadata } from "next";
 import { stepsTours } from "@/src/widgets/HowItGoing/model/constants/step";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildTourSeoGraph } from "@/src/shared/seo/tourSeoGraph";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,15 +21,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = "https://indiekyrgyz.com"; 
   const canonicalUrl = `${baseUrl}/tour/${slug}`;
 
+  const metaDescription = String(
+    currentTour.title ?? currentTour.desc ?? currentTour.chapter
+  ).trim();
+
   return {
     title: `${currentTour.chapter} | Indie Kyrgyz Travel`,
-    description: currentTour.title,
+    description: metaDescription.slice(0, 160),
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
       title: currentTour.chapter,
-      description: currentTour.title,
+      description: metaDescription.slice(0, 300),
       url: canonicalUrl,
       type: "website",
       images: [
@@ -45,29 +51,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DetailToursPage({ params }: Props) {
   const { slug } = await params;
   const currentTour = stepsTours.find((tour) => tour.slug === slug);
-  const tourLd = currentTour ? {
-    "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    "name": currentTour.chapter,
-    "description": currentTour.title,
-    "image": currentTour.slider[0].item,
-    "touristType": "Adventure travelers",
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "USD",
-      "price": currentTour.price,
-      "availability": "https://schema.org/InStock",
-    },
-  } : null;
+  const seoGraph = currentTour ? buildTourSeoGraph(currentTour) : null;
 
   return (
     <>
-      {tourLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(tourLd) }}
-        />
-      )}
+      {seoGraph ? <SeoJsonLd id={`tour-ld-${slug}`} graph={seoGraph} /> : null}
       <DetailPage slug={slug} />
     </>
   );

@@ -1,6 +1,8 @@
 import DestinationPage from "@/src/pages/destination/page";
 import { Metadata } from "next";
 import { destinationTourInfo } from "@/src/widgets/DestinationTourList/constants/constansts";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildDestinationSeoGraph } from "@/src/shared/seo/destinationSeoGraph";
 
 type Props = {
   params: Promise<{ slug: string }>; 
@@ -17,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const baseUrl = "https://indiekyrgyz.com";
-  const canonicalUrl = `${baseUrl}/destinations/${slug}`;
+  const canonicalUrl = `${baseUrl}/destination/${slug}`;
 
   const imageUrl = typeof currentTour.imgs === 'string' 
     ? currentTour.imgs 
@@ -48,23 +50,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Destination({ params }: Props) {
   const { slug } = await params;
   const currentTour = destinationTourInfo.find((tour) => tour.slug === slug);
-  const jsonLd = currentTour ? {
-    "@context": "https://schema.org",
-    "@type": "TouristDestination",
-    "name": currentTour.title,
-    "description": currentTour.desc,
-    "image": typeof currentTour.imgs === 'string' ? currentTour.imgs : currentTour.imgs[0]?.src || 'https://indiekyrgyz.com/og.jpg',
-    "touristType": "Sightseeing",
-  } : null;
+  const seoGraph = currentTour ? buildDestinationSeoGraph(currentTour) : null;
 
   return (
     <>
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      )}
+      {seoGraph ? (
+        <SeoJsonLd id={`destination-ld-${slug}`} graph={seoGraph} />
+      ) : null}
       <DestinationPage />
     </>
   );

@@ -1,4 +1,5 @@
 import { Reise } from "@/src/widgets/Reise"
+import { OutdoorActivities } from "@/src/widgets/OutdoorActivities"
 import styles from "@/src/widgets/Tours/Tours.module.scss"
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card"
 import { tours } from "@/src/widgets/Tours/constants/constants"
@@ -19,6 +20,7 @@ const ToursPage = () => {
                     </div>
                 </section>
             </div>
+            <OutdoorActivities />
             <Application />
             <Reise />
         </>

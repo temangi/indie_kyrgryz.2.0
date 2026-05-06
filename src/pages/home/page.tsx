@@ -1,5 +1,6 @@
 import { MainHero } from "../../widgets/MainHero";
 import { Tours } from "../../widgets/Tours";
+import { OutdoorActivities } from "../../widgets/OutdoorActivities";
 import { Info } from "../../widgets/Info";
 import { Application } from "../../widgets/Application";
 import { Reise } from "../../widgets/Reise";
@@ -22,6 +23,7 @@ const HomePage = () => {
 Limited spots for summer 2026. Book your adventure today.`}
       />
       <Tours />
+      <OutdoorActivities />
       <Info />
       <Application />
       <Reise />

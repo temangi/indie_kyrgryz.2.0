@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { SignTour } from "../widgets/SignTour";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -97,10 +98,10 @@ export const metadata: Metadata = {
     siteName: "Indie Kyrgyz Travel",
     images: [
       {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Mountains of Kyrgyzstan - Indie Kyrgyz Travel",
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Indie Kyrgyz Travel",
       },
     ],
     locale: "en_US",
@@ -110,7 +111,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Indie Kyrgyz Travel",
     description: "Authentic tours in Kyrgyzstan with local guides.",
-    images: ["/og.jpg"],
+    images: ["/icon.png"],
   },
   manifest: "/site.webmanifest",
   authors: [{ name: "Indie Kyrgyz Travel" }],
@@ -131,12 +132,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const organizationLd = {
-    "@context": "https://schema.org",
     "@type": "Organization",
     name: "Indie Kyrgyz Travel",
     url: "https://indiekyrgyz.com",
-    logo: "https://indiekyrgyz.com/logo.png",
-    image: "https://indiekyrgyz.com/og.jpg",
+    logo: "https://indiekyrgyz.com/icon.png",
+    image: "https://indiekyrgyz.com/icon.png",
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -147,14 +147,21 @@ export default function RootLayout({
         availableLanguage: ["en", "ru"],
       },
     ],
-    sameAs: ["https://www.instagram.com/ice_jack_sparrow"],
+    sameAs: [
+      "https://www.instagram.com/indie_kyrgyz_travel",
+      "https://www.tiktok.com/@indie.kyrgyz.travel",
+    ],
   };
   const websiteLd = {
-    "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Indie Kyrgyz Travel",
     alternateName: "Indie Kyrgyz",
     url: "https://indiekyrgyz.com",
+    publisher: {
+      "@type": "Organization",
+      name: "Indie Kyrgyz Travel",
+      url: "https://indiekyrgyz.com",
+    },
   };
 
   return (
@@ -183,18 +190,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GoogleAnalyticsTracker />
         </Suspense>
-        <Script
-          id="organization-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="website-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
-          strategy="afterInteractive"
-        />
+        <SeoJsonLd id="global-ld" graph={[organizationLd, websiteLd]} />
         <main className="page">{children}</main>
         <Footer />
         <Toaster

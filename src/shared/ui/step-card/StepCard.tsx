@@ -25,9 +25,45 @@ function sanitizeEmbedUrl(raw: string): string | undefined {
   }
 }
 
-function mapIframeSrc(embed?: string, query?: string): string | undefined {
+/** First and last stops from `routeSummary` for directions (e.g. "A → B → C" → A→C). */
+function splitRouteEndpoints(
+  routeSummary: string | undefined
+): { origin: string; dest: string } | undefined {
+  if (!routeSummary?.trim()) return undefined;
+  const normalized = routeSummary
+    .replace(/\s*\u2194\s*/g, " → ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const parts = normalized
+    .split(/\s*→\s*/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  if (parts.length < 2) return undefined;
+  const origin = parts[0];
+  const dest = parts[parts.length - 1];
+  if (origin.localeCompare(dest, undefined, { sensitivity: "accent" }) === 0) {
+    return undefined;
+  }
+  return { origin, dest };
+}
+
+function directionsEmbedUrl(origin: string, dest: string): string {
+  return `https://maps.google.com/maps?f=d&saddr=${encodeURIComponent(origin)}&daddr=${encodeURIComponent(dest)}&hl=en&output=embed`;
+}
+
+function mapIframeSrc(
+  embed?: string,
+  routeSummary?: string,
+  query?: string
+): string | undefined {
   const clean = embed ? sanitizeEmbedUrl(embed) : undefined;
   if (clean) return clean;
+
+  const ends = splitRouteEndpoints(routeSummary);
+  if (ends) {
+    return directionsEmbedUrl(ends.origin, ends.dest);
+  }
+
   if (query?.trim()) {
     const q = encodeURIComponent(query.trim());
     return `https://maps.google.com/maps?q=${q}&hl=en&z=7&output=embed`;
@@ -49,13 +85,16 @@ const StepCard = ({
 
   const toggleMain = () => setIsVisible((prev) => !prev);
 
-  const iframeSrc = mapIframeSrc(mapEmbedSrc, mapQuery);
+  const iframeSrc = mapIframeSrc(mapEmbedSrc, routeSummary, mapQuery);
   const showRouteBlock = Boolean(routeSummary || iframeSrc);
-  const externalMapHref = mapQuery?.trim()
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery.trim())}`
-    : routeSummary?.trim()
-      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(routeSummary.trim())}`
-      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(title)}`;
+  const dirEnds = splitRouteEndpoints(routeSummary);
+  const externalMapHref = dirEnds
+    ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(dirEnds.origin)}&destination=${encodeURIComponent(dirEnds.dest)}`
+    : mapQuery?.trim()
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery.trim())}`
+      : routeSummary?.trim()
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(routeSummary.trim())}`
+        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(title)}`;
 
   return (
     <div

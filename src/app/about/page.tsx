@@ -1,5 +1,24 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import styles from "./about.module.scss";
+
+const ABOUT_URL = "https://indiekyrgyz.com/about";
+
+export const metadata: Metadata = {
+  title: "About Indie Kyrgyz Travel",
+  description:
+    "Learn about Indie Kyrgyz Travel: local guides, authentic itineraries, and safe, flexible tours across Kyrgyzstan.",
+  alternates: {
+    canonical: ABOUT_URL,
+  },
+  openGraph: {
+    title: "About | Indie Kyrgyz Travel",
+    description:
+      "Local team, real routes, and personalized support for tours in Kyrgyzstan.",
+    url: ABOUT_URL,
+    type: "profile",
+  },
+};
 
 const AboutPage = () => {
   return (

@@ -3,7 +3,10 @@ export type TourDayFields = {
   duration: string;
   desc: string;
   place: string;
-  /** One-line route for this day, shown above the map (e.g. "Bishkek → Cholpon-Ata → Karakol"). */
+  /**
+   * One-line route for this day, shown above the map (e.g. "Bishkek → Cholpon-Ata → Karakol").
+   * If there are ≥2 segments separated by "→" (or "↔"), the embedded map uses driving directions from the first to the last stop (unless `mapEmbedSrc` is set).
+   */
   routeSummary?: string;
   /**
    * Full iframe URL from Google Maps (Share → Embed a map → copy `src`).
