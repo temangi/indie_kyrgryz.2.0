@@ -30,7 +30,7 @@
   overflow: hidden;
   background-color: var(--page-background);
    @media (max-width: 758px) {
-    height: 90vh;
+    height: 100vh;
   }
   @media (max-width : 560px) {
     height: 80vh;
@@ -54,7 +54,11 @@
 
     @media (max-width: 480px) {
       width: 170px;
-      top: 20%;
+      top: 10%;
+    }
+    @media (max-width: 320px) {
+      width: 160px;
+      top: 8%;
     }
   }
 
