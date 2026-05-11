@@ -9,10 +9,16 @@ type TourInfoProps = {
   price: string;
   duration: string;
   tour: string;
-  dates?: string[]; 
+  dates?: string[];
 };
 
-export const TourInfo = ({ route, price, duration, tour, dates }: TourInfoProps) => {
+export const TourInfo = ({
+  route,
+  price,
+  duration,
+  tour,
+  dates,
+}: TourInfoProps) => {
   return (
     <section className={styles.mainTour}>
       <TourBookingScope tourName={tour} />

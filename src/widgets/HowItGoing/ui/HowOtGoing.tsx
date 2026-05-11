@@ -8,7 +8,7 @@ import { TourInfo } from "@/src/shared/ui/TourInfo/TourInfo";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import styles from "../HowItGoing.module.scss";
 import { stepsTours } from "../model/constants/step";
-import { tours } from "../../Tours/constants/constants";
+import { GROUP_TOUR_2026_SLUG, tours } from "../../Tours/constants/constants";
 import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { Props } from "@/src/pages/tourDetail/page";
@@ -28,9 +28,16 @@ const HowItGoing = ({ slug }: Props) => {
   const { arr, title, desc, chapter, slider, route, price, duration ,dates } =
     currentTour;
 
+  const listingFormat =
+    slug === GROUP_TOUR_2026_SLUG ? ("group" as const) : ("private" as const);
+
   return (
     <>
-      <MainHero title={slider[0].title} img={slider[0].item} />
+      <MainHero
+        title={slider[0].title}
+        img={slider[0].item}
+        listingFormat={listingFormat}
+      />
       <BackButton />
       {slug !== "day-trips" && <TourInfo route={route} price={price} duration={duration} tour={chapter} dates={dates} />}
       <section className={styles.tourDetails}>

@@ -6,9 +6,13 @@ type MainHeroProps = {
   title: string;
   unTitle?: string;
   img: StaticImageData;
+  /** Optional id on the main heading (e.g. skip links, in-page anchors). */
+  titleId?: string;
+  /** Tour detail: private vs fixed-date group departure. */
+  listingFormat?: "private" | "group";
 };
 
-const MainHero = ({ title, unTitle, img }: MainHeroProps) => {
+const MainHero = ({ title, unTitle, img, titleId, listingFormat }: MainHeroProps) => {
   return (
     <section className={styles.main}>
       <Image
@@ -28,7 +32,26 @@ const MainHero = ({ title, unTitle, img }: MainHeroProps) => {
         />
       </div>
       <div className={styles.main__content}>
-        <h1 className={styles.main__title}>{title}</h1>
+        <h1 className={styles.main__title} id={titleId}>
+          {title}
+        </h1>
+        {listingFormat && (
+          <p
+            className={`${styles.main__format} ${
+              listingFormat === "group"
+                ? styles.main__format_group
+                : styles.main__format_private
+            }`}
+            role="note"
+            aria-label={
+              listingFormat === "group"
+                ? "Fixed-date group tour"
+                : "Private tour"
+            }
+          >
+            {listingFormat === "group" ? "Group tour" : "Private tour"}
+          </p>
+        )}
         {unTitle && <p className={styles.main__desc}>{unTitle}</p>}
       </div>
     </section>
