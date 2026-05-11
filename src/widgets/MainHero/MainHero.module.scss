@@ -33,7 +33,7 @@
     height: 100vh;
   }
   @media (max-width : 560px) {
-    height: 80vh;
+    height: 100vh;
   }
   &__bg {
     position: absolute;
@@ -90,6 +90,29 @@
     @media (max-width: 560px) {
       width: 90%;
     }
+  }
+
+  &__format {
+    margin: 14px 0 0;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: clamp(0.75rem, 0.7rem + 0.35vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.55s forwards;
+  }
+
+  &__format_private {
+    background: rgba(49, 90, 81, 0.95);
+    color: var(--page-background);
+  }
+
+  &__format_group {
+    background: var(--color-orange);
+    color: var(--page-background);
   }
 
   &__desc {

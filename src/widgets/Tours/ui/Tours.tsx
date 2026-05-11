@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "../Tours.module.scss";
-import { tours } from "../constants/constants";
+import { GROUP_TOUR_2026_SLUG, tours } from "../constants/constants";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 
-const bestTours = tours
-  .slice(0, 3)
-  .map((el) => <ToursCard {...el} key={el.id} />);
 const groupTours = tours
   .slice(3, 6)
+  .map((el) => <ToursCard {...el} key={el.id} />);
+const groupTour2026 = tours
+  .filter((t) => t.slug === GROUP_TOUR_2026_SLUG)
   .map((el) => <ToursCard {...el} key={el.id} />);
 
 const Tours = () => {
@@ -52,7 +52,7 @@ const Tours = () => {
         <div
           className={`${styles.tab} ${activeTab === "group" ? styles.active : styles.hidden}`}
         >
-          {bestTours}
+          {groupTour2026}
         </div>
       </div>
 

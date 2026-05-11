@@ -20,19 +20,22 @@ export interface ITour {
   slug: string;
 }
 
+export const GROUP_TOUR_2026_SLUG = "best-of-kyrgyzstan";
+
 export const tours: ITour[] = [
   {
     id: 4,
-    title: " Best of Kyrgyzstan",
+    title: "Best of Kyrgyzstan",
     day: "8 days",
     price: "$890",
+    tag: "Popular",
     img: s1,
     href: "tour",
     slug: "best-of-kyrgyzstan",
   },
   {
     id: 5,
-    title: "Song-kul horsebackriding",
+    title: "Song-Kul on horseback",
     day: "3 days",
     price: "$390",
     img: s2,
@@ -41,7 +44,7 @@ export const tours: ITour[] = [
   },
   {
     id: 6,
-    title: "Altyn-Arashan & Ala-Kul trip",
+    title: "Altyn-Arashan & Ala-Kul",
     day: "4 days",
     price: "$450",
     img: s3,
@@ -50,7 +53,7 @@ export const tours: ITour[] = [
   },
   {
     id: 3,
-    title: "Kyrgyzstan & Kazakhstan trip",
+    title: "Kyrgyzstan & Kazakhstan",
     day: "10 days",
     price: "$1290",
     tag: "Popular",
@@ -60,7 +63,7 @@ export const tours: ITour[] = [
   },
   {
     id: 1,
-    title: "Kyrgyz week",
+    title: "Kyrgyz Week",
     day: "7 days",
     price: "$790",
     tag: "Popular",
@@ -79,8 +82,8 @@ export const tours: ITour[] = [
   },
   {
     id: 7,
-    title: "Unique Experience Tour",
-    day: "8 Days",
+    title: "Unique Experience",
+    day: "8 days",
     price: "$930",
     img: s7,
     href: "tour",
@@ -88,7 +91,7 @@ export const tours: ITour[] = [
   },
   {
     id: 8,
-    title: "4x4 OFF-ROAD ADVENTURE TOUR",
+    title: "4×4 Off-Road Adventure",
     day: "10 days",
     price: "$1390",
     img: s8,
@@ -97,7 +100,7 @@ export const tours: ITour[] = [
   },
   {
     id: 9,
-    title: "Day Trips from Bishkek",
+    title: "Day trips from Bishkek",
     day: "1 day",
     price: "$95",
     img: s9,
