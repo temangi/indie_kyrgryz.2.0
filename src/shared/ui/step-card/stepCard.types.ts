@@ -17,4 +17,9 @@ export type TourDayFields = {
   mapQuery?: string;
 };
 
-export type StepCardType = TourDayFields & { id: number };
+export type StepCardType = TourDayFields & {
+  id: number;
+  /** Controlled open state (use with `onToggle`). */
+  isOpen?: boolean;
+  onToggle?: () => void;
+};

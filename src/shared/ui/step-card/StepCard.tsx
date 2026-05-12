@@ -80,10 +80,17 @@ const StepCard = ({
   routeSummary,
   mapEmbedSrc,
   mapQuery,
+  isOpen: isOpenControlled,
+  onToggle,
 }: StepCardType) => {
-  const [isVisible, setIsVisible] = useState(id === 0);
+  const [internalOpen, setInternalOpen] = useState(id === 0);
+  const isControlled = isOpenControlled !== undefined && onToggle !== undefined;
+  const isVisible = isControlled ? isOpenControlled : internalOpen;
 
-  const toggleMain = () => setIsVisible((prev) => !prev);
+  const toggleMain = () => {
+    if (isControlled) onToggle();
+    else setInternalOpen((prev) => !prev);
+  };
 
   const iframeSrc = mapIframeSrc(mapEmbedSrc, routeSummary, mapQuery);
   const showRouteBlock = Boolean(routeSummary || iframeSrc);
