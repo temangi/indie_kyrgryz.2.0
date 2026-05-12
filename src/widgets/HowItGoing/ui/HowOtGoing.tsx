@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import StepCard from "@/src/shared/ui/step-card/StepCard";
@@ -14,6 +15,8 @@ import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { Props } from "@/src/pages/tourDetail/page";
 import BookTour from "@/src/shared/ui/BookTour/BookTour";
 import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
+
+const MAX_OPEN_ITINERARY_DAYS = 2;
 
 const HowItGoing = ({ slug }: Props) => {
   const currentTour = stepsTours.find(tour => tour.slug === slug);
@@ -30,6 +33,21 @@ const HowItGoing = ({ slug }: Props) => {
 
   const listingFormat =
     slug === GROUP_TOUR_2026_SLUG ? ("group" as const) : ("private" as const);
+
+  const [openDayOrder, setOpenDayOrder] = useState<number[]>([0]);
+
+  const toggleDay = useCallback((index: number) => {
+    setOpenDayOrder((prev) => {
+      if (prev.includes(index)) {
+        return prev.filter((i) => i !== index);
+      }
+      const next = [...prev, index];
+      while (next.length > MAX_OPEN_ITINERARY_DAYS) {
+        next.shift();
+      }
+      return next;
+    });
+  }, []);
 
   return (
     <>
@@ -53,7 +71,13 @@ const HowItGoing = ({ slug }: Props) => {
               <div className={styles.tourDetails__program}>
                 <h3 className={styles.programTitle}>Itinerary</h3>
                 {arr.map((el, index) => (
-                  <StepCard {...el} id={index} key={index} />
+                  <StepCard
+                    {...el}
+                    id={index}
+                    key={index}
+                    isOpen={openDayOrder.includes(index)}
+                    onToggle={() => toggleDay(index)}
+                  />
                 ))}
               </div>
             </div>
