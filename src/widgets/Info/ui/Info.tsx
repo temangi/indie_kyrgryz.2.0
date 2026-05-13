@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "../Info.module.scss";
-import img from "@/public/images/KYRG2760.jpg";
+import img from "@/public/images/tours/day/p2.webp";
 
 const Info = () => {
   const infoItems = [
