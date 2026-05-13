@@ -749,7 +749,7 @@ Throughout the tour, guests experience a powerful balance of adventure and comfo
   },
   {
     arr: bestOfKyrgryzstan,
-    dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
+    dates: ["10-17th of June", "10-17th of July", "10-17th of August" , "5-12th of September"],
     slug : "best-of-kyrgyzstan",
     route: "1500 km",
     price: "from 930$",
