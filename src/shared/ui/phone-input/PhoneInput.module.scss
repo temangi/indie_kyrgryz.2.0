@@ -1,0 +1,73 @@
+.inputGroup {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phoneField {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+  border-bottom: 2px solid rgba(79, 123, 107, 0.25);
+  padding-bottom: 2px;
+  transition: border-color 0.3s;
+
+  &:focus-within {
+    border-color: var(--color-orange);
+  }
+}
+
+.phoneFieldError {
+  border-color: #c0392b;
+}
+
+.numberInput {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  padding: 12px 2px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-emerald);
+  border-radius: 0;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label {
+  position: absolute;
+  left: 88px;
+  top: 32px;
+  color: var(--color-emerald);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-left: 2px;
+}
+
+.labelActive {
+  left: 2px;
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--color-orange);
+  opacity: 1;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: #c0392b;
+  margin-top: 2px;
+}

@@ -1,0 +1,159 @@
+.wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 4px 12px 2px;
+  border: none;
+  background: transparent;
+  color: var(--color-emerald);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-orange);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.triggerOpen {
+  color: var(--color-orange);
+}
+
+.flag {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.dialCode {
+  white-space: nowrap;
+}
+
+.chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  opacity: 0.6;
+  transition: transform 0.2s ease;
+  margin-left: 2px;
+}
+
+.chevronOpen {
+  transform: rotate(-135deg) translateY(2px);
+}
+
+.dropdown {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  width: min(320px, calc(100vw - 48px));
+  background: #fff;
+  border: 1px solid rgba(79, 123, 107, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(49, 90, 81, 0.18);
+  overflow: hidden;
+  animation: dropdownIn 0.2s ease;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.searchWrap {
+  padding: 10px;
+  border-bottom: 1px solid rgba(79, 123, 107, 0.12);
+}
+
+.search {
+  width: 100%;
+  border: 1px solid rgba(79, 123, 107, 0.25);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: var(--color-emerald);
+  background: #fffef8;
+
+  &::placeholder {
+    color: rgba(79, 123, 107, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+}
+
+.list {
+  max-height: 220px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-emerald);
+  transition: background 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(255, 126, 0, 0.08);
+    outline: none;
+  }
+}
+
+.optionSelected {
+  background: rgba(79, 123, 107, 0.08);
+  font-weight: 600;
+}
+
+.optionName {
+  flex: 1;
+  font-size: 0.9rem;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.optionDial {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.empty {
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(79, 123, 107, 0.7);
+}
