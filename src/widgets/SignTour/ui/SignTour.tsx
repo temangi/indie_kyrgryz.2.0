@@ -8,6 +8,11 @@ import { useModalStore } from "@/src/shared/model/useModalStore";
 import { trackEvent } from "@/src/shared/lib/analytics";
 import { trackConversion } from "@/src/shared/lib/googleAds";
 import toast from "react-hot-toast";
+import {
+  isPhoneValid,
+  PHONE_INVALID_MESSAGE,
+} from "@/src/shared/lib/phoneValidation";
+import { ContactMethodFields } from "./ContactMethodFields";
 
 type SignTourProps = {
   title: string;
@@ -32,6 +37,7 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
 
   const [showEmail, setShowEmail] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | undefined>();
   const CUSTOM_STEPS = 3;
   const GROUP_OPTIONS = [
     { value: "1", label: "1 person" },
@@ -65,6 +71,7 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
     setStepMotion("forward");
     setSelectedLocations([]);
     setShowEmail(false);
+    setPhoneError(undefined);
     setFormData({
       name: "",
       phone: "",
@@ -84,11 +91,21 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
     setIsExiting(true);
     setTimeout(() => {
       setShowEmail(!showEmail);
+      setPhoneError(undefined);
       setIsExiting(false);
     }, 200);
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!showEmail && !isPhoneValid(formData.phone)) {
+      setPhoneError(PHONE_INVALID_MESSAGE);
+      return;
+    }
+
+    setPhoneError(undefined);
+
     trackEvent("submit_form", {
       label: "header_signup_button",
       method: showEmail ? "email" : "whatsapp",
@@ -150,10 +167,11 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const phoneHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
-    if (value && !value.startsWith("+")) value = "+" + value;
+  const handlePhoneChange = (value: string) => {
     setFormData((prev) => ({ ...prev, phone: value }));
+    if (phoneError && (value === "" || isPhoneValid(value))) {
+      setPhoneError(undefined);
+    }
   };
 
   const toggleLocation = (location: string) => {
@@ -317,57 +335,19 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
                   </label>
                 </div>
 
-                <div
-                  className={`${styles.animatedField} ${isExiting ? styles.fadeOut : styles.fadeIn}`}
-                >
-                  {!showEmail ? (
-                    <div className={styles.inputGroup}>
-                      <input
-                        id="phone"
-                        className={styles.input}
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={phoneHandleChange}
-                        required={!showEmail}
-                        placeholder=" "
-                      />
-                      <label htmlFor="phone" className={styles.label}>
-                        WhatsApp Number
-                      </label>
-                      <button
-                        type="button"
-                        className={styles.switchLink}
-                        onClick={toggleMethod}
-                      >
-                        Don't have WhatsApp? Use Email
-                      </button>
-                    </div>
-                  ) : (
-                    <div className={styles.inputGroup}>
-                      <input
-                        id="email"
-                        className={styles.input}
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required={showEmail}
-                        placeholder=" "
-                      />
-                      <label htmlFor="email" className={styles.label}>
-                        Your Email
-                      </label>
-                      <button
-                        type="button"
-                        className={styles.switchLink}
-                        onClick={toggleMethod}
-                      >
-                        Back to WhatsApp
-                      </button>
-                    </div>
-                  )}
-                </div>
+                <ContactMethodFields
+                  showEmail={showEmail}
+                  isExiting={isExiting}
+                  phone={formData.phone}
+                  email={formData.email}
+                  phoneError={phoneError}
+                  onPhoneChange={handlePhoneChange}
+                  onPhoneValidationChange={setPhoneError}
+                  onEmailChange={handleChange}
+                  onToggle={toggleMethod}
+                  phoneInputId="phone-custom"
+                  emailInputId="email-custom"
+                />
 
                 <div className={styles.inputGroup}>
                   <input
@@ -418,57 +398,17 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
             </label>
           </div>
 
-          <div
-            className={`${styles.animatedField} ${isExiting ? styles.fadeOut : styles.fadeIn}`}
-          >
-            {!showEmail ? (
-              <div className={styles.inputGroup}>
-                <input
-                  id="phone"
-                  className={styles.input}
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={phoneHandleChange}
-                  required={!showEmail}
-                  placeholder=" "
-                />
-                <label htmlFor="phone" className={styles.label}>
-                  WhatsApp Number
-                </label>
-                <button
-                  type="button"
-                  className={styles.switchLink}
-                  onClick={toggleMethod}
-                >
-                  Don't have WhatsApp? Use Email
-                </button>
-              </div>
-            ) : (
-              <div className={styles.inputGroup}>
-                <input
-                  id="email"
-                  className={styles.input}
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required={showEmail}
-                  placeholder=" "
-                />
-                <label htmlFor="email" className={styles.label}>
-                  Your Email
-                </label>
-                <button
-                  type="button"
-                  className={styles.switchLink}
-                  onClick={toggleMethod}
-                >
-                  Back to WhatsApp
-                </button>
-              </div>
-            )}
-          </div>
+          <ContactMethodFields
+            showEmail={showEmail}
+            isExiting={isExiting}
+            phone={formData.phone}
+            email={formData.email}
+            phoneError={phoneError}
+            onPhoneChange={handlePhoneChange}
+            onPhoneValidationChange={setPhoneError}
+            onEmailChange={handleChange}
+            onToggle={toggleMethod}
+          />
 
           <div className={styles.inputGroup}>
             <input
