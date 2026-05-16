@@ -26,8 +26,14 @@ export const CountrySelect = ({
   const listId = useId();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [scrollbar, setScrollbar] = useState({
+    visible: false,
+    thumbHeight: 0,
+    thumbTop: 0,
+  });
 
   const selected = findCountry(value) ?? COUNTRIES[0];
 
@@ -42,6 +48,9 @@ export const CountrySelect = ({
         country.code.toLowerCase().includes(query),
     );
   }, [search]);
+
+  const likelyScrollable = filtered.length > 5;
+  const showScrollbar = likelyScrollable || scrollbar.visible;
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -61,6 +70,36 @@ export const CountrySelect = ({
     [close, onChange],
   );
 
+  const updateScrollbar = useCallback(() => {
+    const list = listRef.current;
+    if (!list) return;
+
+    const { scrollHeight, clientHeight, scrollTop } = list;
+    const canScroll = scrollHeight > clientHeight + 1;
+
+    if (!canScroll) {
+      setScrollbar({ visible: false, thumbHeight: 0, thumbTop: 0 });
+      return;
+    }
+
+    const trackHeight = clientHeight;
+    const thumbHeight = Math.max(
+      (clientHeight / scrollHeight) * trackHeight,
+      32,
+    );
+    const maxThumbTop = trackHeight - thumbHeight;
+    const scrollRatio =
+      scrollHeight - clientHeight > 0
+        ? scrollTop / (scrollHeight - clientHeight)
+        : 0;
+
+    setScrollbar({
+      visible: true,
+      thumbHeight,
+      thumbTop: scrollRatio * maxThumbTop,
+    });
+  }, []);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -78,11 +117,27 @@ export const CountrySelect = ({
     document.addEventListener("keydown", handleKeyDown);
     searchRef.current?.focus();
 
+    const frame = requestAnimationFrame(updateScrollbar);
+
     return () => {
+      cancelAnimationFrame(frame);
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [close, isOpen]);
+  }, [close, isOpen, updateScrollbar]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const list = listRef.current;
+    if (!list) return;
+
+    updateScrollbar();
+    const observer = new ResizeObserver(updateScrollbar);
+    observer.observe(list);
+
+    return () => observer.disconnect();
+  }, [filtered, isOpen, updateScrollbar]);
 
   return (
     <div className={styles.wrapper} ref={wrapperRef}>
@@ -119,29 +174,48 @@ export const CountrySelect = ({
               autoComplete="off"
             />
           </div>
-          <ul id={listId} className={styles.list} role="listbox">
-            {filtered.length === 0 ? (
-              <li className={styles.empty}>No countries found</li>
-            ) : (
-              filtered.map((country) => (
-                <li key={country.code} role="none">
-                  <button
-                    type="button"
-                    role="option"
-                    aria-selected={country.code === value}
-                    className={`${styles.option} ${country.code === value ? styles.optionSelected : ""}`}
-                    onClick={() => selectCountry(country)}
-                  >
-                    <span className={styles.flag} aria-hidden>
-                      {country.flag}
-                    </span>
-                    <span className={styles.optionName}>{country.name}</span>
-                    <span className={styles.optionDial}>{country.dialCode}</span>
-                  </button>
-                </li>
-              ))
-            )}
-          </ul>
+          <div className={styles.listContainer}>
+            <ul
+              id={listId}
+              ref={listRef}
+              className={styles.list}
+              role="listbox"
+              onScroll={updateScrollbar}
+            >
+              {filtered.length === 0 ? (
+                <li className={styles.empty}>No countries found</li>
+              ) : (
+                filtered.map((country) => (
+                  <li key={country.code} role="none">
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={country.code === value}
+                      className={`${styles.option} ${country.code === value ? styles.optionSelected : ""}`}
+                      onClick={() => selectCountry(country)}
+                    >
+                      <span className={styles.flag} aria-hidden>
+                        {country.flag}
+                      </span>
+                      <span className={styles.optionName}>{country.name}</span>
+                      <span className={styles.optionDial}>{country.dialCode}</span>
+                    </button>
+                  </li>
+                ))
+              )}
+            </ul>
+            {showScrollbar ? (
+              <div className={styles.scrollTrack} aria-hidden>
+                <div
+                  className={styles.scrollThumb}
+                  style={{
+                    height: scrollbar.thumbHeight || 32,
+                    transform: `translateY(${scrollbar.thumbTop}px)`,
+                  }}
+                />
+              </div>
+            ) : null}
+          </div>
         </div>
       ) : null}
     </div>
