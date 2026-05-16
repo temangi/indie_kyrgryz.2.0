@@ -14,10 +14,12 @@ import {
   parsePhoneNumberFromString,
   type CountryCode,
 } from "libphonenumber-js";
+import { detectUserCountry } from "@/src/shared/lib/detectUserCountry";
 import { getPhoneValidationError } from "@/src/shared/lib/phoneValidation";
 import { CountrySelect } from "./CountrySelect";
 import styles from "./PhoneInput.module.scss";
 
+const FALLBACK_COUNTRY: CountryCode = "KG";
 const VALIDATE_DEBOUNCE_MS = 700;
 
 type PhoneInputProps = {
@@ -53,20 +55,39 @@ export const PhoneInput = ({
   label,
   error,
   required,
-  defaultCountry = "KG",
+  defaultCountry,
 }: PhoneInputProps) => {
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const lastExternalValue = useRef(value);
+  const hasAutoDetected = useRef(false);
 
-  const [country, setCountry] = useState<CountryCode>(defaultCountry);
+  const [detectedCountry, setDetectedCountry] = useState<CountryCode | undefined>();
+  const effectiveDefault =
+    defaultCountry ?? detectedCountry ?? FALLBACK_COUNTRY;
+
+  const [country, setCountry] = useState<CountryCode>(
+    defaultCountry ?? FALLBACK_COUNTRY,
+  );
   const [nationalInput, setNationalInput] = useState("");
   const [focused, setFocused] = useState(false);
+
+  useEffect(() => {
+    if (defaultCountry !== undefined || value || hasAutoDetected.current) return;
+
+    const detected = detectUserCountry();
+    hasAutoDetected.current = true;
+
+    if (detected) {
+      setDetectedCountry(detected);
+      setCountry(detected);
+    }
+  }, [defaultCountry, value]);
 
   const syncFromValue = useCallback(
     (nextValue: string) => {
       if (!nextValue) {
-        setCountry(defaultCountry);
+        setCountry(effectiveDefault);
         setNationalInput("");
         return;
       }
@@ -80,7 +101,7 @@ export const PhoneInput = ({
 
       setNationalInput(nextValue.replace(/^\+\d+\s*/, ""));
     },
-    [defaultCountry],
+    [effectiveDefault],
   );
 
   useEffect(() => {
