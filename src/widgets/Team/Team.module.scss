@@ -31,7 +31,7 @@
 
 .mainGrid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
   gap: 30px;
   align-items: center;
 
@@ -114,4 +114,29 @@
   height: 2px;
   background: var(--color-orange);
   opacity: 0.5;
+}
+
+.more {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--color-orange);
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s ease;
+
+  &:hover {
+    filter: brightness(0.95);
+    text-decoration: none;
+    color: #fff;
+    transform: translateY(-3px);
+  }
 }

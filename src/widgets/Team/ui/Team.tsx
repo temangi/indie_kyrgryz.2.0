@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../Team.module.scss";
-import anush from "@/public/images/anush.webp";
-import jack from "@/public/images/jack.webp";
+import { TEAM_MEMBERS } from "../constants/members";
 
 const Team = () => {
   return (
@@ -19,45 +19,26 @@ const Team = () => {
         </header>
 
         <div className={styles.mainGrid}>
-          <div className={styles.photoWrapper}>
-            <Image
-              src={anush}
-              alt="Anuar - Guide"
-              fill
-              sizes="100vw"
-              className={styles.memberImg}
-            />
-            <span className={styles.nameLabel}>Anuar</span>
-          </div>
-          <article className={styles.contentBlock}>
-            <div className={styles.textGroup}>
-              <p>
-                <strong>Anuar</strong> is a skilled guide and cultural
-                ambassador who brings the rich heritage of Kyrgyzstan to life.
-                With a deep knowledge of local traditions and history, he
-                creates immersive experiences that connect travelers with the
-                heart of the region.
-              </p>
-              <div className={styles.divider} />
-              <p>
-                <strong>Jack</strong> is the founder and content creator who
-                showcases Kyrgyzstan through his blog. He personally tests every
-                route, captures drone footage, and helps people experience the
-                country on a deeper level.
-              </p>
+          {TEAM_MEMBERS.map((member) => (
+            <div key={member.id} className={styles.photoWrapper}>
+              <Image
+                src={member.image}
+                alt={member.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className={styles.memberImg}
+              />
+              <span className={styles.nameLabel}>
+                {member.name} - {member.role}
+              </span>
             </div>
-          </article>
+          ))}
+        </div>
 
-          <div className={styles.photoWrapper}>
-            <Image
-              src={jack}
-              alt="Jack - Founder"
-              fill
-              sizes="100vw"
-              className={styles.memberImg}
-            />
-            <span className={styles.nameLabel}>Jack</span>
-          </div>
+        <div className={styles.more}>
+          <Link href="/team" className={styles.moreLink}>
+            More about the team
+          </Link>
         </div>
       </div>
     </section>
