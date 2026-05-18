@@ -761,7 +761,6 @@ Throughout the tour, guests experience a powerful balance of adventure and comfo
   },
   {
     arr: songKul,
-    dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
     slug : "song-kul",
     route: "600 km",
     price: "from 470$",
@@ -777,7 +776,6 @@ Song-Kul is the second-largest natural lake in Kyrgyzstan, after Issyk-Kul, and 
   },
   {
     arr: altynArashan,
-    dates: ["10-17th of June", "10-17th of July", "10-17th of August"],
     slug : "altyn-arashan",
     route: "50 km",
     price: "from 940$",

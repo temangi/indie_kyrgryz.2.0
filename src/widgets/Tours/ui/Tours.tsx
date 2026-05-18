@@ -7,7 +7,7 @@ import { GROUP_TOUR_2026_SLUG, tours } from "../constants/constants";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 
 const groupTours = tours
-  .slice(1, 4)
+  .slice(3, 6)
   .map((el) => <ToursCard {...el} key={el.id} />);
 const groupTour2026 = tours
   .filter((t) => t.slug === GROUP_TOUR_2026_SLUG)

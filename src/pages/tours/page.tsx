@@ -7,7 +7,7 @@ import { GROUP_TOUR_2026_SLUG, tours } from "@/src/widgets/Tours/constants/const
 import { Application } from "@/src/widgets/Application"
 import toursHeroImg from "@/public/images/slide10.webp"
 
-const EXCLUDED_FROM_ALL_TOURS_PAGE = new Set(["song-kul", "altyn-arashan"])
+const EXCLUDED_FROM_ALL_TOURS_PAGE = new Set()
 
 const allToursPageItems = tours
     .filter((t) => !EXCLUDED_FROM_ALL_TOURS_PAGE.has(t.slug))
