@@ -83,7 +83,7 @@ export const tours: ITour[] = [
   {
     id: 7,
     title: "Unique Experience",
-    day: "8 days",
+    day: "7 days",
     price: "$1290",
     img: s7,
     href: "tour",

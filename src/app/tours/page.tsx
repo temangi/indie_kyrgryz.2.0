@@ -6,7 +6,7 @@ const TOURS_URL = "https://indiekyrgyz.com/tours";
 export const metadata: Metadata = {
   title: "All Tours in Kyrgyzstan",
   description:
-    "Browse all Indie Kyrgyz tours: trekking, horseback riding, off-road routes, and custom travel programs in Kyrgyzstan.",
+    "Compare every Indie Kyrgyz tour in one place: 7-day classics, 10-day mountain expeditions, private Song-Kul rides, Altyn-Arashan trekking, and day trips from Bishkek — built for international travelers.",
   alternates: {
     canonical: TOURS_URL,
   },

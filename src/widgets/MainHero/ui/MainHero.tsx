@@ -17,8 +17,9 @@ const MainHero = ({ title, unTitle, img, titleId, listingFormat }: MainHeroProps
     <section className={styles.main}>
       <Image
         src={img}
-        alt="Hero background"
+        alt={`${title} — Kyrgyzstan travel with Indie Kyrgyz`}
         priority
+        fetchPriority="high"
         quality={90}
         sizes="100vw"
         className={styles.main__bg}

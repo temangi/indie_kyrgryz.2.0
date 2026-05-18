@@ -1,10 +1,26 @@
 import type { Metadata } from "next";
 import styles from "./contacts.module.scss";
 
+const CONTACTS_URL = "https://indiekyrgyz.com/contacts";
+
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Indie Kyrgyz Travel — email, phone, WhatsApp, Instagram, and TikTok.",
+    "Contact Indie Kyrgyz Travel in Kyrgyzstan for private tour quotes — email, phone, WhatsApp, Instagram, and TikTok. Fast replies for travelers from Europe, the US, and worldwide.",
+  alternates: {
+    canonical: CONTACTS_URL,
+  },
+  openGraph: {
+    title: "Contact | Indie Kyrgyz Travel",
+    description:
+      "Reach our Bishkek-based team for nomadic culture tours, trekking, and custom Kyrgyzstan itineraries.",
+    url: CONTACTS_URL,
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const CONTACTS = {
@@ -93,6 +109,14 @@ const ContactsPage = () => {
             </p>
           </article>
         </div>
+
+        <p className={styles.seoBlock}>
+          Indie Kyrgyz Travel plans private and small-group tours across Issyk-Kul,
+          Song-Kul, the Tien Shan, and remote regions. Whether you are messaging from
+          Europe, the US, or elsewhere, tell us your dates and interests — we answer
+          most WhatsApp chats the same day and help with visas, packing, and realistic
+          daily pacing for nomadic stays and mountain routes.
+        </p>
 
         <p className={styles.note}>
           For tour requests you can also use the booking form on the homepage — we

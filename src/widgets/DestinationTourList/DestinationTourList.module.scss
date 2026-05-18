@@ -43,6 +43,11 @@
     color: #444;
   }
 
+  &__seoIntro {
+    margin-top: 12px;
+    max-width: 48rem;
+  }
+
   &__highlightsList {
     display: grid;
     gap: 15px;
