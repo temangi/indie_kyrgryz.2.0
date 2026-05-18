@@ -6,7 +6,7 @@ const PRIVACY_URL = "https://indiekyrgyz.com/privacy-policy";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the Indie Kyrgyz Travel privacy policy: what data we collect, how we use it, and your rights.",
+    "Indie Kyrgyz Travel privacy policy: how we handle booking forms, email, and WhatsApp data for Kyrgyzstan tour inquiries — GDPR-friendly practices for international travelers.",
   alternates: {
     canonical: PRIVACY_URL,
   },
@@ -67,6 +67,13 @@ const PrivacyPolicyPage = () => {
             <a href="mailto:indiekyrgyztravel@gmail.com">
               indiekyrgyztravel@gmail.com
             </a>
+          </p>
+
+          <p className={styles.footerSeo}>
+            This page applies to visitors browsing indiekyrgyz.com from any country,
+            including the European Economic Area and the United States. Submitting a
+            tour request does not create a contract until we confirm availability,
+            pricing, and dates in writing (usually via email or WhatsApp).
           </p>
 
           <p className={styles.updated}>Last updated: April 29, 2026</p>

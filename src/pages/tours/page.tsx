@@ -36,19 +36,23 @@ const ToursPage = () => {
                                 Browse routes
                             </h2>
                             <p className={styles["tour-page-list__intro-text"]}>
-                                Multi-day journeys and shorter trips — each card shows
-                                length, price, and whether the run is a{" "}
+                                Indie Kyrgyz Travel runs small-group and private tours
+                                across Kyrgyzstan for guests from Europe, the US, and
+                                beyond. Multi-day journeys and shorter trips — each card
+                                shows length, price, and whether the run is a{" "}
                                 <strong>private tour</strong> on your dates or our{" "}
                                 <strong>group tour</strong> with fixed departure. Open a
-                                tour for the full itinerary and booking details.
+                                tour for the full itinerary, nomadic stays, and booking
+                                details.
                             </p>
                         </div>
                         <div className={styles["tour-page-list__main"]}>
-                            {allToursPageItems.map(({ tour, listingFormat }) => (
+                            {allToursPageItems.map(({ tour, listingFormat }, index) => (
                                 <ToursCard
                                     {...tour}
                                     key={tour.id}
                                     listingFormat={listingFormat}
+                                    isFirstInList={index === 0}
                                 />
                             ))}
                         </div>

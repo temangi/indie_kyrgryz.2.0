@@ -7,7 +7,7 @@ const ABOUT_URL = "https://indiekyrgyz.com/about";
 export const metadata: Metadata = {
   title: "About Indie Kyrgyz Travel",
   description:
-    "Learn about Indie Kyrgyz Travel: local guides, authentic itineraries, and safe, flexible tours across Kyrgyzstan.",
+    "Meet the Indie Kyrgyz Travel team: local guides and planners for private Kyrgyzstan tours, nomadic culture, trekking, and horse trips — trusted by guests from Europe, the US, and Australia.",
   alternates: {
     canonical: ABOUT_URL,
   },
@@ -62,6 +62,23 @@ const AboutPage = () => {
             </ul>
           </article>
         </div>
+
+        <section className={styles.seoSection} aria-labelledby="about-seo-heading">
+          <h2 id="about-seo-heading">Private Kyrgyzstan tours from Bishkek</h2>
+          <p>
+            We specialize in multi-day road trips, trekking, and horseback routes that
+            reach Song-Kul, Kel-Suu, Issyk-Kul’s south shore, and Altyn-Arashan — always
+            with clear safety margins and honest timing. Most of our guests fly in from
+            Europe or the US; we help you connect domestic legs, border crossings, and
+            optional Kazakhstan extensions when you want a longer Central Asia loop.
+          </p>
+          <p>
+            Every itinerary balances driving, walking, and downtime so you can enjoy
+            nomadic hospitality without burnout. Ask us about group departures versus a
+            fully private tour on your dates — we will match you to the right vehicle,
+            driver-guide, and accommodation mix.
+          </p>
+        </section>
 
         <div className={styles.cta}>
           <h3>Ready to plan your trip?</h3>

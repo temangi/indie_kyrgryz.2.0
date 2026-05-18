@@ -25,7 +25,43 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://indiekyrgyz.com",
+    languages: {
+      // x-default — для всех регионов без конкретного таргетинга
+      "x-default": "https://indiekyrgyz.com",
+
+      // Основной английский
+      "en": "https://indiekyrgyz.com",
+
+      // Европейские рынки (английский контент, но таргетинг на регион)
+      "en-DE": "https://indiekyrgyz.com", // Германия
+      "en-FR": "https://indiekyrgyz.com", // Франция
+      "en-GB": "https://indiekyrgyz.com", // Великобритания
+      "en-NL": "https://indiekyrgyz.com", // Нидерланды
+      "en-CH": "https://indiekyrgyz.com", // Швейцария
+      "en-AT": "https://indiekyrgyz.com", // Австрия
+      "en-IT": "https://indiekyrgyz.com", // Италия
+      "en-ES": "https://indiekyrgyz.com", // Испания
+      "en-PL": "https://indiekyrgyz.com", // Польша
+      "en-SE": "https://indiekyrgyz.com", // Швеция
+      "en-NO": "https://indiekyrgyz.com", // Норвегия
+      "en-DK": "https://indiekyrgyz.com", // Дания
+      "en-FI": "https://indiekyrgyz.com", // Финляндия
+      "en-BE": "https://indiekyrgyz.com", // Бельгия
+      "en-CZ": "https://indiekyrgyz.com", // Чехия
+
+      // Северная Америка
+      "en-US": "https://indiekyrgyz.com", // США
+      "en-CA": "https://indiekyrgyz.com", // Канада
+
+      // Азиатско-Тихоокеанский регион
+      "en-AU": "https://indiekyrgyz.com", // Австралия
+      "en-NZ": "https://indiekyrgyz.com", // Новая Зеландия
+      "en-JP": "https://indiekyrgyz.com", // Япония
+      "en-KR": "https://indiekyrgyz.com", // Южная Корея
+      "en-SG": "https://indiekyrgyz.com", // Сингапур
+    },
   },
+
   title: {
     default: "Indie Kyrgyz Travel — Tours in Kyrgyzstan",
     template: "%s | Indie Kyrgyz Travel",
@@ -52,31 +88,88 @@ export const metadata: Metadata = {
   verification: {
     google: "INDENYzI76CJmpjmsxDBroe2Db_ZnyxDkGtLZtvHckA",
   },
+
   description:
-    "Authentic tours in Kyrgyzstan. Mountains, lakes, nomads, and unique local experiences.",
+    "Authentic tours in Kyrgyzstan for travelers from Europe, USA, Australia and beyond. Mountains, lakes, nomads, and unique local experiences with expert local guides.",
+
   keywords: [
+    // --- Общие ---
     "Kyrgyzstan tours",
     "Travel Kyrgyzstan",
     "Tours in Kyrgyzstan",
     "Indie Kyrgyz",
     "Kyrgyz Travel Agency",
-    "Winter tour in Kyrgyzstan",
     "Kyrgyzstan private tour",
     "Small group tours Kyrgyzstan",
     "Guided tours in Kyrgyzstan",
     "Best tour guide in Kyrgyzstan",
     "Kyrgyzstan travel guide",
-    "Kyrgyzstan travel guide book",
     "Kyrgyz guided tours reviews",
     "Silk Road tours",
     "Central Asia travel",
-    "Kyrgyz world trip",
-    "Kyrgyz life",
     "Nomadic lifestyle tour",
     "Horseback riding Kyrgyzstan",
     "Hiking Tian Shan",
     "Issyk-Kul adventure",
     "Best time to visit Kyrgyzstan",
+    "Winter tour in Kyrgyzstan",
+    "Kyrgyz world trip",
+    "Kyrgyz life",
+    "Kyrgyzstan travel guide book",
+
+    // --- Германия / DACH ---
+    "Kyrgyzstan tour from Germany",
+    "Kirgisistan Reise",
+    "Zentralasien Reise",
+    "Reise Kirgisistan",
+    "Kyrgyzstan holidays from Frankfurt",
+    "Central Asia travel Germany",
+    "Kyrgyzstan tour from Austria",
+    "Kyrgyzstan tour from Switzerland",
+
+    // --- Франция ---
+    "Kyrgyzstan tour from France",
+    "voyage Kirghizistan",
+    "circuit Kirghizistan",
+    "Kirghizistan tourisme",
+    "Asie centrale voyage France",
+    "Kyrgyzstan holidays from Paris",
+
+    // --- Великобритания ---
+    "Kyrgyzstan holidays UK",
+    "Kyrgyzstan tours from London",
+    "Central Asia holidays UK",
+    "Kyrgyzstan travel from Britain",
+
+    // --- Нидерланды / Бельгия ---
+    "Kyrgyzstan tour from Netherlands",
+    "Kirgizië reis",
+    "Centraal-Azië reizen",
+
+    // --- Скандинавия ---
+    "Kyrgyzstan tour from Sweden",
+    "Kyrgyzstan tour from Norway",
+    "Kyrgyzstan tour Scandinavia",
+
+    // --- Польша / Чехия ---
+    "Kyrgyzstan tour from Poland",
+    "Kyrgyzstan tour from Czech Republic",
+
+    // --- США / Канада ---
+    "Kyrgyzstan tour from USA",
+    "Kyrgyzstan travel Americans",
+    "Central Asia adventure travel USA",
+    "Kyrgyzstan tours from Canada",
+
+    // --- Австралия / Новая Зеландия ---
+    "Kyrgyzstan tour from Australia",
+    "Kyrgyzstan travel Australia",
+    "Central Asia tours Australia",
+
+    // --- Азия ---
+    "Kyrgyzstan tour from Japan",
+    "Kyrgyzstan tour from South Korea",
+    "Kyrgyzstan tour from Singapore",
   ],
 
   robots: {
@@ -92,8 +185,9 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://indiekyrgyz.com"),
   openGraph: {
-    title: "Indie Kyrgyz Travel",
-    description: "Discover authentic tours in Kyrgyzstan with local guides.",
+    title: "Indie Kyrgyz Travel — Authentic Tours in Kyrgyzstan",
+    description:
+      "Discover authentic tours in Kyrgyzstan with local guides. Perfect for travelers from Europe, USA, Australia and Asia.",
     url: "https://indiekyrgyz.com",
     siteName: "Indie Kyrgyz Travel",
     images: [
@@ -105,12 +199,26 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en_US",
+    // Дополнительные локали для Open Graph
+    alternateLocale: [
+      "de_DE",
+      "fr_FR",
+      "en_GB",
+      "en_AU",
+      "en_CA",
+      "nl_NL",
+      "pl_PL",
+      "sv_SE",
+      "ja_JP",
+      "ko_KR",
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indie Kyrgyz Travel",
-    description: "Authentic tours in Kyrgyzstan with local guides.",
+    title: "Indie Kyrgyz Travel — Tours in Kyrgyzstan",
+    description:
+      "Authentic tours in Kyrgyzstan with local guides. For travelers from Europe, USA, Australia and beyond.",
     images: ["/icon.png"],
   },
   manifest: "/site.webmanifest",
@@ -122,6 +230,7 @@ export const metadata: Metadata = {
     email: false,
   },
 };
+
 export const viewport = {
   themeColor: "#4f7b6b",
 };
@@ -137,13 +246,34 @@ export default function RootLayout({
     url: "https://indiekyrgyz.com",
     logo: "https://indiekyrgyz.com/icon.png",
     image: "https://indiekyrgyz.com/icon.png",
+    // Описание с упоминанием международной аудитории
+    description:
+      "Authentic tour operator in Kyrgyzstan offering private and small group tours for international travelers from Europe, USA, Australia, and Asia.",
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "customer support",
         telephone: "+996704313147",
         email: "indiekyrgyztravel@gmail.com",
-        areaServed: "KG",
+        areaServed: [
+          "KG", // Кыргызстан
+          "DE", // Германия
+          "FR", // Франция
+          "GB", // Великобритания
+          "US", // США
+          "AU", // Австралия
+          "NL", // Нидерланды
+          "CH", // Швейцария
+          "AT", // Австрия
+          "CA", // Канада
+          "SE", // Швеция
+          "NO", // Норвегия
+          "PL", // Польша
+          "IT", // Италия
+          "ES", // Испания
+          "JP", // Япония
+          "KR", // Южная Корея
+        ],
         availableLanguage: ["en", "ru"],
       },
     ],
@@ -152,15 +282,46 @@ export default function RootLayout({
       "https://www.tiktok.com/@indie.kyrgyz.travel",
     ],
   };
+
   const websiteLd = {
     "@type": "WebSite",
     name: "Indie Kyrgyz Travel",
-    alternateName: "Indie Kyrgyz",
+    alternateName: ["Indie Kyrgyz", "Indie Kyrgyz Tours"],
     url: "https://indiekyrgyz.com",
+    inLanguage: "en",
     publisher: {
       "@type": "Organization",
       name: "Indie Kyrgyz Travel",
       url: "https://indiekyrgyz.com",
+    },
+    // Потенциальное действие (поиск) — помогает Google понять структуру
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://indiekyrgyz.com/?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  // Дополнительный Schema: TouristDestination
+  const touristDestinationLd = {
+    "@type": "TouristDestination",
+    name: "Kyrgyzstan",
+    description:
+      "A Central Asian country known for its dramatic mountain landscapes, nomadic culture, Issyk-Kul lake, and the Tian Shan range.",
+    url: "https://indiekyrgyz.com",
+    touristType: [
+      "Adventure tourists",
+      "Hikers",
+      "Cultural tourists",
+      "Nature lovers",
+    ],
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 41.2044,
+      longitude: 74.7661,
     },
   };
 
@@ -190,7 +351,10 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GoogleAnalyticsTracker />
         </Suspense>
-        <SeoJsonLd id="global-ld" graph={[organizationLd, websiteLd]} />
+        <SeoJsonLd
+          id="global-ld"
+          graph={[organizationLd, websiteLd, touristDestinationLd]}
+        />
         <main className="page">{children}</main>
         <Footer />
         <Toaster

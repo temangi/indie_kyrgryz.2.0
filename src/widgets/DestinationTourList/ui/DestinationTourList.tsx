@@ -11,6 +11,8 @@ import Link from "next/link";
 import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
+import { getDestinationSeoIntro } from "@/src/shared/seo/detailPageSeoCopy";
+import { MiniSeoIntro } from "@/src/shared/ui/MiniSeoIntro/MiniSeoIntro";
 
 function DestinationTourList() {
   const params = useParams<{ slug: string }>();
@@ -25,7 +27,8 @@ function DestinationTourList() {
     );
   }
 
-  const { arr, title, desc, geography, imgs } = currentTour;
+  const { arr, title, desc, geography, imgs, slug: tourSlug } = currentTour;
+  const seoIntro = getDestinationSeoIntro(tourSlug);
 
   return (
     <>
@@ -37,6 +40,12 @@ function DestinationTourList() {
               <header className={styles.destination__header}>
                 <h1 className={styles.destination__title}>{title}</h1>
                 <p className={styles.destination__description}>{desc}</p>
+                {seoIntro ? (
+                  <MiniSeoIntro
+                    text={seoIntro}
+                    className={styles.destination__seoIntro}
+                  />
+                ) : null}
               </header>
 
               <div className={styles.destination__section}>

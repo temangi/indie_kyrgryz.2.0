@@ -8,7 +8,7 @@ const HOME_URL = "https://indiekyrgyz.com";
 export const metadata: Metadata = {
   title: "Tours in Kyrgyzstan with Local Guides",
   description:
-    "Discover authentic Kyrgyzstan tours: horseback riding, trekking, yurt stays, and cultural journeys with local guides.",
+    "Private and small-group Kyrgyzstan tours: Song-Kul, Issyk-Kul, trekking, nomadic yurt stays, and custom routes for travelers from Europe and the US. Book with Indie Kyrgyz Travel.",
   alternates: {
     canonical: HOME_URL,
   },

@@ -70,8 +70,7 @@ const Header = () => {
                 src={logo}
                 alt="Indie Kyrgyz Travel logo"
                 className={`${styles.logo} ${scrollTop > 100 ? styles.scrolled : ""}`}
-                priority
-                sizes="100vw"
+                sizes="48px"
                 quality={75}
               />
             </Link>
@@ -133,7 +132,7 @@ const Header = () => {
             </span>
           </button>
           <Link
-            href=""
+            href="/"
             className={`${styles.mainLogo} ${styles.mainLogoBurger}`}
             aria-label="Indie Kyrgyz Travel"
           >
@@ -141,8 +140,7 @@ const Header = () => {
               src={logoS}
               alt="Indie Kyrgyz Travel logo"
               className={`${styles.logo}`}
-              priority
-              sizes="100vw"
+              sizes="48px"
               quality={75}
             />
           </Link>

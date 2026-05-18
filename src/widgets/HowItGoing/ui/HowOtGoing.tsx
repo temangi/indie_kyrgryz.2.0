@@ -15,6 +15,8 @@ import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { Props } from "@/src/pages/tourDetail/page";
 import BookTour from "@/src/shared/ui/BookTour/BookTour";
 import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
+import { getTourSeoIntro } from "@/src/shared/seo/detailPageSeoCopy";
+import { MiniSeoIntro } from "@/src/shared/ui/MiniSeoIntro/MiniSeoIntro";
 
 const MAX_OPEN_ITINERARY_DAYS = 2;
 
@@ -33,6 +35,8 @@ const HowItGoing = ({ slug }: Props) => {
 
   const listingFormat =
     slug === GROUP_TOUR_2026_SLUG ? ("group" as const) : ("private" as const);
+
+  const seoIntro = getTourSeoIntro(slug);
 
   const [openDayOrder, setOpenDayOrder] = useState<number[]>([0]);
 
@@ -80,6 +84,12 @@ const HowItGoing = ({ slug }: Props) => {
                   />
                 ))}
               </div>
+              {seoIntro ? (
+                <MiniSeoIntro
+                  text={seoIntro}
+                  className={styles.tourDetails__seoIntro}
+                />
+              ) : null}
             </div>
 
             <aside className={styles.tourDetails__sidebar}>
@@ -128,8 +138,8 @@ const HowItGoing = ({ slug }: Props) => {
           {tours
             .filter((el) => el.slug !== slug)
             .slice(0, 5)
-            .map((el) => (
-              <ToursCard {...el} key={el.id} />
+            .map((el, index) => (
+              <ToursCard {...el} key={el.id} isFirstInList={index === 0} />
             ))}
         </div>
       </section>
