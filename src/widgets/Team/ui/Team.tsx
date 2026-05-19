@@ -19,7 +19,7 @@ const Team = () => {
         </header>
 
         <div className={styles.mainGrid}>
-          {TEAM_MEMBERS.map((member) => (
+          {TEAM_MEMBERS.slice(0, 3).map((member) => (
             <div key={member.id} className={styles.photoWrapper}>
               <Image
                 src={member.image}

@@ -2,6 +2,8 @@ import type { StaticImageData } from "next/image";
 import anush from "@/public/images/anush.webp";
 import jack from "@/public/images/jack.webp";
 import kipari from "@/public/images/kipariza.jpg";
+import perizat from "@/public/images/perizat.webp";
+
 
 export type TeamMember = {
   id: string;
@@ -36,5 +38,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: kipari,
     alt: "Kipariza - Guide",
     bio: "Kipariza is a passionate mountain guide who knows the trails around Issyk-Kul and the Tian Shan. She focuses on safe pacing, warm hospitality in yurt camps, and helping guests feel at home in nomadic Kyrgyz culture.",
+  },
+  {
+    id: "perizat",
+    name: "Perizat",
+    role: "Guide",
+    image: perizat,
+    alt: "Perizat - Guide",
+    bio: "Perizat is an enthusiastic local guide with deep roots in Kyrgyz nomadic traditions. She leads tours across the stunning landscapes of Issyk-Kul, Song-Kul, and the Tian Shan mountains, bringing warmth, local knowledge, and genuine care to every journey.",
   },
 ];
