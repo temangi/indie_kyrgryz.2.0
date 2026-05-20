@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 import s1 from "@/public/images/tours/kyrgyz/p1.webp";
-import s2 from "@/public/images/son-kul/s2.webp";
+import s2 from "@/public/images/son-kul/s3.webp";
 import s3 from "@/public/images/slide7.webp";
 import s4 from "@/public/images/tours/mountain/p6.webp";
 import s5 from "@/public/images/kyrgyz.webp";
