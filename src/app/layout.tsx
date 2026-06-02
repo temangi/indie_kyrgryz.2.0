@@ -253,7 +253,7 @@ export default function RootLayout({
       {
         "@type": "ContactPoint",
         contactType: "customer support",
-        telephone: "+996704313147",
+        telephone: "+996555203101",
         email: "indiekyrgyztravel@gmail.com",
         areaServed: [
           "KG", // Кыргызстан

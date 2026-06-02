@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 
 const CONTACTS = {
   email: "indiekyrgyztravel@gmail.com",
-  phoneDisplay: "+996 704 313 147",
-  phoneTel: "+996704313147",
-  whatsapp: "https://wa.me/996704313147?text=Hi%20Indie%20Kyrgyz%20Travel",
+  phoneDisplay: "+996 555 203 101",
+  phoneTel: "+996555203101",
+  whatsapp: "https://wa.me/996555203101?text=Hi%20Indie%20Kyrgyz%20Travel",
   instagram: "https://www.instagram.com/indie_kyrgyz_travel",
   tiktok: "https://www.tiktok.com/@indie.kyrgyz.travel",
 } as const;
