@@ -22,7 +22,7 @@ const navLinks = [
 ];
 
 export const navSocialLinks = [
-  { href: "https://wa.me/996704313147?text=Hi Jake", icon: whats },
+  { href: "https://wa.me/996555203101?text=Hi Jake", icon: whats },
   { href: "https://www.instagram.com/indie_kyrgyz_travel", icon: insta },
   {
     href: "https://www.tiktok.com/@indie.kyrgyz.travel?_r=1&_t=ZS-93gw192mKSy",

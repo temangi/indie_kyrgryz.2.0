@@ -5,7 +5,7 @@ import styles from "../Footer.module.scss";
 import { sendGAEvent } from "@next/third-parties/google";
 
 const SOCIAL_LINKS = [
-  { name: "WhatsApp", href: "https://wa.me/996704313147?text=Hi Jake", color: "#25D366" },
+  { name: "WhatsApp", href: "https://wa.me/996555203101?text=Hi Jake", color: "#25D366" },
 ];
 
 const Footer = () => {
@@ -40,8 +40,8 @@ const Footer = () => {
           <div className={styles.footer__info}>
             <h4 className={styles.footer__infoTitle}>Our contacts:</h4>
             <address className={styles.footer__address}>
-              <a href="tel:+996704313147" className={styles.footer__link}>
-                +996 704 313 147
+              <a href="tel:+996555203101" className={styles.footer__link}>
+                +996 555 203 101
               </a>
               <a href="mailto:indiekyrgyztravel@gmail.com" className={styles.footer__link}>
                 indiekyrgyztravel@gmail.com

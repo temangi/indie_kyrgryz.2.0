@@ -88,7 +88,7 @@ const Header = () => {
                     </span>
                   </button>
                   <Link
-                    href="https://wa.me/996704313147?text=Hi%20Indie%20Kyrgyz%20Travel"
+                    href="https://wa.me/996555203101?text=Hi%20Indie%20Kyrgyz%20Travel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${styles.headerButton} ${styles.whatsAppButton}`}
@@ -163,7 +163,7 @@ const Header = () => {
               </span>
             </button>
             <Link
-              href="https://wa.me/996704313147?text=Hi%20Indie%20Kyrgyz%20Travel"
+              href="https://wa.me/996555203101?text=Hi%20Indie%20Kyrgyz%20Travel"
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.headerButton} ${styles.whatsAppButton}`}
