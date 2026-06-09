@@ -1,5 +1,6 @@
 .bar {
   position: relative;
+  z-index: 2;
   background: var(--page-background);
 }
 
@@ -17,6 +18,12 @@
   @media (max-width: 768px) {
     padding: 20px 0 4px;
     font-size: 0.875rem;
+  }
+
+  &_inline {
+    padding: 0;
+    justify-content: flex-start;
+    width: 100%;
   }
 }
 

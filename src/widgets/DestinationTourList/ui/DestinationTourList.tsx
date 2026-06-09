@@ -10,6 +10,7 @@ import { destiontaionTour } from "../../Reise/constants/constants";
 import Link from "next/link";
 import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
+import { normalizeSeoTitle } from "@/src/shared/seo/normalizeSeoTitle";
 import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
 import { getDestinationSeoIntro } from "@/src/shared/seo/detailPageSeoCopy";
 import { MiniSeoIntro } from "@/src/shared/ui/MiniSeoIntro/MiniSeoIntro";
@@ -33,7 +34,13 @@ function DestinationTourList() {
   return (
     <>
       <section className={styles.destination}>
-        <BackButton />
+        <BackButton
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Tours", href: "/tours" },
+            { label: normalizeSeoTitle(title) },
+          ]}
+        />
         <div className="container">
           <div className={styles.destination__content}>
             <div className={styles.destination__contentText}>

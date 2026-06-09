@@ -60,7 +60,13 @@ const HowItGoing = ({ slug }: Props) => {
         img={slider[0].item}
         listingFormat={listingFormat}
       />
-      <BackButton />
+      <BackButton
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Tours", href: "/tours" },
+          { label: chapter },
+        ]}
+      />
       {slug !== "day-trips" && <TourInfo route={route} price={price} duration={duration} tour={chapter} dates={dates} />}
       <section className={styles.tourDetails}>
         <div className="container">
