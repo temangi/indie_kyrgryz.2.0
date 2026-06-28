@@ -1,6 +1,7 @@
 import DetailPage from "@/src/pages/tourDetail/page";
 import { Metadata } from "next";
 import { stepsTours } from "@/src/widgets/HowItGoing/model/constants/step";
+import { getTourPriceLabel } from "@/src/widgets/Tours/constants/constants";
 import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
 import { buildTourSeoGraph } from "@/src/shared/seo/tourSeoGraph";
 
@@ -51,7 +52,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DetailToursPage({ params }: Props) {
   const { slug } = await params;
   const currentTour = stepsTours.find((tour) => tour.slug === slug);
-  const seoGraph = currentTour ? buildTourSeoGraph(currentTour) : null;
+  const seoGraph = currentTour
+    ? buildTourSeoGraph({
+        ...currentTour,
+        price: getTourPriceLabel(slug) ?? currentTour.price,
+      })
+    : null;
 
   return (
     <>
