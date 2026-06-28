@@ -9,7 +9,11 @@ import { TourInfo } from "@/src/shared/ui/TourInfo/TourInfo";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import styles from "../HowItGoing.module.scss";
 import { stepsTours } from "../model/constants/step";
-import { GROUP_TOUR_2026_SLUG, tours } from "../../Tours/constants/constants";
+import {
+  getTourPriceLabel,
+  GROUP_TOUR_2026_SLUG,
+  tours,
+} from "../../Tours/constants/constants";
 import arrow from "@/public/images/aroow.png";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { Props } from "@/src/pages/tourDetail/page";
@@ -30,8 +34,10 @@ const HowItGoing = ({ slug }: Props) => {
     );
   }
 
-  const { arr, title, desc, chapter, slider, route, price, duration ,dates } =
+  const { arr, title, desc, chapter, slider, route, duration, dates } =
     currentTour;
+
+  const displayPrice = getTourPriceLabel(slug) ?? currentTour.price;
 
   const listingFormat =
     slug === GROUP_TOUR_2026_SLUG ? ("group" as const) : ("private" as const);
@@ -67,7 +73,15 @@ const HowItGoing = ({ slug }: Props) => {
           { label: chapter },
         ]}
       />
-      {slug !== "day-trips" && <TourInfo route={route} price={price} duration={duration} tour={chapter} dates={dates} />}
+      {slug !== "day-trips" && (
+        <TourInfo
+          route={route}
+          price={displayPrice}
+          duration={duration}
+          tour={chapter}
+          dates={dates}
+        />
+      )}
       <section className={styles.tourDetails}>
         <div className="container">
           <div className={styles.tourDetails__layout}>

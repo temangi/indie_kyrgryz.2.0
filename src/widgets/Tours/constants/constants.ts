@@ -108,3 +108,10 @@ export const tours: ITour[] = [
     slug: "day-trips",
   },
 ];
+
+/** Listing price label for cards and tour detail (e.g. `from $930`). */
+export function getTourPriceLabel(slug: string): string | undefined {
+  const tour = tours.find((t) => t.slug === slug);
+  if (!tour?.price) return undefined;
+  return `from ${tour.price}`;
+}
