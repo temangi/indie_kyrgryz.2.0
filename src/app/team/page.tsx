@@ -64,6 +64,11 @@ const TeamPage = () => {
                 fill
                 sizes="(max-width: 900px) 100vw, 55vw"
                 className={styles.photoImg}
+                style={
+                  founder.imagePosition
+                    ? { objectPosition: founder.imagePosition }
+                    : undefined
+                }
                 priority
               />
               <span className={styles.featuredBadge}>{founder.role}</span>

@@ -1,6 +1,5 @@
 import type { StaticImageData } from "next/image";
 import anush from "@/public/images/anush.webp";
-import jack from "@/public/images/jack.webp";
 import kipari from "@/public/images/kipariza.jpg";
 import perizat from "@/public/images/perizat.webp";
 
@@ -12,24 +11,19 @@ export type TeamMember = {
   image: StaticImageData;
   alt: string;
   bio: string;
+  /** CSS object-position for portrait crops (e.g. face at bottom of frame) */
+  imagePosition?: string;
 };
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "anuar",
     name: "Anuar",
-    role: "Guide",
-    image: anush,
-    alt: "Anuar - Guide",
-    bio: "Anuar is a skilled guide and cultural ambassador who brings the rich heritage of Kyrgyzstan to life. With deep knowledge of local traditions and history, he creates immersive experiences that connect travelers with the heart of the region.",
-  },
-  {
-    id: "jack",
-    name: "Jack",
     role: "Founder",
-    image: jack,
-    alt: "Jack - Founder",
-    bio: "Jack is the founder and content creator who showcases Kyrgyzstan through his blog. He personally tests every route, captures drone footage, and helps people experience the country on a deeper level.",
+    image: anush,
+    alt: "Anuar - Founder",
+    bio: "Anuar is the founder of Indie Kyrgyz Travel and a cultural ambassador who brings the rich heritage of Kyrgyzstan to life. With deep knowledge of local traditions and routes, he plans immersive journeys and connects travelers with the heart of the region.",
+    imagePosition: "center bottom",
   },
   {
     id: "kipariza",

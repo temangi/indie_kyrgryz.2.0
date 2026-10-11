@@ -27,6 +27,11 @@ const Team = () => {
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className={styles.memberImg}
+                style={
+                  member.imagePosition
+                    ? { objectPosition: member.imagePosition }
+                    : undefined
+                }
               />
               <span className={styles.nameLabel}>
                 {member.name} - {member.role}
