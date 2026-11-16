@@ -1,61 +1,63 @@
 import DetailPage from "@/src/pages/tourDetail/page";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { stepsTours } from "@/src/widgets/HowItGoing/model/constants/step";
 import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
 import { buildTourSeoGraph } from "@/src/shared/seo/tourSeoGraph";
+import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
+import {
+  NOT_FOUND_DESCRIPTION,
+  NOT_FOUND_TITLE,
+  TOUR_META,
+} from "@/src/shared/seo/pageCopy";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export function generateStaticParams() {
+  return stepsTours.map((tour) => ({ slug: tour.slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const currentTour = stepsTours.find((tour) => tour.slug === slug);
+  const meta = TOUR_META[slug];
 
-  if (!currentTour) {
-    return {
-      title: "Tour Not Found | Indie Kyrgyz Travel",
-    };
+  if (!currentTour || !meta) {
+    return buildPageMetadata({
+      title: NOT_FOUND_TITLE,
+      description: NOT_FOUND_DESCRIPTION,
+      path: `/tour/${slug}`,
+      index: false,
+    });
   }
 
-  const baseUrl = "https://indiekyrgyz.com"; 
-  const canonicalUrl = `${baseUrl}/tour/${slug}`;
+  const hero = currentTour.slider[0]?.item;
 
-  const metaDescription = String(
-    currentTour.title ?? currentTour.desc ?? currentTour.chapter
-  ).trim();
-
-  return {
-    title: `${currentTour.chapter} | Indie Kyrgyz Travel`,
-    description: metaDescription.slice(0, 160),
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: currentTour.chapter,
-      description: metaDescription.slice(0, 300),
-      url: canonicalUrl,
-      type: "website",
-      images: [
-        {
-          url: currentTour.slider[0].item.src, 
-          width: 1200,
-          height: 630,
+  return buildPageMetadata({
+    title: meta.title,
+    description: meta.description,
+    path: `/tour/${slug}`,
+    image: hero?.src
+      ? {
+          url: hero.src,
+          width: hero.width,
+          height: hero.height,
           alt: currentTour.chapter,
-        },
-      ],
-    },
-  };
+        }
+      : undefined,
+  });
 }
 
 export default async function DetailToursPage({ params }: Props) {
   const { slug } = await params;
   const currentTour = stepsTours.find((tour) => tour.slug === slug);
-  const seoGraph = currentTour ? buildTourSeoGraph(currentTour) : null;
+  if (!currentTour) notFound();
 
   return (
     <>
-      {seoGraph ? <SeoJsonLd id={`tour-ld-${slug}`} graph={seoGraph} /> : null}
+      <SeoJsonLd id={`tour-ld-${slug}`} graph={buildTourSeoGraph(currentTour)} />
       <DetailPage slug={slug} />
     </>
   );

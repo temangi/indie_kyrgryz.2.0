@@ -1,24 +1,35 @@
 import styles from "./privacyPolicy.module.scss";
-import type { Metadata } from "next";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
+import { PRIVACY_DESCRIPTION, PRIVACY_TITLE } from "@/src/shared/seo/pageCopy";
+import { buildWebPageGraph } from "@/src/shared/seo/webPageGraph";
+import { SITE_ORIGIN } from "@/src/shared/seo/SeoJsonLd";
+import { Breadcrumbs } from "@/src/shared/ui/Breadcrumbs";
 
-const PRIVACY_URL = "https://indiekyrgyz.com/privacy-policy";
+const PRIVACY_URL = `${SITE_ORIGIN}/privacy-policy`;
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "Indie Kyrgyz Travel privacy policy: how we handle booking forms, email, and WhatsApp data for Kyrgyzstan tour inquiries — GDPR-friendly practices for international travelers.",
-  alternates: {
-    canonical: PRIVACY_URL,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata = buildPageMetadata({
+  title: PRIVACY_TITLE,
+  description: PRIVACY_DESCRIPTION,
+  path: "/privacy-policy",
+});
 
 const PrivacyPolicyPage = () => {
   return (
-    <section className={styles.page}>
+    <>
+      <SeoJsonLd
+        id="privacy-ld"
+        graph={buildWebPageGraph({
+          url: PRIVACY_URL,
+          name: "Privacy Policy",
+          description: PRIVACY_DESCRIPTION,
+          breadcrumbLabel: "Privacy Policy",
+        })}
+      />
+      <section className={styles.page}>
+      <Breadcrumbs
+        items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
+      />
       <div className="container">
         <div className={styles.card}>
           <h1>Privacy Policy</h1>
@@ -80,6 +91,7 @@ const PrivacyPolicyPage = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

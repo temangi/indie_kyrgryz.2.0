@@ -22,13 +22,26 @@ const navLinks = [
 ];
 
 export const navSocialLinks = [
-  { href: "https://wa.me/996555203101?text=Hi Jake", icon: whats },
-  { href: "https://www.instagram.com/indie_kyrgyz_travel", icon: insta },
   {
-    href: "https://www.tiktok.com/@indie.kyrgyz.travel?_r=1&_t=ZS-93gw192mKSy",
-    icon: tiktok,
+    href: "https://wa.me/996555203101?text=Hi%20Jake",
+    icon: whats,
+    label: "WhatsApp",
   },
-  { href: "https://youtu.be/ibWlBWMoIxU?si=xXK4sDZp60qBEn-X", icon: youtube },
+  {
+    href: "https://www.instagram.com/indie_kyrgyz_travel",
+    icon: insta,
+    label: "Instagram",
+  },
+  {
+    href: "https://www.tiktok.com/@indie.kyrgyz.travel",
+    icon: tiktok,
+    label: "TikTok",
+  },
+  {
+    href: "https://www.youtube.com/watch?v=ibWlBWMoIxU",
+    icon: youtube,
+    label: "YouTube",
+  },
 ];
 
 const Navigation = () => {

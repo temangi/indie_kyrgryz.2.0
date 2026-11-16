@@ -7,12 +7,9 @@ type ToursCardProps = ITour & {
   showPrice?: boolean;
   /** When set, shows a Private / Group pill (e.g. on the all-tours page). */
   listingFormat?: "private" | "group";
-  /** First visible card on listing pages — LCP candidate after the hero. */
-  isFirstInList?: boolean;
 };
 
 export const ToursCard = ({
-  id,
   slug,
   title,
   day,
@@ -22,7 +19,6 @@ export const ToursCard = ({
   href,
   showPrice = true,
   listingFormat,
-  isFirstInList,
 }: ToursCardProps) => {
   const priceShown = Boolean(showPrice && price);
   const formatClass =
@@ -39,8 +35,6 @@ export const ToursCard = ({
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          priority={Boolean(isFirstInList)}
-          fetchPriority={isFirstInList ? "high" : undefined}
           className={styles.cardImage}
         />
         <div className={styles.cardBadge}>{day}</div>

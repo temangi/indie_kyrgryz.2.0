@@ -10,14 +10,16 @@ type MainHeroProps = {
   titleId?: string;
   /** Tour detail: private vs fixed-date group departure. */
   listingFormat?: "private" | "group";
+  /** Describes the photograph. Falls back to the heading. */
+  imageAlt?: string;
 };
 
-const MainHero = ({ title, unTitle, img, titleId, listingFormat }: MainHeroProps) => {
+const MainHero = ({ title, unTitle, img, titleId, listingFormat, imageAlt }: MainHeroProps) => {
   return (
     <section className={styles.main}>
       <Image
         src={img}
-        alt={`${title} — Kyrgyzstan travel with Indie Kyrgyz`}
+        alt={imageAlt ?? `${title} — Kyrgyzstan travel with Indie Kyrgyz`}
         priority
         fetchPriority="high"
         quality={90}
@@ -27,8 +29,8 @@ const MainHero = ({ title, unTitle, img, titleId, listingFormat }: MainHeroProps
       <div className={styles.main__logo}>
         <Image
           src={logo}
-          sizes="100vw"
-          alt="Indie kyrgyz travel"
+          sizes="200px"
+          alt="Indie Kyrgyz Travel logo"
           style={{ width: "100%", height: "auto" }}
         />
       </div>

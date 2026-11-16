@@ -15,9 +15,9 @@ const Footer = () => {
         <div className={styles.footer__menu}>
           
           <section className={styles.footer__contact}>
-            <h3 className={styles.footer__title}>Still have questions?</h3>
+            <p className={styles.footer__title}>Still have questions?</p>
             <p className={styles.footer__description}>
-              Contact us on WhatsApp, and we'll answer all your questions.
+              Contact us on WhatsApp, and we&apos;ll answer all your questions.
             </p>
             
             <div className={styles.footer__socials}>
@@ -38,7 +38,7 @@ const Footer = () => {
           </section>
 
           <div className={styles.footer__info}>
-            <h4 className={styles.footer__infoTitle}>Our contacts:</h4>
+            <p className={styles.footer__infoTitle}>Our contacts:</p>
             <address className={styles.footer__address}>
               <a href="tel:+996555203101" className={styles.footer__link}>
                 +996 555 203 101
@@ -46,7 +46,7 @@ const Footer = () => {
               <a href="mailto:indiekyrgyztravel@gmail.com" className={styles.footer__link}>
                 indiekyrgyztravel@gmail.com
               </a>
-              <a href="https://www.instagram.com/indie_kyrgyz_travel" target="_blank" className={styles.footer__link}>
+              <a href="https://www.instagram.com/indie_kyrgyz_travel" target="_blank" rel="noopener noreferrer" className={styles.footer__link}>
                 @indie_kyrgyz_travel
               </a>
             </address>

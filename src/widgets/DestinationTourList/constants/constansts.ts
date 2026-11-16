@@ -328,12 +328,7 @@ independence, and harmony with nature — values that have defined nomadic life 
 centuries.
 If you want to experience real culture, not staged performances, the World Nomad Games
 deserve a place on your travel itinerary.`,
-      desc: `If you want, I can also:`,
-      arr: [
-        `adapt this text for a tour sales page`,
-        `create a short version for landing pages`,
-        `or rewrite it for social media and travel platforms.`,
-      ],
+      arr: [],
     },
   ],
   imgs: [sonKul1, sonKul2, sonKul3, sonKul4, sonKul5],

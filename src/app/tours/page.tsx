@@ -1,25 +1,44 @@
 import ToursPage from "@/src/pages/tours/page";
-import type { Metadata } from "next";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
+import { TOURS_DESCRIPTION, TOURS_TITLE } from "@/src/shared/seo/pageCopy";
+import { buildWebPageGraph } from "@/src/shared/seo/webPageGraph";
+import { SITE_ORIGIN } from "@/src/shared/seo/SeoJsonLd";
+import { tours } from "@/src/widgets/Tours/constants/constants";
 
-const TOURS_URL = "https://indiekyrgyz.com/tours";
+const TOURS_URL = `${SITE_ORIGIN}/tours`;
 
-export const metadata: Metadata = {
-  title: "All Tours in Kyrgyzstan",
-  description:
-    "Compare every Indie Kyrgyz tour in one place: 7-day classics, 10-day mountain expeditions, private Song-Kul rides, Altyn-Arashan trekking, and day trips from Bishkek — built for international travelers.",
-  alternates: {
-    canonical: TOURS_URL,
-  },
-  openGraph: {
-    title: "All Tours | Indie Kyrgyz Travel",
-    description:
-      "Find your route across Kyrgyzstan: Song-Kul, Altyn-Arashan, mountain expeditions and day trips.",
-    url: TOURS_URL,
-    type: "website",
-  },
-};
+export const metadata = buildPageMetadata({
+  title: TOURS_TITLE,
+  description: TOURS_DESCRIPTION,
+  path: "/tours",
+});
 
 export default function Destination() {
-    return <ToursPage />;
-  }
+  const graph = [
+    ...buildWebPageGraph({
+      url: TOURS_URL,
+      name: "ALL TOURS",
+      description: TOURS_DESCRIPTION,
+      pageType: "CollectionPage",
+      breadcrumbLabel: "Tours",
+    }),
+    {
+      "@type": "ItemList",
+      itemListElement: tours.map((tour, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: tour.title,
+        url: `${SITE_ORIGIN}/tour/${tour.slug}`,
+      })),
+    },
+  ];
+
+  return (
+    <>
+      <SeoJsonLd id="tours-ld" graph={graph} />
+      <ToursPage />
+    </>
+  );
+}
   

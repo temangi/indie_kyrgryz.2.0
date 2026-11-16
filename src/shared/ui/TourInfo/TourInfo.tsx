@@ -60,7 +60,12 @@ export const TourInfo = ({
                 </div>
               </aside>
 
-              <Image className={styles.cardImage} src={img} alt="Tour" />
+              <Image
+                className={styles.cardImage}
+                src={img}
+                alt="A guesthouse in a mountain valley in Kyrgyzstan"
+                sizes="(max-width: 900px) 100vw, 420px"
+              />
             </article>
           </div>
 

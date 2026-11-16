@@ -26,7 +26,8 @@ const Reviews = () => {
           <Image
             key={index}
             src={el}
-            alt={`Review photo ${index + 1}`}
+            alt={`Guest review ${index + 1}`}
+            sizes="(max-width: 600px) 85vw, 360px"
             className={styles.main__img}
           />
         ))}

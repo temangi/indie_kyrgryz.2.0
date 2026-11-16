@@ -21,6 +21,21 @@ import { MiniSeoIntro } from "@/src/shared/ui/MiniSeoIntro/MiniSeoIntro";
 const MAX_OPEN_ITINERARY_DAYS = 2;
 
 const HowItGoing = ({ slug }: Props) => {
+  const [openDayOrder, setOpenDayOrder] = useState<number[]>([0]);
+
+  const toggleDay = useCallback((index: number) => {
+    setOpenDayOrder((prev) => {
+      if (prev.includes(index)) {
+        return prev.filter((i) => i !== index);
+      }
+      const next = [...prev, index];
+      while (next.length > MAX_OPEN_ITINERARY_DAYS) {
+        next.shift();
+      }
+      return next;
+    });
+  }, []);
+
   const currentTour = stepsTours.find(tour => tour.slug === slug);
   if (!currentTour) {
     return (
@@ -37,21 +52,6 @@ const HowItGoing = ({ slug }: Props) => {
     slug === GROUP_TOUR_2026_SLUG ? ("group" as const) : ("private" as const);
 
   const seoIntro = getTourSeoIntro(slug);
-
-  const [openDayOrder, setOpenDayOrder] = useState<number[]>([0]);
-
-  const toggleDay = useCallback((index: number) => {
-    setOpenDayOrder((prev) => {
-      if (prev.includes(index)) {
-        return prev.filter((i) => i !== index);
-      }
-      const next = [...prev, index];
-      while (next.length > MAX_OPEN_ITINERARY_DAYS) {
-        next.shift();
-      }
-      return next;
-    });
-  }, []);
 
   return (
     <>
@@ -73,13 +73,13 @@ const HowItGoing = ({ slug }: Props) => {
           <div className={styles.tourDetails__layout}>
             <div className={styles.tourDetails__main}>
               <header className={styles.tourDetails__header}>
-                <h1 className={styles.tourDetails__title}>{chapter}</h1>
-                <h2 className={styles.tourDetails__subtitle}>{title}</h2>
+                <p className={styles.tourDetails__title}>{chapter}</p>
+                <p className={styles.tourDetails__subtitle}>{title}</p>
                 <p className={styles.tourDetails__desc}>{desc}</p>
               </header>
 
               <div className={styles.tourDetails__program}>
-                <h3 className={styles.programTitle}>Itinerary</h3>
+                <h2 className={styles.programTitle}>Itinerary</h2>
                 {arr.map((el, index) => (
                   <StepCard
                     {...el}
@@ -104,9 +104,10 @@ const HowItGoing = ({ slug }: Props) => {
                   <div key={index} className={styles.tourDetails__imageWrapper}>
                     <Image
                       src={e.src}
-                      alt={chapter}
+                      alt={`${chapter}, photo ${index + 1}`}
                       width={500}
                       height={700}
+                      sizes="(max-width: 992px) 100vw, 40vw"
                       className={styles.tourDetails__image} style={{ width: '100%', height: '100%' }}
                     />
                   </div>
@@ -133,7 +134,7 @@ const HowItGoing = ({ slug }: Props) => {
               <span>Watch all tours</span>
               <Image
                 src={arrow}
-                alt="arrow"
+                alt=""
                 className={styles.relatedTours__arrow}
                 aria-hidden="true"
               />
@@ -144,8 +145,8 @@ const HowItGoing = ({ slug }: Props) => {
           {tours
             .filter((el) => el.slug !== slug)
             .slice(0, 5)
-            .map((el, index) => (
-              <ToursCard {...el} key={el.id} isFirstInList={index === 0} />
+            .map((el) => (
+              <ToursCard {...el} key={el.id} />
             ))}
         </div>
       </section>

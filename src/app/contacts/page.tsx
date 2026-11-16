@@ -1,27 +1,18 @@
-import type { Metadata } from "next";
 import styles from "./contacts.module.scss";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
+import { CONTACT_DESCRIPTION, CONTACT_TITLE } from "@/src/shared/seo/pageCopy";
+import { buildWebPageGraph } from "@/src/shared/seo/webPageGraph";
+import { SITE_ORIGIN } from "@/src/shared/seo/SeoJsonLd";
+import { Breadcrumbs } from "@/src/shared/ui/Breadcrumbs";
 
-const CONTACTS_URL = "https://indiekyrgyz.com/contacts";
+const CONTACTS_URL = `${SITE_ORIGIN}/contacts`;
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Indie Kyrgyz Travel in Kyrgyzstan for private tour quotes — email, phone, WhatsApp, Instagram, and TikTok. Fast replies for travelers from Europe, the US, and worldwide.",
-  alternates: {
-    canonical: CONTACTS_URL,
-  },
-  openGraph: {
-    title: "Contact | Indie Kyrgyz Travel",
-    description:
-      "Reach our Bishkek-based team for nomadic culture tours, trekking, and custom Kyrgyzstan itineraries.",
-    url: CONTACTS_URL,
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata = buildPageMetadata({
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
+  path: "/contacts",
+});
 
 const CONTACTS = {
   email: "indiekyrgyztravel@gmail.com",
@@ -34,7 +25,21 @@ const CONTACTS = {
 
 const ContactsPage = () => {
   return (
-    <section className={styles.page}>
+    <>
+      <SeoJsonLd
+        id="contacts-ld"
+        graph={buildWebPageGraph({
+          url: CONTACTS_URL,
+          name: "Contacts",
+          description: CONTACT_DESCRIPTION,
+          pageType: "ContactPage",
+          breadcrumbLabel: "Contacts",
+        })}
+      />
+      <section className={styles.page}>
+      <Breadcrumbs
+        items={[{ label: "Home", href: "/" }, { label: "Contacts" }]}
+      />
       <div className="container">
         <div className={styles.hero}>
           <p className={styles.kicker}>Get in touch</p>
@@ -124,6 +129,7 @@ const ContactsPage = () => {
         </p>
       </div>
     </section>
+    </>
   );
 };
 

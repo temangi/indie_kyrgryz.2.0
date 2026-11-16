@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { TEAM_MEMBERS } from "@/src/widgets/Team/constants/members";
 import styles from "./team.module.scss";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
+import { TEAM_DESCRIPTION, TEAM_TITLE } from "@/src/shared/seo/pageCopy";
+import { buildWebPageGraph } from "@/src/shared/seo/webPageGraph";
+import { SITE_ORIGIN } from "@/src/shared/seo/SeoJsonLd";
+import { Breadcrumbs } from "@/src/shared/ui/Breadcrumbs";
 
-const TEAM_URL = "https://indiekyrgyz.com/team";
+const TEAM_URL = `${SITE_ORIGIN}/team`;
 
 const VALUES = [
   {
@@ -21,28 +26,31 @@ const VALUES = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: "Our Team",
-  description:
-    "Meet the Indie Kyrgyz Travel team — local guides and founders who plan private Kyrgyzstan tours, trekking, horse trips, and nomadic culture experiences.",
-  alternates: {
-    canonical: TEAM_URL,
-  },
-  openGraph: {
-    title: "Our Team | Indie Kyrgyz Travel",
-    description:
-      "Local guides and planners behind authentic tours in Kyrgyzstan.",
-    url: TEAM_URL,
-    type: "profile",
-  },
-};
+export const metadata = buildPageMetadata({
+  title: TEAM_TITLE,
+  description: TEAM_DESCRIPTION,
+  path: "/team",
+});
 
 const TeamPage = () => {
   const founder = TEAM_MEMBERS.find((m) => m.role === "Founder");
   const guides = TEAM_MEMBERS.filter((m) => m.role !== "Founder");
 
   return (
-    <section className={styles.page}>
+    <>
+      <SeoJsonLd
+        id="team-ld"
+        graph={buildWebPageGraph({
+          url: TEAM_URL,
+          name: "The people behind your adventure",
+          description: TEAM_DESCRIPTION,
+          breadcrumbLabel: "Team",
+        })}
+      />
+      <section className={styles.page}>
+      <Breadcrumbs
+        items={[{ label: "Home", href: "/" }, { label: "Team" }]}
+      />
       <header className={styles.banner}>
         <div className="container">
           <p className={styles.kicker}>Our team</p>
@@ -135,6 +143,7 @@ const TeamPage = () => {
         </aside>
       </div>
     </section>
+    </>
   );
 };
 

@@ -19,6 +19,13 @@ function firstPriceAmount(priceLabel: string): string | undefined {
   return m[1].replace(/,/g, "");
 }
 
+/** "7 days" → P7D. Driving distances and other labels are not a trip duration. */
+function toIsoDuration(label: string): string | undefined {
+  const match = label.trim().match(/^(\d+)\s+days?$/i);
+  if (!match) return undefined;
+  return `P${Number(match[1])}D`;
+}
+
 const ORG_ID = `${SITE_ORIGIN}/#organization`;
 
 export function buildTourSeoGraph(tour: TourForSeo): Record<string, unknown>[] {
@@ -27,15 +34,7 @@ export function buildTourSeoGraph(tour: TourForSeo): Record<string, unknown>[] {
   const imageUrl = toAbsoluteAssetUrl(hero?.src);
 
   const price = firstPriceAmount(tour.price);
-  const offer: Record<string, unknown> = {
-    "@type": "Offer",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-    url: pageUrl,
-  };
-  if (price !== undefined) {
-    offer.price = price;
-  }
+  const isoDuration = toIsoDuration(tour.duration);
 
   const dayItems = tour.arr.map((day, i) => ({
     "@type": "ListItem",
@@ -57,14 +56,27 @@ export function buildTourSeoGraph(tour: TourForSeo): Record<string, unknown>[] {
     url: pageUrl,
     image: [imageUrl],
     touristType: "Adventure travelers",
-    duration: tour.duration,
+    ...(isoDuration ? { duration: isoDuration } : {}),
     itinerary: {
       "@type": "ItemList",
       itemListElement: dayItems,
     },
     provider: { "@id": ORG_ID },
-    offers: offer,
   };
+
+  if (price !== undefined) {
+    trip.offers = {
+      "@type": "Offer",
+      url: pageUrl,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        minPrice: price,
+        priceCurrency: "USD",
+      },
+    };
+  }
 
   if (tour.desc?.trim()) {
     trip.abstract = tour.desc.trim().slice(0, 320);

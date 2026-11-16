@@ -147,9 +147,15 @@ const Header = () => {
           <Navigation />
           <footer className={styles.mainFooter}>
             <nav className={styles.mainSocialLinks}>
-              {navSocialLinks.map(({ href, icon }, index) => (
-                <Link key={index} href={href}>
-                  <Image height={30} width={30} src={icon} alt={href} />
+              {navSocialLinks.map(({ href, icon, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                >
+                  <Image height={30} width={30} src={icon} alt="" />
                 </Link>
               ))}
             </nav>

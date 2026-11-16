@@ -15,6 +15,18 @@ import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
 import { getDestinationSeoIntro } from "@/src/shared/seo/detailPageSeoCopy";
 import { MiniSeoIntro } from "@/src/shared/ui/MiniSeoIntro/MiniSeoIntro";
 
+const DESTINATION_PHOTO_ALT: Record<string, string> = {
+  "kel-suu": "Kel-Suu lake",
+  "issyk-kul": "Issyk-Kul lake",
+  "song-kul": "Song-Kul lake",
+  // TODO: this page currently reuses Song-Kul photos. Swap in real Nomad Games pictures.
+  "world-nomad-games": "Highland landscape in Kyrgyzstan",
+};
+
+function destinationPhotoAlt(slug: string) {
+  return DESTINATION_PHOTO_ALT[slug] ?? "Landscape in Kyrgyzstan";
+}
+
 function DestinationTourList() {
   const params = useParams<{ slug: string }>();
   const currentTour = destinationTourInfo.find(tour => tour.slug === params?.slug);
@@ -77,7 +89,8 @@ function DestinationTourList() {
                 <div key={i} className={styles.imageWrapper}>
                   <Image
                     src={img}
-                    alt={`View ${i + 1}`}
+                    alt={`${destinationPhotoAlt(tourSlug)}, photo ${i + 1}`}
+                    sizes="(max-width: 992px) 100vw, 40vw"
                     className={styles.sidebarImg}
                     placeholder="blur"
                   />
@@ -102,7 +115,7 @@ function DestinationTourList() {
               <span>Watch all tours</span>
               <Image
                 src={arrow}
-                alt="arrow"
+                alt=""
                 className={styles.relatedTours__arrow}
                 aria-hidden="true"
               />

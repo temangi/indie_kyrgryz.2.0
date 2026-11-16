@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+    qualities: [75, 90],
   },
 
   async redirects() {
@@ -20,12 +21,12 @@ const nextConfig: NextConfig = {
       {
         source: "/destinations/world-nomad-games",
         destination: "/tours",
-        permanent: true, // 301 — Google передаёт SEO-вес на новый URL
+        statusCode: 301, // 301 — Google передаёт SEO-вес на новый URL
       },
       {
         source: "/destination", // пустой путь без slug
         destination: "/tours",
-        permanent: true,
+        statusCode: 301,
       },
 
       // -------------------------------------------------------
@@ -35,17 +36,17 @@ const nextConfig: NextConfig = {
       {
         source: "/tour/2",
         destination: "/tour/kyrgyz-week", // ← поменяйте на реальный slug
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/tour/7",
         destination: "/tour/altyn-arashan", // ← поменяйте на реальный slug
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/tour/8",
         destination: "/tour/song-kul", // ← поменяйте на реальный slug
-        permanent: true,
+        statusCode: 301,
       },
 
       // -------------------------------------------------------
@@ -55,17 +56,17 @@ const nextConfig: NextConfig = {
       {
         source: "/tours/",
         destination: "/tours",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/tour/:slug/",
         destination: "/tour/:slug",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/destination/:slug/",
         destination: "/destination/:slug",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },

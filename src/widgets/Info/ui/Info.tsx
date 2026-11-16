@@ -46,7 +46,7 @@ const Info = () => {
             <div className={styles.imageWrapper}>
               <Image
                 src={img}
-                alt="Experience"
+                alt="Travelers in the mountains on a Kyrgyzstan trip"
                 fill
                 sizes="100vw"
                 className={styles.image}

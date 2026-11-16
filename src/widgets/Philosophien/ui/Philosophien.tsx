@@ -21,6 +21,7 @@ const Philosophien = () => {
               <Image
                 src={phil}
                 alt="Founding story illustration"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.img}
               />
             </div>

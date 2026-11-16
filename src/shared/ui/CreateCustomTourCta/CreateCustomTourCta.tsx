@@ -17,7 +17,7 @@ const CreateCustomTourCta = ({ className }: CreateCustomTourCtaProps) => {
       aria-label="Customize your itinerary"
     >
       <div className={styles.inner}>
-        <h3 className={styles.title}>Couldnt find the perfect tour?</h3>
+        <h3 className={styles.title}>Couldn&apos;t find the perfect tour?</h3>
         <p className={styles.lead}>
           Build your own tour in a few steps: pick places, tell us your group size, then leave your contact and preferred date.
         </p>

@@ -1,28 +1,37 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import styles from "./about.module.scss";
+import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
+import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
+import { ABOUT_DESCRIPTION, ABOUT_TITLE } from "@/src/shared/seo/pageCopy";
+import { buildWebPageGraph } from "@/src/shared/seo/webPageGraph";
+import { SITE_ORIGIN } from "@/src/shared/seo/SeoJsonLd";
+import { Breadcrumbs } from "@/src/shared/ui/Breadcrumbs";
 
-const ABOUT_URL = "https://indiekyrgyz.com/about";
+const ABOUT_URL = `${SITE_ORIGIN}/about`;
 
-export const metadata: Metadata = {
-  title: "About Indie Kyrgyz Travel",
-  description:
-    "Meet the Indie Kyrgyz Travel team: local guides and planners for private Kyrgyzstan tours, nomadic culture, trekking, and horse trips — trusted by guests from Europe, the US, and Australia.",
-  alternates: {
-    canonical: ABOUT_URL,
-  },
-  openGraph: {
-    title: "About | Indie Kyrgyz Travel",
-    description:
-      "Local team, real routes, and personalized support for tours in Kyrgyzstan.",
-    url: ABOUT_URL,
-    type: "profile",
-  },
-};
+export const metadata = buildPageMetadata({
+  title: ABOUT_TITLE,
+  description: ABOUT_DESCRIPTION,
+  path: "/about",
+});
 
 const AboutPage = () => {
   return (
-    <section className={styles.page}>
+    <>
+      <SeoJsonLd
+        id="about-ld"
+        graph={buildWebPageGraph({
+          url: ABOUT_URL,
+          name: "Travel Kyrgyzstan with locals who know every hidden corner",
+          description: ABOUT_DESCRIPTION,
+          pageType: "AboutPage",
+          breadcrumbLabel: "About",
+        })}
+      />
+      <section className={styles.page}>
+      <Breadcrumbs
+        items={[{ label: "Home", href: "/" }, { label: "About" }]}
+      />
       <div className="container">
         <div className={styles.hero}>
           <p className={styles.kicker}>About Indie Kyrgyz Travel</p>
@@ -88,7 +97,8 @@ const AboutPage = () => {
           </Link>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 

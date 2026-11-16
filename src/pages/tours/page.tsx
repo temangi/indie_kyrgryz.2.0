@@ -6,6 +6,7 @@ import { ToursCard } from "@/src/shared/ui/ToursCard/Card"
 import { GROUP_TOUR_2026_SLUG, tours } from "@/src/widgets/Tours/constants/constants"
 import { Application } from "@/src/widgets/Application"
 import toursHeroImg from "@/public/images/slide10.webp"
+import { Breadcrumbs } from "@/src/shared/ui/Breadcrumbs"
 
 const EXCLUDED_FROM_ALL_TOURS_PAGE = new Set()
 
@@ -28,6 +29,9 @@ const ToursPage = () => {
                 img={toursHeroImg}
                 unTitle="Discover the heart of Central Asia with our hand-picked expeditions."
             />
+            <Breadcrumbs
+              items={[{ label: "Home", href: "/" }, { label: "Tours" }]}
+            />
             <section className={styles["tour-page-list-container"]}>
                 <div className="container">
                     <div className={styles["tour-page-list"]}>
@@ -47,12 +51,11 @@ const ToursPage = () => {
                             </p>
                         </div>
                         <div className={styles["tour-page-list__main"]}>
-                            {allToursPageItems.map(({ tour, listingFormat }, index) => (
+                            {allToursPageItems.map(({ tour, listingFormat }) => (
                                 <ToursCard
                                     {...tour}
                                     key={tour.id}
                                     listingFormat={listingFormat}
-                                    isFirstInList={index === 0}
                                 />
                             ))}
                         </div>

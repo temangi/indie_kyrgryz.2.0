@@ -27,14 +27,16 @@ function BulletList({ title, unTitle, desc, arr, content }: BulletListProps) {
         </p>
       )}
 
-      <ul className={styles.details__list}>
-        {arr.map((item, index) => (
-          <li key={index} className={styles.details__item}>
-            <span className={styles.details__marker}></span>
-            <span className={styles.details__text}>{item}</span>
-          </li>
-        ))}
-      </ul>
+      {arr.length > 0 && (
+        <ul className={styles.details__list}>
+          {arr.map((item, index) => (
+            <li key={index} className={styles.details__item}>
+              <span className={styles.details__marker}></span>
+              <span className={styles.details__text}>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {content && <p className={styles.details__content}>{content}</p>}
     </div>

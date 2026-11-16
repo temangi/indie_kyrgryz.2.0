@@ -17,8 +17,9 @@ const HomePage = () => {
   return (
     <>
       <MainHero
-        title="INDIE KYRGYZ TRAVEL"
+        title="Tours in Kyrgyzstan"
         img={heroImg}
+        imageAlt="A traveler with a backpack above a mountain lake in Kyrgyzstan"
         unTitle={`Small groups, bilingual hosts, routes through mountains and lakes.
 Summer 2026 — limited departures; book when you’re ready.`}
       />
