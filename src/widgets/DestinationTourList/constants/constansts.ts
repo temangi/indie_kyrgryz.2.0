@@ -16,8 +16,7 @@ import sonKul4 from "@/public/images/son-kul/s4.webp";
 import sonKul5 from "@/public/images/son-kul/s5.webp";
 
 const kelSui = {
-  title: `Kel-Suu (Kol-Tetiri) — One of the Most Remote and
-Dramatic Places in Kyrgyzstan`,
+  title: "Kel-Suu, a remote mountain lake in Kyrgyzstan",
   slug: "kel-suu",
   desc: `Kel-Suu, also known as Kol-Tetiri, is one of the most isolated and visually striking
 destinations in Kyrgyzstan. Hidden deep in the mountains near the Chinese border, this

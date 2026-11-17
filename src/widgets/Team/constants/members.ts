@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 import anush from "@/public/images/anush.webp";
-import kipari from "@/public/images/kipariza.jpg";
+import kipari from "@/public/images/kipariza.webp";
 import perizat from "@/public/images/perizat.webp";
 
 

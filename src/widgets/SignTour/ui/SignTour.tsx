@@ -201,6 +201,8 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
       className={`${styles.signTour} ${isOpen ? styles.isOpen : ""}`}
       role="dialog"
       aria-modal="true"
+      aria-labelledby="sign-tour-title"
+      aria-hidden={isOpen ? undefined : true}
       onClick={handleClose}
     >
       <div className={styles.overlay}></div>
@@ -210,13 +212,13 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
           <Image src="/images/close.png" alt="Close" width={30} height={30} />
         </button>
 
-        <h2 className={styles.title}>
+        <p id="sign-tour-title" className={styles.title}>
           {isCustomMode
             ? "Create your tour"
             : resolvedTour
               ? "Book this Tour:"
               : title}
-        </h2>
+        </p>
         <p className={styles.description}>
           {isCustomMode
             ? "Build your own tour in a few steps: pick places, tell us your group size, then leave your contact and preferred date."

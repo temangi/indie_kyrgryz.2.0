@@ -14,6 +14,39 @@ export const metadata = buildPageMetadata({
   path: "/privacy-policy",
 });
 
+/*
+TODO: проверить и утвердить. Не публиковать, пока формулировки не проверит человек.
+Черновик ниже собран только из того, что уже есть на сайте: поля форм, почта,
+Google Analytics (G-6WFTRHW6FD) и Google Ads (AW-17961172694) в layout.
+Юридическое основание обработки (договор или согласие) здесь не утверждается.
+
+Draft, about 230 words:
+
+Privacy Policy
+
+Indie Kyrgyz Travel uses this page to explain what we collect when you write to us
+or send a tour request on indiekyrgyz.com. The form may include your name, email
+address, phone or WhatsApp number, preferred travel date, and trip preferences.
+We use those details to answer you, prepare route options and pricing, and talk
+through booking. We do not sell personal data. We share it only with the services
+that deliver the message, such as our email provider.
+
+The site also loads Google Analytics and Google Ads. Those services may store a
+cookie or similar identifier in your browser so we can see aggregated visits and
+whether an ad led to this website. You can control cookies in your browser. Blocking
+them does not stop you from emailing or messaging us.
+
+We keep request details only as long as we need them for the conversation, the
+booking, and legal obligations. You can ask us to show, correct, or delete your
+data. Write to indiekyrgyztravel@gmail.com. This applies to visitors from any
+country, including the European Economic Area and the United States. Sending a
+request does not create a booking until we confirm availability, price, and dates
+in writing, usually by email or WhatsApp.
+
+Last updated on the page: April 29, 2026. Do not change that date until the
+approved text is published.
+*/
+
 const PrivacyPolicyPage = () => {
   return (
     <>

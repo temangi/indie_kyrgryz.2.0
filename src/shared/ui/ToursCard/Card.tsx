@@ -33,9 +33,15 @@ export const ToursCard = ({
         <Image
           src={img}
           alt={title}
-          fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className={styles.cardImage}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
         />
         <div className={styles.cardBadge}>{day}</div>
         {tag && <div className={styles.cardTag}>{tag}</div>}

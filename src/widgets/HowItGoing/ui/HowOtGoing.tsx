@@ -103,12 +103,12 @@ const HowItGoing = ({ slug }: Props) => {
                 {slider[0].arr.map((e, index) => (
                   <div key={index} className={styles.tourDetails__imageWrapper}>
                     <Image
-                      src={e.src}
+                      src={e}
                       alt={`${chapter}, photo ${index + 1}`}
-                      width={500}
-                      height={700}
+                      width={e.width}
+                      height={e.height}
                       sizes="(max-width: 992px) 100vw, 40vw"
-                      className={styles.tourDetails__image} style={{ width: '100%', height: '100%' }}
+                      className={styles.tourDetails__image} style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                   </div>
                 ))}

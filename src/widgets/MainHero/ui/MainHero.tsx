@@ -22,7 +22,7 @@ const MainHero = ({ title, unTitle, img, titleId, listingFormat, imageAlt }: Mai
         alt={imageAlt ?? `${title} — Kyrgyzstan travel with Indie Kyrgyz`}
         priority
         fetchPriority="high"
-        quality={90}
+        quality={80}
         sizes="100vw"
         className={styles.main__bg}
       />

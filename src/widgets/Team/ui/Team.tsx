@@ -24,14 +24,18 @@ const Team = () => {
               <Image
                 src={member.image}
                 alt={member.alt}
-                fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className={styles.memberImg}
-                style={
-                  member.imagePosition
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  ...(member.imagePosition
                     ? { objectPosition: member.imagePosition }
-                    : undefined
-                }
+                    : {}),
+                }}
               />
               <span className={styles.nameLabel}>
                 {member.name} - {member.role}

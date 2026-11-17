@@ -10,7 +10,41 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-    qualities: [75, 90],
+    // Cap the largest srcset candidate. The default list goes up to 3840px.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    qualities: [75, 80],
+  },
+
+  async headers() {
+    // Report-Only until the browser console / report shows no unexpected blocks.
+    // Maps iframes need frame-src. Next and the gtag snippet need inline scripts.
+    const csp = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'self'",
+      "form-action 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com",
+      "frame-src 'self' https://www.googletagmanager.com https://maps.google.com https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com",
+      "worker-src 'self' blob:",
+      "manifest-src 'self'",
+    ].join("; ");
+
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Content-Security-Policy-Report-Only", value: csp },
+        ],
+      },
+    ];
   },
 
   async redirects() {

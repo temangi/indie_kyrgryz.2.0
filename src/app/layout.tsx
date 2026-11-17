@@ -40,8 +40,6 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
       { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
-      { url: "/favicon-768x768.png", sizes: "768x768", type: "image/png" },
-      { url: "/favicon-1648x1648.png", sizes: "1648x1648", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -70,8 +68,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og.jpg",
-        width: 720,
-        height: 1280,
+        width: 1280,
+        height: 720,
         alt: "Indie Kyrgyz Travel over a green mountain valley in Kyrgyzstan",
       },
     ],

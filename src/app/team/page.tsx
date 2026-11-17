@@ -69,15 +69,19 @@ const TeamPage = () => {
               <Image
                 src={founder.image}
                 alt={founder.alt}
-                fill
                 sizes="(max-width: 900px) 100vw, 55vw"
                 className={styles.photoImg}
-                style={
-                  founder.imagePosition
-                    ? { objectPosition: founder.imagePosition }
-                    : undefined
-                }
                 priority
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  ...(founder.imagePosition
+                    ? { objectPosition: founder.imagePosition }
+                    : {}),
+                }}
               />
               <span className={styles.featuredBadge}>{founder.role}</span>
             </div>
@@ -96,9 +100,15 @@ const TeamPage = () => {
                 <Image
                   src={member.image}
                   alt={member.alt}
-                  fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className={styles.photoImg}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
               <div className={styles.cardBody}>

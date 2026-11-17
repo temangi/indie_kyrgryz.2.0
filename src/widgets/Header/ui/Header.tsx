@@ -153,9 +153,8 @@ const Header = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={label}
                 >
-                  <Image height={30} width={30} src={icon} alt="" />
+                  <Image height={30} width={30} src={icon} alt={label} />
                 </Link>
               ))}
             </nav>

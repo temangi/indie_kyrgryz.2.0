@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# Full-size photos kept locally after recompress. Not served.
+/image-originals/
+
 # production
 /build
 

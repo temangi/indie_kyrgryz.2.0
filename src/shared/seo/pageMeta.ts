@@ -4,13 +4,12 @@ import { SITE_ORIGIN } from "./SeoJsonLd";
 export const SITE_NAME = "Indie Kyrgyz Travel";
 
 /**
- * public/og.jpg is a portrait file (720×1280), not a 1200×630 card.
- * TODO: export a 1200×630 crop of this photo for social previews.
+ * public/og.jpg is 1280×720. Close to a social card, not a 1200×630 crop.
  */
 export const DEFAULT_OG_IMAGE = {
   url: "/og.jpg",
-  width: 720,
-  height: 1280,
+  width: 1280,
+  height: 720,
   alt: "Indie Kyrgyz Travel over a green mountain valley in Kyrgyzstan",
 } as const;
 

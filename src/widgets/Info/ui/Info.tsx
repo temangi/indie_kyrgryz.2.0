@@ -47,9 +47,15 @@ const Info = () => {
               <Image
                 src={img}
                 alt="Travelers in the mountains on a Kyrgyzstan trip"
-                fill
-                sizes="100vw"
+                sizes="(max-width: 992px) 100vw, 480px"
                 className={styles.image}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
               />
               <div className={styles.imageOverlay} />
             </div>

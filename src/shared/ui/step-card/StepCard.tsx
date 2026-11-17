@@ -124,6 +124,7 @@ const StepCard = ({
             className={styles.questionIcon}
             src="/images/plus.svg"
             alt=""
+            aria-hidden="true"
             width={20}
             height={20}
           />
