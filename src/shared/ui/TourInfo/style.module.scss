@@ -99,36 +99,89 @@
   }
 }
 
-.dateList {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
+.datesPanel {
+  width: 100%;
+  border: 1px solid rgba(49, 90, 81, 0.1);
+  border-radius: 24px;
+  padding: 28px 32px 32px;
+  background: #fff;
 }
 
-.dateBadge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--page-background);
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: 600;
-  color: #315a51;
-  border: 1px solid rgba(49, 90, 81, 0.05);
-  transition: all 0.2s ease;
-  width: fit-content;
+.datesHeading {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7a8a86;
+}
 
-  .calendarIcon {
-    font-size: 1.1rem;
-    filter: sepia(1) saturate(5) hue-rotate(-20deg); 
+.datesNote {
+  margin: 6px 0 0;
+  color: #315a51;
+  font-size: 1rem;
+}
+
+.monthGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.monthName {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-orange, #d26404);
+}
+
+.monthDates {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dateChip {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(79, 123, 107, 0.08);
+  color: #315a51;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+  .datesPanel {
+    padding: 22px 18px;
   }
 
-  &:hover {
-    background: var(--page-background);
-    border-color: var(--color-orange);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transform: translateX(5px);
+  .monthGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .month {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .monthName {
+    margin: 0;
+  }
+
+  .monthDates {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
