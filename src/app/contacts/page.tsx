@@ -1,3 +1,8 @@
+import { Envelope } from "@phosphor-icons/react/dist/ssr/Envelope";
+import { InstagramLogo } from "@phosphor-icons/react/dist/ssr/InstagramLogo";
+import { Phone } from "@phosphor-icons/react/dist/ssr/Phone";
+import { TiktokLogo } from "@phosphor-icons/react/dist/ssr/TiktokLogo";
+import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr/WhatsappLogo";
 import styles from "./contacts.module.scss";
 import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
 import { buildPageMetadata } from "@/src/shared/seo/pageMeta";
@@ -54,6 +59,7 @@ const ContactsPage = () => {
           <article className={styles.card}>
             <p className={styles.label}>Email</p>
             <p className={styles.value}>
+              <Envelope className={styles.valueIcon} size={22} aria-hidden="true" />
               <a
                 className={styles.link}
                 href={`mailto:${CONTACTS.email}`}
@@ -66,6 +72,7 @@ const ContactsPage = () => {
           <article className={styles.card}>
             <p className={styles.label}>Phone</p>
             <p className={styles.value}>
+              <Phone className={styles.valueIcon} size={22} aria-hidden="true" />
               <a className={styles.link} href={`tel:${CONTACTS.phoneTel}`}>
                 {CONTACTS.phoneDisplay}
               </a>
@@ -75,6 +82,7 @@ const ContactsPage = () => {
           <article className={styles.card}>
             <p className={styles.label}>WhatsApp</p>
             <p className={styles.value}>
+              <WhatsappLogo className={styles.valueIcon} size={22} weight="fill" aria-hidden="true" />
               <a
                 className={styles.link}
                 href={CONTACTS.whatsapp}
@@ -89,6 +97,7 @@ const ContactsPage = () => {
           <article className={styles.card}>
             <p className={styles.label}>Instagram</p>
             <p className={styles.value}>
+              <InstagramLogo className={styles.valueIcon} size={22} aria-hidden="true" />
               <a
                 className={styles.link}
                 href={CONTACTS.instagram}
@@ -103,6 +112,7 @@ const ContactsPage = () => {
           <article className={styles.card}>
             <p className={styles.label}>TikTok</p>
             <p className={styles.value}>
+              <TiktokLogo className={styles.valueIcon} size={22} aria-hidden="true" />
               <a
                 className={styles.link}
                 href={CONTACTS.tiktok}

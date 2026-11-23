@@ -1,6 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { Envelope } from "@phosphor-icons/react/Envelope";
+import { InstagramLogo } from "@phosphor-icons/react/InstagramLogo";
+import { Phone } from "@phosphor-icons/react/Phone";
+import { WhatsappLogo } from "@phosphor-icons/react/WhatsappLogo";
 import styles from "../Footer.module.scss";
 import { sendGAEvent } from "@next/third-parties/google";
 
@@ -31,6 +35,7 @@ const Footer = () => {
                   style={{ backgroundColor: link.color }} 
                   onClick={() => sendGAEvent("event", "whatsapp_click")}
                 >
+                  <WhatsappLogo size={20} weight="fill" aria-hidden="true" />
                   {link.name}
                 </Link>
               ))}
@@ -41,12 +46,15 @@ const Footer = () => {
             <p className={styles.footer__infoTitle}>Our contacts:</p>
             <address className={styles.footer__address}>
               <a href="tel:+996555203101" className={styles.footer__link}>
+                <Phone size={20} aria-hidden="true" />
                 +996 555 203 101
               </a>
               <a href="mailto:indiekyrgyztravel@gmail.com" className={styles.footer__link}>
+                <Envelope size={20} aria-hidden="true" />
                 indiekyrgyztravel@gmail.com
               </a>
               <a href="https://www.instagram.com/indie_kyrgyz_travel" target="_blank" rel="noopener noreferrer" className={styles.footer__link}>
+                <InstagramLogo size={20} aria-hidden="true" />
                 @indie_kyrgyz_travel
               </a>
             </address>

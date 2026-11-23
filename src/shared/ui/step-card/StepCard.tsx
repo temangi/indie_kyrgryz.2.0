@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { Car } from "@phosphor-icons/react/Car";
+import { House } from "@phosphor-icons/react/House";
+import { MapTrifold } from "@phosphor-icons/react/MapTrifold";
+import { Plus } from "@phosphor-icons/react/Plus";
 import styles from "../../../widgets/HowItGoing/HowItGoing.module.scss";
-import Image from "next/image";
 import type { StepCardType } from "./stepCard.types";
 
 export type { StepCardType, TourDayFields } from "./stepCard.types";
@@ -120,13 +123,10 @@ const StepCard = ({
             isVisible ? styles.questionToggleActive : ""
           }`}
         >
-          <Image
+          <Plus
             className={styles.questionIcon}
-            src="/images/plus.svg"
-            alt=""
+            size={20}
             aria-hidden="true"
-            width={20}
-            height={20}
           />
         </div>
       </header>
@@ -139,7 +139,9 @@ const StepCard = ({
         <div className={styles.tourInfo__inner}>
           <div className={styles.tourInfo__details}>
             <div className={styles.tourInfo__feature}>
-              <span className={styles.tourInfo__icon}>🚗</span>
+              <span className={styles.tourInfo__icon} aria-hidden="true">
+                <Car size={18} />
+              </span>
               <span className={styles.tourInfo__label}>
                 <strong>Drive:</strong> {duration}
               </span>
@@ -151,7 +153,9 @@ const StepCard = ({
               <div className={styles.tourInfo__routeBlock}>
                 {routeSummary && (
                   <div className={styles.tourInfo__feature}>
-                    <span className={styles.tourInfo__icon}>🗺️</span>
+                    <span className={styles.tourInfo__icon} aria-hidden="true">
+                      <MapTrifold size={18} />
+                    </span>
                     <span className={styles.tourInfo__label}>
                       <strong>Route:</strong> {routeSummary}
                     </span>
@@ -184,7 +188,9 @@ const StepCard = ({
             )}
 
             <div className={styles.tourInfo__feature}>
-              <span className={styles.tourInfo__icon}>🏠</span>
+              <span className={styles.tourInfo__icon} aria-hidden="true">
+                <House size={18} />
+              </span>
               <span className={styles.tourInfo__label}>
                 <strong>Accommodation:</strong> {place}
               </span>

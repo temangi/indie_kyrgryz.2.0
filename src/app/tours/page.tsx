@@ -18,7 +18,7 @@ export default function Destination() {
   const graph = [
     ...buildWebPageGraph({
       url: TOURS_URL,
-      name: "ALL TOURS",
+      name: "All Kyrgyzstan Tours",
       description: TOURS_DESCRIPTION,
       pageType: "CollectionPage",
       breadcrumbLabel: "Tours",

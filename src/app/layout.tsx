@@ -6,8 +6,8 @@ import { Footer } from "../widgets/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import GoogleAnalyticsTracker from "./analytics/GoogleAnalyticsTracker";
 import { Suspense } from "react";
-import Script from "next/script";
 import { Toaster } from "react-hot-toast";
+import { GoogleAdsTag } from "./analytics/GoogleAdsTag";
 import { SignTour } from "../widgets/SignTour";
 import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
 import { HOME_DESCRIPTION, HOME_TITLE } from "@/src/shared/seo/pageCopy";
@@ -166,18 +166,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased`}
       >
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17961172694"
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17961172694');
-          `}
-        </Script>
+        <GoogleAdsTag />
         <SignTour title="Sign up for a Tour:" />
         <Header />
         <Suspense fallback={null}>

@@ -10,7 +10,7 @@ import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import styles from "../HowItGoing.module.scss";
 import { stepsTours } from "../model/constants/step";
 import { GROUP_TOUR_2026_SLUG, tours } from "../../Tours/constants/constants";
-import arrow from "@/public/images/aroow.png";
+import { ArrowRight } from "@phosphor-icons/react/ArrowRight";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { Props } from "@/src/pages/tourDetail/page";
 import BookTour from "@/src/shared/ui/BookTour/BookTour";
@@ -132,10 +132,9 @@ const HowItGoing = ({ slug }: Props) => {
               aria-label="View all available tours"
             >
               <span>Watch all tours</span>
-              <Image
-                src={arrow}
-                alt=""
+              <ArrowRight
                 className={styles.relatedTours__arrow}
+                size={20}
                 aria-hidden="true"
               />
             </Link>

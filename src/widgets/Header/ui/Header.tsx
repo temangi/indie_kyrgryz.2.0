@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navigation from "./nav";
@@ -10,13 +10,12 @@ import {
   useOpenBurgerStore,
 } from "@/src/shared/model/useModalStore";
 import { usePathname } from "next/navigation";
-import logo from "@/public/images/whiteLogo.png";
+import { WhatsappLogo } from "@phosphor-icons/react/WhatsappLogo";
 import logoS from "@/public/images/logo.png";
 import { navSocialLinks } from "./nav";
 
 const Header = () => {
   const pathname = usePathname();
-  const [scrollTop, setScrollTop] = useState(0);
   const openModal = useModalStore((state) => state.openModal);
   const isOpenBurger = useOpenBurgerStore((state) => state.isOpen);
   const closeBurger = useOpenBurgerStore((state) => state.closeModal);
@@ -28,20 +27,7 @@ const Header = () => {
     pathname === "/about" ||
     pathname === "/contacts" ||
     pathname === "/privacy-policy";
-  const buttonText = useSignUpLabel ? "sign up for a tour" : "book this tour";
-  const isHomePage = pathname === "/";
-  const isVisible = !isHomePage || scrollTop > 900;
-
-  useEffect(() => {
-    if (!isHomePage) return;
-
-    const handleScroll = () => {
-      setScrollTop(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomePage]);
+  const buttonText = useSignUpLabel ? "Sign up for a tour" : "Book this tour";
 
   useEffect(() => {
     if (isOpenBurger) {
@@ -57,7 +43,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`${styles.header} ${isVisible ? styles.isVisible : ""} ${isOpenBurger ? styles["is-active"] : ""}`}
+        className={`${styles.header} ${isOpenBurger ? styles["is-active"] : ""}`}
       >
         <div className={styles.headerBlock}>
           <div className={styles.headerInner}>
@@ -65,11 +51,12 @@ const Header = () => {
               href="/"
               className={styles.mainLogo}
               aria-label="Indie Kyrgyz Travel"
+              onClick={closeBurger}
             >
               <Image
-                src={logo}
+                src={logoS}
                 alt="Indie Kyrgyz Travel logo"
-                className={`${styles.logo} ${scrollTop > 100 ? styles.scrolled : ""}`}
+                className={styles.logo}
                 sizes="48px"
                 quality={75}
               />
@@ -92,8 +79,10 @@ const Header = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${styles.headerButton} ${styles.whatsAppButton}`}
+                    aria-label="WhatsApp"
                   >
-                    WhatsApp
+                    <WhatsappLogo size={22} weight="fill" aria-hidden="true" />
+                    <span className={styles.whatsAppLabel}>WhatsApp</span>
                   </Link>
                 </div>
               </div>
@@ -120,30 +109,33 @@ const Header = () => {
           className={styles.headerControllersWrapper}
           onClick={(e) => e.stopPropagation()}
         >
-          <button
-            type="button"
-            className={`${styles.hamburger} ${styles.closeIconf} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
-            onClick={() => (isOpenBurger ? closeBurger() : openBurger())}
-            aria-label="Toggle navigation"
-            aria-expanded={isOpenBurger}
-          >
-            <span className={styles["hamburger-box"]}>
-              <span className={styles["hamburger-inner"]}></span>
-            </span>
-          </button>
-          <Link
-            href="/"
-            className={`${styles.mainLogo} ${styles.mainLogoBurger}`}
-            aria-label="Indie Kyrgyz Travel"
-          >
-            <Image
-              src={logoS}
-              alt="Indie Kyrgyz Travel logo"
-              className={`${styles.logo}`}
-              sizes="48px"
-              quality={75}
-            />
-          </Link>
+          <div className={styles.burgerBar}>
+            <Link
+              href="/"
+              className={`${styles.mainLogo} ${styles.mainLogoBurger}`}
+              aria-label="Indie Kyrgyz Travel"
+              onClick={closeBurger}
+            >
+              <Image
+                src={logoS}
+                alt="Indie Kyrgyz Travel logo"
+                className={styles.logo}
+                sizes="112px"
+                quality={75}
+              />
+            </Link>
+            <button
+              type="button"
+              className={`${styles.hamburger} ${styles.closeIconf} ${styles["hamburger--slider"]} ${isOpenBurger ? styles["is-active"] : ""}`}
+              onClick={closeBurger}
+              aria-label="Close menu"
+              aria-expanded={isOpenBurger}
+            >
+              <span className={styles["hamburger-box"]}>
+                <span className={styles["hamburger-inner"]}></span>
+              </span>
+            </button>
+          </div>
           <Navigation />
           <footer className={styles.mainFooter}>
             <nav className={styles.mainSocialLinks}>
@@ -172,8 +164,10 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.headerButton} ${styles.whatsAppButton}`}
+              aria-label="WhatsApp"
             >
-              WhatsApp
+              <WhatsappLogo size={22} weight="fill" aria-hidden="true" />
+              <span className={styles.whatsAppLabel}>WhatsApp</span>
             </Link>
           </footer>
         </div>

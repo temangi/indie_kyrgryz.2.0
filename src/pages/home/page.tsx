@@ -1,12 +1,9 @@
 import { MainHero } from "../../widgets/MainHero";
 import { Tours } from "../../widgets/Tours";
-import { OutdoorActivities } from "../../widgets/OutdoorActivities";
 import { Info } from "../../widgets/Info";
 import { Application } from "../../widgets/Application";
 import { Reise } from "../../widgets/Reise";
-import { Philosophien } from "../../widgets/Philosophien";
 import { Team } from "../../widgets/Team";
-import { WhyWe } from "../../widgets/WhyWe";
 import { FAQ } from "../../widgets/FAQ";
 import { Reviews } from "../../widgets/Reviews";
 import { faqDataHome } from "@/src/features/faq/model/constant";
@@ -17,20 +14,17 @@ const HomePage = () => {
   return (
     <>
       <MainHero
-        title="Tours in Kyrgyzstan"
+        title="Private Tours in Kyrgyzstan"
         img={heroImg}
         imageAlt="A traveler with a backpack above a mountain lake in Kyrgyzstan"
-        unTitle={`Small groups, bilingual hosts, routes through mountains and lakes.
+        unTitle={`Small groups, bilingual hosts, and routes through Song-Kul, Issyk-Kul, and the Tien Shan.
 Summer 2026 — limited departures; book when you’re ready.`}
       />
       <Tours />
-      <OutdoorActivities />
       <Info />
       <Application />
       <Reise />
-      <Philosophien />
       <Team />
-      <WhyWe />
       <Reviews />
       <FAQ faqData={faqDataHome}/>
     </>

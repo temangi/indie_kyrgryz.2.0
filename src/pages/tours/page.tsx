@@ -24,7 +24,7 @@ const ToursPage = () => {
     return (
         <>
             <MainHero
-                title="ALL TOURS"
+                title="All Kyrgyzstan Tours"
                 titleId="tours-page-title"
                 img={toursHeroImg}
                 unTitle="Discover the heart of Central Asia with our hand-picked expeditions."

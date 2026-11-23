@@ -68,9 +68,17 @@
 
 .value {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.1rem;
   line-height: 1.45;
   word-break: break-word;
+}
+
+.valueIcon {
+  flex-shrink: 0;
+  color: var(--color-emerald);
 }
 
 .link {

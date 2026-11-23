@@ -21,7 +21,12 @@ const Tours = () => {
       <div className="container">
         <div className={styles.menu}>
           <header className={styles.header}>
-            <h2 className={styles.title}>tours & dates</h2>
+            <h2 className={styles.title}>Tours and dates</h2>
+            <p className={styles.subtitle}>
+              Private and small-group tours in Kyrgyzstan, with Song-Kul rides,
+              Issyk-Kul, trekking, and yurt stays. Each card shows the length
+              and the published price.
+            </p>
           </header>
           <nav className={styles.nav}>
             <button
@@ -58,7 +63,7 @@ const Tours = () => {
 
       <div className="container">
         <Link className={styles.allTours} href="/tours">
-          All tours
+          All Kyrgyzstan tours
         </Link>
       </div>
     </section>

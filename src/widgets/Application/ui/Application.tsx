@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Check } from "@phosphor-icons/react/Check";
 import styles from "../Application.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
 
@@ -28,12 +28,7 @@ const Application = () => {
                 {ADVANTAGES.map((text, idx) => (
                   <li key={idx} className={styles.advantage}>
                     <div className={styles.iconCircle}>
-                      <Image
-                        src="/images/check.svg"
-                        alt="Check"
-                        width={14}
-                        height={14}
-                      />
+                      <Check size={14} weight="bold" aria-hidden="true" />
                     </div>
                     <span className={styles.description}>{text}</span>
                   </li>

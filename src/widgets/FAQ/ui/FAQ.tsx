@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { Plus } from "@phosphor-icons/react/Plus";
 import styles from "../FAQ.module.scss";
 
 interface FAQItem {
@@ -40,13 +40,10 @@ const FAQ = ({ faqData }: { faqData: FAQItem[] }) => {
                   <span
                     className={`${styles.questionToggle} ${openIndex === index ? styles.questionToggleActive : ""}`}
                   >
-                    <Image
+                    <Plus
                       className={styles.questionIcon}
-                      src="/images/plus.svg"
-                      alt=""
+                      size={24}
                       aria-hidden="true"
-                      width={24}
-                      height={24}
                     />
                   </span>
                 </button>

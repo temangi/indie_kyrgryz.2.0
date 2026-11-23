@@ -8,7 +8,7 @@ import Image from "next/image";
 import { ToursCard } from "@/src/shared/ui/ToursCard/Card";
 import { destiontaionTour } from "../../Reise/constants/constants";
 import Link from "next/link";
-import arrow from "@/public/images/aroow.png";
+import { ArrowRight } from "@phosphor-icons/react/ArrowRight";
 import { BackButton } from "@/src/shared/ui/btnBack/btnBack";
 import { normalizeSeoTitle } from "@/src/shared/seo/normalizeSeoTitle";
 import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
@@ -113,10 +113,9 @@ function DestinationTourList() {
               aria-label="View all available tours"
             >
               <span>Watch all tours</span>
-              <Image
-                src={arrow}
-                alt=""
+              <ArrowRight
                 className={styles.relatedTours__arrow}
+                size={20}
                 aria-hidden="true"
               />
             </Link>

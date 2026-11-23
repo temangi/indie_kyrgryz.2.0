@@ -58,7 +58,6 @@ export const ToursCard = ({
           <div className={styles.cardHead}>
             <h3 className={styles.cardTitle}>{title}</h3>
           </div>
-          <button className={styles.cardButton}>Tour details</button>
         </div>
       </Link>
     </div>

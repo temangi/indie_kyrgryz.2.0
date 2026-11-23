@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { X } from "@phosphor-icons/react/X";
 import Link from "next/link";
 import styles from "../SignTour.module.scss";
 import { useModalStore } from "@/src/shared/model/useModalStore";
@@ -208,8 +208,13 @@ const SignTour = ({ title, tour: tourProp, description }: SignTourProps) => {
       <div className={styles.overlay}></div>
 
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-        <button type="button" className={styles.close} onClick={handleClose}>
-          <Image src="/images/close.png" alt="Close" width={30} height={30} />
+        <button
+          type="button"
+          className={styles.close}
+          onClick={handleClose}
+          aria-label="Close"
+        >
+          <X size={28} aria-hidden="true" />
         </button>
 
         <p id="sign-tour-title" className={styles.title}>
