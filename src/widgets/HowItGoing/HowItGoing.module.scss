@@ -88,6 +88,9 @@
       padding: 0;
       flex-direction: row;
       flex-wrap: nowrap;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       overflow-x: auto;
       gap: 15px;
       scroll-snap-type: x mandatory;
@@ -100,10 +103,9 @@
 
       & > * {
         height: 500px;
-
-        flex: 0 0 90%;
-
-        scroll-snap-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+        scroll-snap-align: start;
         border-radius: 15px;
         overflow: hidden;
 

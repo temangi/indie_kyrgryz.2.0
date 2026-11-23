@@ -14,7 +14,7 @@ type BreadcrumbsProps = {
 
 export function Breadcrumbs({ items, inline = false }: BreadcrumbsProps) {
   const nav = (
-    <nav aria-label="Breadcrumb">
+    <nav className={styles.nav} aria-label="Breadcrumb">
       <ol className={`${styles.list} ${inline ? styles.list_inline : ""}`}>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;

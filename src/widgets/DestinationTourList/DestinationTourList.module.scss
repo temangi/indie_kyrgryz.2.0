@@ -1,6 +1,7 @@
 .destination {
   padding: 120px 0 80px;
   background: var(--page-background);
+  overflow-x: clip;
 
   &__content {
     display: grid;
@@ -9,6 +10,7 @@
 
     @media (max-width: 992px) {
       grid-template-columns: 1fr;
+      min-width: 0;
     }
   }
 
@@ -64,6 +66,9 @@
       grid-row: 1;
       border: none;
       padding: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       flex-direction: row;
       flex-wrap: nowrap;
       overflow-x: auto;
@@ -78,10 +83,9 @@
 
       & > * {
         height: 500px;
-
-        flex: 0 0 90%;
-
-        scroll-snap-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+        scroll-snap-align: start;
         border-radius: 15px;
         overflow: hidden;
 
