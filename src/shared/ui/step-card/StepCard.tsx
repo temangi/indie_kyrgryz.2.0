@@ -91,6 +91,7 @@ const StepCard = ({
   onToggle,
 }: StepCardType) => {
   const [internalOpen, setInternalOpen] = useState(id === 0);
+  const [mapRequested, setMapRequested] = useState(false);
   const isControlled = isOpenControlled !== undefined && onToggle !== undefined;
   const isVisible = isControlled ? isOpenControlled : internalOpen;
 
@@ -167,14 +168,25 @@ const StepCard = ({
                 )}
                 {iframeSrc && (
                   <div className={styles.tourInfo__map}>
-                    <iframe
-                      title={`Map — ${title}`}
-                      src={iframeSrc}
-                      className={styles.tourInfo__mapFrame}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      allowFullScreen
-                    />
+                    {mapRequested ? (
+                      <iframe
+                        title={`Map — ${title}`}
+                        src={iframeSrc}
+                        className={styles.tourInfo__mapFrame}
+                        referrerPolicy="no-referrer-when-downgrade"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <div className={styles.tourInfo__mapPlaceholder}>
+                        <button
+                          type="button"
+                          className={styles.tourInfo__mapButton}
+                          onClick={() => setMapRequested(true)}
+                        >
+                          Show map
+                        </button>
+                      </div>
+                    )}
                     <p className={styles.tourInfo__mapNote}>
                       Open in{" "}
                       <a

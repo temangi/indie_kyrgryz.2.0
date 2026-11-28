@@ -540,6 +540,31 @@
     vertical-align: bottom;
   }
 
+  &__mapPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: clamp(220px, 42vw, 280px);
+    background:
+      linear-gradient(180deg, rgba(49, 90, 81, 0.08), rgba(49, 90, 81, 0.16));
+  }
+
+  &__mapButton {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: var(--color-emerald);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.08);
+    }
+  }
+
   &__mapNote {
     margin: 0;
     padding: 8px 12px;
