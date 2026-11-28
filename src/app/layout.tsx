@@ -11,6 +11,7 @@ import { GoogleAdsTag } from "./analytics/GoogleAdsTag";
 import { SignTour } from "../widgets/SignTour";
 import { SeoJsonLd } from "@/src/shared/seo/SeoJsonLd";
 import { HOME_DESCRIPTION, HOME_TITLE } from "@/src/shared/seo/pageCopy";
+import { TRAVEL_AGENCY_LD } from "@/src/shared/seo/organizationJsonLd";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -68,8 +69,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og.jpg",
-        width: 1280,
-        height: 720,
+        width: 1200,
+        height: 630,
         alt: "Indie Kyrgyz Travel over a green mountain valley in Kyrgyzstan",
       },
     ],
@@ -103,50 +104,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationLd = {
-    "@type": "Organization",
-    "@id": "https://indiekyrgyz.com/#organization",
-    name: "Indie Kyrgyz Travel",
-    url: "https://indiekyrgyz.com",
-    logo: "https://indiekyrgyz.com/logo.png",
-    image: "https://indiekyrgyz.com/og.jpg",
-    // TODO: add postalAddress (street, locality, postal code) when the real office address is published.
-    description:
-      "Authentic tour operator in Kyrgyzstan offering private and small group tours for international travelers from Europe, USA, Australia, and Asia.",
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        telephone: "+996555203101",
-        email: "indiekyrgyztravel@gmail.com",
-        areaServed: [
-          "KG", // Кыргызстан
-          "DE", // Германия
-          "FR", // Франция
-          "GB", // Великобритания
-          "US", // США
-          "AU", // Австралия
-          "NL", // Нидерланды
-          "CH", // Швейцария
-          "AT", // Австрия
-          "CA", // Канада
-          "SE", // Швеция
-          "NO", // Норвегия
-          "PL", // Польша
-          "IT", // Италия
-          "ES", // Испания
-          "JP", // Япония
-          "KR", // Южная Корея
-        ],
-        availableLanguage: ["en", "ru"],
-      },
-    ],
-    sameAs: [
-      "https://www.instagram.com/indie_kyrgyz_travel",
-      "https://www.tiktok.com/@indie.kyrgyz.travel",
-    ],
-  };
-
   const websiteLd = {
     "@type": "WebSite",
     "@id": "https://indiekyrgyz.com/#website",
@@ -174,7 +131,7 @@ export default function RootLayout({
         </Suspense>
         <SeoJsonLd
           id="global-ld"
-          graph={[organizationLd, websiteLd]}
+          graph={[TRAVEL_AGENCY_LD, websiteLd]}
         />
         <main className="page">{children}</main>
         <Footer />

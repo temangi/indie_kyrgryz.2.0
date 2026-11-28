@@ -6,6 +6,7 @@
 export const PAGE_LAST_MODIFIED = {
   "/": "2026-11-12",
   "/tours": "2026-11-12",
+  "/destinations": "2026-11-28",
   "/about": "2026-11-12",
   "/team": "2026-11-12",
   "/contacts": "2026-11-12",

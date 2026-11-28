@@ -32,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/destinations`,
+      lastModified: lastModifiedDate(PAGE_LAST_MODIFIED["/destinations"]),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/contacts`,
       lastModified: lastModifiedDate(PAGE_LAST_MODIFIED["/contacts"]),
       changeFrequency: "monthly" as const,

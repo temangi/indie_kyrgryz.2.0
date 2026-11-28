@@ -5,7 +5,7 @@ import off from "@/public/images/main-imgs/off-road.webp";
 import uniq from "@/public/images/main-imgs/unique.webp";
 import kyrgyz from "@/public/images/main-imgs/kyryz.webp";
 import mountain from "@/public/images/main-imgs/moutain.webp";
-import kzKg from "@/public/images/main-imgs/kz&kg.webp";
+import kzKg from "@/public/images/main-imgs/kz-kg.webp";
 import dayTrip from "@/public/images/main-imgs/day.webp";
 import {
   offTourImgs,
@@ -48,7 +48,7 @@ const kyrgyzWeek: TourDayFields[] = [
   },
   {
     title: "Day 4: Bokonbaevo village – Kochkor village – Song-Kul lake",
-    desc: "Morning — eagle hunting show. After depart to Song-Kol lake. Stop in Kochkor along the way. Then depart via Kalmak-Ashuu Pass with breathtaking views. Arrival at Song-Kul Lake, horseback rides along the shore, rest and dinner. Overnight stay at the yurt camp.",
+    desc: "Morning — eagle hunting show. After depart to Song-Kul lake. Stop in Kochkor along the way. Then depart via Kalmak-Ashuu Pass with breathtaking views. Arrival at Song-Kul Lake, horseback rides along the shore, rest and dinner. Overnight stay at the yurt camp.",
     duration: "215km",
     place: "Yurt camp at Song-Kul Lake",
     routeSummary: "Bokonbaevo → Kochkor → Song-Kul Lake",
@@ -74,7 +74,7 @@ const kyrgyzWeek: TourDayFields[] = [
     title: "Day 7: Bishkek city tour – Manas international airport",
     desc: "Morning city tour of Bishkek: visit Ala-Too Square, the National Museum, and Osh Bazaar for souvenir shopping. Transfer to Manas International Airport. End of the tour.",
     duration: "40km",
-    place: "Guest house",
+    place: "Not included",
     routeSummary: "Bishkek city tour → Manas International Airport",
     mapQuery: "Bishkek city center Ala-Too square Kyrgyzstan",
   },
@@ -135,7 +135,7 @@ const mountainAdventure: TourDayFields[] = [
   },
   {
     title: "Day 7: Song-Kul Lake – Naryn City",
-    desc: "After breakfast, transfer to Naryn city through the '32 Parrots' Pass. On the way, stop at the waterfall on the Son-Kul river. Arrival in Naryn, rest after the drive, and free time for a short walk around the city. Overnight stay at a guesthouse in Naryn.",
+    desc: "After breakfast, transfer to Naryn city through the '32 Parrots' Pass. On the way, stop at the waterfall on the Song-Kul river. Arrival in Naryn, rest after the drive, and free time for a short walk around the city. Overnight stay at a guesthouse in Naryn.",
     duration: "150km",
     place: "Guest House",
     routeSummary: "Song-Kul → 32 Parrots Pass → Naryn",
@@ -170,7 +170,7 @@ const mountainAdventure: TourDayFields[] = [
 const altynArashan: TourDayFields[] = [
   {
     title: "Day 1. Karakol – Karakol Gorge – Sirota Camp",
-    desc: `The tour begins in the city of Karakol with a transfer to Karakol Gorge, where the trekking part starts. The trail follows a mountain river through Tien Shan spruce forests and alpine meadows, with a gradual altitude gain that makes the first day comfortable for acclimatization. Along the way, scenic views of rocky cliffs and waterfalls open up, and by evening the group reaches Sirot`,
+    desc: `The tour begins in the city of Karakol with a transfer to Karakol Gorge, where the trekking part starts. The trail follows a mountain river through Tien Shan spruce forests and alpine meadows, with a gradual altitude gain that makes the first day comfortable for acclimatization. Along the way, scenic views of rocky cliffs and waterfalls open up, and by evening the group reaches Sirota Camp.`,
     duration: " ~14 km",
     place: "tent camp at Sirota Camp",
     routeSummary: "Karakol → Karakol Gorge → Sirota Camp",
@@ -231,8 +231,8 @@ const songKul: TourDayFields[] = [
 
 const bestOfKyrgryzstan: TourDayFields[] = [
   {
-    title: "Day 1. Bishkek – Burana – Konorcheck – Kochkor",
-    desc: `Morning departure from Bishkek leads to Burana Tower, an ancient historical site. After lunch in Tokmok, the group treks through the Konorcheck Canyons, marveling at dramatic rock formations. In the late afternoon, arrival in Kochkor village (1,800 m) allows time to rest and acclimatize to the mountain altitude, preparing for the highland journey ahead.`,
+    title: "Day 1. Bishkek – Burana – Konorchek – Kochkor",
+    desc: `Morning departure from Bishkek leads to Burana Tower, an ancient historical site. After lunch in Tokmok, the group treks through the Konorchek Canyons, marveling at dramatic rock formations. In the late afternoon, arrival in Kochkor village (1,800 m) allows time to rest and acclimatize to the mountain altitude, preparing for the highland journey ahead.`,
     duration: "220km",
     place: "Guest house",
     routeSummary: "Bishkek → Burana Tower → Konorchek → Kochkor",
@@ -242,7 +242,7 @@ const bestOfKyrgryzstan: TourDayFields[] = [
     title: "Day 2. Kochkor – Kyzart – Kilemche",
     desc: `The day begins with a drive to Kyzart, the gateway to highland pastures. From there, the adventure continues on horseback through scenic mountain trails into Kilemche Valley. Riders enjoy expansive alpine landscapes, grazing horses, and traditional summer pastures. Evening brings the first experience of yurt camping, surrounded by the tranquility of remote Kyrgyz mountains.`,
     duration: "50km auto & 20km horse-trekking",
-    place: "Guest house",
+    place: "Yurt camp in Kilemche Valley",
     routeSummary: "Kochkor → Kyzart → Kilemche (horse)",
     mapQuery: "Kilemche valley Kyrgyzstan",
   },
@@ -336,24 +336,24 @@ const kzAndKg: TourDayFields[] = [
     mapQuery: "Issyk Kul south shore Kyrgyzstan",
   },
   {
-    title: "Day 5. Bokonbaevo – Kochkor – Son-Kul",
-    desc: `In the morning, experience a traditional eagle hunting demonstration, an important part of nomadic culture. Then travel toward Kochkor with a lunch stop along the way. Continue to the high-altitude Son-Kul Lake via the Kalmak-Ashuu Pass. Arrival at the lake, accommodation in a yurt camp, evening walk and rest.`,
+    title: "Day 5. Bokonbaevo – Kochkor – Song-Kul",
+    desc: `In the morning, experience a traditional eagle hunting demonstration, an important part of nomadic culture. Then travel toward Kochkor with a lunch stop along the way. Continue to the high-altitude Song-Kul Lake via the Kalmak-Ashuu Pass. Arrival at the lake, accommodation in a yurt camp, evening walk and rest.`,
     duration: "215km",
-    place: "Yurt camp at Son-Kul Lake",
+    place: "Yurt camp at Song-Kul Lake",
     routeSummary: "Bokonbaevo → Kochkor → Song-Kul Lake",
     mapQuery: "Song Kul Kyrgyzstan",
   },
   {
-    title: "Day 6. Son-Kul – Naryn – Ak-Sai Canyons – Kok-Kiya Valley",
-    desc: `Early departure from Son-Kul and drive to the town of Naryn, the regional center. After lunch, continue toward the remote Kok-Kiya Valley in the At-Bashy area, with a stop at the Ak-Sai Canyons — dramatic rock formations in a quiet, less-visited area. Upon arrival in Kok-Kiya, check in at a guesthouse and enjoy a quiet evening surrounded by mountain scenery.`,
+    title: "Day 6. Song-Kul – Naryn – Ak-Sai Canyons – Kok-Kiya Valley",
+    desc: `Early departure from Song-Kul and drive to the town of Naryn, the regional center. After lunch, continue toward the remote Kok-Kiya Valley in the At-Bashy area, with a stop at the Ak-Sai Canyons — dramatic rock formations in a quiet, less-visited area. Upon arrival in Kok-Kiya, check in at a guesthouse and enjoy a quiet evening surrounded by mountain scenery.`,
     duration: "300km",
-    place: "Yurt campy",
+    place: "Guest house",
     routeSummary: "Song-Kul → Naryn → Ak-Sai Canyons → Kok-Kiya Valley",
     mapQuery: "Kok Kyia valley Kyrgyzstan",
   },
   {
     title: "Day 7. Kok-Kiya Valley – Kel-Suu Lake – Kok-Kiya Valley",
-    desc : `After breakfast, start a trekking route to Kel-Suu Lake, one of the most remote and spectacular lakes in Kyrgyzstan. The trail runs through a high-mountain valley with panoramic views of cliffs and pastures. Time at the lake, picnic lunch on the shore, then return to Kok-Kiya Valley. Overnight at the guesthouse.`,
+    desc : `After breakfast, start a trekking route to Kel-Suu Lake, one of the most remote and spectacular lakes in Kyrgyzstan. The trail runs through a high-mountain valley with panoramic views of cliffs and pastures. Time at the lake, picnic lunch on the shore, then return to Kok-Kiya Valley. Overnight in a yurt camp.`,
     duration: "20km trekking",
     place: "Yurt camp",
     routeSummary: "Kok-Kiya ↔ Kel-Suu Lake (trek)",
@@ -423,7 +423,7 @@ const unique: TourDayFields[] = [
     title: "Day 5. Bokonbaevo – Kyzart – Kilemche",
     desc: `The road leads to the village of Kyzart, where a horseback journey into the Kilemche Valley begins. Movement slows, allowing awareness to deepen. Wide alpine pastures, fresh air, and open space create a sense of freedom and simplicity. Overnight stay in a summer yurt camp offers a close connection to the land and traditional nomadic life.`,
     duration: "-",
-    place: "Guest house",
+    place: "Yurt camp in Kilemche Valley",
     routeSummary: "Bokonbaevo → Kyzart → Kilemche Valley",
     mapQuery: "Kilemche jailoo Kyrgyzstan",
   },
@@ -439,7 +439,7 @@ const unique: TourDayFields[] = [
     title: "Day 7. Song-Kul – Kochkor – Bishkek",
     desc: `Morning at Song-Kul brings quiet gratitude and a gentle farewell. The drive to Kochkor carries a feeling of return, but with a transformed inner state. A visit to a felt-making workshop reveals the meditative process of creating traditional shyrdaks. In the evening, arrival in Bishkek marks the end of the tour, while the inner journey continues.`,
     duration: "-",
-    place: "Guest house",
+    place: "Not included",
     routeSummary: "Song-Kul → Kochkor → Bishkek",
     mapQuery: "Kochkor to Bishkek Kyrgyzstan",
   },
@@ -482,7 +482,7 @@ const fourXFour: TourDayFields[] = [
     title: "Day 5. Naryn – Kok-Kyia",
     desc: `This day is dedicated to a long transfer into one of the most remote regions of the itinerary. The road crosses high-altitude valleys, wide pastures, and sparsely populated areas. Several stops are made for rest and photography. By evening, arrival in the Kok-Kyia area. Accommodation in a guesthouse, dinner, and overnight rest.`,
     duration: "-",
-    place: "Yurt camp at Kok-Kyia",
+    place: "Guest house",
     routeSummary: "Naryn → Kok-Kyia",
     mapQuery: "Kok Kyia Kyrgyzstan",
   },
@@ -504,7 +504,7 @@ const fourXFour: TourDayFields[] = [
   },
   {
     title: "Day 8. Bokonbaevo – Skazka – Barskoon – Jeti-Oguz – Karakol",
-    desc: `In the morning, visit a traditional eagle hunting demonstration. Continue to the Skazka canyons for a walk among colorful rock formations. Later, hike to a waterfall in Barskoon Gorge. On the way, stop at a panoramic viewpoint overlooking the Jeti-Oguz rocks. Evening arrival in Karakol and accommodation at a hotel.`,
+    desc: `In the morning, visit a traditional eagle hunting demonstration. Continue to the Skazka canyons for a walk among colorful rock formations. Later, hike to a waterfall in Barskoon Gorge. On the way, stop at a panoramic viewpoint overlooking the Jeti-Oguz rocks. Evening arrival in Karakol and accommodation in a guesthouse.`,
     duration: "-",
     place: "Guest house",
     routeSummary: "Bokonbaevo → Skazka → Barskoon → Jeti-Oguz → Karakol",
@@ -520,9 +520,9 @@ const fourXFour: TourDayFields[] = [
   },
   {
     title: "Day 10. Altyn-Arashan – Karakol – Bishkek",
-    desc: `After breakfast, departure back to Karakol by off-road vehicles. Upon arrival, transfer to a comfortable vehicle for the direct drive to Bishkek. The route passes along Issyk-Kul Lake and through mountain passes. Arrival in Bishkek in the evening. End of the tour and transfer to accommodation or the airport.`,
+    desc: `After breakfast, departure back to Karakol by off-road vehicles. Upon arrival, transfer to a comfortable vehicle for the direct drive to Bishkek. The route passes along Issyk-Kul Lake and through mountain passes. Arrival in Bishkek in the evening. End of the tour.`,
     duration: "-",
-    place: "Guest house",
+    place: "Not included",
     routeSummary: "Altyn-Arashan → Karakol → Bishkek",
     mapQuery: "Bishkek Kyrgyzstan",
   },
@@ -551,7 +551,7 @@ const dayTrips: TourDayFields[] = [
 
 - After breakfast, drive from Bishkek to Chunkurchak Gorge, a scenic mountain area known for open valleys and rock formations.
 
-- Enjoy an easy walk through the gorge, crossing suspension bridge and stopping at sky resort to ride cable car and zipline. Opportunity to ride a horse in special hills
+- Enjoy an easy walk through the gorge, crossing suspension bridge and stopping at ski resort to ride cable car and zipline. Opportunity to ride a horse in special hills
 
 - Plenty of time for photos, fresh mountain air, and short explorations of the surrounding landscapes.
 
@@ -574,7 +574,7 @@ const dayTrips: TourDayFields[] = [
 - Time to unwind and enjoy the contrast between cool mountain air and warm mineral water.
 
 - Return to Bishkek in the evening.`,
-    duration: "Toad drive - 90km , Hiking distance- 7-8km",
+    duration: "Road drive - 90km , Hiking distance- 7-8km",
     place: "-",
     routeSummary: "Bishkek → Alamedin Gorge (hot springs) → Bishkek",
     mapQuery: "Alamedin gorge Kyrgyzstan",
@@ -637,6 +637,7 @@ const mountainAdventureSLider = [
   },
 ];
 
+// TODO: Best of Kyrgyzstan reuses the Mountain Adventure gallery. Swap in its own photos.
 const bestOfKyrgryzstankSLider = [
   {
     item: best,
@@ -661,6 +662,7 @@ const altynArashanSLider = [
   },
 ];
 
+// TODO: Unique Experience reuses the day-trip gallery. Swap in its own photos.
 const uniqueSLider = [
   {
     item: uniq,
@@ -694,7 +696,7 @@ export const stepsTours = [
     duration: "7 days",
     slider: kyrgyzWeekSLider,
     chapter: "Kyrgyz week",
-    desc: "Bishkek , Kockkor , Bishkek",
+    desc: "Bishkek, Cholpon-Ata, Karakol, Altyn-Arashan, Jeti-Oguz, Barskoon, Skazka, Bokonbaevo, Kochkor, Song-Kul, Kol-Ukok, Kyzyl-Koba, Burana, Bishkek",
     title: `This 7-day journey across Kyrgyzstan is a deep immersion into the country’s most iconic landscapes, nomadic traditions, and mountain life. 
 
   This tour is perfect for travelers who want to see the real Kyrgyzstan — not just from the window of a car, but through short hikes, horseback riding, local experiences, and nights in yurts and mountain lodges. No special physical training is required, but a basic level of activity and curiosity is welcome.
@@ -715,7 +717,7 @@ balanced mix of nature, history, and local life.`,
     duration: "10 days",
     slider: mountainAdventureSLider,
     chapter: "Mountain Adventure",
-    desc: "Bishkek , Kockkor , Bishkek",
+    desc: "Bishkek, Cholpon-Ata, Karakol, Altyn-Arashan, Ak-Suu, Jeti-Oguz, Barskoon, Skazka, Bokonbaevo, Kochkor, Song-Kul, Naryn, Kok-Kyia, Kel-Suu, Bishkek",
     title: `This 10-day Mountain Adventure tour is designed for travelers who want to go beyond classic routes and experience the wild, mountainous heart of Kyrgyzstan.
 
 The journey combines trekking, high-altitude lakes, remote valleys, and authentic nomadic life, offering a balanced mix of physical activity, cultural immersion, and untouched nature.
@@ -732,7 +734,7 @@ A major highlight of the tour is Song-Kul Lake, located high in the Tien Shan Mo
     duration: "10 days",
     slider: kgAndKzKSLider,
     chapter: "Kyrgyzstan & Kazakhstan trip",
-    desc: "Almaty, Karakol, Son-Kul, Kok-Kiya, Kel-Suu, Kochkor, Bishkek",
+    desc: "Almaty, Karakol, Song-Kul, Kok-Kiya, Kel-Suu, Kochkor, Bishkek",
     title: `Tour Highlights & Introduction
 This journey is designed for travelers who want to experience Central Asia in depth, moving far beyond classic routes and tourist centers. In just ten days, the tour connects two countries — Kazakhstan and Kyrgyzstan — revealing dramatic landscapes, remote mountain regions, and authentic nomadic culture, all within one continuous and well-balanced route.
 
@@ -744,7 +746,7 @@ the Kungey Alatau range.
 
 Crossing the border at Kegen, the journey enters Kyrgyzstan and continues to Karakol, set between the Terskey Ala-Too Mountains and the immense waters of Issyk-Kul Lake, one of the world’s largest high-altitude lakes at 1,607 meters above sea level. From here, the route follows the southern shore of Issyk-Kul, exploring iconic locations such as Jeti-Oguz Gorge, Barskoon waterfalls, and the colorful formations of Skazka Canyon. 
 
-As the journey deepens, travelers move into the heart of Kyrgyzstan, ascending to Son-Kul Lake at over 3,000 meters, crossing the Kalmak-Ashuu Pass, and entering the remote At-Bashy region with a stop at Ak-Sai Canyons. The final highlights are the dramatic Kel-Suu Lake, hidden among sheer cliffs near the Chinese border, and a day in the Kochkor area with a trek to Kol-Ukok and Kol-Tor before returning to Almaty via Bishkek. 
+As the journey deepens, travelers move into the heart of Kyrgyzstan, ascending to Song-Kul Lake at over 3,000 meters, crossing the Kalmak-Ashuu Pass, and entering the remote At-Bashy region with a stop at Ak-Sai Canyons. The final highlights are the dramatic Kel-Suu Lake, hidden among sheer cliffs near the Chinese border, and a day in the Kochkor area with a trek to Kol-Ukok and Kol-Tor before returning to Almaty via Bishkek. 
 
 Throughout the tour, guests experience a powerful balance of adventure and comfort: off-road drives, alpine valleys, hot springs, high-mountain lakes, and quiet evenings in yurts and guesthouses. This is a journey for those who seek space, scale, and a sense of true exploration, connecting landscapes, cultures, and emotions into one unforgettable expedition across Central Asia.`,
   },
@@ -773,7 +775,7 @@ Throughout the tour, guests experience a powerful balance of adventure and comfo
     duration: "8 days",
     slider: bestOfKyrgryzstankSLider,
     chapter: "Best of Kyrgyzstan",
-    desc: "Bishkek , Burana , Konorcheck ,Kyzart ,Kilemche , Song-Kul Lake , Bokonbaevo ,Karakol",
+    desc: "Bishkek , Burana , Konorchek ,Kyzart ,Kilemche , Song-Kul Lake , Bokonbaevo ,Karakol",
     title: `This journey takes you deep into the heart of Kyrgyzstan — from ancient Silk Road sites to high-altitude lakes, wild canyons, and vast summer pastures. Travel by car, on foot, and on horseback, stay in yurts and mountain guesthouses, meet nomadic culture, cross legendary mountain passes, and relax in natural hot springs. A perfect balance of adventure, nature, and authentic local life.`,
   },
   {
@@ -784,7 +786,7 @@ Throughout the tour, guests experience a powerful balance of adventure and comfo
     duration: "3 days",
     slider: songKulSLider,
     chapter: "Song-Kul Lake — the Heart of Kyrgyzstan",
-    desc: "Bishkek , Kockkor , Bishkek",
+    desc: "Bishkek, Kyzart, Kilemche, Song-Kul, Bishkek",
     title: `Song-Kul Lake is a high-altitude alpine lake located in the very center of Kyrgyzstan, which is why it is often called the heart of the country. The lake lies at an elevation of about 3,016 meters above sea level, surrounded by vast plateaus and mountain ridges that create a sense of openness, silence, and untouched wilderness.
 
 Geographically, Song-Kul is part of the Inner Tien Shan mountain system. It is enclosed by several ridges, including the Song-Kul Too and the Moldo Too ranges, which protect the basin and shape its unique highland climate. Due to its elevation, the lake remains cold throughout the year and is covered with ice for much of the winter, while summers are short but vibrant, turning the surrounding pastures into rich green jailoo (summer grazing lands).
@@ -799,7 +801,7 @@ Song-Kul is the second-largest natural lake in Kyrgyzstan, after Issyk-Kul, and 
     duration: "4 days",
     slider: altynArashanSLider,
     chapter: "Altyn-Arashan - Ala-kul tour",
-    desc: "Bishkek , Kockkor , Bishkek",
+    desc: "Karakol, Karakol Gorge, Sirota Camp, Ala-Kul, Keldike, Altyn-Arashan, Karakol",
     title: `This 4-day trekking adventure takes you through some of the most scenic mountain landscapes of eastern Kyrgyzstan, combining alpine lakes, high mountain passes, deep gorges, and natural hot springs. Starting and ending in Karakol, the route leads through Karakol Gorge to the famous Ala-Kul Lake, crosses a high-altitude mountain pass, and finishes in the green valley of Altyn-Arashan.
 
 The trek is designed for active travelers who want to experience the raw beauty of the Tien Shan Mountains, enjoy several days of hiking in remote nature, and recover in hot mineral springs after challenging mountain days. This journey offers a balanced mix of physical activity, dramatic scenery, and authentic mountain atmosphere, making it one of the classic trekking routes in the Issyk-Kul region.`,
@@ -812,7 +814,7 @@ The trek is designed for active travelers who want to experience the raw beauty 
     duration: "7 days",
     slider: uniqueSLider,
     chapter: "Unique Experience Tour",
-    desc: "Bishkek , Karakol, Altyn-Arashan , Song-Kul ,Kockkor , Skazka ,  Bishkek",
+    desc: "Bishkek, Chon-Kemin, Cholpon-Ata, Karakol, Altyn-Arashan, Jeti-Oguz, Barskoon, Skazka, Bokonbaevo, Kyzart, Kilemche, Song-Kul, Kochkor, Bishkek",
     title: `This Unique Experience Tour is designed for travelers who seek a deeper connection with nature and themselves. Rather than rushing from one landmark to another, the journey follows a natural rhythm, allowing space for silence, movement, and reflection. Mountains, lakes, valleys, and wide pastures become not only scenery, but living environments that gently shape one’s inner state.
 
 Throughout the tour, travel is balanced with moments of stillness. Horseback riding, trekking, hot springs, and simple walks are combined with meditation, yoga, and mindful observation of the surrounding landscape. The program encourages participants to slow down, listen to their bodies, and reconnect with a sense of presence often lost in everyday life.
@@ -829,7 +831,7 @@ This tour is not about physical challenge or constant activity. It is a gentle j
     duration: "10 days",
     slider: fourXFourSlider,
     chapter: "4x4 OFF-ROAD ADVENTURE TOUR",
-    desc: "Bishkek , Karakol, Altyn-Arashan , Song-Kul ,Kockkor , Skazka ,  Bishkek",
+    desc: "Bishkek, Kochkor, Kol-Ukok, Song-Kul, Naryn, Kok-Kyia, Kel-Suu, Bokonbaevo, Skazka, Barskoon, Jeti-Oguz, Karakol, Altyn-Arashan, Bishkek",
     title: `The itinerary covers central and eastern Kyrgyzstan, crossing diverse natural zones and mountain systems. Key regions include Kochkor, Song-Kul, Naryn, Kok-Kyia, Kel-Suu, Issyk-Kul, and Karakol. The route traverses high mountain passes such as Kalmak-Ashuu and remote valleys near the Chinese border, offering dramatic changes in landscapes throughout the journey
 
 This expedition-style tour blends adventure and comfort, combining 4x4 travel with hiking, horseback riding, and cultural encounters. Guests stay in traditional yurts, remote guesthouses, and mountain valleys far from urban areas. The program is well balanced, with active days followed by rest, allowing travelers to experience Kyrgyzstan’s raw nature without extreme physical demands.`,

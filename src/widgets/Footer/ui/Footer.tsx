@@ -9,7 +9,7 @@ import styles from "../Footer.module.scss";
 import { sendGAEvent } from "@next/third-parties/google";
 
 const SOCIAL_LINKS = [
-  { name: "WhatsApp", href: "https://wa.me/996555203101?text=Hi Jake", color: "#25D366" },
+  { name: "WhatsApp", href: "https://wa.me/996555203101?text=Hi%20Indie%20Kyrgyz%20Travel", color: "#25D366" },
 ];
 
 const Footer = () => {

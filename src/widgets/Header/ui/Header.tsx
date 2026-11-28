@@ -57,7 +57,7 @@ const Header = () => {
                 src={logoS}
                 alt="Indie Kyrgyz Travel logo"
                 className={styles.logo}
-                sizes="48px"
+                sizes="112px"
                 quality={75}
               />
             </Link>

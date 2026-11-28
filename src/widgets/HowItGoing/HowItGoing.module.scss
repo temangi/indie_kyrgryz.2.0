@@ -221,6 +221,39 @@
   }
 }
 
+.facts {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.factsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.factsLabel {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7a8a86;
+}
+
+.factsValue,
+.factsList {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #315a51;
+}
+
+.factsList {
+  padding-left: 1.15rem;
+}
+
 .programTitle {
   font-size: 2rem;
   color: var(--color-emerald);

@@ -17,6 +17,10 @@ import BookTour from "@/src/shared/ui/BookTour/BookTour";
 import { CreateCustomTourCta } from "@/src/shared/ui/CreateCustomTourCta";
 import { getTourSeoIntro } from "@/src/shared/seo/detailPageSeoCopy";
 import { MiniSeoIntro } from "@/src/shared/ui/MiniSeoIntro/MiniSeoIntro";
+import { linkPlaceMentions } from "@/src/shared/lib/linkPlaceMentions";
+import { tourPageH1 } from "@/src/shared/seo/tourPageHeading";
+import { practicalDetails } from "../model/tourPractical";
+import { TourPractical } from "./TourPractical";
 
 const MAX_OPEN_ITINERARY_DAYS = 2;
 
@@ -52,12 +56,24 @@ const HowItGoing = ({ slug }: Props) => {
     slug === GROUP_TOUR_2026_SLUG ? ("group" as const) : ("private" as const);
 
   const seoIntro = getTourSeoIntro(slug);
+  const pageHeading = tourPageH1(slug, duration, chapter);
+  const facts = practicalDetails(slug);
+  const linkedPlaces = new Set<string>();
+  const linkedRoute = linkPlaceMentions(desc, linkedPlaces);
+  const linkedDays = arr.map((day) => ({
+    descContent: linkPlaceMentions(day.desc, linkedPlaces),
+    routeContent: day.routeSummary
+      ? linkPlaceMentions(day.routeSummary, linkedPlaces)
+      : undefined,
+    placeContent: linkPlaceMentions(day.place, linkedPlaces),
+  }));
 
   return (
     <>
       <MainHero
-        title={slider[0].title}
+        title={pageHeading}
         img={slider[0].item}
+        imageAlt={`${slider[0].title} — Kyrgyzstan travel with Indie Kyrgyz`}
         listingFormat={listingFormat}
       />
       <BackButton
@@ -75,7 +91,8 @@ const HowItGoing = ({ slug }: Props) => {
               <header className={styles.tourDetails__header}>
                 <p className={styles.tourDetails__title}>{chapter}</p>
                 <p className={styles.tourDetails__subtitle}>{title}</p>
-                <p className={styles.tourDetails__desc}>{desc}</p>
+                <p className={styles.tourDetails__desc}>{linkedRoute}</p>
+                <TourPractical details={facts} />
               </header>
 
               <div className={styles.tourDetails__program}>
@@ -83,6 +100,7 @@ const HowItGoing = ({ slug }: Props) => {
                 {arr.map((el, index) => (
                   <StepCard
                     {...el}
+                    {...linkedDays[index]}
                     id={index}
                     key={index}
                     isOpen={openDayOrder.includes(index)}
@@ -100,13 +118,13 @@ const HowItGoing = ({ slug }: Props) => {
 
             <aside className={styles.tourDetails__sidebar}>
               <div className={styles.tourDetails__gallery}>
-                {slider[0].arr.map((e, index) => (
-                  <div key={index} className={styles.tourDetails__imageWrapper}>
+                {slider[0].arr.map((photo) => (
+                  <div key={photo.image.src} className={styles.tourDetails__imageWrapper}>
                     <Image
-                      src={e}
-                      alt={`${chapter}, photo ${index + 1}`}
-                      width={e.width}
-                      height={e.height}
+                      src={photo.image}
+                      alt={photo.alt}
+                      width={photo.image.width}
+                      height={photo.image.height}
                       sizes="(max-width: 992px) 100vw, 40vw"
                       className={styles.tourDetails__image} style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />

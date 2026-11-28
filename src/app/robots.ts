@@ -5,7 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/"],
+      disallow: [
+        "/api/",
+        "/home/page",
+        "/tours/page",
+        "/destination/page",
+        "/tourDetail/page",
+      ],
     },
     sitemap: "https://indiekyrgyz.com/sitemap.xml",
   };

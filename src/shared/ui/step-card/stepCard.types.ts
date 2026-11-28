@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export type TourDayFields = {
   title: string;
   duration: string;
@@ -19,6 +21,11 @@ export type TourDayFields = {
 
 export type StepCardType = TourDayFields & {
   id: number;
+  /** Same strings with the first mention of each destination linked. */
+  titleContent?: ReactNode;
+  descContent?: ReactNode;
+  routeContent?: ReactNode;
+  placeContent?: ReactNode;
   /** Controlled open state (use with `onToggle`). */
   isOpen?: boolean;
   onToggle?: () => void;

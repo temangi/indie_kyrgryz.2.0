@@ -41,8 +41,7 @@ const ToursPage = () => {
                             </h2>
                             <p className={styles["tour-page-list__intro-text"]}>
                                 Indie Kyrgyz Travel runs small-group and private tours
-                                across Kyrgyzstan for guests from Europe, the US, and
-                                beyond. Multi-day journeys and shorter trips — each card
+                                across Kyrgyzstan. Multi-day journeys and shorter trips — each card
                                 shows length, price, and whether the run is a{" "}
                                 <strong>private tour</strong> on your dates or our{" "}
                                 <strong>group tour</strong> with fixed departure. Open a

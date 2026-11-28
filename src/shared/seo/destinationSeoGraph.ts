@@ -1,4 +1,5 @@
 import { SITE_ORIGIN, toAbsoluteAssetUrl } from "./SeoJsonLd";
+import { TRAVEL_AGENCY_LD } from "./organizationJsonLd";
 
 export type DestinationForSeo = {
   slug: string;
@@ -7,7 +8,7 @@ export type DestinationForSeo = {
   imgs: string | { src?: string }[];
 };
 
-const ORG_ID = `${SITE_ORIGIN}/#organization`;
+const ORG_ID = TRAVEL_AGENCY_LD["@id"];
 
 function destinationHeroImage(d: DestinationForSeo): string {
   if (typeof d.imgs === "string") return toAbsoluteAssetUrl(d.imgs);
@@ -22,14 +23,7 @@ export function buildDestinationSeoGraph(
   const imageUrl = destinationHeroImage(dest);
 
   return [
-    {
-      "@type": "Organization",
-      "@id": ORG_ID,
-      name: "Indie Kyrgyz Travel",
-      url: SITE_ORIGIN,
-      logo: `${SITE_ORIGIN}/logo.png`,
-      image: `${SITE_ORIGIN}/og.jpg`,
-    },
+    TRAVEL_AGENCY_LD,
     {
       "@type": "TouristDestination",
       "@id": `${pageUrl}/#destination`,
@@ -53,8 +47,8 @@ export function buildDestinationSeoGraph(
         {
           "@type": "ListItem",
           position: 2,
-          name: "Tours",
-          item: `${SITE_ORIGIN}/tours`,
+          name: "Destinations",
+          item: `${SITE_ORIGIN}/destinations`,
         },
         {
           "@type": "ListItem",

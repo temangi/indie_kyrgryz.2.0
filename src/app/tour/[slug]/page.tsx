@@ -10,6 +10,7 @@ import {
   NOT_FOUND_TITLE,
   TOUR_META,
 } from "@/src/shared/seo/pageCopy";
+import { practicalDetails } from "@/src/widgets/HowItGoing/model/tourPractical";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -55,9 +56,25 @@ export default async function DetailToursPage({ params }: Props) {
   const currentTour = stepsTours.find((tour) => tour.slug === slug);
   if (!currentTour) notFound();
 
+  const faq = practicalDetails(slug)?.faq;
+  const graph = buildTourSeoGraph(currentTour);
+  if (faq) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer.replace(/\n/g, " ").trim(),
+        },
+      })),
+    });
+  }
+
   return (
     <>
-      <SeoJsonLd id={`tour-ld-${slug}`} graph={buildTourSeoGraph(currentTour)} />
+      <SeoJsonLd id={`tour-ld-${slug}`} graph={graph} />
       <DetailPage slug={slug} />
     </>
   );

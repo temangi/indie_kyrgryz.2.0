@@ -14,7 +14,7 @@ import youtube from "@/public/images/youtube.svg";
 
 const navLinks = [
   { href: "/tours", label: "Tours" },
-  { href: "/#reise", label: "Explore" },
+  { href: "/destinations", label: "Explore" },
   { href: "/about", label: "About" },
   { href: "/team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
@@ -23,7 +23,7 @@ const navLinks = [
 
 export const navSocialLinks = [
   {
-    href: "https://wa.me/996555203101?text=Hi%20Jake",
+    href: "https://wa.me/996555203101?text=Hi%20Indie%20Kyrgyz%20Travel",
     icon: whats,
     label: "WhatsApp",
   },
@@ -68,6 +68,8 @@ const Navigation = () => {
       {navLinks.map((link) => {
         const isActive =
           pathname === link.href ||
+          (link.href === "/destinations" &&
+            pathname?.startsWith("/destination/")) ||
           (pathname === "/" && link.href.endsWith(`#${activeSection}`));
 
         return (

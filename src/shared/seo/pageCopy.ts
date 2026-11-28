@@ -4,6 +4,11 @@ export const HOME_TITLE = "Book Private Tours in Kyrgyzstan | Indie Kyrgyz Trave
 export const HOME_DESCRIPTION =
   "Private and small-group tours in Kyrgyzstan: Song-Kul, Issyk-Kul, trekking, yurt stays, and custom routes led by Indie Kyrgyz Travel guides.";
 
+export const DESTINATIONS_TITLE =
+  "Places to Visit in Kyrgyzstan | Indie Kyrgyz Travel";
+export const DESTINATIONS_DESCRIPTION =
+  "Song-Kul, Issyk-Kul, Kel-Suu, and the World Nomad Games: the places on Indie Kyrgyz Travel routes, from high lakes and pastures to nomadic culture.";
+
 export const TOURS_TITLE = "All Private Kyrgyzstan Tours | Indie Kyrgyz Travel";
 export const TOURS_DESCRIPTION =
   "Compare Indie Kyrgyz tours in one list: 7-day classics, 10-day expeditions, Song-Kul rides, Altyn-Arashan treks, and day trips from Bishkek.";

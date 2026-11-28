@@ -1,5 +1,7 @@
 import type { TourDayFields } from "@/src/shared/ui/step-card/stepCard.types";
 import { SITE_ORIGIN, toAbsoluteAssetUrl } from "./SeoJsonLd";
+import { TRAVEL_AGENCY_LD } from "./organizationJsonLd";
+import { tourPageH1 } from "./tourPageHeading";
 
 export type TourForSeo = {
   chapter: string;
@@ -26,7 +28,7 @@ function toIsoDuration(label: string): string | undefined {
   return `P${Number(match[1])}D`;
 }
 
-const ORG_ID = `${SITE_ORIGIN}/#organization`;
+const ORG_ID = TRAVEL_AGENCY_LD["@id"];
 
 export function buildTourSeoGraph(tour: TourForSeo): Record<string, unknown>[] {
   const pageUrl = `${SITE_ORIGIN}/tour/${tour.slug}`;
@@ -51,7 +53,7 @@ export function buildTourSeoGraph(tour: TourForSeo): Record<string, unknown>[] {
   const trip: Record<string, unknown> = {
     "@type": "TouristTrip",
     "@id": `${pageUrl}/#tourist-trip`,
-    name: tour.chapter,
+    name: tourPageH1(tour.slug, tour.duration, tour.chapter),
     description: plainDescription,
     url: pageUrl,
     image: [imageUrl],
@@ -83,14 +85,7 @@ export function buildTourSeoGraph(tour: TourForSeo): Record<string, unknown>[] {
   }
 
   return [
-    {
-      "@type": "Organization",
-      "@id": ORG_ID,
-      name: "Indie Kyrgyz Travel",
-      url: SITE_ORIGIN,
-      logo: `${SITE_ORIGIN}/logo.png`,
-      image: `${SITE_ORIGIN}/og.jpg`,
-    },
+    TRAVEL_AGENCY_LD,
     trip,
     {
       "@type": "BreadcrumbList",

@@ -83,6 +83,10 @@ const StepCard = ({
   routeSummary,
   mapEmbedSrc,
   mapQuery,
+  titleContent,
+  descContent,
+  routeContent,
+  placeContent,
   isOpen: isOpenControlled,
   onToggle,
 }: StepCardType) => {
@@ -116,7 +120,7 @@ const StepCard = ({
         role="button"
         aria-expanded={isVisible}
       >
-        <h3 className={styles.tourInfo__title}>{title}</h3>
+        <h3 className={styles.tourInfo__title}>{titleContent ?? title}</h3>
 
         <div
           className={`${styles.questionToggle} ${
@@ -147,7 +151,7 @@ const StepCard = ({
               </span>
             </div>
 
-            <p className={styles.tourInfo__description}>{desc}</p>
+            <p className={styles.tourInfo__description}>{descContent ?? desc}</p>
 
             {showRouteBlock && (
               <div className={styles.tourInfo__routeBlock}>
@@ -157,7 +161,7 @@ const StepCard = ({
                       <MapTrifold size={18} />
                     </span>
                     <span className={styles.tourInfo__label}>
-                      <strong>Route:</strong> {routeSummary}
+                      <strong>Route:</strong> {routeContent ?? routeSummary}
                     </span>
                   </div>
                 )}
@@ -192,7 +196,7 @@ const StepCard = ({
                 <House size={18} />
               </span>
               <span className={styles.tourInfo__label}>
-                <strong>Accommodation:</strong> {place}
+                <strong>Accommodation:</strong> {placeContent ?? place}
               </span>
             </div>
           </div>

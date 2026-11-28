@@ -1,10 +1,11 @@
 import styles from "../MainHero.module.scss";
 import Image, { StaticImageData } from "next/image";
 import logo from "@/public/images/whiteLogo.png";
+import type { ReactNode } from "react";
 
 type MainHeroProps = {
   title: string;
-  unTitle?: string;
+  unTitle?: ReactNode;
   img: StaticImageData;
   /** Optional id on the main heading (e.g. skip links, in-page anchors). */
   titleId?: string;
@@ -29,7 +30,7 @@ const MainHero = ({ title, unTitle, img, titleId, listingFormat, imageAlt }: Mai
       <div className={styles.main__logo}>
         <Image
           src={logo}
-          sizes="200px"
+          sizes="(max-width: 320px) 160px, (max-width: 480px) 170px, 200px"
           alt="Indie Kyrgyz Travel logo"
           style={{ width: "100%", height: "auto" }}
         />

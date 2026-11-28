@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MainHero } from "../../widgets/MainHero";
 import { Tours } from "../../widgets/Tours";
 import { Info } from "../../widgets/Info";
@@ -17,8 +18,20 @@ const HomePage = () => {
         title="Private Tours in Kyrgyzstan"
         img={heroImg}
         imageAlt="A traveler with a backpack above a mountain lake in Kyrgyzstan"
-        unTitle={`Small groups, bilingual hosts, and routes through Song-Kul, Issyk-Kul, and the Tien Shan.
-Summer 2026 — limited departures; book when you’re ready.`}
+        unTitle={
+          <>
+            Small groups, bilingual hosts, and routes through{" "}
+            <Link href="/tour/song-kul" className="placeLink">
+              Song-Kul
+            </Link>
+            ,{" "}
+            <Link href="/tour/altyn-arashan" className="placeLink">
+              Altyn-Arashan
+            </Link>
+            , Issyk-Kul, and the Tien Shan.{"\n"}
+            Summer 2027 — limited departures; book when you’re ready.
+          </>
+        }
       />
       <Tours />
       <Info />

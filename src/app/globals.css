@@ -112,6 +112,11 @@ a {
   text-decoration: none;
 }
 
+a.placeLink {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 /* Matches the Bootstrap 4 list spacing this site was built with. */
 ul,
 ol {

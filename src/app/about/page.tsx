@@ -77,9 +77,9 @@ const AboutPage = () => {
           <p>
             We specialize in multi-day road trips, trekking, and horseback routes that
             reach Song-Kul, Kel-Suu, Issyk-Kul’s south shore, and Altyn-Arashan — always
-            with clear safety margins and honest timing. Most of our guests fly in from
-            Europe or the US; we help you connect domestic legs, border crossings, and
-            optional Kazakhstan extensions when you want a longer Central Asia loop.
+            with clear safety margins and honest timing. We help you connect domestic
+            legs, border crossings, and optional Kazakhstan extensions when you want a
+            longer Central Asia loop.
           </p>
           <p>
             Every itinerary balances driving, walking, and downtime so you can enjoy

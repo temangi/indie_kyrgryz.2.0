@@ -142,20 +142,6 @@ and picnics`,
       ],
     },
     {
-      title: `Trekking and Exploration`,
-      unTitle: `Kel-Suu is best explored through trekking and light hiking, often combined with off-road
-travel.`,
-      desc: `Typical experiences include:`,
-      arr: [
-        `hiking along the lake’s shoreline`,
-        `short treks to panoramic viewpoints above the cliffs`,
-        `exploring nearby valleys and passes`,
-        `optional boat rides on the lake (depending on water level)`,
-      ],
-      content: `Due to altitude and remoteness, trips to Kel-Suu are recommended for travelers with good
-physical condition or previous mountain experience.`,
-    },
-    {
       title: `Trekking and Outdoor Activities`,
       unTitle: `Issyk-Kul offers numerous trekking routes, from short scenic hikes to multi-day mountain
 adventures.
@@ -206,11 +192,7 @@ endless pastures, mountains, and silence, where the traditional nomadic way of l
 performance but a daily reality.
 This is one of the best places in Central Asia for horseback trekking, slow travel, and deep
 immersion into nature and culture.`,
-  geography: `Song-Kul is the true heart of nomadic Kyrgyzstan. A vast high-altitude lake surrounded by
-endless pastures, mountains, and silence, where the traditional nomadic way of life is not a
-performance but a daily reality.
-This is one of the best places in Central Asia for horseback trekking, slow travel, and deep
-immersion into nature and culture.`,
+  geography: `Song-Kul lies at an elevation of about 3,016 meters in the Inner Tien Shan. It is enclosed by mountain ridges, including the Song-Kul Too and the Moldo Too. The lake is covered with ice for much of the winter, and it is the second-largest lake in Kyrgyzstan.`,
   arr: [
     {
       title: `Endless Pastures and Nomadic Life`,
